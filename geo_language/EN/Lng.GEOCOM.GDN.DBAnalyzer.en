@@ -1,0 +1,33 @@
+﻿// DBReader
+1000 {0} cannot be recognized as a supported database type.
+1005 Reading the attributes of database object {0} failed.
+1010 Reading the default subtypes of database object {0} failed.
+1020 More than one entry in table {0} for table/feature class {1}, field name {2} and language code {3} found.
+1025 Field "{0}" is invalid.
+1026 Invalid field.
+1027 The field name is a reserved word for the database.
+1028 Field name already exists.
+1029 Field name contains invalid characters.
+1030 Field name length is invalid.
+1031 Field name starts with an invalid character.
+1032 The fieldname 'globalid' is reserved and must not be used.
+
+1040 Table "{0}" is invalid.
+1041 The table name is a reserved word for the database.
+1042 Table name already exists.
+1043 Table name contains invalid characters.
+1044 Table name length is invalid.
+1045 Table name starts with an invalid character.
+1046 Table name is missing.
+
+2000 Short integer
+2005 Long integer
+2010 Text
+2015 Date as integer
+2020 Date
+2025 Lookup
+2030 Double
+2035 Checkbox
+2040 Guid
+2045 Blob
+

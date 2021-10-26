@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <GeoLibRoot>..\geo_lib</GeoLibRoot>
+    <TargetFrameworkProfile />
+    <!-- <DefineConstants>$(DefineConstants);MLINESUPPORT</DefineConstants> -->
+  </PropertyGroup>
+  <Import Project="..\build\configurations.proj" />
+  <Import Project="..\build\configurations.targets" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FBFFB17A-D935-4B27-B5F4-73F8FB8E41E2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GEOCOM.GNSDatashop.Export.DXF</RootNamespace>
+    <AssemblyName>VertiGIS.Export.DXF</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>CHGEOCX1_UNCHAINED.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>$(DefineConstants);DEBUG;TRACE;X86</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineConstants>ARCGIS_10_6;GEONIS_5_1_0;X86</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>$(DefineConstants);TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ESRI.ArcGIS.ArcMapUI, Version=10.8.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Framework, Version=10.8.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="netDxf">
+      <HintPath>$(GeoLibRoot)\NetDXF\2.0.3\netDxf.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ESRI.ArcGIS.Display" />
+    <Reference Include="ESRI.ArcGIS.Carto" />
+    <Reference Include="ESRI.ArcGIS.Geodatabase" />
+    <Reference Include="ESRI.ArcGIS.Geometry" />
+    <Reference Include="ESRI.ArcGIS.System" />
+    <Reference Include="log4net">
+      <HintPath>$(GeoLibRoot)\Log4Net\1.2.10.0\log4net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(SolutionDir)\build\build_version_info\VersionAssemblyInfo.cs">
+      <Link>Properties\VersionAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Eventing\DxfWriterUnhandledExceptionEventArgs.cs" />
+    <Compile Include="Factories\CloneableMTextFormattingOptions.cs" />
+    <Compile Include="Factories\MTextLabelTokenWriter.cs" />
+    <Compile Include="GraphicElementsWriter\DxfGraphicElementsWriter.cs" />
+    <Compile Include="Interface\IDxfWriterRunMode.cs" />
+    <Compile Include="LayerWriter\DimensionFigure.cs" />
+    <Compile Include="LayerWriter\DxfDataWriterBase.cs" />
+    <Compile Include="LayerWriter\DxfAnnotationLayerWriter.cs" />
+    <Compile Include="LayerWriter\DxfDimensionLayerWriter.cs" />
+    <Compile Include="LayerWriter\DxfGeocomUVTLayerWriter.cs" />
+    <Compile Include="LayerWriter\DxfLayerWriterBase.cs" />
+    <Compile Include="LayerWriter\DxfPointLayerWriter.cs" />
+    <Compile Include="LayerWriter\DxfPolygonLayerWriter.cs" />
+    <Compile Include="LayerWriter\DxfPolylineLayerWriter.cs" />
+    <Compile Include="Eventing\DxfWriterAbortEventEventArgs.cs" />
+    <Compile Include="Eventing\DxfWriterBeforeAbortEventEventArgs.cs" />
+    <Compile Include="Eventing\DxfWriterStartEventEventArgs.cs" />
+    <Compile Include="Eventing\DxfWriterSuccessEventEventArgs.cs" />
+    <Compile Include="Factories\Dxf3DEntityFactory.cs" />
+    <Compile Include="Factories\Dxf2DEntityFaxtory.cs" />
+    <Compile Include="Factories\DxfEntityFactory.cs" />
+    <Compile Include="Factories\DxfLayerFactory.cs" />
+    <Compile Include="DxfWriter.cs" />
+    <Compile Include="Interface\IDxfWriter.cs" />
+    <Compile Include="Interface\IDxfWriterEvents.cs" />
+    <Compile Include="Interface\IDxfWriterInfo.cs" />
+    <Compile Include="Interface\IDxfWriterOptions.cs" />
+    <Compile Include="Interface\IDxfWriterOutputInfo.cs" />
+    <Compile Include="Interface\IDxfWriterOutputOptions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkArounds\WorkArounds.cs" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CHGEOCX1_UNCHAINED.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GEOCOM.GNSDatashop.Export.DXF.Common\GEOCOM.GNSDatashop.Export.DXF.Common.csproj">
+      <Project>{d2eeca43-fc8e-458a-aa41-9d32ac219187}</Project>
+      <Name>GEOCOM.GNSDatashop.Export.DXF.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GEOCOM.GNSDatashop.Export.DXF.Symbology\GEOCOM.GNSDatashop.Export.DXF.MapSymbology.csproj">
+      <Project>{8681684b-d7e4-46bd-a0f3-b325018002fe}</Project>
+      <Name>GEOCOM.GNSDatashop.Export.DXF.MapSymbology</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TTFExtractor\TTFExtractor.vcxproj">
+      <Project>{6587cd69-241a-4a14-b50e-af31ac4d4b6a}</Project>
+      <Name>TTFExtractor</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="KnownLimitations.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  -->
+</Project>

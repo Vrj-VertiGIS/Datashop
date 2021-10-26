@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DsDynamicReportConfig ContainerType="Tabbed">
+  <Panels>
+    <Panel HeadCaption="Job Control" HeadCssClass="" BodyCssClass="" BodyIsCollapsable="true" BodyIsCollapsed="false">
+      <Tables>
+        <Table Layout="Horizontal" FrameCaption="File Upload" Id="FileUpload">
+        </Table>
+        <Table Layout="Horizontal" FrameCaption="Workflow Control" Id="JobControl">
+        </Table>
+        <Table Layout="Horizontal" FrameCaption="Job Download" Id="JobDownload">
+        </Table>
+        <Table Layout="Horizontal" FrameCaption="Job System Information">
+          <Rows>
+            <Row>
+              <Cells>
+                <Cell Caption="Step" VariableId="StepName" />
+                <Cell Caption="State" VariableId="StateName" />
+                <Cell Caption="IsActive" VariableId="IsActive" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="NeedsProcessing" VariableId="NeedsProcessing" />
+                <Cell Caption="ProcessId" VariableId="ProcessId" />
+                <Cell Caption="MachineName" VariableId="MachineName" />
+                <Cell Caption="LastStateChangeDate" VariableId="LastStateChangeDate" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="DownloadCount" VariableId="DownloadCount" />
+                <Cell Caption="MapExtentCount" VariableId="MapExtentCount" />
+                <Cell Caption="IsArchived" VariableId="IsArchived" />
+                <Cell Caption="GeoAttachmentsEnabled" VariableId="GeoAttachmentsEnabled" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="JobOutput" VariableId="JobOutput" Colspan="2" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="ProcessorClassId" VariableId="ProcessorClassId" Colspan="2"/>
+              </Cells>
+            </Row>
+          </Rows>
+        </Table>
+      </Tables>
+    </Panel>
+    <Panel HeadCaption="Job Information" BodyIsCollapsable="false" BodyIsCollapsed="false">
+      <Tables>
+        <Table Layout="Horizontal" FrameCaption="Job Information">
+          <Rows>
+            <Row>
+              <Cells>
+                <Cell Caption="JobId" VariableId="JobId" />
+                <Cell Caption="UserId" VariableId="UserId" />
+                <Cell Caption="ParcelNumber" VariableId="ParcelNumber" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="Definition" VariableId="Definition" Colspan="4" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="Description" VariableId="Description" Colspan="4" />
+              </Cells>
+            </Row>
+			<Row>
+              <Cells>
+                <Cell Caption="DxfExport" VariableId="DxfExport" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="Createdate" VariableId="Createdate" />
+                <Cell Caption="ReasonId" VariableId="ReasonId" />
+                <Cell Caption="Reason" VariableId="Reason" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="Municipality" VariableId="Municipality" />
+                <Cell Caption="CenterAreaX" VariableId="CenterAreaX" />
+                <Cell Caption="CenterAreaY" VariableId="CenterAreaY" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="PeriodBeginDate" VariableId="PeriodBeginDate" />
+                <Cell Caption="PeriodEndDate" VariableId="PeriodEndDate" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="Custom1" VariableId="Custom1" Colspan="4"/>
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="Custom2" VariableId="Custom2" Colspan="4" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="Custom3" VariableId="Custom3" Colspan="4" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="Custom4" VariableId="Custom4" Colspan="4" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="Custom5" VariableId="Custom5" Colspan="4" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="Custom6" VariableId="Custom6" Colspan="4" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="Custom7" VariableId="Custom7" Colspan="4" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="Custom8" VariableId="Custom8" Colspan="4" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="Custom9" VariableId="Custom9" Colspan="4" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="Custom10" VariableId="Custom10" Colspan="4" />
+              </Cells>
+            </Row>
+          </Rows>
+        </Table>
+      </Tables>
+    </Panel>
+    <Panel HeadCaption="User Information" BodyIsCollapsable="false" BodyIsCollapsed="false">
+      <Tables>
+        <Table Layout="Vertical" FrameCaption="Surrogate Job Information" Id="SurrogateUser">
+          <Rows>
+            <Row>
+              <Cells>
+                <Cell Caption="SurrogateUserId" VariableId="SurrogateUserId" />
+                <Cell Caption="RequestDate" VariableId="RequestDate" />
+                <Cell Caption="RequestType" VariableId="RequestType" />
+                <Cell Caption="StopAfterProcess" VariableId="StopAfterProcess" />
+              </Cells>
+            </Row>
+          </Rows>
+        </Table>
+        <Table Layout="Horizontal" FrameCaption="User Information">
+          <Rows>
+            <Row>
+              <Cells>
+                <Cell Caption="UserId" VariableId="UserId" />
+                <Cell Caption="Salutation" VariableId="Salutation" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="FirstName" VariableId="FirstName" />
+                <Cell Caption="LastName" VariableId="LastName" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="Company" VariableId="Company" />
+                <Cell Caption="Email" VariableId="Email" Colspan="3" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="CityCode" VariableId="CityCode" />
+                <Cell Caption="City" VariableId="City" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="Street" VariableId="Street" />
+                <Cell Caption="StreetNr" VariableId="StreetNr" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="Tel" VariableId="Tel" />
+                <Cell Caption="Fax" VariableId="Fax" />
+              </Cells>
+            </Row>
+            <Row>
+              <Cells>
+                <Cell Caption="BizUserId" VariableId="BizUserId" />
+              </Cells>
+            </Row>
+          </Rows>
+        </Table>
+      </Tables>
+    </Panel>
+    <Panel HeadCaption="Job Extent" BodyIsCollapsable="true" BodyIsCollapsed="false" Id="JobMap" BodyCssClass="DSDRTabbedPanel MapPanel" OnClientExpand="ResizeRepositionMap();">
+    </Panel>
+    <Panel HeadCaption="Job Event Log" BodyIsCollapsable="true" BodyIsCollapsed="true">
+      <Tables>
+        <Table Layout="Horizontal" FrameCaption="Add a comment to the log" Id="UserComment">
+        </Table>
+        <Table Layout="Horizontal" Id="EventLog" FrameCssClass="NoFrame">
+        </Table>
+      </Tables>
+    </Panel>
+  </Panels>
+</DsDynamicReportConfig>

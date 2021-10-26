@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" 
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Fragment>
+
+    <?define FlexNet = "$(var.SolutionDir)\..\FlexNet\" ?>
+    <?define FlexNetX86 ="$(var.FlexNet)x86\i86_n3\" ?>
+    <?define FlexNetX64 ="$(var.FlexNet)X64\x64_n6\" ?>
+
+    <ComponentGroup Id="LicenseAdministrator" Directory="INSTALLFOLDERADMIN">
+      <!--License administrator stuff -->
+      <Component Id="_CPLicenseAdmin" Guid="29A315DA-BF24-4652-9F3C-D3F87C52E25D" Shared="yes" >
+        <File Id="_FILicenseAdmin.exe" Name="$(var.LicenseAdmin.TargetFileName)" Source="$(var.LicenseAdmin.TargetPath)" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPActivationWizard" Guid="197CF270-7AC5-4446-8391-A5289FC96021" Shared="yes" >
+        <File Id="_FIActivationWizard" Name="$(var.LicenseAdmin.ActivationWizard.TargetFileName)" Source="$(var.LicenseAdmin.ActivationWizard.TargetPath)" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPDeactivationWizard" Guid="32E11F4A-3149-44D7-8A90-1063657A12FD" Shared="yes" >
+        <File Id="_FIDeactivationWizard" Name="$(var.LicenseAdmin.DeactivationWizard.TargetFileName)" Source="$(var.LicenseAdmin.DeactivationWizard.TargetPath)" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPCommon" Guid="4C29EE1C-85EA-4CF0-B565-5DD2B1B2DA21" Shared="yes" >
+        <File Id="_FICommon" Name="$(var.LicenseAdmin.Common.TargetFileName)" Source="$(var.LicenseAdmin.Common.TargetPath)" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPGEOCOMCommon" Guid="C7FAEF49-6236-4778-814C-009E1A611BBB" Shared="yes" >
+        <File Id="_FIGEOCOMCommon" Source="$(var.LicenseAdmin.TargetDir)\GEOCOM.Common.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPGEOCOMCommonUI" Guid="2CEE9963-8C11-4643-BA46-35F48DFA6412" Shared="yes" >
+        <File Id="_FIGEOCOMCommonUI" Source="$(var.LicenseAdmin.TargetDir)\GEOCOM.Common.UI.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPFNPCommsSoapAdmin_x86" Guid="E2E0EF9C-5459-4D5E-902A-A7A908CBB3B1" Shared="yes" >
+        <!-- Has to go heere as well - at least for shorthand - as licenseAdmin will not activate from authorization server otherwise. -->
+        <File Id="_FIFNPCommsSoapAdmin_x86" Name="FnpCommsSoap.dll" Source="$(var.FlexNetX86)" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPCristiPotlog" Guid="47B0BAEF-85BF-4EFD-91D5-62A9C14EC81C" Shared="yes" >
+        <File Id="_FICristiPotlog" Source="$(var.LicenseAdmin.ActivationWizard.TargetDir)\GEOCOM.Common.UI.WizardLibCristiPotlog.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPLngDe" Guid="0EDF2374-9C60-40C8-90D1-8298C13993DA" Shared="yes" >
+        <File Id="_FILngDe" Source="$(var.LicenseAdmin.TargetDir)\Lng.LicenseAdmin.de" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPLngFr" Guid="778F69C2-5906-4289-AEB6-BCF7AB75DCE8" Shared="yes" >
+        <File Id="_FILngFr" Source="$(var.LicenseAdmin.TargetDir)\Lng.LicenseAdmin.fr" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPLngIt" Guid="CFE8DC0F-0305-4A1D-8A91-32533CF15CAB" Shared="yes" >
+        <File Id="_FILngIt" Source="$(var.LicenseAdmin.TargetDir)\Lng.LicenseAdmin.it" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPLngCu" Guid="E65525AD-FD56-46C9-A596-C5BE84599144" Shared="yes" >
+        <File Id="_FILngCu" Source="$(var.LicenseAdmin.TargetDir)\Lng.LicenseAdmin.cu" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPLngActivationWizardDe" Guid="64B6067B-33F1-4339-8CEE-08872B4AD5EA" Shared="yes" >
+        <File Id="_FILngActivationWizardDe" Source="$(var.LicenseAdmin.TargetDir)\Lng.LicenseAdmin.ActivationWizard.de" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPLngActivationWizardFr" Guid="C52F3C77-4669-4B7F-BAB7-30F2B5DC680D" Shared="yes" >
+        <File Id="_FILngActivationWizardFr" Source="$(var.LicenseAdmin.TargetDir)\Lng.LicenseAdmin.ActivationWizard.fr" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPLngActivationWizardIt" Guid="D13C6F68-47BB-44F0-AD1D-DFAE7C9C813B" Shared="yes" >
+        <File Id="_FILngActivationWizardIt" Source="$(var.LicenseAdmin.TargetDir)\Lng.LicenseAdmin.ActivationWizard.it" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPLngActivationWizardEn" Guid="69E25450-6174-4303-AF80-C88F0A4A5FA3" Shared="yes" >
+        <File Id="_FILngActivationWizardEn" Source="$(var.LicenseAdmin.TargetDir)\Lng.LicenseAdmin.ActivationWizard.en" KeyPath="yes" />
+      </Component>
+      <!-- Cyrillic not yet supported -->
+      <!-- Component Id="_CPLngActivationWizardCu" Guid="7CBEF782-5778-470C-A885-73B82C6262B0" Shared="yes" >
+        <File Id="_FILngActivationWizardCu" Source="$(var.LicenseAdmin.TargetDir)\Lng.LicenseAdmin.ActivationWizard.cu" KeyPath="yes" />
+      </Component> -->
+
+      <Component Id="_CPDeactivationWizardDe" Guid="5CBCFA6B-EED3-4EC8-8704-C28AC30B1AD7" Shared="yes" >
+        <File Id="_FILngDeactivationWizardDe" Source="$(var.LicenseAdmin.TargetDir)\Lng.LicenseAdmin.DeactivationWizard.de" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPLngDeactivationWizardFr" Guid="158BA8B2-165C-4FE4-8092-9F46D62940FC" Shared="yes" >
+        <File Id="_FILngDeactivationWizardFr" Source="$(var.LicenseAdmin.TargetDir)\Lng.LicenseAdmin.DeactivationWizard.fr" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPLngDeactivationWizardIt" Guid="FD770F6F-E3F4-4144-8E83-2268BF975AC0" Shared="yes" >
+        <File Id="_FILngDeactivationWizardIt" Source="$(var.LicenseAdmin.TargetDir)\Lng.LicenseAdmin.DeactivationWizard.it" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPLngDeactivationWizardEn" Guid="3EE88C77-CAE7-43A0-992C-B52A1A2925E0" Shared="yes" >
+        <File Id="_FILngDeactivationWizardEn" Source="$(var.LicenseAdmin.TargetDir)\Lng.LicenseAdmin.DeactivationWizard.en" KeyPath="yes" />
+      </Component>
+      <!-- Cyrillic not yet supported -->
+      <!-- <Component Id="_CPLngDeactivationWizardCu" Guid="40A532E1-1E16-4FBA-91D5-ACEB839CE8F5" Shared="yes" >
+        <File Id="_FILngDeactivationWizardCu" Source="$(var.LicenseAdmin.TargetDir)\Lng.LicenseAdmin.DeactivationWizard.cu" KeyPath="yes" />
+      </Component> -->
+
+      <Component Id="_CPLngCommonDe" Guid="A008B8D9-FBCB-4DE1-8ED6-C6921DC10AD9" Shared="yes" >
+        <File Id="_FILngCommonDe" Source="$(var.LicenseAdmin.Common.TargetDir)\Lng.LicenseAdmin.Common.de" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPLngCommonFr" Guid="D9905BE8-AB2F-4678-94AF-6C3762104740" Shared="yes" >
+        <File Id="_FILngCommonFr" Source="$(var.LicenseAdmin.Common.TargetDir)\Lng.LicenseAdmin.Common.fr" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPLngCommonIt" Guid="2DA58D16-BF43-41E0-BC8E-1EDA2AEB21CA" Shared="yes" >
+        <File Id="_FILngCommonIt" Source="$(var.LicenseAdmin.Common.TargetDir)\Lng.LicenseAdmin.Common.it" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPLngCommonEn" Guid="09F2C83E-6C96-4086-990C-007383FB762D" Shared="yes" >
+        <File Id="_FILngCommonEn" Source="$(var.LicenseAdmin.Common.TargetDir)\Lng.LicenseAdmin.Common.en" KeyPath="yes" />
+      </Component>
+      <!-- Cyrillic not yet supported -->
+      <!--<Component Id="_CPLngCommonCu" Guid="7DCF066D-B341-4208-9F19-78FAC45A594C" Shared="yes" >
+        <File Id="_FILngCommonCu" Source="$(var.LicenseAdmin.Common.TargetDir)\Lng.LicenseAdmin.Common.cu" KeyPath="yes" />
+      </Component> -->
+    </ComponentGroup>
+
+    <Icon Id="_LicenseAmIco.EXE" SourceFile="$(var.LicenseAdmin.TargetPath)"/>
+
+    <DirectoryRef Id="GeocomProgramsFolder">
+      <Component Id="LicenseAdministratorSC" Guid="79D45634-DED2-44C9-AA23-3ACD09420314">
+        <Shortcut Id="LicenseAdminStartMenuSC" Name="Geocom License Administrator" Description="Geocom License Administrator"
+                  Target="[#_FILicenseAdmin.exe]" Icon="_LicenseAmIco.EXE" IconIndex="0" />
+        <RemoveFolder Id="GeocomProgramsFolder" On="uninstall"/>
+      </Component>
+    </DirectoryRef>  
+
+  </Fragment>
+</Wix>

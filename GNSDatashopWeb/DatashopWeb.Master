@@ -1,0 +1,181 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DatashopWeb.master.cs" Inherits="GEOCOM.GNSD.Web.DatashopWeb" %>
+<%@ Import Namespace="System.Globalization" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=10" />
+  
+    <title>
+        <asp:Literal runat="server" Text="<%$ Txt:1000 Externe Map Request - GEOCOM Informatik AG%>" />
+    </title>
+    <link href="App_Themes/meyer_reset.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.34/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.34/esri/css/esri.css" />
+    <script type="text/javascript">
+        djConfig = { parseOnLoad: true }
+    </script>
+    <script type="text/javascript" src="//js.arcgis.com/3.34/"></script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="css/DsModalDialog.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="images/master/favicon.ico" />
+
+    <script type="text/javascript">
+    	var userInBusinessRole = <%# UserInBusinessRole.ToString(CultureInfo.InvariantCulture).ToLower()  %>; // true if the logged in user is in the business role otherwise false
+    	var userLoggedIn = <%# UserAuthenticated.ToString(CultureInfo.InvariantCulture).ToLower()  %>; // true if a user is logged in (both a temporary and a business user) otherwise false
+	
+	    function pageLoad() {
+		    try {
+			    Sys.WebForms.PageRequestManager.getInstance().add_endRequest(onEndRequest);
+		    }
+		    catch (e) { }
+	    }
+
+	    function onEndRequest(sender, args) {
+		    if (args != null && args.get_error() != null) {
+			    var msg = args.get_error().message;
+			    showMessage(msg);
+			    args.set_errorHandled(true);
+		    }
+	    }
+
+	    function showMessage(msg) {
+		    var msgContent = document.getElementById("MessagePanelMsgText");
+		    msgContent.innerHTML = msg;
+		    MDMessagePanel.Show();
+	    }
+  
+	    function AddLoadScript(f) {
+		    if (window.attachEvent)
+			    window.attachEvent('onload', f);
+		    else {
+			    window.addEventListener('load', f, false);
+		    }
+	    }
+    </script>
+
+</head>
+<%--Das script bei onload im body schaltet das mainpanel bei aktiviertem javascript sichtbar--%>
+<body onload="document.getElementById('master_main_plus').style.visibility='visible';
+document.getElementById('JavaScriptError').style.visibility='hidden'"
+    class="claro">
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="scriptManager" runat="server" OnAsyncPostBackError="OnAjaxError" >
+        <Scripts>
+            <asp:ScriptReference Path="js/DojoAjaxPatch.js" />
+        </Scripts>
+    </asp:ScriptManager>
+    
+    <div id="header">
+        <div id="topbar">
+            <asp:Image ImageUrl="~/images/datashop24.png" ToolTip="Geonis Datashop" id="datashopIcon" CssClass="datashopIcon" runat="server" />
+             <asp:LoginView ID="LoginView1" runat="server">
+                <RoleGroups>
+                    <asp:RoleGroup Roles="BUSINESS, ADMIN, INTERNAL">
+                        <ContentTemplate>
+                            <ul id="loginStatus">
+                                <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/BizUserData.aspx" Text="<%$Txt:1030 My profile %>" /></li>
+                                <li>|</li>
+                                <li><asp:HyperLink ID="cmdPlot" runat="server" NavigateUrl="~/RequestPage.aspx" Text="<%$Txt:1003 New map plot %>" /></li>
+                                <li>|</li>
+                                <li><asp:HyperLink ID="hypMyPlots" runat="server" NavigateUrl="~/MyPlots.aspx" Text="<%$Txt:1005 My plots %>" /></li>
+                                <li>|</li>
+                                <li><asp:HyperLink ID="hypAbout" runat="server" NavigateUrl="~/About.aspx" Text="<%$Txt:6000 About %>" /></li>
+                                <li>|</li>
+                                <li><asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<%$ Txt:2041 Logout%>" OnLoggedOut="OnLoggedOut" /></li>
+                            </ul>
+                        </ContentTemplate>
+                    </asp:RoleGroup>
+                    <asp:RoleGroup Roles="TEMP, GUEST">
+                        <ContentTemplate>
+                             <ul id="loginStatus">
+                                 <!-- Empty ul tag for css compatibility -->
+                                <li><asp:HyperLink ID="hypAbout" runat="server" NavigateUrl="~/About.aspx" Text="<%$Txt:6000 About %>" /></li>
+                                <li>|</li>
+                                <li><asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<%$ Txt:2041 Logout%>" OnLoggedOut="OnLoggedOut" /></li>
+                             </ul>
+                        </ContentTemplate>
+                    </asp:RoleGroup>
+                </RoleGroups>
+                <AnonymousTemplate>
+                     <ul id="loginStatus">
+                         <!-- Empty ul tag for css compatibility -->
+                        <li><asp:HyperLink ID="hypAbout" runat="server" NavigateUrl="~/About.aspx" Text="<%$Txt:6000 About %>" /></li>
+                     </ul>
+                </AnonymousTemplate>
+            </asp:LoginView>
+            <geocom:LanguageSelector runat="server" ID="languageSelector" Separator="|" 
+            CssClass="languageSelector" 
+            LanguageItemCssClass="languageSelector" 
+            SeparatorItemCssClass="languageSelector"
+            LanguageLinkSelectedCssClass="languageSelectorSelected">
+            <LanguageInfoDefinitions>
+            </LanguageInfoDefinitions>
+        </geocom:LanguageSelector>
+        </div>
+        <asp:HyperLink ID="hypHome" runat="server" NavigateUrl="~/WelcomePage.aspx" ImageUrl="~/images/geocom.jpg" CssClass="logo" />
+        <h1><asp:Literal ID="l1001" runat="server" Text="<%$ Txt:1001 GEONIS server Datashop%>" /></h1>
+        <h2>v<%= Version %></h2>		
+    </div>
+    <div id="breadcrumb">
+        <ul>
+            <li>
+                <asp:UpdateProgress ID="UpdateProgress1" runat="server">
+                    <ProgressTemplate>
+                        <div>
+                            <asp:Image ID="Image1" runat="server" ImageUrl="~/images/wait.gif" AlternateText="Loading..." />
+                            <asp:Literal ID="litPleaseWait" runat="server" Text="<%$ Txt:1006 Please wait... %>" />
+                        </div>
+                    </ProgressTemplate>
+                </asp:UpdateProgress>
+            </li>
+        </ul>
+        <geocom:HelpButton ID="help0" ImageSrc="~/images/master/help-icon_24x24.png" runat="server" />
+    </div>
+    <div id="master_left_panel" style="float: left">
+        <div id="loginStatus">
+           
+            <div style="float: right; margin-left: 10px">
+                
+            </div>
+           
+        </div>
+        <div id="master_left_panel_help" style="display: none">
+            <asp:ContentPlaceHolder ID="LeftPanelContent" runat="server" Visible="false">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div id="master_main">
+        <%--Dieser abschnitt wird nur angezeigt falls Javascript deaktiviert ist--%>
+        <div id="JavaScriptError" style="visibility: visible">
+            <noscript>
+                <font color="red" size="5">
+                    <asp:Literal runat="server" Text="<%$ Txt:9001 Please activate JAVASCRIPT for this site.%>" />
+                </font>
+            </noscript>
+        </div>
+        
+
+        <%--Dieser Abschnitt wird bei aktiviertem Javascript auf sichtbar gestellt--%>
+        <div id="master_main_plus" style="visibility: hidden">
+             <asp:ContentPlaceHolder ID="MainPanelContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+   
+    <div>
+        <geocom:DsModalDialog ID="MDMessagePanel" runat="server" Title="" Height="150" Width="350" ZIndex="998" IsUpdatePanel="false">
+            <DialogTemplate>
+                <div id="MessagePanelMsgText" style="word-wrap: break-word; word-break: normal;">
+                </div>
+                <div style="position: absolute; bottom: 0; margin-bottom: 10px; width:100%; text-align: center;">
+                    <button onclick="MDMessagePanel.Hide();return false;" style="width:50px">Ok</button>
+                </div>
+            </DialogTemplate>
+        </geocom:DsModalDialog>
+    </div>
+    </form>
+</body>
+</html>

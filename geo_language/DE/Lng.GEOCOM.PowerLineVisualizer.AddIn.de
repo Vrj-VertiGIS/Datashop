@@ -1,0 +1,143 @@
+﻿// System/Common/Ui
+1000 Aktualisierung des Schemas gestartet...
+1005 Das Schema konnte nicht aktualisiert werden.
+1010 Schema-Aktualisierung fehlgeschlagen.
+1015 Das Schema konnte nicht aktualisiert werden.\n{0}
+1020 Das Schema wurde erfolgreich aktualisiert.\nBitte starten Sie die Anwendung erneut, um eine Datenbankperre zu vermeiden.
+1025 Das Schema wurde erfolgreich aktualisiert.
+1050 Trassenvisualisierung gestartet...
+1055 Partielle Visualisierung der Trasse gestartet...
+1080 Löschen der Trasse gestartet...
+1085 Partielles Löschen der Trasse gestartet...
+
+1200 Es gibt noch nicht gespeicherte Änderungen in der Datenbank, die eine korrekte Visualisierung verhindern können.
+1210 Speichern Sie alle Änderungen und starten Sie die Visualisierung erneut.
+1220 Ungespeicherte Änderungen
+
+// settings UI
+1500 Speichern
+1502 Parameter speichern
+1505 Abbrechen
+1510 Datenbankpfad
+1515 Regelpaketpfad
+1516 Dieses CityEngine Regelpaket wird für die Visualisierung verwendet.
+1520 Eingabe-Layer
+1521 Bitte geben Sie den Feature-Layer an, in dem die Trassen gespeichert werden sollen. Die Feature-Class muss vorhanden sein.
+1525 Mastpunkt-Layer
+1526 Dieser Feature-Layer enthält die erstellten Mastkoordinaten.
+1530 Beziehungstabelle
+1531 Diese Tabelle enthält Informationen über die Freileitungsmasten und -verläufe.
+1535 Abschnitts-Layer
+1536 Dieser Feature-Layer enthält Abschnitts-Features zwischen den Masten.
+1540 Freileitungs-Layer
+1541 Dieser Feature-Layer enthält die erstellten Freileitungstrassen.
+1545 Ausgabe-Layer
+1546 Dieser Feature-Layer enthält die visualisierten Masten.
+1550 Temporärer Mastpunkt-Layer
+1551 Dieser Feature-Layer enthält die erstellten Mastkoordinaten, falls nur eine partielle Visualisierung durchgeführt wird.
+1555 Temporärer Ausgabe-Layer
+1556 Dieser Feature-Layer enthält die visualisierten Masten, falls nur eine partielle Visualisierung durchgeführt wird.
+1560 Raumbezug (WKID)
+1565 Datenbank auswählen
+1570 Regelpaket auswählen
+1575 Datenbank auswählen
+1580 CityEngine Regelpaket auswählen
+1585 CityEngine Regelpaket-Dateien {0}
+1600 Meldung: {0}
+1605 Eintrag darf nicht leer sein.
+1610 Derzeit wird nur die File-Geodatabase unterstützt.
+1615 Bitte geben Sie eine gültige WKID ein.
+1620 <<Layer hier ablegen>>
+1650 Parameter
+1655 Visualisiert die Trasse und Masten
+1660 Trassenvisualisierer
+1700 Datei [{0}] existiert nicht.
+1710 Dateityp [{0}] wird nicht unterstützt. Regelpaketdatei auswählen
+1720 Erforderlich
+1730 Sie müssen einen Wert eingeben oder einen Layer auswählen.
+
+// 2000
+2000 Feldname {0} ist nicht wohlgeformt.
+2010 Berichtsinformationen fehlen. {0}
+2015 Falscher Wert: {0}
+2020 Mastinformationen fehlen: {0}
+2030 Interner Fehler: Tragwerksinformationen fehlen. Mast-ID: {0:B}
+2040 Freileitungs-Features konnten nicht gespeichert werden: {0}
+2042 Mast- und Beziehungs-Features konnten nicht gespeichert werden: {0}
+2044 Abschnitts- und Beziehungs-Features konnten nicht gespeichert werden: {0}
+2046 Mast-Features konnten nicht gespeichert werden: {0}
+2050 Interner Fehler: {0}\nDetails: {1}
+2055 Interner Fehler: {0}
+2060 Vorgang "{0}" konnte nicht durchgeführt werden. Weitere Details: {1}
+2070 Feld "{0}" konnte nicht gefunden werden.
+2080 GUID ist leer.
+2090 Ungültige GUID {0}
+2100 Layer "{0}" konnte nicht erstellt werden.
+2110 Der folgende Layer konnte nicht gefunden werden: {0}
+2120 Der Layer konnte nicht gefunden werden.
+2130 Derzeit gibt es keine ausgewählte Features in {0}.
+2140 Wählen Sie mindestens ein Features, um fortzufahren.
+2150 Auswahl fehlt
+2160 Falsche Layer-Geometrie
+2170 Falscher Geometrie-Typ in Layer {0}\nAktuell: {1}\nErwartet: {2}
+2180 Es sind Abzweige vorhanden, die nicht Teil der gewählten Trassen sind.
+2190 Alle zugehörigen Trassen müssen für die Verarbeitung ausgewählt werden.
+2200 Möchten Sie diese Trassen ebenfalls auswählen?
+2210 Informationen fehlen
+2220 Es wurde keine Fehlermeldung ausgegeben. Verwendete Parameter:
+2230 RPK-Datei ist nicht vorhanden.
+
+2400 Interner Fehler: Falscher Auswahlmodus {0}
+2410 Abzweigtyp {0} wird nicht unterstützt.
+
+// 5000 - Creator
+5000 Trassenvisualisierung
+5005 Die Visualisierung wurde abgebrochen.
+5010 Die Trasse wurde erfolgreich visualisiert.
+5015 Visualisierungsergebnis
+5020 Trassenvisualisierung fehlgeschlagen.\n{0}
+5025 Visualisierung fehlgeschlagen.
+5060 Fehler - Anwendung der Regeln 1/2
+5065 Fehler - Anwendung der Regeln 2/2
+
+5100 Lese Trassen...
+5120 Erstelle Mastpunkt-Features...
+5140 Speichert betroffene Mast-Features...
+5160 Erstelle Freileitungen...
+5180 Lese Masten...
+5200 Lese Beziehung...
+5220 Speichert Änderungen...
+5240 Aktualisiert bearbeitete Abschnittsgeometrien...
+5260 Aktualisiert bearbeitete Mastpunkt-Features...
+5280 Erstellt Mastpunkt-Features neu...
+5300 Filter bearbeitete Mastpunkt-Features...
+5320 Aktualisiert Masten...
+5340 Aktualisiert betroffene Freileitungen...
+5360 Entfernt Features von {0}
+5380 Erhält Features von {0}
+5400 Erhält Zeilen von {0}
+5450 Anwendung der Regeln 1/2
+5455 Anwendung der Regeln 2/2
+5460 Visualisiert Mastwinkel...
+5465 Setzt Aufhängepunkte
+
+// 5700 - Schema creation
+5700 Erstellt Schema...
+5705 Schema-Erstellung wird abgebrochen...
+5710 Interner Fehler während Schema-Erstellung: {0}
+
+// 6000 - Update
+6000 Trassenvisualisierung für {0} Element(e)
+6005 Die erneute Visualisierung wurde abgebrochen.
+6010 Die Trassenvisualisierung für {0} Element(e) wurde erfolgreich durchgeführt.
+6015 Neues Visualisierungsergebnis
+6020 Erneute Trassenvisualisierung fehlgeschlagen.\n{0}
+6025 Neue Visualisierung fehlgeschlagen.
+6030 Die Anzahl der Stützpunkte wurde geändert: {0} <> {1}.\nZeile [ID: {2}] muss zunächst gelöscht werden.
+
+
+// 7000 - Delete
+7000 Löschen der Trasse
+7005 Der Löschvorgang wurde abgebrochen.
+7010 Der Löschvorgang für die Trasse für {0} Element(e) wurde erfolgreich durchgeführt.
+7015 Lösche Ergebnis...

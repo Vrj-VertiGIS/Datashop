@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+
+    <!-- Step 3: Include the custom action -->
+    <CustomAction Id="CA_LaunchLicenseAdmin"
+        FileKey="_FILicenseAdmin.exe"
+        ExeCommand=""
+        Return="asyncNoWait" />
+    
+    </Fragment>
+</Wix>

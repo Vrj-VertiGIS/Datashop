@@ -1,0 +1,53 @@
+﻿// GUI
+1000 Please select the customization level
+1001 Media level
+1002 Media customization level
+1003 Data source level
+1004 Project level
+1005 Title
+1006 TOC title
+1007 Overwrite
+1008 Overwrite file (if file already exists)
+1009 Check to overwrite (if file already exists)
+1010 Next
+1011 Exports the legend
+1012 Back
+1013 Back to Export dialog
+1014 Finish
+1015 Closes the dialog
+1016 Open
+1017 Opens the log file
+
+// GUI buttons
+1050 OK
+1051 Cancel
+
+// Info tooltip text
+1099 The GEONIS XML legend export only supports simple layers and symbols.\nFollowing layer properties will not be exported:\n\n- Basemap Layer\n- Annotation Layer\n- Raster Layer\n- Layer Group in Layer Group\n- Layer with Route Events\n- Layer with Joins\n- Layer with Custom Styles
+
+// License check
+1100 License error
+1101 GDN Studio license is not valid or has expired.
+
+// Export
+1200 Exporting project: {0}
+1205 No GEONIS project selected
+1206 Please select a valid GEONIS project and retry.
+1207 Invalid configuration: See documentation and check the {0} file.
+1210 Directory [{0}] created.
+1211 File [{0}] will be overwritten.
+1212 File [{0}] already exists. It has not been overwritten.
+1213 The export finished successfully.\nFile name: [{0}]
+1214 The export failed. Reason: Access denied for file [{0}].
+1215 The export failed. Reason: No data source for project [{0}] found.
+1216 The export failed. Reason: Layer [{0}] does not belong to a Group Layer.
+1220 Layer [{0}] has not been exported. Its source database differs from the main data source.
+1221 Layer [{0}] has not been exported. It is not connected to any source database.
+1222 Layer [{0}] has not been exported. Annotation is not supported.
+1223 Layer [{0}] has not been exported. Route Event Source is not supported.
+1224 Layer [{0}] has not been exported. Raster Layer is not supported.
+1225 Symbol information could not be extracted in layer [{0}] for value [{1}]. A default is used instead.
+1226 Symbol information could not be extracted in layer [{0}]. A default is used instead.
+1227 Group Layer [{0}] is already part of a parent Group Layer. Nested Group Layers may cause invalid XML.
+1228 Layer [{0}] has not been exported, as Basemap is not supported.
+

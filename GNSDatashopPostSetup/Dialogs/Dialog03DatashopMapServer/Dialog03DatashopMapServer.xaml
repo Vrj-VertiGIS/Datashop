@@ -1,0 +1,42 @@
+﻿<Dialogs:Dialog x:Class="GEOCOM.GNSDatashop.GNSDatashopPostSetup.Dialogs.Dialog03DatashopMapServer.Dialog03DatashopMapServer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Dialogs="clr-namespace:GEOCOM.GNSDatashop.GNSDatashopPostSetup.Dialogs">
+    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
+        <Label FontSize="15" FontWeight="Bold">Create Datashop Map Services</Label>
+        <TextBlock Style="{DynamicResource ResourceKey=StandartTxtBlk}">Path to your Map Server Mxd files:</TextBlock>
+        
+        
+        <TextBlock Style="{DynamicResource ResourceKey=StandartTxtBlk}" Margin="5,5,5,0">
+                      GNSD_ALL:
+        </TextBlock>
+        <Grid Style="{DynamicResource ResourceKey=defaultMargin}" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="9*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBox Grid.Column="0" Name="txtBxAll" ></TextBox>
+            <Button Grid.Column="2" Click="ButtonClick" DataContext="txtBxAll">...</Button>
+        </Grid>
+        
+        
+        <TextBlock Style="{DynamicResource ResourceKey=StandartTxtBlk}" Margin="5,5,5,0">
+                      GNSD_AVonly:
+        </TextBlock>
+        <Grid Style="{DynamicResource ResourceKey=defaultMargin}" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="9*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBox Grid.Column="0" Name="txtBxAvonly"></TextBox>
+            <Button Grid.Column="2" Click="ButtonClick" DataContext="txtBxAvonly" >...</Button>
+        </Grid>
+
+    </StackPanel>
+</Dialogs:Dialog>

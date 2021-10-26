@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{544165AE-C732-44DB-AA98-FECA97DE5240}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GEOCOM.GNSD.DBStore</RootNamespace>
+    <AssemblyName>GNSDatashopDBStore</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>CHGEOCX1_UNCHAINED.pfx</AssemblyOriginatorKeyFile>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeoLibRoot>..\geo_lib</GeoLibRoot>
+  </PropertyGroup>
+  <Import Project="..\build\configurations.proj" />
+  <Import Project="..\build\configurations.targets" />
+  <ItemGroup>
+    <Compile Include="..\build\CommonAssemblyVersion.cs">
+      <Link>Properties\CommonAssemblyVersion.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="GEOCOM.Common" />
+    <Reference Include="GEOCOM.Common.ArcGIS" />
+    <Reference Include="GEOCOM.Common.Logging" />
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\geo_lib\NHibernate\4.1.0.4000\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\geo_lib\Log4Net\1.2.10.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=2.111.6.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+      <HintPath>..\geo_lib\Oracle\4.122.19.1\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config\DbStoreConfig.cs" />
+    <Compile Include="Config\DbConnectionInfo.cs" />
+    <Compile Include="DbAccess\BizUserStore.cs" />
+    <Compile Include="DbAccess\JobDetailsStore.cs" />
+    <Compile Include="DbAccess\LoadBalancingPreference.cs" />
+    <Compile Include="DbAccess\MyJobStore.cs" />
+    <Compile Include="DbAccess\PlacementOptionStore.cs" />
+    <Compile Include="DbAccess\PlotSectionStore.cs" />
+    <Compile Include="DbAccess\JobStore.cs" />
+    <Compile Include="DbAccess\JobGuidStore.cs" />
+    <Compile Include="DbAccess\JobLogStore.cs" />
+    <Compile Include="DbAccess\PlotDefinitionStore.cs" />
+    <Compile Include="InvalidJobStatusException.cs" />
+    <Compile Include="DbAccess\ReasonsStore.cs" />
+    <Compile Include="DbAccess\UserStore.cs" />
+    <Compile Include="Archive\JobArchiver.cs" />
+    <Compile Include="DbAccess\NHibernateHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\User.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CHGEOCX1_UNCHAINED.pfx" />
+    <None Include="Mappings\nhibernate-mapping.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GEOCOM.GNSDatashop.Model\GEOCOM.GNSDatashop.Model.csproj">
+      <Project>{34DE03A9-FF00-4CE6-93BB-7A63806AACAF}</Project>
+      <Name>GEOCOM.GNSDatashop.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GNSDatashopCommon\GNSDatashopCommon.csproj">
+      <Project>{D5F89E03-1A5E-43DB-B991-E0D2ED2BEC90}</Project>
+      <Name>GNSDatashopCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\hibernate.cfg.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NHibernate">
+      <Version>5.2.7</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

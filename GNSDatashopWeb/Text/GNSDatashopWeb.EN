@@ -1,0 +1,452 @@
+﻿// Masterpage
+1000 GEONIS Datashop
+1001 GEONIS Datashop
+1002 External Map Service
+1003 New Map Request
+1004 New Data Export
+1005 My Plots
+1006 Please wait...
+
+1010 Homepage
+
+1020 Language:
+1021 German
+1022 English
+1023 French
+1024 Italian
+
+1030 My Profile
+
+1050 Information System
+
+1080 Help
+
+//welcomePage
+1500 Select the desired option:
+1501 Request a map as <b>occasional user</b>
+1502 Login or register as <b>business user</b>
+15031 If you order only occasionally maps,  
+15032 please click here
+1504 <b>business user:</b> You need regularly a map from the Datashop map information system and therefore request a password-protected, unlimited access to the system. 
+1505 For frequent requests, register as a business user.
+
+1506 If you request information on an irregular occasion, access the system as a occasional user.
+
+1510 Welcome to the Datashop Map Information System
+
+
+
+// Login
+2000 This website is password protected.
+2001 Your login has failed. Please try again.
+2002 Login
+2003 Email or user id:
+2004 Please log in with user name and password.
+2005 Password:
+2006 Logged in as {0}
+2008 Unknown user id: {0}
+2009 You are logged in as {0}.
+2010 You are already logged in, but you have not the necessary permissions to access the desired page. Please try again by logging in again.
+2011 Login
+2012 Login for business user
+2013 User name is required
+2014 Password is required
+2015 You need to be a member of the Business Users role to submit frequent plot requests. Please contact your administrator.
+
+2020 Is this not the page you are looking for? Click here to go to the home page.
+
+//business login
+2021 Here you can request a new map order.
+2022 Register as a new business user.
+2023 Lost password?
+2024 Back
+2025 Email address or user id can be used to register. Please enter the password and click on "Login" to place a map request.
+//temp login
+2030 Please complete the following fields:
+2031 Terms and conditions
+2032 Download the conditions as PDF
+2033 Please accept the terms and conditions.
+2034 I have read the terms and conditions and accept them.
+2035 As a occasional user you are identified through your email address. Please enter the necessary information and confirm the terms and conditions in order to place a map request.
+2036 Continue
+2037 I agree that my contact information (first name, last name, e-mail address) will be saved only for the purpose of this specific application
+2038 Please accept the private data protection clause
+
+//business register
+2050 As a business user, you will be notified by email as soon as your account is activated. Please fill in the required information and confirm the terms and conditions in order to register. After your account is activated, you can start placing requests.
+
+
+2040 Please login
+2041 Logout
+
+//captcha texts
+2060 Refresh
+2061 The code you typed has expired after {0} seconds.
+2062 Code was typed too quickly. Wait at least {0} seconds.
+2063 The code you typed does not match the code in the image.
+2064 Type the visible code here
+
+// text field validations - {0} will be replaced by field's name
+2100 The field '{0}' contains illegal characters.
+2101 The field '{0}' is too long.
+
+// personal information
+2200 Personal information
+2201 Here you can change your personal information.
+2202 Your profile
+
+2210 Change personal information
+
+2230 Mr.
+2231 Mrs.
+
+2250 Title: 
+2251 First name: 
+2252 Last name:
+2253 Street: 
+2254 Street Nr.:
+2255 Postal code:
+2256 City:
+2257 Email Address:
+2258 Company:
+2259 Phone Nr.:
+2260 Fax Nr.:
+2261 Password:
+2262 Repeat Password:
+
+
+2300 Field "Title" must not be empty.
+2301 Please enter your first name.
+2302 Field "Last name" must not be empty.
+2303 Please enter your street.
+2304 Please enter your street number.
+2305 Please enter your Zip code.
+2306 Please enter your city.
+2307 Please enter your company.
+2308 Field "Email" must not be empty.
+2309 Please enter your phone number.
+2310 Please enter your fax number.
+2311 Please enter a correct email address.
+2312 The provided data are not all valid.
+2313 Please enter a password.
+23131 Please enter the password a second time for verification.
+2314 The two passwords do not match.
+
+2315 Login as occasional user
+2316 Login as business user
+2317 A user with the same email already exists.
+
+2320 Entry required
+2321 Your user information has been successfully changed.
+2322 Your user information could not be changed. Please try again later.
+2323 Your account was not found. Please log out and log in again.
+2324 Your old password was incorrect.
+2325 The two new password do not match.
+2326 Your password was successfully changed.
+2327 Your password could not be changed. Try again in a few minutes.
+2328 The new password must be different that the old one.
+
+2330 Here you can change your personal information and password.
+
+2340 Please enter a new password.
+2341 The two new password do not match.
+2342 Your password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter and one number or special character.
+2343 Change password
+2344 Old password:
+2345 New password:
+2346 Repeat new Password:
+2347 Change password
+2350 Back
+
+//reset password
+2400 Here you can reset your password.
+2401 Reset password
+2402 Back
+2404 The password was successfully reset. You will receive an email at {0} with your new password.
+2405 The password could not be reset. Please try again in a few minutes or contact the administrator.
+2406 The password was reset, yet the email with the new password could not be sent. Please try again in a few minutes or contact the administrator.
+2407 We will create a new password and send it to your email address. Your old password will no longer be valid.
+
+2410 Reset password
+
+//Confirm Order
+3000 Confirmation
+3001 Your order was received.
+3002 Order information:
+3003 You will receive shortly an email at {0} with a link to download the generated map(s) and documents.
+3004 Here you can request a new map.
+3005 Thank you for your order.
+3006 Stadtwerke Datashop City
+3010 For questions regarding your order please contact us with the information on this page at <email address>
+3011 Back to home page
+3012 Here you can request a new data set
+3013 Here you can request a new map with previous map extent
+3014 Job ID
+
+//stream product
+3100 The following file is ready for download:
+3101 Download
+3102 Your order information:
+3103 Download order
+3104 Here you can download your order.
+3105 Return to the Datashop
+3106 The file you requested has expired. Please click the link below to request another.
+3107 User
+
+//uploadPage
+3200 Select the file to be uploaded on your computer <i>Browse...</>
+3201 To upload additional files, click the button <i>new line</i> and select the file by clicking <i>Browse...</>.
+3202 Start the upload of the file by clicking the button <i>Upload File(s)</i>.
+3203 Wait until 'Upload successful' is displayed.
+3204 Upload file(s)
+3205 Here additional files can be added to the job of user {0} ({1}).
+
+3206 Run job
+
+3210 success
+3211 failure
+3212 File with the same name already exists.
+3213 Upload in global area
+3214 The processing and distribution of the uploaded files is being processed.
+3215 A failure occurred, while processing the uploaded files.
+3216 An error occurred, while uploading the files into the temporary holding area.
+3217 The files in the temporary holding area were deleted.
+3218 Failed to delete the files in the temporary holding area:
+
+// DXF Export
+3300 DXF-export:
+3301 Create DXF-export
+
+// PdeRequestPage
+3801 Select profile
+3802 Profile
+3803 Select profile
+3804 Description
+3805 Data format
+3806 Select a data format
+3807 Please draw at least a polygon
+3808 Your selection area of {0} exceeds the maximum allowable selected area of {1}
+
+//RequestPage
+3900 Request plant information
+3901 Please define a plot frame.
+3902 Please specify the reason for your request.
+3903 Plot frame definition:
+39031 The map has to be navigated by map controls or address search to the area of your intereset before placing any plot frames.
+3904 Plot format:
+3905 Please select a plot format.
+3906 Map Scale
+3907 Please select a map scale
+3908 Rotation angle
+3909 Please complete the following fields:
+3910 Reason for request
+3911 Submit request
+39111 Request as a representative 
+3912 Process:
+3913 1. Search and browse with address search and navigation tools the desired location<br><br>2. Define your plot frames(s) and position<br><br>3. Fill in the required information for the order<br><br>4. Read terms and conditions and confirm
+3914 5. Click on „Submit request“
+
+39150 Add geo-attachments
+
+39161 Additional Field 1
+39162 Additional Field 2
+39163 Additional Field 3
+39164 Additional Field 4
+39165 Additional Field 5
+39166 Additional Field 6
+39167 Additional Field 7
+39168 Additional Field 8
+39169 Additional Field 9
+391610 Additional Field 10
+
+3917 Time period from / to
+39171 Time period from
+39172 Time period to
+39173 Invalid start date
+39174 Invalid end date
+
+3918 All yellow fields are required.
+3919 Yellow field can not be empty.
+39190 Regular Expression Validation Failed for field Custom 1
+39191 Regular Expression Validation Failed for field Custom 2
+39192 Regular Expression Validation Failed for field Custom 3
+39193 Regular Expression Validation Failed for field Job Description
+39194 Regular Expression Validation Failed for field Job Parcel Number
+39195 Please complete the profile selection
+
+3920 Close
+3921 The maximum number of plot frames is reached.
+3922 The field "Time period from / to" can not be empty.
+
+3923 Map types:
+3924 Description
+39241 The description must be filled in
+3925 Plot number
+39251 The plot number must be filled in
+
+//TDERequestPage
+3950 Please specify the export area with the drawing tools. (Note: a polygon is closed through double click)
+3951 Please select an export profile:
+3952 Profile
+3953 Field "Reason for request" can not be empty.
+3954 Please select an export profile. 
+3955 Target format:
+3956 Description:
+3957 Please select a db format
+3960 Draw rectangle
+3961 Draw polygon
+3962 Please specify the export area.
+3963 Please select a DXF Profile
+3964 Export type
+3965 Dxf Profile
+3966 Please select an export type
+
+//map
+3930 Zoom in
+3931 Zoom out
+3932 Pan
+3934 Place plot frame in center of map
+3935 Zoom map on plot frame(s)
+3936 Add plot frame
+3937 Remove select plot frame
+3938 Move plot frame
+3939 Previous map extent
+3940 Next map extent
+3941 Map not ready. Operation Cancelled.
+3942 Reset map extents to default settings
+3943 plot frame(s) are outside of the current map extent
+3944 Draw a polygon
+3945 Resize or rotate the selected polygon
+3946 Reshape the selected polygon
+
+//searchControll for requestpage
+3980 Update fields
+3981 Zoom to object
+3982 Found multiple results. The first one will be shown.
+3983 No search result.
+39831 No results found (due to internal error).
+3984 Search is not available
+
+//surrogate 
+3990 Create a map as representative
+3991 User
+39911 You must select a user
+3992 Request date
+39921 You must specify a request date
+3993 How was the request placed
+39931 Specify how the job request was placed.
+3994 Stop the job before it is packaged.
+3995 Add a new business user
+3996 Add a new temp user
+3997 Filter user list
+3998 You need to specify a filter value
+3999 Filter list
+39991 Clear filter
+39992 Found {0} user(s)
+
+
+
+//searches 4000-4999 are reserved for labeling the searchfields
+4000 Address search
+4001 Municipality
+4002 Street
+4003 Number
+
+4010 Coordinates
+4011 X-Coordinates
+4012 Y-Coordinates
+
+4020 Field name
+4021 Field name
+4022 Results
+
+4030 Parcel number
+4031 Parcel number
+
+4040 Insurance number
+4041 Insurance number
+
+4100 The requested website is not available anymore. In order to avoid this message, update your browser’s bookmarks: add a new bookmark from the Datashop Start page and delete the old bookmark.
+4101 To create new map request and to be forwarded to the new page,
+4102 click please here.
+
+//MyPlots page
+
+5000 Search
+5001 Job Id
+5002 User Id
+5003 First name
+5004 Last name
+5005 Company
+5006 Created date start
+5007 Created date end
+5008 Downloaded
+50080 Yes
+50081 No
+5009 Search
+5010 Reset
+5011 Options
+5012 Results per page
+5013 Export as .csv
+5014 Export
+5015 Found {0} results
+5016 Job Id
+5017 User Id
+5018 First name
+5019 Last name
+5020 Company
+5021 User Id
+5022 First name
+5023 Last name
+5024 Company
+5025 Created date
+5026 Download count
+5027 Download
+5028 Please fill in at least one search field
+5029 JobId must be numeric
+// 5030: {0} stands for the original job id and {1} stands for the new job id
+5030 Job Id {0} has been copied to Id {1} and restarted
+
+//Impressum, About
+6000 About
+6001 Replace this text with something suitable for an about page
+
+//Errors
+//Masterpage
+9001 Please enable JavaScript in your browser to view this page.
+//BizUserDisabled
+9010 Your account has been locked.
+//biz & tempUserLimitError
+9019 Too many requests
+9020 The limit of {0} requests in the last {1} days has already been reached.
+9021 Please repeat your request after the waiting period.
+9022 The limit of {0} requests in the last {1} days has already been reached.
+9023 Please repeat your request after the waiting period, or register as a business user.
+9024 Register as business user.
+//BizUserLocked
+9030 Your registration has not yet been confirmed by an administrator. Once your registration is confirmed, you will be notified by email.
+9031 Registration has not yet been confirmed.
+//CreateTempUserFailed
+9040 Your specified email address is already used by a registered business user.
+9041 Please check the e-mail address or use the login page for business users.
+9042 « Back to the start page
+9043 « Log in as business user
+9044 Account was not created
+//GeneralError
+9050 An error has occurred while processing your request.
+9051 Please repeat your request and contact the support, if you still receive the error.
+9052 No error detail available
+//LoginError
+9060 We could not verify your user account.
+9061 Please repeat your request and contact the support, if you still receive the error.
+9062 « Back
+//ServiceNotFound
+9070 The service is currently unavailable.
+//UploadJobErrors
+9080 The identification of the user, for which you want to submit this request, is invalid.
+9081 You do not have the necessary permissions to request an order for another user. Please log in as an administrator.
+//PDE Errors
+9090 An error occurred during the loading of the export profiles. Please try again in a few minutes or contact the support.
+//Template Limit
+10000 Limit of requests for templates was reached.
+10001 Too many plots ({0}) within a minute. The limit is {1} plots per minute.

@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3FBE5D95-FDC6-4E44-AF6F-968F41A8B4B2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GEOCOM.GNSDatashop.Services</RootNamespace>
+    <AssemblyName>GEOCOM.GNSDatashop.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\GEOCOM.GNSDatashop.Services.XML</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <NoWarn>1591</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>CHGEOCX1_UNCHAINED.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeoLibRoot>..\geo_lib</GeoLibRoot>
+  </PropertyGroup>
+  <Import Project="..\build\configurations.proj" />
+  <Import Project="..\build\configurations.targets" />
+  <ItemGroup>
+    <Compile Include="..\build\CommonAssemblyVersion.cs">
+      <Link>Properties\CommonAssemblyVersion.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="ESRI.ArcGIS.Geodatabase" />
+    <Reference Include="ESRI.ArcGIS.Geometry" />
+    <Reference Include="ESRI.ArcGIS.System" />
+    <Reference Include="ESRI.ArcGIS.Version" />
+    <Reference Include="GEOCOM.Common" />
+    <Reference Include="GEOCOM.Common.ArcGIS" />
+    <Reference Include="GEOCOM.Common.Logging" />
+    <Reference Include="GEOCOM.TDE" />
+    <Reference Include="log4net">
+      <HintPath>..\geo_lib\Log4Net\1.2.10.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddressSearchService.cs" />
+    <Compile Include="AdminDatashop.cs" />
+    <Compile Include="Config\ServicesConfig.cs" />
+    <Compile Include="Config\XmlWrapper\Restrictions.cs" />
+    <Compile Include="Config\XmlWrapper\GeoSearchDef.cs" />
+    <Compile Include="Config\XmlWrapper\Role.cs" />
+    <Compile Include="Config\XmlWrapper\Scale.cs" />
+    <Compile Include="Config\XmlWrapper\SearchControlDef.cs" />
+    <Compile Include="Config\XmlWrapper\SearchControlType.cs" />
+    <Compile Include="Config\XmlWrapper\Select.cs" />
+    <Compile Include="DocumentService.cs" />
+    <Compile Include="JobManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GEOCOM.GNSD.DatashopWorkflow\DatashopWorkflow.csproj">
+      <Project>{5B81CE6F-6CDB-410F-B743-321809F43709}</Project>
+      <Name>DatashopWorkflow</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GEOCOM.GNSD.Workflow\Workflow.csproj">
+      <Project>{6E3D0426-33F2-4ABB-8E39-BDF177C53E77}</Project>
+      <Name>Workflow</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GEOCOM.GNSDatashop.Model\GEOCOM.GNSDatashop.Model.csproj">
+      <Project>{34DE03A9-FF00-4CE6-93BB-7A63806AACAF}</Project>
+      <Name>GEOCOM.GNSDatashop.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GEOCOM.GNSDatashop.ServiceContracts\GEOCOM.GNSDatashop.ServiceContracts.csproj">
+      <Project>{E82695BC-34A4-40C9-B394-3FE17583C396}</Project>
+      <Name>GEOCOM.GNSDatashop.ServiceContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GNSDatashopCommon\GNSDatashopCommon.csproj">
+      <Project>{D5F89E03-1A5E-43DB-B991-E0D2ED2BEC90}</Project>
+      <Name>GNSDatashopCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GNSDatashopDBStore\GNSDatashopDBStore.csproj">
+      <Project>{544165AE-C732-44DB-AA98-FECA97DE5240}</Project>
+      <Name>GNSDatashopDBStore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CHGEOCX1_UNCHAINED.pfx" />
+    <None Include="lib\mime-types.dtd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\readme.txt" />
+    <Content Include="lib\Winista.MimeDetect.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>del $(TargetDir)\ESRI.ArcGIS.ADF*.dll /F</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

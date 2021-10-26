@@ -1,0 +1,19 @@
+﻿Limitation as of Version 1.0
+- Es werden (nur) Feature Layers unterstützt. Keine Basemaps, keine Zeichnungslayer, keine Raster,...
+- Dimensioning Feature Layer werden noch nicht unterstützt.
+- Wird ein Feature mit einer Object Class Extension angezeigt, kann der Export u.U. nicht korrekt funktionieren,
+  insbesondere dann, wenn die OCE nicht vorliegt.
+
+
+Limitations Sprint 9
+
+=>> Export Annotations - free hand drawing (Issue 46317)
+Einige Feature eines Annotation-Layers werden immer noch nicht unterstützt:
+
+    Gruppierte Elemente können mehrere Texte enthalten. Davon wird nur der erste ausgegeben.
+    Kreise und Ellipsen werden nicht unterstützt.
+    Wurde zum einem Text ein Hintergrund-Rechteck defniert, so wird dieses nicht ausgegeben.
+    Bei Callout erscheinen nur die Texte, nicht die Leasder-Lines und nicht der Hintergrund.
+
+
+=>> Export Polylinien/Polygone: Wenn ein kartographisches Liniensymbol verwendet wird und dazu ein Template erfasst wird, kann es zu fehlerhaften Darstellungen kommen, wenn Segmente der dargestellten Polylinie sehr kurz (kürzer als das Template?) sind. Dies ist aber DXF geschuldet, da in diesem Falle ein DXF Linientyp verwendet wird und der wird bei der Ausgabe im jeweiligen Dxf Viewer (AutoCad) pro Liniensegment (und nicht über die ganze Polylinie) angewandt.

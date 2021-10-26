@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<help_config version="2017.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="help_config.xsd">
+  <!-- Expert Core main help -->
+  <help_entry name="dxf_expert_for_arcmap_de" title="Hilfe für VertiGIS DXF Export für ArcMap" language="de">
+    <online_url>https://resources.geocom.ch/VertiGIS/VertiGIS_DXF_Export_ArcMap/DE/webhelp/index.html?dxfe_startseite.htm</online_url>
+    <offline_path>PDF\VertiGIS_DXF_Export_de.pdf</offline_path>
+  </help_entry>
+  <help_entry name="dxf_expert_for_arcmap_fr" title="Aide pour VertiGIS DXF Export pour ArcMap" language="fr">
+    <online_url>https://resources.geocom.ch/VertiGIS/VertiGIS_DXF_Export_ArcMap/FR/webhelp/index.html?dxfe_startseite.htm</online_url>
+    <offline_path>PDF\VertiGIS_DXF_Export_fr.pdf</offline_path>
+  </help_entry>
+  <help_entry name="dxf_expert_for_arcmap_it" title="Guida in linea per VertiGIS DXF Export per ArcMap (inglese)" language="it">
+    <online_url>https://resources.geocom.ch/VertiGIS/VertiGIS_DXF_Export_ArcMap/EN/webhelp/index.html?dxfe_startseite.htm</online_url>
+    <offline_path>PDF\VertiGIS_DXF_Export_en.pdf</offline_path>
+  </help_entry>
+  <help_entry name="dxf_expert_for_arcmap_en" title="Help for VertiGIS DXF Export for ArcMap" language="en">
+    <online_url>https://resources.geocom.ch/VertiGIS/VertiGIS_DXF_Export_ArcMap/EN/webhelp/index.html?dxfe_startseite.htm</online_url>
+    <offline_path>PDF\VertiGIS_DXF_Export_en.pdf</offline_path>
+  </help_entry>
+</help_config>

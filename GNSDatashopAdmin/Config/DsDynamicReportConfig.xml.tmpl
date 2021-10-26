@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+This sample config file shows two DsDynamicReportConfig elements
+ - one with the minimal required attributes
+ - one with all possible attributes
+A real config file contains only one DsDynamicReportConfig element
+-->
+
+<!-- these are the required attributes -->
+<DsDynamicReportConfig ContainerType="Tabbed">
+  <!-- attribute ContainerType : Tabbed | Inline (default is Inline) -->
+  <Panels>
+      <Panel HeadCaption="Panel 1 - Horizontal">
+        <Table Layout="Horizontal">
+          <Rows>
+            <Row>
+              <Cells>
+                <Cell Caption="Titel V1" VariableId="v1" />
+              </Cells>
+            </Row>
+          </Rows>
+        </Table>
+      </Panel>
+  </Panels>
+</DsDynamicReportConfig>
+
+<!-- this config contains all possible attributes-->
+<DsDynamicReportConfig ContainerType="Tabbed" ContainerCssClass="" HeaderCssClass="">
+  <!-- ContainerType : Tabbed | Inline (default is Inline) -->
+  <!-- ContainerCssClass : The CSS class for the overall container when inline layout.
+       Default value is DSDRContainerInline -->
+  <!-- HeaderCssClass : The CSS class for for the overall container when tabbed layout
+       Default value is DSDRTabs -->
+  <Panels>
+    <Panel HeadCaption="Panel 1 - Horizontal" HeadCssClass="" HeadCollapsedCssClass="" HeadExpandedCssClass="" BodyCssClass=""
+           BodyIsCollapsable="" BodyIsCollapsed="" Id="Id1" OnClientExpand="">
+      <!-- HeadCssClass is the CSS class for the title when the panel is not collapsable
+           Default value is DSDRInlineHead or DSDRTab -->
+      <!-- HeadCollapsedCssClass is the CSS class for the title when the panel is collapsed
+           Default value is DSDRInlineCollapsed or DSDRTabUnselected -->
+      <!-- HeadExpandedCssClass is the CSS class for the title when the panel is expanded
+           Default value is DSDRInlineExpanded or DSDRTabSelected -->
+      <!-- HeadHoverCssClass - this is not used anymore since we use anchors instead of divs
+           Default value is DSDRInlineHover or DSDRTabHover -->
+      <!-- BodyCssClass is the CSS class for the panel's body
+           Default value is DSDRInlinePanel or DSDRTabbedPanel -->
+      <!-- BodyIsCollapsable true | false . The Panel's body is collapsable
+          Default value is false, irrelevant when tabbed panels -->
+      <!-- BodyIsCollapsed true |false. The panel is collapsed at load time
+          Default value is false, irrelevant when tabbed panels -->
+      <!-- Id makes the panel visible outside the report (using the FindControlRecursive report methodttribute ContainerType : Tabbed | Inline (default is Inline) -->
+      <!-- OnClientExpand: optional script that will be carried out when the panel is expanded -->
+      <Table Layout="Horizontal" FrameCaption="" FrameCssClass="" CssClass="" Id="">
+        <!-- Layout: Vertical | Horizontal. Controls how the variable captions are positionned relatively to the variables
+              - Vertical : the caption is on top of the variable
+              - Horizontal : the caption is on the left of the variable 
+            Default value is Vertical-->
+        <!-- FrameCaption is an optional title for the table. -->
+        <!-- FrameCssClass is the CSS class of the div encapsulating the table (allows margins, padding, framing, etc)
+            Default value is DSDRTableFrame -->
+        <!-- CssClass is the CSS class of the HTML table (borders, background, etc)
+            Default value is DSDRPanelTable -->
+        <!-- Id makes the panel visible outside the report (using the FindControlRecursive report methodttribute ContainerType : Tabbed | Inline (default is Inline) -->
+        <Rows>
+          <Row CssClassRow1="" CssClassRow2="">
+            <!-- CssClassRow1 is the Css class for the first row when vertical layout
+                 Default value is DSDRPanelTableRow -->
+            <!-- CssClassRow2 is the Css class for the second row when vertical layout
+                 Default value is DSDRPanelTableRow -->
+            <Cells>
+              <Cell Caption="Titel V1" CaptionCssClass="" VariableId="v1" VariableCssClass="" VariableFormatString=""
+                    Colspan="" Id="" />
+              <!-- Caption is the title of the variable -->
+              <!-- CaptionCssClass is the CSS class for the title
+                   Default value is DSDRPanelTableCellCaption -->
+              <!-- VariableId is the id of the variable. The list of the available ID's is provided by the container's designer
+                   If the variableId is not found, it is written in the variable cell. -->
+              <!-- Id makes the panel visible outside the report (using the FindControlRecursive report methodttribute ContainerType : Tabbed | Inline (default is Inline) -->
+              <!-- VariableCssClass is the CSS class for the variable
+                   Default value is DSDRPanelTableCellVariable -->
+              <!-- VariableFormatString: You can optionally format the variable yourself (more doc to come) -->
+              <!-- Colspan is the amount of cells the variable will span (depending on the table layout) -->
+            </Cells>
+          </Row>
+        </Rows>
+      </Table>
+    </Panel>
+  </Panels>
+</DsDynamicReportConfig>
+
+
+

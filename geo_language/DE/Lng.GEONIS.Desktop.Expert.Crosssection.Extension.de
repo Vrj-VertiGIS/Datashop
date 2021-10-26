@@ -1,0 +1,8 @@
+////////////////////////////////////////////////////////////////////////
+// Create Crosssection Baseline Command
+1000 GEONIS Elektro
+1010 Querschnitts-Basislinie erstellen
+1020 Startet ein Werkzeug, um eine neue Basislinie für einen Querschnitt zu erstellen.
+1030 Erstellt eine neue Querschnitts-Basislinie 
+1050 Das GEONIS Werkzeug "Neues Feature" konnte nicht gefunden werden. \nBitte überprüfen Sie, ob GEONIS expert installiert ist, und das Werkzeug "GNTools.NeuFeature" existiert.
+1060 Das GEONIS Werkzeug "Neues Feature" unterstützt die IFuncCall-Schnittstelle nicht.\nBitte überprüfen Sie, ob die passende Version von GEONIS expert installiert wurde.

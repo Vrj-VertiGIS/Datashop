@@ -1,0 +1,798 @@
+﻿/* Global styles */
+
+body{
+	background:#efefef;
+	min-width:800px;
+	min-height:600px;
+	overflow:hidden;
+}
+
+body, select, input, textarea{
+	font-family: Verdana, Arial;
+	font-size: .8em;
+}
+
+h1{
+	float:right;
+	margin:10px 10px 0 0;
+	font-family:Arial;
+	font-weight:700;
+	font-size:1.3em;
+	color:#003865;
+}
+
+h2
+{
+	text-align:right;
+	font-family:Consolas;
+	margin:-15px 10px 0 0;
+	color:#ccc;
+}
+
+h3 {
+	font-family:Arial;
+	font-weight:600;
+	font-size:1.2em;
+	margin-bottom:10px;
+}
+
+h4 {
+	font-family:Arial;
+	font-weight: 500;
+	font-size:1.1em;
+    margin: 20px 0 20px 0;
+}
+
+a{
+	color: #003865;
+	text-decoration: underline;
+}
+
+a:visited{
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+fieldset {
+	margin-bottom:10px;
+    padding: 10px;
+	background: #fff;
+	border: 1px solid #ccc;
+	min-width: 780px;
+}
+
+fieldset legend {
+	font-weight: bold;
+	margin-bottom:10px;
+}
+
+input[type="text"]
+{
+	font-family: Arial, Sans-Serif;
+	font-size: 13px;
+	padding: 1px;
+	border: solid 1px #888888;
+	background-image: url( '../../images/inputbg.png' );
+	background-repeat: repeat-x;
+	background-position: top;
+}
+
+input[type="text"]:focus
+{
+	background-image: none;
+	background-color: #ffffff;
+	border: solid 1px #33677F;
+}
+
+input[type="password"]
+{
+	font-family: Arial, Sans-Serif;
+	font-size: 13px;
+	padding: 1px;
+	border: solid 1px #888888;
+	background-image: url( '../../images/inputbg.png' );
+	background-repeat: repeat-x;
+	background-position: top;
+}
+
+input[type="password"]:focus
+{
+	background-image: none;
+	background-color: #ffffff;
+	border: solid 1px #33677F;
+}
+
+select, textarea
+{
+	font-family: Arial, Sans-Serif;
+	font-size: 13px;
+	padding: 1px;
+	border: solid 1px #888888;
+	background-image: url( '../../images/inputbg.png' );
+	background-repeat: repeat-x;
+	background-position: top;
+}
+
+textarea:focus
+{
+	background-image: none;
+	background-color: #ffffff;
+	border: solid 1px #33677F;
+}
+
+input[type="submit"], button, .datashopBtn
+{
+	cursor: pointer;
+	border: outset 1px #ccc;
+	color: #444;
+	padding: 3px 4px 3px 4px;
+	background: url('../../images/buttonbg.png') repeat-x left top;
+}
+
+input[type="submit"]:hover, button:hover
+{
+	background: url('../../images/buttonbghover.png') repeat-x left top;
+}
+
+input[type="submit"][disabled]
+{
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.5;
+	-khtml-opacity: 0.5;
+	opacity: 0.5;
+}
+
+input[type="submit"][disabled]:hover
+{
+	background: url('../../images/buttonbg.png') repeat-x left top;
+	cursor: default;
+}
+
+/* End Global styles */
+
+/* Header styles */
+#header{
+	height:100px;
+	border-bottom:1px solid #ccc;
+	position:fixed;
+	width:100%;
+	min-width:800px;
+	background:#fff;
+}
+
+#header a.logo{
+	margin-left:5px;
+}
+
+img.datashopIcon{
+	float:left;
+	margin:10px 5px 0 5px;
+}
+			
+#loginStatus{
+	padding:15px 0 0 10px;
+}
+
+#loginStatus li
+{
+	float:left;
+	padding:0 2px 0 2px;
+}
+
+#topbar{
+	background:url(../../images/balk_wide.png) repeat-x;
+	height:43px;	
+}
+
+ul.languageSelector {
+	list-style: none;
+	float:right;
+	margin-right:10px;
+}
+				
+ul.languageSelector li {
+	float:left;
+}
+				
+a.languageSelectorSelected {
+	font-weight: bold;
+}
+
+
+/* End Header styles */
+
+/* Breadcrumb styles */
+
+#breadcrumb{
+	padding:10px 5px 0 5px;
+	border-bottom:1px solid #ccc;
+	position:fixed;
+	top:100px;
+	width:100%;
+	min-width:800px;
+}
+
+#breadcrumb ul{
+	height:25px;
+}
+
+#breadcrumb ul li{
+	padding:2px;
+	float:left;
+}
+
+a.helpBtn{
+	float:right;
+	margin:-30px 10px 0 0;
+}
+
+a.profileHelp {
+	float:right;
+}
+
+a.helpBtn, a.profileHelp img{
+	height:24px;
+	width:24px;
+}
+
+/* End Breadcrumb styles */
+
+/* Content Container Styles */
+
+#leftColumn{
+	top:136px;
+	width:400px;
+	float:left;
+    overflow: auto;
+    overflow-x: hidden;
+	position: absolute;
+	bottom: 0px;
+}
+
+#rightColumn{
+	background:#fff;
+	left:400px;
+	overflow:auto;
+	top:136px;
+	bottom:0px;
+	right:0px;
+	position:absolute;
+}
+
+#fullColumn{
+	background:#fff;
+	top:136px;
+	bottom:0px;
+	right:0px;
+	left:0px;
+	position:absolute;
+	overflow:auto;
+	padding: 10px;
+}
+
+#iframeHelp {
+    height: 420px;
+    width: 700px;
+}
+
+/* End Content Container Styles */
+
+/* Content Styles */
+
+.requiredElement
+{
+	background: #FFFFCC !important;
+}
+
+.formElementLabel
+{
+	display: inline-block;
+	text-align: right; 
+	padding-right: 10px;
+	width: 170px;
+	margin-top: 10px;
+}
+
+.formElementLabel.calendar
+{
+    padding-right:5px;
+}
+
+fieldset.groupBox.plots {
+    min-width: 1100px;    
+}
+
+fieldset.createUserDialog {
+    min-width: 760px;
+}
+
+.registerBusinessUserPage-custom-edit
+{
+	width: 145px;
+	margin-right: 40px;
+	margin-top: 5px;
+	vertical-align: top;
+}
+
+fieldset input[type="submit"] {
+	margin: 20px 0 0 180px;
+}
+
+fieldset input[type="submit"].noIndent {
+    margin-left:0px;    
+}
+
+table.login {
+    width: 100%;    
+}
+
+.welcome_page_image
+{
+	float: right;
+	width:30px;
+	height:30px;
+	margin-right:10px;
+}
+
+.plotSearchCalendar {
+    width: 164px;
+}
+
+ .datashopGridView {
+     margin-top:10px;
+     border-spacing: 1px;
+     border: 1px solid #eee;    
+ }
+
+ .datashopGridView tr.row td{
+     height: 20px;
+     border: 1px solid #ccc;
+     padding-left:5px;
+     padding-right:5px;
+}
+
+.row td{
+    background: #fff;
+}
+        
+.alt td
+{
+    background: #eee;    
+}
+        
+.header 
+{
+    padding: 5px;
+    padding-right:15px;
+    height:20px;
+    font-size: 1em;
+    font-weight:bold;
+    text-align:left;
+    border-color: #eee;
+    background: #eee;
+}
+        
+.header a:hover {
+    text-decoration: none;
+}
+        
+.header .ascending {
+    background: url(../../images/arrowup.png) no-repeat right;
+}
+        
+.header .descending {
+    background: url(../../images/arrowdown.png) no-repeat right;
+}
+        
+.pager td{
+    background: #eee;
+    border-color: #eee;
+    font-weight:bold;
+    padding: 5px;
+}
+
+.pager td a{
+}
+        
+.download {
+    width:20px;
+    text-align: center;
+}
+
+
+
+/* End Content Styles */
+
+/* Plot Toolbar Styles */
+
+#navToolbar {
+    min-width: 600px;
+}
+
+.zoomInIcon
+{
+	width: 30px;
+	height: 30px;
+	background: url('../../images/nav/icon_zoom_in_30x30.png') bottom;
+}
+
+.zoomOutIcon
+{
+	width: 30px;
+	height: 30px;
+	background: url('../../images/nav/icon_zoom_out_30x30.png') bottom;
+}
+
+.panIcon
+{
+	width: 30px;
+	height: 30px;
+	background: url('../../images/nav/icon_pan_30x30.png') bottom;
+}
+
+.zoomFullExtIcon
+{
+	width: 30px;
+	height: 30px;
+	background: url('../../images/nav/icon_fullextent_30x30.png') bottom;
+}
+
+.centerPlotFrameIcon
+{
+	width: 30px;
+	height: 30px;
+	background: url('../../images/nav/icon_center_plotframe_30x30.png') bottom;
+}
+
+.centerPlotFrameIconDisabled
+{
+	width: 30px;
+	height: 30px;
+	background: url('../../images/nav/icon_center_plotframe_30x30_disabled.png') bottom;
+}
+
+.zoomPlotFrameIcon
+{
+	width: 30px;
+	height: 30px;
+	background: url('../../images/nav/icon_zoom_plotframe_30x30.png') bottom;
+}
+
+.zoomPlotFrameIconDisabled
+{
+	width: 30px;
+	height: 30px;
+	background: url('../../images/nav/icon_zoom_plotframe_30x30_disabled.png') bottom;
+}
+
+.addPlotFrameIcon
+{
+	width: 30px;
+	height: 30px;
+	background: url('../../images/nav/icon_add_plotframe_30x30.png') bottom;
+}
+
+.addPlotFrameIconDisabled
+{
+	width: 30px;
+	height: 30px;
+	background: url('../../images/nav/icon_add_plotframe_30x30_disabled.png') bottom;
+}
+
+.removePlotFrameIcon
+{
+	width: 30px;
+	height: 30px;
+	background: url('../../images/nav/icon_remove_plotframe_30x30.png') bottom;
+}
+
+.removePlotFrameIconDisabled
+{
+	width: 30px;
+	height: 30px;
+	background: url('../../images/nav/icon_remove_plotframe_30x30_disabled.png') bottom;
+}
+
+.restoreInitialMapExtentIcon, .btnIn.btnDisabled_restoreInitialMapExtentIcon
+{
+	width: 30px;
+	height: 30px;
+	background-image: url(../../images/dsToolbar/icon_fullextent_30x30.png);
+}
+
+.restoreInitialMapExtentIconDisabled, btnIn.btnDisabled_restoreInitialMapExtentIconDisabled
+{
+	width: 30px;
+	height: 30px;
+	background-image: url(../../images/dsToolbar/icon_fullextent_30x30_disabled.png);
+}
+
+.movePlotFrameIcon
+{
+	width: 30px;
+	height: 30px;
+	background: url('../../images/nav/icon_move_plotframe_30x30.png') bottom;
+}
+
+.movePlotFrameIconDisabled
+{
+	width: 30px;
+	height: 30px;
+	background: url('../../images/nav/icon_move_plotframe_30x30_disabled.png') bottom;
+}
+
+.previousMapExtentIcon
+{
+	width: 30px;
+	height: 30px;
+	background: url('../../images/nav/icon_prev_30x30.png') bottom;
+}
+
+.previousMapExtentIconDisabled
+{
+	width: 30px;
+	height: 30px;
+	background: url('../../images/nav/icon_prev_30x30_disabled.png') bottom;
+}
+
+.nextMapExtentIcon
+{
+	width: 30px;
+	height: 30px;
+	background: url('../../images/nav/icon_next_30x30.png') bottom;
+}
+
+.nextMapExtentIconDisabled
+{
+	width: 30px;
+	height: 30px;
+	background: url('../../images/nav/icon_next_30x30_disabled.png') bottom;
+}
+
+/* End Plot Toolbar Styles  */
+
+/* Map Styles */
+
+#divMap 
+{
+    position:fixed;
+    top:180px;
+    right:0px;
+    bottom:20px;
+    left:400px;
+	border-top: solid 1px Black;
+	border-bottom: solid 1px Black;
+	background-color: White;
+    overflow:hidden;
+    padding:0;
+    clip:auto;
+}
+
+.notificationActive {
+    top:205px;
+}
+
+.pdePlotSection {
+    position:fixed;
+    bottom:0px;
+    left:400px;
+    padding: 5px;
+}
+
+#notification {
+    padding:4px;
+    padding-left:25px; 
+    height:25px;
+    border-top:1px solid #000;
+    background:#FFDA00;
+    background-image:url(../../images/warning-icon.png);
+    background-repeat:no-repeat;
+    background-position:2px 2px;
+}
+
+/* End Map Styles */
+
+/* Captcha Styles */
+
+.captcha {
+	width:600px;
+	margin-top:20px;
+}
+			
+.captchaImage {
+	border: 1px solid #000 !important;
+	margin-left:180px;
+	margin-bottom:10px;
+}
+			
+.captchaInputLabel 
+{
+    display:inline-block;
+	margin-right: 10px;
+	width:170px;     
+	text-align:right;       
+}
+			
+.captchaInputField 
+{
+    clear: right;
+}
+			
+.captchaButton 
+{
+    margin-left:3px;
+    margin-top: 10px;
+    height:18px;
+    width:18px;
+    background-position: bottom;
+    border: 1px solid #000;
+}
+
+.agbs {
+	margin:20px 0 10px 177px;
+}
+
+.pds {
+	margin:20px 0 20px 177px;
+}
+
+/* End Captcha Styles */
+
+/* Request Page Styles */
+
+#request_angel_slider
+{
+    display: inline-block;
+    vertical-align: text-top;
+    margin-left: 7px;
+}
+
+.request_panel
+{
+    padding: 10px;
+    border: 1px #ddd solid;
+    margin: 10px;
+    background-color: White;
+}
+
+.request_panel_search input[type="submit"], .request_panel input[type="submit"] {
+    right:5px;
+}
+
+.request_panel_search
+{
+    padding: 10px;
+    border: 1px #ddd solid;
+    margin: 10px;
+    background-color: White;
+}
+
+.spanNoSearch {
+    background:#f00;
+    display:inline-block;
+    width: 340px;
+}
+
+.request_layout_info
+{
+    /* padding: 3px; */
+}
+
+#ctl00_MainPanelContent_sliderValue_BoundControl
+{
+    width: 40px;
+}
+
+.requestpage-custom-label
+{
+    display:inline-block;
+    width: 130px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.requestpage-label
+{
+    display:inline-block;
+    width: 130px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.requestpage-combobox,.requestpage-combobox-short
+{
+    width: 200px;
+   
+    border: solid 1px #888888 !important;
+    text-align: left;
+}
+
+.requestpage-combobox-short
+{
+    width: 178px;
+    margin-right: 0px;
+    text-align: left;
+}
+
+.requestpage-edit
+{
+    width: 175px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 3px;
+    margin-right:5px;
+    vertical-align: top;    
+    text-align: left;
+}
+
+.requestpage-control {
+    margin-bottom:10px;
+}
+
+.requestpage-inlinebuttons-control 
+{
+    width: 150px;
+    margin-top: 5px;
+    vertical-align: top;    
+    text-align: left;
+}
+
+.requestpage-inlinebuttons 
+{
+     margin-top: 6px;
+}
+
+.requestpage-description
+{
+    display:inline-block;
+    margin-bottom:5px;
+    padding: 5px;
+    line-height: 125%;
+    color: #7e7e7e;
+}
+
+.requestpage-custom-edit
+{
+    width: 197px;
+ 
+    vertical-align: top;
+}
+
+.requestpage-calender
+{
+    width: 199px;
+   
+}
+
+#calender1, #calender2, .otherCalenders
+{
+    background-image: url("../../images/requestpage/calender-icon.png");
+    background-position: right center;
+    background-repeat: no-repeat;
+    font-size: 11px;
+}
+
+.divAddUser {
+    padding-right: 12px;
+    text-align: right;
+}
+
+.btnAddUser {
+    margin-top:-5px;
+    margin-bottom: 10px;
+}
+
+.inlineHelpBtn {
+    float:right;    
+}
+
+.requestpage-subtitle
+{
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+
+/* End Request Page Styles */

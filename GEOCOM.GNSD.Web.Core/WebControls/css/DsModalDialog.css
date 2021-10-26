@@ -1,0 +1,30 @@
+﻿DIV.DSMDBox
+{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    border: solid 1px silver;
+    background-color: White;
+}
+DIV.DSMDTitle
+{
+    width: 100%;
+    height: 30px;
+    background-color: Navy;
+    color: White;
+}
+DIV.DSMDBody
+{
+}
+DIV.DSMDBackground
+{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    background-color: Silver;
+    filter: alpha(opacity=50)
+}

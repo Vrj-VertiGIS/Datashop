@@ -1,0 +1,58 @@
+﻿0 GEONIS gear
+
+7 API de mappage préparée par
+8 http://developers.arcgis.com/net
+9 Esri ArcGIS Runtime SDK for .NET
+10 © {0} Geocom Informatik SA. Tous droits réservés.
+11 GEONIS est une marque déposée de Geocom Informatik SA.
+12 Positionner carte avec coordonnées GPS
+13 Synchroniser les modifications dans le service d'entités.
+14 Recherche par...
+19 Version {0}
+24 Changement de l'état des périphériques GPS sur [{0}].
+26 GEONIS gear a trouvé plus de {0} éléments contenant votre terme de recherche. Les {0} éléments correspondants les plus proches sont affichés. Veuillez affiner la recherche.
+27 GEONIS gear a trouvé plus de {0} éléments contenant votre terme de recherche; les {0} premières correspondances sont affichées. Veuillez affiner la recherche.
+29 Journal des applications :
+33 Impossible de trouver le symbole de couche «{0}». Tentative de chargement du symbole par défaut.
+34 Impossible de trouver le symbole de couche par défaut «{0}».
+35 Chargement des couches terminé.
+36 Charge {0} couches
+37 GEONIS gear n'a trouvé aucun élément contenant votre terme de recherche. 
+38 Aucun résultat pour {0}.
+40 Effacer le filtre
+41 Activer des filtres
+
+//Icon codes
+514 
+515 
+// base layers:
+516 
+// operational layers:
+517 
+// checked-button overlay:
+518 
+// miscellaneous UI
+
+530  
+
+//Exceptions
+1001 L'initialisation des couches par configuration a échoué.
+1002 Le cache de recherche n'est pas disponible.
+1003 La couche opérationnelle n'est pas disponible.
+1004 L'initialisation du périphérique GPS a échoué avec le message suivant : {0}
+1008 Aucun couche opérationnelle n'a pu être chargée. Veuillez contrôler votre configuration.
+1009 Une couche opérationnelle doit être active.
+1010 Identification de l'erreur
+1011 Le fournisseur de données pour la couche opérationnelle est inexistant (Null).
+1012 Impossible d'initialiser la couche «{0}». Erreur : {1}
+1013 Impossible d'initialiser la couche «{0}». Veuillez vérifier dans le contenu du fichier MPK l'absence de tables et noms de table ou noms de couche apparaissant avec plus de 56 caractères dans le fichier MXD.
+1016 Impossible de lire la configuration de l'application. Veuillez vérifier le fichier journal.
+1017 Les paquets de la couche de contenu [{0}] ont des noms non valides (contenant des caractères non alphanumériques).
+
+1019 La couche n'a pas pu être désactivée. Au moins une couche doit être activée.
+1020 Impossible de désactiver les fonds de carte obligatoires : {0}.
+1021 Aucune source de données (.tpk, .mpk, .geodatabase) pour le projet {0} trouvée.
+1022 Une source de données {0} est définie dans «project_gear.xml», mais n'existe pas dans «project.xml». Veuillez vérifier le fichier journal.
+1023 Erreur dans la configuration XML «project_gear.xml». Veuillez vérifier le fichier journal.
+1024 Erreur à la lecture de la configuration XML «project_gear.xml». Veuillez vérifier le fichier journal.
+1025 La configuration XML «project_gear.xml» n'a pas pu être trouvée. Veuillez contrôler le projet «{0}».

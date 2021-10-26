@@ -1,0 +1,125 @@
+﻿//////////////////////////////////////////////////////////////
+// Texte zum DXF export UI
+//////////////////////////////////////////////////////////////
+
+10090 <Aucune couche>
+
+10100 VertiGIS DXF Export
+10101 VertiGIS DXF - Outils d'export
+10102 Fichier(s) de sortie :
+10104 Sélection des données à exporter
+10106 Fichier d'exportation :
+10108 Options de format
+10110 Version DXF :
+10112 Fichier DXF binaire (permettant de gagner de l'espace disque)
+10120 Sélectionner la version de la spécification de format AutoCAD DXF que doit respecter le fichier exporté. En cas de doute, il est recommandé de laisser la valeur par défaut.
+
+10204 Exporter uniquement les couches visibles
+10206 Limiter à la section d'écran
+10208 Exporter seulement les objets sélectionnés
+10210 Exporter les entités uniquement si elles se trouvent à l'intérieur d'un polygone de cette couche de sélection. Un fichier DXF est créé pour chaque polygone de la couche de sélection.
+10212 Couches de masquage : Permet d'exclure totalement ou partiellement des entités de l'export. Les entités désélectionnées des polygones de cette couche ne sont pas exportées.
+10214 Les entités ne sont exportées que si elles se trouvent totalement ou partiellement à l'intérieur d'un polygone de la couche indiquée ici. Pour chaque polygone (entité) de cette couche, un fichier DXF (avec numérotation continue) est créé. Cela permet d'enregistrer les zones à exporter dans une couche (d'une classe d'entités) et de regrouper les résultats de l'export par thèmes.
+10216 Les entités ne sont pas exportées si elles se trouvent totalement à l'intérieur d'un polygone de la couche indiquée ici. Les entités qui ne sont que partiellement couvertes sont découpées sur les bords des polygones de masquage.
+10220 E&xporter
+10222 &Annuler
+10224 Lancer l'export vers AutoCAD DXF. Un export en cours peut être interrompu à l'aide de l'option «Annuler». Un export en cours peut également être interrompu en cliquant sur la carte ou en appuyant sur la touche Échap.
+10226 Nom du ou des fichiers de sortie. Lorsque la couche de sélection est indiquée, ce nom est complété d'un numéro de séquence à trois chiffres. Si le nom du fichier est entré manuellement, il est repris tel qu'il a été saisi. Le nom peut éventuellement être complété d'un numéro de séquence, mais une extension de fichier, comme .DXF, n'est pas automatiquement ajoutée. 
+10228 Choix pour l'emplacement de stockage et le nom du fichier de sortie.
+10230 Écrire le fichier DXF binaire. Gain d'espace d'env. 25 %, chargement plus rapide dans AutoCAD (jusqu’à 5 fois). Veuillez vérifier si l'application qui doit lire le fichier DXF écrit ici prend en charge le DXF binaire.
+
+10300 VertiGIS DXF Export (pour ArcMap {0})
+10302 Exportation de couches de cartes vers AutoCAD DXF
+10304 Les couches de la vue cartographique actuelle peuvent être exportées vers AutoCAD DXF. Choisir si seules les couches visibles ou toutes les couches doivent être exportées. Si des entités sont sélectionnées, l'export peut être limité à cette sélection. L'export peut également être limité aux polygones d'une couche de sélection (dans ce cas, un DXF est créé pour chaque polygone). Les entités qui se trouvent dans des polygones de la couche de masquage peuvent être exclues de l'export, totalement ou partiellement.
+
+10402 Exportation vers AutoCAD DXF
+10404 Données DXF exportées vers {0}. 
+10405 Données DXF ({0} fichiers) exportées vers :
+10406 Export vers AutoCAD DXF interrompu par l'utilisateur.
+10407 {0} fichier(s) ont été créé(s) :
+10408 Voulez-vous vraiment annuler l'export vers AutoCAD DXF ?
+10410 Annulation de l'export vers AutoCAD DXF...
+10412 Pas d'export : il n'existe pas de couche ou de couche visible pour l'export.
+10420 Afficher la liste de tous les fichiers créés
+10421 Masquer la liste
+
+10510 Fichiers DXF AutoCAD (*.DXF)|*.DXF|Tous types de fichiers (*.*)|*.*
+10500 Créer le fichier DXF à partir de la vue cartographique affichée (couches visibles uniquement)
+
+10700 Licence VertiGIS DXF Export
+10702 Aucune licence valide trouvée dans le système pour VertiGIS DXF Export.\nUne licence appropriée a été trouvée, mais soit le nombre d'instances pouvant être exécutées simultanément est trop petit, soit la licence est arrivée à expiration.
+10704 Aucune licence
+10710 Une licence ArcGIS Engine ou au moins une licence de base ArcGIS Desktop est nécessaire pour l'exécution. Aucune licence valide n'a été trouvée. Fin du programme.
+10712 Une application ArcGIS (ArcGIS Engine, ArcGIS Desktop) est requise pour l'exécution. Aucune de ces applications n'a été trouvée. Fin du programme.
+
+10900 Erreur
+10902 Une couche ne peut pas être à la fois une couche de sélection d'entité et une couche de masquage d'entité.
+10903 Le volume de données à exporter est trop volumineux. Veuillez sélectionner moins de entités, limiter davantage le nombre de couches à exporter et, si possible, exporter des zones partielles. Le volume de données peut être réduite efficacement si une couche de sélection est utilisée.
+10904 Une erreur inattendue s'est produite. 
+10905 Informations sur les erreurs techniques (à transmettre au support si nécessaire)
+10906 Masquer les informations
+10907 La couche contient trop de données pour être exportée. Si possible, veuillez exporter partiellement les données (en utilisant des couches de sélection). Attention : Le fichier de sortie (.dxf) ne contiendra pas cette couche.
+10910 Impossible d'exporter la couche listée. 
+10911 Impossible d'exporter les couches listées. 
+10912 La raison est également donnée (en anglais).
+10914 Avertissement : Une ou plusieurs couches n'ont pas pu être exportées.
+10915 Couche non valide. La couche est probablement introuvable dans la base de données connectée.
+10916 Aucune autre information sur l'erreur n'est disponible.
+
+10922 {0} n'est pas pris en charge. La couche sera ignorée.
+10924 Représentations
+10925 Couche de dimension 
+10926 Couche de fond de carte
+10927 Couche raster 
+10928 Couche
+10930 Couche d'entités
+10932 Type de géométrie non supporté
+
+10940 Ensemble de définition invalide 
+10942 Ensemble de définition invalide - le champ {0} n'existe pas !
+10944 Exception COM 
+
+
+40920 Plus d'informations dans :
+
+11002 Aide
+11004 Documents
+11006 Afficher l'aide HTML «{0}».
+
+//////////////////////////////////////////////////////////////
+// Texte zum DXF export batch runner
+//////////////////////////////////////////////////////////////
+
+20110 Nom du fichier de carte (.mxd) à partir duquel des données doivent être exportées (fichier ou fichier avec indication du chemin).
+20112 Nom du fichier DXF (.dxf) dans lequel des données doivent être exportées (fichier ou fichier avec indication du chemin).
+20114 Nom d'une couche (de polygones) (à partir du fichier de carte). Seules les données figurant dans un polygone de cette couche sont exportées.
+20116 Nom d'une couche (de polygones) (à partir du fichier de carte). Les données figurant dans un polygone de cette couche ne sont pas exportées (découpées).
+20118 Si cette option a la valeur True, seules les couches visibles sont exportées.
+20120 Échelle de la carte (1:n), par ex. 500 pour 1:500, 1000 pour 1:1000, etc. Par défaut, l'échelle de référence de la carte est utilisée.
+
+20210 La couche {0} n'est pas une couche (valide) qui peut être utilisée comme couche de sélection.
+20212 La couche {0} n'est pas une couche (valide) qui peut être utilisée comme couche de masquage.
+20213 Chemin/nom de fichier formellement incorrect pour le fichier de sortie ({0}).
+20214 Aucun document ou une carte ArcMap (MXD) inexistante a été spécifiée pour la lecture. Veuillez contrôler le chemin d'accès.
+20216 Le fichier spécifié ({0}) ne contient pas de carte ArcMap (MXD) valide.
+20218 La carte ArcMap spécifiée ({0}) est protégée par mot de passe. Les cartes protégées par mot de passe ne sont pas prises en charge.
+20220 La carte ArcMap spécifiée ({0}) ne contient pas de couche.
+20222 Aucun fichier de sortie (DXF) n'a été spécifié.
+// Duplicted with 20213 #20223 Formal ungültiger Pfad/Dateiname für die Ausgabedatei (DXF).
+20224 Le répertoire ({0}) pour l'enregistrement du fichier de sortie (DXF) n'existe pas.
+20226 Un fichier DXF portant le nom {0} existe déjà.
+20228 Échelle de la carte invalide. Doit être numérique (virgule flottante) et être compris dans la plage [1.0 .. 1.0E9].
+20230 Erreur lors du chargement des composants DXFWriter : \n{0}.
+20232 Erreur de paramètre : {0}
+20234 Version de format DXF incorrecte. Les versions antérieures à DXF pour AutoCAD 2000 ne sont pas prises en charge.
+20240 VertiGIS DXF Export - Version {0}
+20299 Erreur inconnue\n{0}
+
+//////////////////////////////////////////////////////////////
+// Logging (z.b. Logfile) - für UI wie batch relevant
+//////////////////////////////////////////////////////////////
+30100 Exportation terminée avec avertissement(s) :
+30102 Exportation interrompue avec erreur(s) :
+30104 Chemin/nom de fichier formellement incorrect pour le fichier journal ({0}).
+30106 Impossible d'enregistrer le fichier journal car le répertoire spécifié n'existe pas.
+

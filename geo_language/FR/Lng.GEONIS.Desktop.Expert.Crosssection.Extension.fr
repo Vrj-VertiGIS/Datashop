@@ -1,0 +1,8 @@
+////////////////////////////////////////////////////////////////////////
+// Create Crosssection Baseline Command
+1000 GEONIS Electro
+1010 Créer ligne de base de coupe
+1020 Démarrer un outil pour créer une nouvelle ligne de base pour une coupe.
+1030 Crée une nouvelle ligne de base de coupe 
+1050 Impossible de trouver l'outil GEONIS «Nouvelle entité». \nVeuillez vérifier si GEONIS expert est installé et si l'outil «GNTools.NeuFeature» existe.
+1060 L'outil GEONIS «Nouvelle entité» ne prend pas en charge l'interface IFuncCall.\nVeuillez vérifier si la version correspondante de GEONIS expert a été installée.

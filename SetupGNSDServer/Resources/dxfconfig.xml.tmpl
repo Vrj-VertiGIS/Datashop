@@ -1,0 +1,31 @@
+<dxf>
+  <!-- Multiple Dxf Exports possible -->
+  
+  <!-- 	
+	name:			Definition name. Is displayed in the profile combobox on the user interface.
+	description:	Profile description. Is displayed on the user interface
+	visibleOnly:	true/false: if true: only the layers that are set to "visible" will be exported
+	saveSymbol:		true/false: if true: points are exported with symbols if block definitions exist
+	symbolAsFont:	true/false: if true: symbols are defined as character instead as block
+	clipHoles:		true/false: if true: areas with holes are exported as one area (if false: as many areas)
+	clipBoundaries:	true/false: if true: data are clipped on the edge of export polygon (if false: data that are not entirely in the polygon are exported entirely) 
+	textLineSpacing:for multiline text: 0: text overlaying. 100: classical line space
+	referenceScale:	referencescale for data display
+	lyrFilePath:	path to export lyrfile with lyrfilename included file extension
+	blockPath:		path to block definition folder
+  
+  -->
+  
+	<dxfexport 
+		name="DXF EXPORT NAME"
+		description="DXF-Export der Daten gemäss Norme"
+		visibleOnly="true"     
+		saveSymbol="true"
+		symbolAsFont="false"
+		clipHoles="false"
+		clipBoundaries="true"
+		textLineSpacing="130"
+		referenceScale="200"
+		lyrFilePath="c:\Datashop\profiles\LYRFILENAME.lyr"
+		blockPath="c:\Datashop\profiles\DXF\Blocks\" />
+</dxf>

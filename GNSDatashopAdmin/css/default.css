@@ -1,0 +1,621 @@
+html
+{
+	height: 100%;	
+}
+
+body 
+{
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, sans-serif;
+	background: #ffffff url(../images/master/background-left.png) top left repeat-y;
+	min-width: 750px;
+	height: 100%;
+	/*font-size: 13px;*/
+}
+table 
+{
+    font-size: 100%;
+}
+p 
+{
+	margin: 0px;
+	margin-bottom: 15px;
+	padding: 0px;
+}
+
+div
+{
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+h1
+{
+	margin-top: 5px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+
+
+#master_header
+{
+	font-weight: bold;
+	color: #ffffff;	
+	height: 82px;
+	background: #165d8d url(../images/master/master_header_bg.png) top left no-repeat;
+	border-bottom: 1px black solid;
+}
+
+#master_title
+{
+	position: absolute;
+	left: 160px;
+	top: 19px;
+	font-size: 29px;
+}
+
+#master_subtitle
+{
+	position: absolute;
+	left: 160px;
+	top: 55px;
+	text-indent: 2px;
+	font-size: 13px;
+}
+
+#master_icon
+{
+	position: absolute;
+	top: 10px;
+	left: 18px;
+}
+
+#master_left_panel
+{
+	width: 160px;
+	padding: 10px;
+	padding-top: 60px;
+	font-size: 13px;
+}
+
+#master_main
+{
+	border: 0px #dddddd solid;
+	position: absolute;
+	top: 102px;
+	padding: 10px;
+	left: 180px;
+}
+
+.master_homelink{/*display:none;*/}
+.master_tempuserlink{/*display:none;*/}
+.master_bizuserlink{/*display:none;*/}
+.master_activateuserlink{/*display:none;*/}
+.master_joblink{/*display:none;*/}
+.master_archivelink{/*display:none;*/}
+.master_utilslink{/*display:none;*/}
+
+.welcome_button_area
+{
+	height: 70px;
+	line-height: 70px;	
+	vertical-align: baseline;
+}
+
+.home_links
+{
+	margin-left:30px;
+}
+
+
+#ctl00_MainPanelContent_ImgBtnTempUser,
+#ctl00_MainPanelContent_ImgBtnProUser
+{
+	vertical-align: middle;
+	margin-right: 10px;
+}
+#ctl00_MainPanelContent_pAGB
+{
+	margin-top: 20px;
+	margin-bottom: 10px;
+	padding: 10px;
+	width: 90%;
+	border: 1px #dddddd solid;
+}
+#login_agb_download
+{
+	padding-top: 5px;
+	text-indent: 20px;
+	height: 20px;
+	line-height: 20px;	
+	vertical-align: baseline;	
+}
+
+.page_title
+{
+	font-size:13px;
+	font-weight:bold;
+	margin-bottom:20px;
+}
+
+.request_left_container
+{
+	float: left;
+	margin-right: 10px;
+	position: absolute;
+	left:0px;
+	height: auto;
+}
+
+.request_panel
+{
+	padding: 10px;
+	border: 1px #dddddd solid;
+	margin-bottom: 10px;
+	background-color: White;
+	width: 350px;
+}
+.search_panel
+{
+	padding: 10px;
+	border: 1px #dddddd solid;
+	margin-bottom: 10px;
+	background-color: White;
+	width:644px;
+}
+
+.request_layout_info
+{
+    /* padding: 3px; */
+}
+
+#request_information
+{
+	width: 350px;
+}
+
+#request_search
+{
+	width: 350px;
+}
+#request_search p
+{
+	margin-bottom: 2px;
+}
+
+#request_commit
+{
+	width: 350px;
+}
+
+#request_mapControl
+{
+	float: left;
+}
+
+.map_panel
+{
+    border: 1px #dddddd solid;
+    padding: 0px;
+    position:absolute; 
+ }
+
+.map_canvas
+{
+    position:absolute; 
+    overflow:hidden;
+}
+
+/*
+.map_size
+{
+    left:400px; 
+    width:400px; 
+}
+*/
+#MessagePanel 
+{
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, sans-serif;
+	position:absolute;
+	width:350px;
+	height:150px;
+	visibility:hidden;
+    border: 1px #222222 solid;
+    background-color:Transparent;
+}
+
+#MessagePanelHeader
+{
+	padding: 3px;
+	height:16px;
+    width: 344px;
+	background: #165d8d url(../images/master/master_header_bg.png) top left repeat;
+}
+
+#MessagePanelMsg
+{
+	position:relative;
+	padding: 5px;
+	background: #ffffff ;
+    border: 1px #dddddd solid;
+	width:338px;
+	height:116px;
+	text-align:center;
+}
+
+.requestpage-combobox
+{
+	width:200px;
+	margin-bottom:5px;
+} 
+
+.requestpage-housenr
+{
+	width: 75px;
+	margin-bottom:5px;
+} 
+
+/*#mapCanvas
+{
+	position:absolute;
+	width:400px;
+	height:400px;
+	background-color: White;
+}
+*/
+#drawCanvas
+{	
+	position:absolute; 
+    filter:alpha(opacity=50);
+	opacity:0.5; 
+	overflow:hidden;
+	width:0px;   /* ?? */
+	height: 0px;	
+}
+
+input[type="text"]
+{
+    font-family: Arial, Sans-Serif;
+    font-size: 13px;
+    padding: 1px;
+    border: solid 1px #888888;
+    background-image: url( '../images/inputbg.png' );
+    background-repeat: repeat-x;
+    background-position: top;
+}
+
+input[type="text"]:focus
+{
+    background-image: none;
+    background-color: #ffffff;
+    border: solid 1px #33677F;
+}
+
+input[type="password"]
+{
+    font-family: Arial, Sans-Serif;
+    font-size: 13px;
+    padding: 1px;
+    border: solid 1px #888888;
+    background-image: url( '../images/inputbg.png' );
+    background-repeat: repeat-x;
+    background-position: top;
+}
+
+input[type="password"]:focus
+{
+    background-image: none;
+    background-color: #ffffff;
+    border: solid 1px #33677F;
+}
+
+select, textarea
+{
+    font-family: Arial, Sans-Serif;
+    font-size: 13px;
+    padding: 1px;
+    border: solid 1px #888888;
+    background-image: url( '../images/inputbg.png' );
+    background-repeat: repeat-x;
+    background-position: top;
+}
+
+ textarea:focus
+{
+    background-image: none;
+    background-color: #ffffff;
+    border: solid 1px #33677F;
+}
+
+input[type="submit"], button {
+	cursor:pointer;
+	border:outset 1px #ccc;
+	color:#444;
+	padding: 1px 2px;
+	background:url('../images/buttonbg.png') repeat-x left top;
+}
+
+input[type="submit"][disabled], button {
+	cursor:default;
+	border:outset 1px #ccc;
+	color:#444;
+	padding: 1px 2px;
+	background:url('../images/buttonbg_dis.png') repeat-x left top;
+}
+
+input[type="submit"]:hover, button {
+	cursor:pointer;
+	border:outset 1px #ccc;
+	background-color: #666;
+	color:#444;
+	padding: 1px 2px;
+	background:url('../images/buttonbghover.png') repeat-x left top;
+}
+
+input[type="submit"][disabled]:hover, button {
+	cursor:default;
+	border:outset 1px #ccc;
+	background-color: #666;
+	color:#444;
+	padding: 1px 2px;
+	background:url('../images/buttonbg_dis.png') repeat-x left top;
+}
+
+/* begin JobDetail.aspx */
+
+#jobDetail_details
+{
+}
+
+.jobDetail_job
+{
+	float:left;
+	width:400px;
+	vertical-align:top;
+}
+
+.jobDetail_free1:before
+{
+	content:"SAP-Auftragsnummer";
+}
+.jobDetail_free2:before
+{
+	content:"Freier Text";
+}
+
+.jobDetail_user
+{
+	width:400px;
+	vertical-align:top;
+}
+
+.jobDetail_gridtitle
+{
+	padding-top:10px;
+	padding-bottom:6px;
+	font-weight: bold;
+}
+
+.jobDetail_actionbutton
+{
+	margin-top:10px;
+	margin-bottom:6px;
+}
+
+.jobDetail_actions
+{
+	margin: 10px;
+}
+
+.clearfix
+{
+	clear:both;
+	height:0.1px;
+	font-size:0;
+	line-height:0;
+}
+
+#jobDetail_centerpanel
+{
+	padding-top:20px;
+}
+
+#jobDetail_mapPanel_left
+{
+	float:left;
+	width:400px;
+}
+
+.jobDetail_addComment
+{
+	padding:20px;
+	width:300px;
+}
+
+#jobDetail_buttons
+{
+	padding:20px;
+	width: 350;
+	margin-bottom:200px;
+}
+
+#jobDetail_mapPanel_right
+{
+	margin-left:400px;
+	height:490px;
+}
+
+#jobDetail_map
+{
+	width:400px;
+	padding: 1px; 
+	border: 1px solid royalblue;
+}
+
+#jobDetail_mapText
+{
+	padding-bottom:20px;
+	padding-left:10px;
+}
+
+.jobDetail_row
+{
+	background: lightblue;
+}
+
+.jobDetail_alternatingrow
+{
+	background:white;
+}
+
+.jobDetail_user
+{
+	width:430px;
+}
+	
+.jobDetail_row
+{
+	background:#F7F6F3;
+	color: #333333;
+}
+
+.jobDetail_header
+{
+	background: #E9ECF1;
+	font-weight: bold;
+	color:Black;
+}
+
+#JobDetail_logs
+{
+}
+
+
+/* end  JobDetail.aspx */
+
+
+#loginStatus
+{
+	font-size: 13px;
+	font-weight:bold;
+}
+#loginName
+{
+	font-size: 13px;
+}
+#
+.login
+{
+	position:absolute;
+	left: 30px;
+	top: 50px;
+	width: 800px;
+	height:200px;
+	
+}
+
+.floatRigth
+{
+	float:right;	
+}
+
+.bottomGridView
+{
+	margin-top:6px;
+}
+
+.tableOfContent
+{
+	line-height:25px;
+}
+
+input.searchButton {
+cursor:pointer;
+	border:outset 1px #ccc;
+	color:#444;
+	padding: 1px 2px;
+	background:url('../images/buttonbg.png') repeat-x left top;
+}
+
+a:link {  color: maroon; text-decoration: none}
+a:visited {  color: maroon; text-decoration: none}
+a:hover {  color: maroon; text-decoration: underline }
+
+/* navigation toolbar */
+.zoominIcon
+{
+    width: 30px;
+    height: 30px;
+    background: url('../images/nav/icon_zoom_in_30x30.png') bottom;
+}
+
+.zoomoutIcon
+{
+    width: 30px;
+    height: 30px;
+    background: url('../images/nav/icon_zoom_out_30x30.png') bottom;
+}
+
+.panIcon
+{
+    width: 30px;
+    height: 30px;
+    background: url('../images/nav/icon_pan_30x30.png') bottom;
+}
+
+.dijitStretch {
+    background-repeat: repeat-x;
+    white-space: nowrap;
+  /*  width: 30px; */
+}
+/* awi: and here are all the style data that where embeded in the declarative part */
+.btnInfo 
+{
+    margin-top: 6px; 
+    margin-bottom: 6px;
+}
+.txbInfo 
+{
+    width: 75%; 
+    height: 40px;
+    margin-right: 10px;
+}
+.btnUploadFile 
+{
+    margin-left: 20px; 
+    margin-right: 10px;
+}
+.divJobControl 
+{
+    vertical-align: middle;
+}
+.btnRestart 
+{
+    margin-left: 10px;
+}
+.lblRestart
+{
+    margin-left: 30px;
+}
+.lblTemplateError 
+{
+    color: #FF3300;
+    font-weight: bold;
+}
+.MapPanel 
+{
+    height: 500px;
+    padding-top: 10px;
+}
+.divMapToolbar 
+{
+    border: solid 1px silver;
+}
+.divMap
+{
+    height: 460px;
+}

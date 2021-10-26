@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" 
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Fragment>
+
+    <?define FlexNet = "$(var.SolutionDir)\..\FlexNet\" ?>
+    <?define FlexNetX86 ="$(var.FlexNet)x86\i86_n3\" ?>
+
+    <ComponentGroup Id="FlexNetComponentssX86" Directory="INSTALLFOLDERLCX86" >
+      <!-- Components specifically for x86 platform -->
+      <Component Id="_CPGeoLmClient_x86" Guid="9FBA5163-FA58-429D-80A1-D9B7D890ACCF" Shared="yes" >
+        <File Id="_FIGeoLmClient_x86" Name="$(var.GeoLmClient_x86.TargetFileName)" Source="$(var.GeoLmClient_x86.TargetPath)" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPGeoLmClientFNP_x86" Guid="5A5E9E22-4480-4BE5-B4BA-A56F36864BA6" Shared="yes" >
+        <File Id="_FIGeoLmClientFNP_x86" Name="geolmclientFNP.dll" Source="$(var.GeoLmClient_x86.TargetDir)" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPGeoLmClientLicenseBrowser_x86" Guid="EB0525A3-390D-48C5-8A26-190B3CD99A66" Shared="yes" >
+        <File Id="_FIGeoLmClientLicenseBrowser_x86" Name="$(var.GeoLmClientLicenseBrowser_x86.TargetFileName)" Source="$(var.GeoLmClientLicenseBrowser_x86.TargetPath)" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPFNPActInstaller_x86" Guid="DD5A2B07-A4FF-4963-BCC7-E6099212FDFB" Shared="yes" >
+        <File Id="_FIFNPActInstaller_x86" Name="FNP_Act_Installer.dll" Source="$(var.FlexNetX86)" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPFNPCommsSoap_x86" Guid="6710832C-CC28-452D-BCE9-3E6A8EF41F9C" Shared="yes" >
+        <File Id="_FIFNPCommsSoap_x86" Name="FnpCommsSoap.dll" Source="$(var.FlexNetX86)" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPInstallAnchorSVC" Guid="EF6FCB2D-6172-4F9B-AF1E-7F96ED72818F" Shared="yes" >
+        <File Id="_FIInstallAnchorSVC_x86" Name="installanchorservice.exe" Source="$(var.FlexNetX86)" KeyPath ="yes" />
+      </Component>
+      <Component Id="_CPInstallAnchorSVCMF_x86" Guid="C10EACD5-BB35-42CA-8498-F3F62C60045C" Shared="yes" >
+        <File Id="_FIInstallAnchorSVCMF_x86" Name="installanchorservice.exe.manifest" Source="$(var.FlexNetX86)" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPuninstallAnchorSVC_x86" Guid="FD8F2F9A-41C0-4184-A246-4E6BC61DEF27" Shared="yes" >
+        <File Id="_FIuninstallAnchorSVC_x86" Name="uninstallanchorservice.exe" Source="$(var.FlexNetX86)" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPuninstallAnchorSVCMF_x86" Guid="4A0CACFA-3F38-4ADE-950A-6C770E0D01B2" Shared="yes" >
+        <File Id="_FIuninstallAnchorSVCMF_x86" Name="uninstallanchorservice.exe.manifest" Source="$(var.FlexNetX86)" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+
+    <Binary Id="FnpActInstaller" SourceFile="$(var.FlexNetX86)FNP_Act_Installer.dll" />
+
+  </Fragment>
+</Wix>

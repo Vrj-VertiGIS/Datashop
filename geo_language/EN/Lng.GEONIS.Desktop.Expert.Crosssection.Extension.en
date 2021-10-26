@@ -1,0 +1,8 @@
+////////////////////////////////////////////////////////////////////////
+// Create Crosssection Baseline Command
+1000 GEONIS Electro
+1010 Create cross-section baseline
+1020 Starts a tool that creates a new baseline for a cross-section.
+1030 Creates a new cross-section baseline 
+1050 The GEONIS tool "New feature" could not be found. \nPlease check, whether GEONIS expert is installed and the tool "GNTools.NeuFeature" exists.
+1060 The GEONIS tool "New feature" does not support the "IFuncCall" interface.\nPlease check, whether the correct version of GEONIS expert is installed.

@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="GEOCOM.GNSDatashop.Model"
+                   namespace="GEOCOM.GNSDatashop.Model">
+
+  <!-- more mapping info here -->
+  <class name="GEOCOM.GNSDatashop.Model.UserData.User" table="gnsd_users" >
+    <id name="UserId" column="UserID" type="long" unsaved-value="-1">
+      <generator class="native">
+        <param name="sequence">SEQ_GNSD_USERS_ID</param>
+      </generator>
+    </id>
+    <property name="Salutation" column="Adress"/>
+    <property name="FirstName" column="Firstname" />
+    <property name="LastName" column="Lastname"/>
+    <property name="Email" column="Email"/>
+    <property name="Street" column="Street"/>
+    <property name="StreetNr" column="Streetnr"/>
+    <property name="CityCode" column="Citycode"/>
+    <property name="City" column="City"/>
+    <property name="Company" column="Company"/>
+    <property name="Tel" column="Tel"/>
+    <property name="Fax" column="Fax"/>
+    <property name="BizUserId" column="BIZUSER"/>
+    <many-to-one column="BIZUSER" name="BizUser" class="GEOCOM.GNSDatashop.Model.UserData.BizUser" fetch="join" not-found="ignore" insert="false" update="false" lazy="false"/>
+  </class>
+
+  <class name="GEOCOM.GNSDatashop.Model.JobData.Job" table="gnsd_jobs"  >
+    <id name="JobId" column="JobId" type="long" unsaved-value="-1">
+      <generator class="native">
+        <param name="sequence">SEQ_GNSD_JOBS_ID</param>
+      </generator>
+    </id>
+    <property name="UserId" column="UserID" />
+    <property name="ReasonId" column="ReasonID" />
+    <property name="Definition" column="Definition" type="StringClob" />
+    <property name="Step" column="Step"/>
+    <property name="State" column="Status"/>
+    <property name="NeedsProcessing" column="NeedsProcessing"/>
+    <property name="IsActive" column="IsActive"/>
+    <property name="JobOutput" column="JobOutput"/>
+    <property name="ProcessId" column="ProcessID"/>
+    <property name="MachineName" column="MachineName" />
+    <property name="ProcessingUserId" column="Processing_UserID"/>
+    <property name="ProcessorClassId" column="Processor_ClassID"/>
+    <property name="Custom1" column="Custom1"/>
+    <property name="Custom2" column="Custom2"/>
+    <property name="Custom3" column="Custom3"/>
+    <property name="Custom4" column="Custom4"/>
+    <property name="Custom5" column="Custom5"/>
+    <property name="Custom6" column="Custom6"/>
+    <property name="Custom7" column="Custom7"/>
+    <property name="Custom8" column="Custom8"/>
+    <property name="Custom9" column="Custom9"/>
+    <property name="Custom10" column="Custom10"/>
+    <property name="PeriodBeginDate" column="PeriodBeginDate"/>
+    <property name="PeriodEndDate" column="PeriodEndDate"/>
+    <property name="Description" column="Description"/>
+    <property name="ParcelNumber" column="ParcelNumber"/>
+    <property name="Municipality" column="Municipality"/>
+    <property name="CenterAreaX" column="CenterAreaX"/>
+    <property name="CenterAreaY" column="CenterAreaY"/>
+    <property name="DownloadCount" column="DownloadCount"/>
+    <property name="MapExtentCount" column="MapExtentCount"/>
+    <property name="IsArchived" column="IsArchived" type="YesNo" length="1"/>
+    <property name="GeoAttachmentsEnabled" column="GeoAttachmentsEnabled" />
+    <property name="CreateDate" column="Createdate"/>
+    <property name="LastStateChangeDate" column="Statedate"/>
+    <property name="DxfExport" column="DxfExport"/>
+    <one-to-one name="SurrogateJob" class="GEOCOM.GNSDatashop.Model.JobData.SurrogateJob" property-ref="JobId" cascade="all"/>
+  </class>
+
+  <class name="GEOCOM.GNSDatashop.Model.JobData.JobLog" table="gnsd_jobs_log" >
+    <id name="Id" column="Id" type="long" unsaved-value="-1">
+      <generator class="native">
+        <param name="sequence">SEQ_GNSD_JOBS_LOG_ID</param>
+      </generator>
+    </id>
+    <property name="JobId" column="JobId"/>
+    <property name="Timestamp" type="Timestamp" />
+    <property name="Message" column="Message" />
+    <property name="Step" column="Step"/>
+    <property name="State" column="Status"/>
+    <property name="NeedsProcessing" column="NeedsProcessing"/>
+    <property name="IsActive" column="IsActive"/>
+  </class>
+
+  <class name="GEOCOM.GNSDatashop.Model.PlotSection" table="gnsd_plot_sections"  >
+    <id name="Id" column="Id" type="long" unsaved-value="-1">
+      <generator class="native">
+        <param name="sequence">SEQ_GNSD_PLOT_SECTIONS_ID</param>
+      </generator>
+    </id>
+    <property name="Name" column="Name" />
+    <property name="Description" column="Description" />
+    <property name="VisibleGroupLayers" column="VisibleGroupLayers" />
+  </class>
+
+  <class name="GEOCOM.GNSDatashop.Model.Plotdefinition" table="gnsd_plotdefinitions" >
+    <composite-id name="PlotdefinitionKey" class="GEOCOM.GNSDatashop.Model.PlotdefinitionKey">
+      <key-property name="MediumCode" column="MediumCODE"/>
+      <key-property name="Template" column="Template" />
+    </composite-id>
+    <property name="PlotHeightCm" column="PlotHeightCM"/>
+    <property name="PlotWidthCm" column="PlotWidthCM"/>
+    <property name="Description" column="Description" />
+    <property name="Roles" column="Roles"/>
+    <property name="LimitsTimePeriods" column="LimitsTimePeriods"/>
+    <property name="Limits" column="Limits"/>
+  </class>
+
+  <class name="GEOCOM.GNSDatashop.Model.Reason" table="gnsd_reasons" >
+    <id name="ReasonId" column="ReasonID">
+      <generator class="native">
+        <param name="sequence">SEQ_GNSD_REASONS_ID</param>
+      </generator>
+    </id>
+    <property name="Description" column="Description" />
+    <property name="PeriodDateRequired" column="PeriodDateRequired"/>
+  </class>
+
+  <class name="GEOCOM.GNSDatashop.Model.JobData.JobGuid" table="gnsd_jobGuid" >
+
+    <id name="Id" column="Id">
+      <generator class="native">
+        <param name="sequence">SEQ_GNSD_JOBGUID_ID</param>
+      </generator>
+    </id>
+    <property name="Guid" column="JobGuid" />
+    <property name="JobId" column="JobId"/>
+
+  </class>
+
+  <class name ="GEOCOM.GNSDatashop.Model.UserData.BizUser" table="GNSD_BIZ_USERS">
+    <id name="BizUserId" column="BIZUSERID">
+      <generator class="native">
+        <param name="sequence">SEQ_GNSD_BIZ_USERS_ID</param>
+      </generator>
+    </id>
+    <property name="Password" column="Password"/>
+    <property name="PasswordSalt" column="PasswordSalt"/>
+    <property name="Roles" column="Roles"/>
+    <property name="UserStatus" column="Status"/>
+    <property name="FailedLoginCount" column="FailedLoginCount"/>
+    <property name="BlockedUntil" column="BlockedUntil"/>
+    <property name="PasswordResetId" column="PasswordResetId"/>
+    <property name="PasswordResetIdValidity" column="PasswordResetIdValidity"/>
+  </class>
+
+  <class name ="GEOCOM.GNSDatashop.Model.JobData.JobDetails" table="GNSD_GRIDJOBVIEW" polymorphism="explicit">
+    <!-- this is implementet as a view-->
+    <id name="JobId" column="JobId">
+      <generator class="assigned">
+      </generator>
+    </id>
+    <property name="CreateDate" column="Createdate"/>
+    <property name="LastStateChangeDate" column="Statedate"/>
+    <property name="FirstName" column="Firstname"/>
+    <property name="LastName" column="Lastname"/>
+    <property name="Email" column="Email"/>
+    <property name="UserId" column="UserID"/>
+    <property name="ReasonId" column="ReasonID"/>
+    <property name="Reason" column="Reason"/>
+    <property name="Definition" column="Definition" type="StringClob"/>
+    <property name="Custom1" column="Custom1"/>
+    <property name="Custom2" column="Custom2"/>
+    <property name="Custom3" column="Custom3"/>
+    <property name="Custom4" column="Custom4"/>
+    <property name="Custom5" column="Custom5"/>
+    <property name="Custom6" column="Custom6"/>
+    <property name="Custom7" column="Custom7"/>
+    <property name="Custom8" column="Custom8"/>
+    <property name="Custom9" column="Custom9"/>
+    <property name="Custom10" column="Custom10"/>
+    <property name="Step" column="Step"/>
+    <property name="State" column="Status"/>
+    <property name="NeedsProcessing" column="NeedsProcessing"/>
+    <property name="IsActive" column="IsActive"/>
+    <property name="JobOutput" column="JobOutput"/>
+    <property name="ProcessId" column="ProcessID"/>
+    <property name="MachineName" column="MachineName" />
+    <property name="ProcessingUserId" column="Processing_UserID"/>
+    <property name="ProcessorClassId" column="Processor_ClassID"/>
+    <property name="PeriodBeginDate" column="PeriodBeginDate"/>
+    <property name="PeriodEndDate" column="PeriodEndDate"/>
+    <property name="Description" column="Description"/>
+    <property name="ParcelNumber" column="ParcelNumber"/>
+    <property name="Municipality" column="Municipality"/>
+    <property name="CenterAreaX" column="CenterAreaX"/>
+    <property name="CenterAreaY" column="CenterAreaY"/>
+    <property name="IsArchived" column="IsArchived" type="YesNo" length="1"/>
+    <property name="DownloadCount" column="DownloadCount"/>
+    <property name="MapExtentCount" column="MapExtentCount"/>
+    <property name="GeoAttachmentsEnabled" column="GeoAttachmentsEnabled" />
+    <property name="DxfExport" column="DxfExport"/>
+    <one-to-one name="SurrogateJob" class="GEOCOM.GNSDatashop.Model.JobData.SurrogateJob" property-ref="JobId" cascade="all"/>
+  </class>
+
+  <class name="GEOCOM.GNSDatashop.Model.JobData.MyJob" table="MyRepresentativeJobs">
+    <id name="JobId" column="JobId">
+      <generator class="assigned">
+      </generator>
+    </id>
+    <property name="CreatedDate" column="CreatedDate"/>
+    <property name="JobGuid" column="JobGuid"/>
+    <property name="DownloadCount" column="DownloadCount"/>
+    <property name="IsArchived" column="IsArchived" type="YesNo" length="1"/>
+    <property name="Status" column="Status"/>
+    <property name="Step" column="Step"/>
+
+    <property name="RepresentedUserId" column="RepresentedUserId"/>
+    <property name="RepresentedUserFirstName" column="RepresentedUserFirstname"/>
+    <property name="RepresentedUserLastName" column="RepresentedUserLastname"/>
+    <property name="RepresentedUserCompany" column="RepresentedUserCompany"/>
+    <property name="RepresentedUserEmail" column="RepresentedUserEmail"/>
+
+    <property name="RepresentativeUserId" column="RepresentativeUserId"/>
+    <property name="RepresentativeUserFirstName" column="RepresentativeUserFirstName"/>
+    <property name="RepresentativeUserLastName" column="RepresentativeUserLastName"/>
+    <property name="RepresentativeUserCompany" column="RepresentativeUserCompany"/>
+    <property name="RepresentativeUserEmail" column="RepresentativeUserEmail"/>
+
+    <property name="Custom1" column="Custom1"/>
+    <property name="Custom2" column="Custom2"/>
+    <property name="Custom3" column="Custom3"/>
+    <property name="Custom4" column="Custom4"/>
+    <property name="Custom5" column="Custom5"/>
+    <property name="Custom6" column="Custom6"/>
+    <property name="Custom7" column="Custom7"/>
+    <property name="Custom8" column="Custom8"/>
+    <property name="Custom9" column="Custom9"/>
+    <property name="Custom10" column="Custom10"/>
+    <property name="ReasonId" column="ReasonID"/>
+    <property name="Reason" column="Reason"/>
+    <property name="ParcelNumber" column="ParcelNumber"/>
+
+  </class>
+
+  <class name="GEOCOM.GNSDatashop.Model.JobData.SurrogateJob" table="gnsd_surrogate_jobs" >
+    <id name="Id" column="Id">
+      <generator class="native">
+        <param name="sequence">SEQ_GNSD_SURROGATE_JOBS_ID</param>
+      </generator>
+    </id>
+    <property name="JobId" column="JobId"/>
+    <property name="UserId" column="UserId"/>
+    <property name="SurrogateUserId" column="SurrogateUserId"/>
+    <property name="RequestDate" column="RequestDate"/>
+    <property name="RequestType" column="RequestType"/>
+    <property name="StopAfterProcess" column="StopAfterProcess"/>
+  </class>
+
+  <class name="GEOCOM.GNSDatashop.Model.PlacementOption" table="gnsd_placementoptions">
+    <id name="PlacementOptionId" column="PlacementOptionId">
+      <generator class="native">
+        <param name="sequence">SEQ_GNSD_PLACEMENTOPTIONS_ID</param> 
+      </generator>
+    </id>
+    <property name="Text" column="Text" />
+  </class>
+    <!--Using MSSQL function LEN()-->
+    <sql-query name="GET_PLOT_COUNT_MSSQL">
+SELECT Sum(plotcount) AS PLOTCOUNT 
+FROM   (
+        SELECT plotcountSelect.plotcount
+        FROM   gnsd_jobs 
+               JOIN gnsd_jobs_log 
+                 ON gnsd_jobs.jobid = gnsd_jobs_log.jobid 
+               JOIN gnsd_users 
+                 ON gnsd_jobs.userid = gnsd_users.userid
+               JOIN (SELECT jobid, 
+                            (Len(gnsd_jobs.definition) - Len(Replace(gnsd_jobs.definition, :TemplateName, ''))) / 
+                            Len(:TemplateName) AS plotcount -- count the templates by removing their names from xml definition and dividing the xml length change by the template name length)  
+                     FROM gnsd_jobs) plotcountSelect
+                 ON gnsd_jobs.jobid = plotcountSelect.jobid
+        WHERE  ( gnsd_users.userid = :UserId OR gnsd_users.email LIKE :Email ) 
+               AND gnsd_jobs_log.timestamp > :CreateDate   
+               AND gnsd_jobs_log.step = 0 -- only consider job start as an event 
+        GROUP  BY plotcountSelect.plotcount, gnsd_jobs.jobid
+        ) AS sumtable 
+    </sql-query>
+    <!--Using Oracle function LENGTH()--> 
+    <sql-query name="GET_PLOT_COUNT_ORACLE">
+SELECT Sum(plotcount) AS PLOTCOUNT 
+FROM   (
+        SELECT plotcountSelect.plotcount
+        FROM   gnsd_jobs 
+               JOIN gnsd_jobs_log 
+                 ON gnsd_jobs.jobid = gnsd_jobs_log.jobid 
+               JOIN gnsd_users 
+                 ON gnsd_jobs.userid = gnsd_users.userid
+               JOIN (SELECT jobid, 
+                            (Length(gnsd_jobs.definition) - Length(Replace(gnsd_jobs.definition, :TemplateName, ''))) / 
+                            Length(:TemplateName) AS plotcount -- count the templates by removing their names from xml definition and dividing the xml length change by the template name length)  
+                     FROM gnsd_jobs) plotcountSelect
+                 ON gnsd_jobs.jobid = plotcountSelect.jobid
+        WHERE  ( gnsd_users.userid = :UserId OR gnsd_users.email LIKE :Email ) 
+               AND gnsd_jobs_log.timestamp > :CreateDate   
+               AND gnsd_jobs_log.step = 0 -- only consider job start as an event 
+        GROUP  BY plotcountSelect.plotcount, gnsd_jobs.jobid 
+        )
+    </sql-query>
+</hibernate-mapping>

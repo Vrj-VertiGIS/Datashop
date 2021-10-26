@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
+  <session-factory>
+    <property name="connection.provider">GEOCOM.GNSD.DBStore.DatashopConnectionProvider,GNSDatashopDBStore</property>
+    <property name="show_sql">true</property>
+
+    <!-- Oracle -->
+    <property name="dialect">NHibernate.Dialect.Oracle10gDialect</property>
+    <property name="connection.driver_class">NHibernate.Driver.OracleDataClientDriver</property>
+
+    <!-- MS SQL Server >
+    <property name="dialect">NHibernate.Dialect.MsSql2005Dialect</property>
+    <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property-->
+
+    <!-- MySQL >
+    <property name="dialect">NHibernate.Dialect.Oracle10gDialect</property>
+    <property name="connection.driver_class">NHibernate.Driver.MySqlDataDriver</property-->
+    
+  </session-factory>
+</hibernate-configuration>

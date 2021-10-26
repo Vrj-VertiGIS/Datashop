@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      
+      <Directory Id="APPBASEDIR" > <!-- There's a RegistrySearch for that in Product.wxs -->
+        <Directory Id="INSTALLFOLDER" Name="Dxf export for ArcMap">
+          <Directory Id="USERDOCFOLDER" Name="Pdf" />
+        </Directory>
+      </Directory>
+      
+      <Directory Id="ProgramFilesFolder" >
+        <Directory Id="CommonFilesFolder">
+          <Directory Id="INSTALLFOLDERLCX86" Name="Geocom">
+            <Directory Id="INSTALLFOLDERADMIN" Name="Licensing" />
+          </Directory>
+          <Directory Id="ArcGISCommon" Name="ArcGIS">
+            <Directory Id="ArcMapCommonProgramFolder" Name="Desktop!(bind.property.ARCGISMAINVERSION)">
+              <Directory Id="ArcMapConfigFolder" Name="Configuration">
+                <Directory Id="ArcMapCATIDFolder" Name="CATID" />
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id="GEONISBASEDIR">
+        <Directory Id="GEONISDOCUDIR" Name="documentation" />
+      </Directory>
+
+      <Directory Id="DesktopFolder" />
+
+      <!-- Merge Id="_CPPRtlx86" Language="1033" SourceFile="$(env.CommonProgramFiles(x86))\Merge Modules\Microsoft_VC140_CRT_x86.msm"  DiskId="1"/> -->
+      <Merge Id="_CPPRtlx86" Language="1033" SourceFile="$(var.SolutionDir)SetupGNSDServer\MergeModules\Microsoft_VC141_CRT_x86.msm"  DiskId="1"/>
+      <!--<Merge Id="_CPPRtlx64" Language="1033" SourceFile="$(env.CommonProgramFiles(x86))\Merge Modules\Microsoft_VC140_CRT_x64.msm"  DiskId="1"/> -->
+      
+      <Merge Id="_geo_lic_client_x86" Language="1033" SourceFile="$(var.SolutionDir)SetupGNSDServer\MergeModules\geo_lic_activation_client_2017.3_x86.msm"  DiskId="1"/>
+
+    </Directory>
+  </Fragment>
+</Wix>

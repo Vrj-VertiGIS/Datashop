@@ -1,0 +1,12 @@
+﻿// Converting
+10010 Impossible de convertir la valeur [{0}] en type [Integer].
+10020 Impossible de convertir la valeur [{0}] en type [Double].
+10030 Impossible de convertir la valeur [{0}] en type [Float].
+10040 Impossible de convertir la valeur [{0}] en type [Decimal].
+10050 Impossible de convertir la valeur [{0}] en type [Bool].
+10060 Impossible de convertir la valeur [{0}] en type [Guid].
+10070 Impossible de convertir la valeur [{0}] en type [Datetime]. Le format attendu est [{1}].
+10071 Impossible de convertir la valeur [{0}] en type [Datetime].
+
+// self check for models
+10110 Le modèle [{0}] contient une propriété null/propriété vide ou ne définit pas du tout cette propriété.

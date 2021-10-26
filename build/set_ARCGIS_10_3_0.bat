@@ -1,0 +1,3 @@
+set CONFIGURATION_DIR=arcgis
+set CONFIGURATION_NAME=ARCGIS_10_3
+@set_configuration.bat

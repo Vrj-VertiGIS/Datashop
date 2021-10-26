@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+
+  <!-- ============== DATABASE ============== -->
+  <dbStore>
+    <!--  The database connection.
+          provider: System.Data.SqlClient for SQL Server
+                    Oracle.DataAccess.Client for Oracle
+          timeoutsec: Specify the default timeout in seconds.
+          connectionstring: The connection string to the database.
+                           The properties "Data Source", "Initial Catalog", "User ID" and "Password" have to be set. -->
+    <dbconnection provider="System.Data.SqlClient" timeoutsec="600" connectionstring="Data Source=host\instance;Initial Catalog=datashop_db_name;Integrated Security=False;User ID=datashop_user;Password=datashop_password" />
+  </dbStore>
+
+  <jobEngineController>
+    <!-- The scheduler settings.
+         maxjobprocesses: The maximum number of jobs running simultaneously.
+         cleaninginterval: Perform a clean-up of 'zombie' jobs and 'zombie' processes every -th polling iteration. 
+         timer -> scheduletimer: The polling interval in milliseconds.
+                                 Every xyz [ms] a new job will be started (if there is an idle job available).
+                                 At each polling cycle only one new job will be started.
+    loadbalancing -> preference: whether the jobengine takes JobIds with ODD or EVEN or NONE numbers, to help prevent multiple jobengine instances grabbing the same job.
+    -->
+    <scheduler maxjobprocesses="5" cleaninginterval="5">
+      <timer scheduletimer="2000" />
+      <loadbalancing preference="NONE" />
+    </scheduler>
+
+    <!-- ============== PATH TO JOB ENGINE ============== -->
+    <!-- The path to the job engine. Set this property to the correct path. -->
+    <jobengine path="c:\Program Files (x86)\GEOCOM\GEONIS\bin\datashop\GEOCOM.GNSD.JobEngine.exe" />
+  </jobEngineController>
+
+  <datashopWorkflow>
+
+    <!-- ============== GEODB SETTINGS ============== -->
+    <!-- The extent database settings.
+         extentdatabase -> path: Path to the sde/mdb file for the extent geodatabase connection.
+         jobextent -> featureclass: The feature class where the job extent will be saved.
+                      col_jobid: The column name where the job id (foreign key) will be saved. -->
+    <extentdatabase path="c:\Datashop\config\sde_connectionfile.sde">
+      <jobextent featureclass="GNSD_JOBEXTENTS" col_jobid="JOBID" />
+    </extentdatabase>
+
+    <!-- =========== MASKING SETTINGS =========== -->
+    <!-- 
+      path -> absolute path to the database that contains your masking featureclass
+      featureclass -> the fully qualified name of the masking featureclass, usually GNSD_MASKINGS
+      
+      NOTE: 
+      
+      If you don't have a masking database or have misconfigured the path or featureclass, don't worry. 
+      The log will show an exception but the DXF export will continue without masking
+    -->
+    <masking path="c:\Datashop\config\sde_connectionfile.sde" featureclass="datashop_2.DATASHOP_2_OWNER.GNSD_MASKINGS" />
+
+    <!-- The notification database settings.
+         notificatiodatabase -> path: Path to the sde/mdb file for the notification geodatabase connection.
+         dataownerextent -> featureclass: The feature class where the dataowner extents are stored.
+                            col_ownerid: The column name where the owner id (configured in element 'dataowner') is stored.
+                            col_extentdescription: The column name where the description of the extent is stored.
+         dataowner -> table: The table where the contact information is stored.
+                      col_email: The column name where the email address of the contact is stored.
+                      col_description: The column name where the description (e.g. name) of the dataowner is stored.
+                                       This attribute will be available as a variable in the mail template. -->
+    <notificationdatabase path="C:\Datashop\config\sde_connectionfile.sde">
+      <dataownerextent featureclass="GNSD_NOTIFICATIONS" col_ownerid="NOTIFICATION_CONTACTID" col_extentdescription="REMARK" />
+      <dataowner table="GNSD_NOTIFICATION_CONTACTS" col_email="EMAIL" col_description="NAME" />
+    </notificationdatabase>
+
+
+    <!-- The extraction settings.
+         extraction -> workspaceConnection:  Path to the sde/mdb file for the extraction geodatabase connection.
+         NOTE: this connection will be used for changing the datasource configuration of .lyr files used in DXF exports
+         extractionItem -> featureClass: The feature class where the data to be extracted is stored (supported are polygon, line and point feature classes).
+                           sourceColumn: The column name where the data to be extracted is stored.
+                           destinationColumn: The column in the datashop administration database (table = gnsd_jobs) where the extracted data will be saved.
+                                              One of the following columns should be used: 'Municipality', 'Custom1' - 'Custom10'
+                           intersectionType: The type of intersection performed on an extraction feature class and intersecting map extents.
+                                             AllIntersectingObjects: All intersected objects will be saved in the destinationColumn.
+                                             MaxIntersectionArea (important: applicable only to polygon feature classes): 
+                                                      Only the object with the maxiumum intersecting area will be saved in the destinationColumn.
+                                             MaxIntersectionLength (important: applicable only to line feature classes): 
+                                                      Only the object with the maxiumum intersecting length will be saved in the destinationColumn.
+                           separator: The separator used to separate the entries when 'intersectionType' is 'AllIntersectingObjects'. NewLine = %(nl). Default is %(nl). -->
+    <extraction workspaceConnection="C:\Datashop\config\sde_connectionfile.sde">
+      <extractionItem featureClass="av_liegenschaft" sourceColumn="NUMMER" destinationColumn="Municipality" intersectionType="MaxIntersectionArea" separator=""/>
+      <extractionItem featureClass="avt_liegenschaft" sourceColumn="NUMMER" destinationColumn="Custom1" intersectionType="MaxIntersectionLength" separator=""/>
+      <extractionItem featureClass="avt_lfp" sourceColumn="NUMMER" destinationColumn="Custom2" intersectionType="AllIntersectingObjects" separator=","/>
+      <extractionItem featureClass="av_liegenschaft" sourceColumn="NUMMER" destinationColumn="Custom3" intersectionType="AllIntersectingObjects" separator=";"/>
+    </extraction>
+
+    <!-- ============== GEO-ATTACHMENTS ============== -->
+    <!-- The geographic-base attachments setting. 
+         attachments -> path: Path to the sde/mdb file.
+                        featureclass: Name of the feature class where attachment features and file information are stored.
+                        col_filepath: The column name where the file path (UNC, absolute, URL) to the actual attachment is stored.   
+                        mode: Determines the way geo-attachemnts are added.
+                              Never (never add attachments), 
+                              User (add attachments based on the user input), 
+                              Always (always add attachments)
+                        directoryname: (optional) The directory name (not path) where the geo-attachments will be stored after zipping. 
+                                       If omitted or left empty, attachments will be saved in root of the zip file.
+                        maxsize: (optional) Maximal allowed total size of all geo-attachments in megabytes (MB).
+                                 If the maxsize is exceeded an email using the 'maxGeoAttachemntSizeExceeded' template will be sent.
+                                 If ommitted or set to non-positive number the limit will not be checked.
+                        urlauthentication (optional) allows to add authentication to URL paths
+                                   -> username: user name of an user that can access URLs file attachments
+                                   -> password: password of an user that can access URLs file attachments
+                                   -> type: authentication type, e.g. BASIC, NTLM
+                        -->
+    <geoattachments path="C:\Datashop\config\sde_connectionfile.sde"
+            featureclass="geoattachments"
+            col_filepath="path"
+            mode="User"
+            directoryname="GeoAttachments"
+            maxsize="2000">
+      <urlauthentication
+          username="user"
+          password="password"
+          type="NTLM"/>
+    </geoattachments>
+    <!-- The center area settings.
+         centerArea -> type: The type of center area used for the intersecion functionality. May be either 'CenterPoint' or 'LabelPoint'
+                             CenterPoint: Center of gravity
+                             LabelPoint: A point assured to be located within the plot extent
+                       displayFormat: Formatting of the center point. The formatter will be used to format the center point variable.
+                                      The C# formatting notation will be used (e.g. '0.00' for two decimal places) -->
+    <centerArea type="CenterPoint" displayFormat="0.00" />
+
+    <!-- ============== LETTER TEMPLATE ============== -->
+    <!-- The letter template settings.
+         lettertemplate -> file: The path where the letter template is located.
+                                 The created letter will be packed with all other documents in the resulting job ZIP file.
+                           targetfile: The filename of the created PDF letter.
+                                       All variables can be used in the filename template (e.g. %(job_id) for the jobId). -->
+    <lettertemplate file="c:\Datashop\templates\letter_template.mrt" targetfile="Letter_%(job_id).pdf"/>
+
+    <!-- ============== PLOT FILE NAME ============== -->
+    <!-- The plot filename template settings.
+         plottemplate -> targetfile: The file name of the created Plot PDF documents.
+                                     All variables can be used in the filename template (e.g. %(job_id) for the jobId). 
+                         overviewfile (optional):
+                               -> targetfile: The file name of the created Plot overview PDF documents.
+                                              All variables can be used in the filename template (e.g. %(job_id) for the jobId). 
+                                  template: The path where the overview mxt template mxt located.
+                                  maxscale (optional): The upper limit of the scale of an overview (maximal allowed zoom). If the scale of the computed bounding box of all 
+                                            plot frames is bigger than the maxscale then the max scale is used instead of the computed bounding box scale.
+                                            Example: If maxscale=10000 (1:10000) and the computed plot frames bounding box scale is 1:5000 (closer zoomed) than the 
+                                                     resulting scale of the overview will be 1:10000 (futher zoomed). However, if the computed scale was 
+                                                     20000 (1:20000 even futher zoomed) then the computed scale would taken and the maxscale would be ignored.
+                                  extentslayer (optional): Name of a feature layer in mxd where job extents are saved. (See also <extentdatabase><jobextent featureclass="..."> configuration)
+                                  col_jobid: The column name where the job id (foreign key) are saved. (See also the <extentdatabase><jobextent col_jobid="..."> configuration)   
+                                  -->
+    <plotfilename targetfile="Map_%(job_id)_%(plot_frame_id)_%(plot_section_name).pdf">
+      <overview targetfile="Map_%(job_id)_overview.pdf"
+         template="c:\Datashop\templates\overview.mxt"
+         maxscale="100000"
+         extentslayer="extents"
+         col_jobid="jobid"/>
+    </plotfilename>
+
+
+    <!-- REPRESENTATIVE JOBS (STELLVERTRETER) -->
+    <!-- recipient: Selected|Representative|Both -->
+    <representativejob recipient="Representative" />
+
+
+    <!-- ============== JOB WORKFLOW ============== -->
+    <!-- stopcriterion -> reason: Reason name (db column Description) or reason id (db column ReasonID) from the gnsd_reasons database table, 
+                                  or * to match all reasons.
+                          userrole: tempUser - for occasional users
+                                    roles in the gnsd_biz_users database table (bussiness, representative, admin...) - for business users.
+                          stopafter: start, preprocess, process, package, send - name of the step after which the workflow stops. 
+                          mailrecipients: comma-separated email addresses of users that will be notified of an interuption of the workflow. This attribute is optional.
+                          -->
+    <jobworkflow>
+
+      <!-- EXAMPLES:
+      <stopcriterion userrole="business" stopafter="process" reason="grabarbeit" />
+      <stopcriterion userrole="business" stopafter="process" reason="planung" mailrecipients="datashopAdmin_at_mycompany.ch, datashopManager_at_mycompany.ch" />
+      
+      <stopcriterion userrole="representative" stopafter="preprocess" reason="unbekannt" />
+      
+      <stopcriterion userrole="tempuser" stopafter="process" reason="*" />
+      <stopcriterion userrole="tempuser" stopafter="package" reason="2" />
+      
+      <stopcriterion userrole="*" stopafter="send" reason="*" />-->
+    </jobworkflow>
+
+  </datashopWorkflow>
+
+  <!-- ============== PLOT SETTINGS ============== -->
+  <plotExtension>
+    <!-- The plot extension settings.
+     mxdpathinfo -> path: The path to the MXD file used to create the plot PDF document.
+           wmslayervalidation: allow to validate a wms layer by requesting image data (extent) from a wms service and analyzing its validity
+                    -> layername: the name of the wms layer as it appears in the ArcMap's Table of Contents
+                    -> xmin: a x-coordinate of lower left corner of the image extent
+                    -> ymin: a y-coordinate of lower left corner of the image extent
+                    -> xmax: a x-coordinate of upper right corner of the image extent
+                    -> ymax: a y-coordinate of upper right corner of the image extent
+                    -> spatialRef: spatial reference of the extent - mind the wms version (e.g. EPSG:4326 for wms versions less than 1.3 or 4326 for wms version 1.3 ) - http://docs.geoserver.org/stable/en/user/services/wms/reference.html#getmap
+                    -> url: this parameter overrides all other parameters and the validation test is performed directly against the URL. The URL must be XML encoded (use an online encoding service - e.g. http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii)
+     emptyplot -> text: The text displayed on the plot PDF document when the plot is empty
+     backgroundplot -> text: The text displayed on the plot PDF document when the plot is just the basemap
+     layers -> background: the name of the layer that comprises the basemap
+     export -> plottemplates: The path where the plot templates are located
+           pdf: Settings for the created plot PDF documents
+           pdf -> vector: Use vector graphics. Has to be either 'true' or 'false'
+              layers: Use layers in PDF document? Has to be either 'true' or 'false'
+              dpi: The resolution (in dpi) of the PDF document. Default is 300 dpi
+              quality: This coefficient states the scale level for the raster when 
+              it goes to output. 1 means 1:1; 2 means 1:2, i.e. 2 times less than the 
+              output quality.
+
+    dxfmxdpathinfo -> path the path to the MXD File used to create the DXF export. If you omit this element entirely, the dxf export will use mxdpathinfo as a fallback.
+    
+    -->
+    <mxdpathinfo path="c:\Datashop\mxd\plot_data.mxd">
+      <!--for wms version 1.3 use 4326-->
+      <wmslayervalidation layername="TestDB.DBO.ch_kanton" xmin="7.3" ymin="47.0" xmax="8.3" ymax="48.5" spatialRef="4326" />
+      <!--for wms version 1.1 use ESPG:4326-->
+      <wmslayervalidation layername="DOP 020 Metadaten" xmin="12" ymin="50.5" xmax="13" ymax="51.5" spatialRef="EPSG:4326" />
+      <wmslayervalidation layername="DOP 020" url="http://www.landesvermessung.sachsen.de/ias/basiskarte4/service/SRV4ADV_P_DOPRGB/WMSFREE_TK/wmsservice?SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;STYLES=&amp;WIDTH=1000&amp;HEIGHT=1000&amp;FORMAT=image/png&amp;SRS=EPSG:4326&amp;CRS=EPSG:4326&amp;BBOX=12,50.5,13,51.5&amp;LAYERS=adv_dop_metadaten&amp;BGCOLOR=0xFFFFFF&amp;TRANSPARENT=FALSE&amp;EXCEPTIONS=text/html"/>
+    </mxdpathinfo>
+
+    <dxfmxdpathinfo path="c:\Datashop\mxd\dxf_data.mxd" >
+      <!-- <wmslayervalidation layername="TestDB.DBO.ch_kanton" xmin="7.3" ymin="47.0" xmax="8.3" ymax="48.5" spatialRef="4326" />
+                                 <wmslayervalidation layername="DOP 020 Metadaten" xmin="12" ymin="50.5" xmax="13" ymax="51.5" spatialRef="EPSG:4326" />
+                                 <wmslayervalidation layername="DOP 020"
+                                                                                                                url="http://www.landesvermessung.sachsen.de/ias/basiskarte4/service/SRV4ADV_P_DOPRGB/WMSFREE_TK/wmsservice?SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;STYLES=&amp;WIDTH=1000&amp;HEIGHT=1000&amp;FORMAT=image/png&amp;SRS=EPSG:4326&amp;CRS=EPSG:4326&amp;BBOX=12,50.5,13,51.5&amp;LAYERS=adv_dop_metadaten&amp;BGCOLOR=0xFFFFFF&amp;TRANSPARENT=FALSE&amp;EXCEPTIONS=text/html"/>
+                   --></dxfmxdpathinfo>
+    <emptyplot text="Kein Inhalt" />
+    <backgroundplot text="Keine Betriebsmittel vorhanden" />
+    <layers background="Amtliche Vermessung" />
+    <export plottemplates="c:\Datashop\templates">
+      <pdf vector="false" layers="false" dpi="300" quality="1" />
+    </export>
+  </plotExtension>
+
+  <common>
+
+    <!-- ============== DIRECTORIES ============== -->
+    <!-- The directories settings.
+         directories -> exportdirectory: The directory where the generated documents will be located
+                        archivedirectory: The directory where the job documents will be archived
+                        profiledirectory: The directory where the profiles  will be located
+                        dxfdirectory: The directory where the dxf resources are located
+                        tdedirectory: the directory where the PDE Partial Data Export) resources are located
+                        jobdocumentsdirectory: The directory where the additional documents are located.
+                                               The documents located in this directory will be added to the resulting ZIP file in the package process. -->
+    <directories
+     exportdirectory="C:\Datashop\export"
+     archivedirectory="C:\Datashop\archive"
+     profiledirectory="C:\Datashop\profiles"
+     tdedirectory="C:\Datashop\profiles\PDE"
+     dxfdirectory="C:\Datashop\profiles\DXF"
+     jobdocumentsdirectory="C:\Datashop\jobdocuments" >
+    </directories>
+
+    <!-- ============== MAIL SETTINGS ============== -->
+    <!-- The mailing settings.
+         mail -> enabled: Globally enables / disables the mailing functionality. Has to be either true/false.
+                 from: The mail address used as sender (from address)
+                 
+                 server: The mail server configuration. Multiple mail servers may be configured.
+                 server -> order: The order of the mail servers. Each configured mail server needs a unique order number.
+                                  If multiple servers are configured, the servers are used in ascending order.
+                                  If a mail server can't be reached, the job engine tries to connect to the next configured mail server.
+                           retry: Number of retries to contact the server
+                           server: The server name
+                           port: The port used to send the mail
+                           smtpuser: The user used to send the mail if authentication is required. Optional attribute.
+                           smtppassword: The password of the user if authentication is required. Optional attribute.
+                           smtpdomain: The domain. Can be left empty if the smtp server is in the same domain as the authentication server.
+                           timeout: The timeout for sending a mail in milliseconds. After the defined timeout
+                           usessl: Specify whether the mail server uses Secure Sockets Layer (SSL) to encrypt the connection
+                          
+                 mailtemplate: The definition of a mail template. Multiple mail templates are defined.
+                 mailtemplate -> name: The unique name of the mail template. The preconfigured name may not be changed!
+                                 downloadurl: This link will be used in the confirmation mail to download the generated documents.
+                                              The link has to be of format 'http://server_name/datashop_application_name/StreamProduct.aspx?jobid=%(job_guid)'.
+                                 from: Alternative 'from' email address used for this specific mail template only.
+                                       Optional attribute. If not specified, the 'from' value of the global 'mail' element will be used.
+                                 to: The destination email address. Only used in the mail template 'newBizUserAdmin'.
+                                 subject: The subject of the mail. Variables can be used (e.g. %(user_fullname)).
+                                 body: The body (text) of the mail.
+                                 body -> line: Each line in the mail has to be defined within a 'line' element. Variables can be used. -->
+    <mail enabled="true" from="datashop_at_mycompany.ch">
+      <server order="1" retry="2" server="host" port="25" smtpuser="" smtppassword="" smtpdomain="" timeout="5000" usessl="true" />
+      <server order="2" retry="2" server="host" port="25" smtpuser="" smtppassword="" smtpdomain="" timeout="5000" usessl="false" />
+
+      <mailtemplate name="confirmJob" downloadurl="http://localhost/Datashop/StreamProduct.aspx?jobid=%(job_guid)" subject="Ihre Dokumente des Auftrages %(job_id) liegen zum Download bereit">
+        <body>
+          <line>Guten Tag %(user_salutation) %(user_fullname)</line>
+          <line>Besten Dank für Ihre Bestellung. Benützen Sie diesen Link um die Dokumente herunterzuladen:</line>
+          <line>%(link_download)</line>
+          <line></line>
+          <line>Mit freundlichen Grüssen%(nl)%(nl)Ihr GEONIS server Datashop Team</line>
+        </body>
+      </mailtemplate>
+      <mailtemplate name="confirmSurrogateJob" downloadurl="http://localhost/Datashop/StreamProduct.aspx?jobid=%(job_guid)" subject="Ihre Dokumente des Stellvertreter-Auftrages %(job_id) liegen zum Download bereit">
+        <body>
+          <line>Guten Tag %(surrogateuser_salutation) %(surrogateuser_fullname)</line>
+          <line>Besten Dank für Ihre Bestellung. Benützen Sie diesen Link um die Dokumente herunterzuladen:</line>
+          <line>%(link_download)</line>
+          <line>Details zur Anfrage:</line>
+          <line>Datum der Anfrage: %(surrogatejob_request_date)</line>
+          <line>Art der Anfrage: %(surrogatejob_request_type)</line>
+          <line></line>
+          <line>Ihre Stellvertreter Details:</line>
+          <line>%(surrogateuser_firstname) %(surrogateuser_lastname)</line>
+          <line>%(surrogateuser_street) %(surrogateuser_streetnr)</line>
+          <line>%(surrogateuser_citycode) %(surrogateuser_city)</line>
+          <line>%(surrogateuser_company)</line>
+          <line>Tel:%(surrogateuser_tel) Fax:%(surrogateuser_fax)</line>
+          <line>Benutzer-ID: %(surrogateuser_id)</line>
+          <line>%(surrogateuser_email)%(nl)</line>
+          <line>Mit freundlichen Grüssen%(nl)%(nl)Ihr GEONIS server Datashop Team</line>
+        </body>
+      </mailtemplate>
+      <mailtemplate name="restrictedAreaAdmin" subject="Kartenanfrage in Sperrgebiet(en)">
+        <body>
+          <line>Guten Tag%(nl)</line>
+          <line>Der Geodatenserver GEONIS server Datashop hat eine Anfrage bearbeitet,</line>
+          <line>welche auch Gebiete mit von Ihnen bereitgestellten Daten enthält.</line>
+          <line></line>
+          <line>Daten angefordert durch: %(user_fullname) &lt;%(user_email)&gt;</line>
+          <line></line>
+          <line>Gebiet(e):</line>
+          <line>%(extent)</line>
+          <line></line>
+          <line>Details zur Anfrage Nr. %(job_id):</line>
+          <line>Aktueller Prozessschritt und Status: %(job_step) %(job_status)</line>
+          <line>Grund und Zeitraum für die Anfrage: %(job_reason) %(job_period_begin_date) %(job_period_end_date)</line>
+          <line>Beschreibung: %(job_description)</line>
+          <line>Grundstücksnummer und Gemeinde: %(job_parcel_number) in %(job_municipality)</line>
+          <line>Koordinaten x/y(Mittelpunkt): %(job_center_area_x) / %(job_center_area_y)</line>
+          <line>Zusatzfeld 1: %(job_custom1)</line>
+          <line>Zusatzfeld 2: %(job_custom2)</line>
+          <line>Zusatzfeld 3: %(job_custom3)</line>
+          <line>Zusatzfeld 4: %(job_custom4)</line>
+          <line>Zusatzfeld 5: %(job_custom5)</line>
+          <line>Zusatzfeld 6: %(job_custom6)</line>
+          <line>Zusatzfeld 7: %(job_custom7)</line>
+          <line>Zusatzfeld 8: %(job_custom8)</line>
+          <line>Zusatzfeld 9: %(job_custom9)</line>
+          <line>Zusatzfeld 10: %(job_custom10)</line>
+          <line></line>
+          <line>Mit freundlichen Grüssen%(nl)%(nl)Ihr GEONIS server Datashop Team</line>
+          <line></line>
+          <line></line>
+          <line>---------------------------------------------------------------------------</line>
+          <line>Diese Nachricht wurde automatisch an %(owner_description) (%(owner_id) / %(owner_email) gesendet.</line>
+        </body>
+      </mailtemplate>
+      <mailtemplate name="invalidMapLayers" subject="Dringend: Fehlende Daten in Datenquelle(n)" to="datashopAdmin_at_mycompany.ch">
+        <body>
+          <line>Guten Tag%(nl)</line>
+          <line>Bei der Bearbeitung der Anfrage Nr. %(job_id) ist leider ein Fehler in einer Datenquelle des GNS Datashop JobEngine aufgetreten.</line>
+          <line>In dem MXD Dokument %(mxd_path) sind folgende Layers '%(invalid_layers)' nicht zugänglich. </line>
+          <line>Bitte prüfen sie den Zustand des MXD Dokuments und all seiner Datenquellen, um den Fehler zu beheben.</line>
+          <line>Im Moment werden keine neue Jobs bearbeitet.</line>
+          <line>Bitte loggen sie sich in die GNS Datashop Administratorseite ein, um die fehlerhaften Jobs wieder zu starten.</line>
+          <line></line>
+          <line>Mit freundlichen Grüssen%(nl)%(nl)Ihr GEONIS server Datashop Team</line>
+          <line></line>
+          <line>---------------------------------------------------------------------------</line>
+          <line>Diese Nachricht wurde automatisch gesendet.</line>
+        </body>
+      </mailtemplate>
+      <!-- 'to' attribute is ignored - mails configured in datashopWorkflow/jobworkflow-->
+      <mailtemplate name="jobStoppedAfterStep" subject="Job wurde angehalten">
+        <body>
+          <line>Guten Tag%(nl)</line>
+          <line>Die Bearbeitung der Anfrage Nr. %(job_id) wurde nach dem Schritt '%(stopped_after_step)' auf Grund einer konfigurierten Stoppbedingung angehalten.</line>
+          <line>Bitte loggen sie sich in die GNS Datashop Administratorseite ein, um diesen Jobs wieder zu starten.</line>
+          <line></line>
+          <line>Mit freundlichen Grüssen%(nl)%(nl)Ihr GEONIS server Datashop Team</line>
+          <line></line>
+          <line>---------------------------------------------------------------------------</line>
+          <line>Diese Nachricht wurde automatisch gesendet.</line>
+        </body>
+      </mailtemplate>
+
+      <mailtemplate name="maxGeoAttachemntSizeExceeded" subject="Job wurde angehalten" to="datashopAdmin_at_mycompany.ch">
+        <body>
+          <line>Guten Tag%(nl)</line>
+          <line>Bei der Bearbeitung der Anfrage Nr. %(job_id) wurde die maximal erlaubte Grüsse (%(geoattachments_max_size) MB) von Geo-attachment Überschritten. Die Grüsse war aber %(geoattachments_actual_size) MB.</line>
+          <line>Aus diesem Grund wurde die Bearbeitung angehalten.</line>
+          <line>Bitte loggen sie sich in die GNS Datashop Administratorseite ein, um diesen Job wieder zu verwalten.</line>
+          <line></line>
+          <line>Mit freundlichen Grüssen%(nl)%(nl)Ihr GEONIS server Datashop Team</line>
+          <line></line>
+          <line>---------------------------------------------------------------------------</line>
+          <line>Diese Nachricht wurde automatisch gesendet.</line>
+        </body>
+      </mailtemplate>
+
+    </mail>
+  </common>
+</config>

@@ -1,0 +1,126 @@
+﻿//////////////////////////////////////////////////////////////
+// Texte zum DXF export UI
+//////////////////////////////////////////////////////////////
+
+10090 <No Layer>
+
+10100 VertiGIS DXF Export
+10101 VertiGIS DXF Export Tools
+10102 Output file(s):
+10104 Selection of data to be exported
+10106 Export file:
+10108 Format options
+10110 DXF version:
+10112 Binary DXF file (memory-saving)
+10120 Select version of AutoCAD DXF format specification, which should contain the exported file. If unknown, we recommend leaving the default value.
+
+10204 Export visible layers only
+10206 Limit to screen section
+10208 Export selected objects only
+10210 Only export features if they are within a polygon of this selection layer. A DXF file is created per polygon of the selection layer.
+10212 Masking Layers: Allows you to exclude features completely or partly from export. Features which are deselected by polygons of this layer are not exported.
+10214 Features are only exported if they are fully or partially within a polygon of the layer specified here. For each polygon (feature) of this layer, a DXF file is created (with consecutive numbering). This enables the regions to be exported in a layer (of a feature class) to be saved and the results of the export to be grouped by topic.
+10216 Features are not exported if they are fully within a polygon of the layer specified here. Features which are only partially covered are clipped to the edges of the masking polygons.
+10220 E&xport
+10222 &Cancel
+10224 Start export to AutoCAD DXF. A running export can be canceled by clicking on "Cancel". A running export can also be canceled by clicking with the mouse on the map view or pressing the ESC key.
+10226 Name of the output file(s). When specifying the selection layer, this name is supplemented with a 3-digit consecutive number. In the case of manually entering the file name, this is applied as it is entered. The name is supplemented by a consecutive number, but a file ending such as .DXF is not automatically added. 
+10228 Selection option for saving location and name of the output file.
+10230 Write binary DXF file. ~25% less memory, faster loading in AutoCAD (up to 5x). Please check, whether the application that is used for reading this DXF supports binary DXF.
+
+10300 VertiGIS DXF Export (for ArcMap {0})
+10302 Export map layers to AutoCAD DXF
+10304 The layers of the current map view can be exported to AutoCAD DXF. Select whether only visible or all layers should be exported. If features are selected, the export can be limited to this selection. The export can also be limited to the polygons of a selection layer (a DXF is created here per polygon). Features in the polygons of the masking layer can be fully or partially excluded from the export.
+
+10402 Export to AutoCAD DXF
+10404 DXF data written to {0}. 
+10405 DXF data ({0} files) exported to:
+10406 Export to AutoCAD DXF canceled by the user.
+10407 {0} file(s) have been created:
+10408 Do you really want to cancel the export to AutoCAD DXF?
+10410 Canceling export to AutoCAD DXF...
+10412 Nothing exported: No or no visible layers for export.
+10420 Show list of all created files
+10421 Hide list
+
+10510 DXF AutoCAD files (*.DXF)|*.DXF|All files (*.*)|*.*
+10500 Create DXF file from the displayed map view (only visible layers)
+
+10700 VertiGIS DXF Export licensing
+10702 No valid license for VertiGIS DXF Export could be found on the system.\nA suitable license was found but either its number of simultaneously executable instances is too low or it has elapsed.
+10704 No license
+10710 For the execution an ArcGIS Engine or at least ArcGIS Desktop Basic license is needed. No valid license found. Ending program.
+10712 For the execution an ArcGIS application (ArcGIS Engine, ArcGIS Desktop) is required. None of these applications were found. Ending program.
+
+10900 Error
+10902 A layer cannot be a feature selection and a masking layer at the same time.
+10903 The data volume to be exported is too large. Please select less features, limit the number of layers to be exported, and, if possible, export partial areas only. The data volume can effectively be reduced by using a selection layer.
+10904 An unexpected error occurred. 
+10905 Technical error information (forward to support if necessary)
+10906 Hide information
+10907 The layer contains too much data for the export. If possible, please export partial areas (using selection layers). Attention: The output file (.dxf) will not contain this layer.
+10910 The listed layer could not be exported. 
+10911 The listed layers could not be exported. 
+10912 The reason is also indicated.
+10914 Warning: One or more layers could not be exported.
+10915 Invalid layer. It is probable that the layer cannot be found in the connected database.
+10916 No further information about the error available.
+
+10922 {0} are not supported. The layer is ignored.
+10924 Representations
+10925 Dimension Layer 
+10926 Basemap Layer
+10927 Raster Layer 
+10928 Layer
+10930 Feature Layer
+10932 Not supported geometry type
+
+10940 Invalid definition query 
+10942 Invalid definition query - Field {0} does not exist!
+10944 COM exception 
+
+
+40920 Additional information in:
+
+11002 Help
+11004 Documents
+11006 Show HTML help "{0}"
+
+//////////////////////////////////////////////////////////////
+// Texte zum DXF export batch runner
+//////////////////////////////////////////////////////////////
+
+20110 Name of the map file (.mxd), from which the data should be exported (file or file with path specifications).
+20112 Name of the DXF file (.dxf), to which the data should be exported (file or file with path specifications).
+20114 Name of a (polygon) layer (from the map file). Only data, which are within a polygon of this layer, are exported.
+20116 Name of a (polygon) layer (from the map file). Data, which are within a polygon of this layer, are not exported (cropped).
+20118 If this option is = True, only visible layers are exported.
+20120 Map scale (1:n), e.g. 500 for 1:500, 1000 for 1:1000 etc.
+As a default value, the reference scale of the map document is used.
+
+20210 Layer {0} is not a (valid) layer, which can be used as the selection layer.
+20212 Layer {0} is not a (valid) layer, which can be used as the masking layer.
+20213 Formal invalid path/file name for output file ({0}).
+20214 No or a non-existing ArcMap map document (MXD) specified for reading. Please check the path.
+20216 The specified file ({0}) does not contain a valid ArcMap map document (MXD).
+20218 The specified ArcMap map document ({0}) is password-protected. Password-protected map documents are not supported.
+20220 The specified ArcMap map document ({0}) does not contain any layers.
+20222 No output file (DXF) specified.
+// Duplicted with 20213 #20223 Formal ungültiger Pfad/Dateiname für die Ausgabedatei (DXF).
+20224 The directory ({0}) for saving the output file (DXF) does not exist.
+20226 A DXF file with the name {0} already exists.
+20228 Invalid map scale. It must be numerical (floating-point number) and in the range [1.0 .. 1.0E9].
+20230 Failed to load DXFWriter component: \n{0}.
+20232 Parameter error: {0}
+20234 Invalid DXF format version. Versions which are older than DXF for AutoCAD 2000 are not supported.
+20240 VertiGIS DXF Export - Version {0}
+20299 Unknown error\n{0}
+
+//////////////////////////////////////////////////////////////
+// Logging (z.b. Logfile) - für UI wie batch relevant
+//////////////////////////////////////////////////////////////
+30100 Export completed with warning(s):
+30102 Export aborted with error(s):
+30104 Formal invalid path/file name for the log file ({0}).
+30106 Cannot save log file because the specified directory does not exist.
+

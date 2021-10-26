@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{34DE03A9-FF00-4CE6-93BB-7A63806AACAF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GEOCOM.GNSDatashop.Model</RootNamespace>
+    <AssemblyName>GEOCOM.GNSDatashop.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\GEOCOM.GNSDatashop.Model.XML</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>CHGEOCX1_UNCHAINED.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeoLibRoot>..\geo_lib</GeoLibRoot>
+  </PropertyGroup>
+  <Import Project="..\build\configurations.proj" />
+  <Import Project="..\build\configurations.targets" />
+  <ItemGroup>
+    <Compile Include="..\build\CommonAssemblyVersion.cs">
+      <Link>Properties\CommonAssemblyVersion.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="GEOCOM.Common.Logging" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddressSearch\FindControl.cs" />
+    <Compile Include="AddressSearch\GeoSearch.cs" />
+    <Compile Include="AddressSearch\IdTextPair.cs" />
+    <Compile Include="AddressSearch\ResultExtent.cs" />
+    <Compile Include="AddressSearch\SearchControl.cs" />
+    <Compile Include="AddressSearch\Select.cs" />
+    <Compile Include="AddressSearch\GeoSearchDef.cs" />
+    <Compile Include="AddressSearch\SearchControlDef.cs" />
+    <Compile Include="AddressSearch\SearchControlType.cs" />
+    <Compile Include="AddressSearch\GeoFind.cs" />
+    <Compile Include="DatashopWorkflow\PlotJobSteps.cs" />
+    <Compile Include="DatashopWorkflow\WorkflowDefinitions.cs" />
+    <Compile Include="Documents\DocumentDownload.cs" />
+    <Compile Include="Documents\DocumentRequest.cs" />
+    <Compile Include="Documents\DocumentUpload.cs" />
+    <Compile Include="JobData\Job.cs" />
+    <Compile Include="JobData\JobDetails.cs" />
+    <Compile Include="JobData\JobGuid.cs" />
+    <Compile Include="JobData\JobLog.cs" />
+    <Compile Include="JobData\JobLogType.cs" />
+    <Compile Include="JobData\MyJobSearchParameters.cs" />
+    <Compile Include="JobData\MyJob.cs" />
+    <Compile Include="JobData\SurrogateJob.cs" />
+    <Compile Include="KeyTextPair.cs" />
+    <Compile Include="KeyValuesPair.cs" />
+    <Compile Include="PlacementOption.cs" />
+    <Compile Include="Plotdefinition.cs" />
+    <Compile Include="PlotdefinitionKey.cs" />
+    <Compile Include="PlotFormatDef.cs" />
+    <Compile Include="PlotSection.cs" />
+    <Compile Include="ProfileInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reason.cs" />
+    <Compile Include="UserData\BizUser.cs" />
+    <Compile Include="UserData\BizUserStatus.cs" />
+    <Compile Include="UserData\User.cs" />
+    <Compile Include="UserData\UserProfile.cs" />
+    <Compile Include="UserData\UserRight.cs" />
+    <Compile Include="UserData\UserRole.cs" />
+    <Compile Include="WorkflowStepIdName.cs" />
+    <Compile Include="WorkflowStepState.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CHGEOCX1_UNCHAINED.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GNSDatashopCommon\GNSDatashopCommon.csproj">
+      <Project>{D5F89E03-1A5E-43DB-B991-E0D2ED2BEC90}</Project>
+      <Name>GNSDatashopCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

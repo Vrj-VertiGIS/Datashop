@@ -1,0 +1,13 @@
+<Project ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignRoot>$(MSBuildThisFileDirectory)\..\geo_lib\geocom\signing</SignRoot>
+  </PropertyGroup>
+  <Target Name="DigitalSignatureAfterBuild" AfterTargets="CoreBuild" Condition="'$(Configuration)' == 'Release'">
+    <Exec Command='"$(SignRoot)\signtool.exe" sign /d "$(ProjectName)" /n "VertiGIS GmbH" /t http://timestamp.digicert.com /v "$(TargetPath)"' />
+    <!-- Workaround: MSI setups take assemblies from the intermediate path (e.g. obj\Release). -->
+    <!-- To ship signed assemblies in the MSIes the output assembly has to be copied back. -->
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(IntermediateOutputPath)" />
+    
+  </Target>
+</Project>
+

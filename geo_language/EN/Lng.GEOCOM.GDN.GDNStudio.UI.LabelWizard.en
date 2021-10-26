@@ -1,0 +1,58 @@
+﻿1000 Label Relationship Definition Wizard
+1001 < Back
+1002 Next >
+1003 Cancel
+1004 Finish
+1005 Welcome to the GDN Label Relationship Definition Wizard.
+1006 This wizard assists you in creating a new label table and to define all required relationships for the labels to be handled.\n\nLabels are internally modeled as line features. The GEONIS text renderer in ArcMap renders them as text. The line feature class contains the label text and the reference to the main object. Finally, specific rules in the Object Relation Module define which label features contain the corresponding text.
+1007 Select the feature class to be labelled.
+1008 On this page you can select a feature class containing the objects you want to create labels for.
+1009 Create labels for... 
+1010 Define a name for the label table
+1011 Enter the name of the label table. Please follow the naming conventions.
+1012 Name:
+1013 Rules and execution time
+1014 Select when labels are automatically created. Define simple or extended rules on how to create labels.
+1015 Automatically create labels when new features are created.
+1016 Define rules on how to create labels:
+1017 Use attribute content
+1018 Create using customized formula
+1019 An excerpt of the naming conventions for label definitions:\n\n<expert application name>T_<description>_<object>\n\n<description> is a short explanation of the label type.\n<object> is the name of the main object.
+1020 Select the legend definition you want to update.
+1021 Select legends to be updated
+1022 The wizard can automatically add your label feature class to pre-existing legends. Please select the legends you want to extend.
+1023 All required data is now collected.
+1024 Pressing the "Finish" button creates a new label feature class, the selected definitions and updates the Object Relation Module rules. The created files will be saved to the current extension level. Ensure that all other database editing tools, such as ArcCatalog, are closed before clicking "Finish".
+1025 Label alignment
+1026 Select an anchor point for the created labels.
+1027 Use the mouse to select the desired anchor point.
+1028 The anchor point for new labels will be {0} ({1}).
+1029 (undefined)
+1030 Left
+1031 Center
+1032 Right
+1033 Top
+1034 Text top
+1035 Middle
+1036 Baseline
+1037 Bottom
+1038 Current position:
+1039 Target dataset:
+1040 Select a field from the table
+1041 Open help file
+
+2001 A table with this name already exists in your database.
+2011 The total length of a formula may not exceed 255 characters.
+2012 Please define a valid formula.
+2013 The formula must contain an assignment (<target_field>=<expression>).
+2014 Labeling
+2015 Create label
+2016 New label feature class "{0}" created successfully.
+2017 New object relation for label table "{0}" created successfully.
+2018 Error: Unable to create feature class "{0}".
+2019 Update label
+2020 Delete label
+2021 No legend definitions found
+
+3000 The wizard has finished creating the new label feature class and updating your definitions.
+3001 Information

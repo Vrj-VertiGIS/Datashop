@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6E3D0426-33F2-4ABB-8E39-BDF177C53E77}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GEOCOM.GNSD.Workflow</RootNamespace>
+    <AssemblyName>GEOCOM.GNSD.Workflow</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>CHGEOCX1_UNCHAINED.pfx</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeoLibRoot>..\geo_lib</GeoLibRoot>
+  </PropertyGroup>
+  <Import Project="..\build\configurations.proj" />
+  <Import Project="..\build\configurations.targets" />
+  <ItemGroup>
+    <Compile Include="..\build\CommonAssemblyVersion.cs">
+      <Link>Properties\CommonAssemblyVersion.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataObjects\IWorkflowDataItem.cs" />
+    <Compile Include="Interfaces\IWorkflowStateItem.cs" />
+    <Compile Include="Delegates\WorkflowCondition.cs" />
+    <Compile Include="Delegates\WorkflowFunction.cs" />
+    <Compile Include="Interfaces\IWorkflowDefinition.cs" />
+    <Compile Include="Interfaces\IWorkflowStep.cs" />
+    <Compile Include="Interfaces\IWorkflowStepInterceptor.cs" />
+    <Compile Include="WorkflowFactory.cs" />
+    <Compile Include="DataObjects\WorkflowDataItemBase.cs" />
+    <Compile Include="DataObjects\WorkflowStateItem.cs" />
+    <Compile Include="Attributes\WorkflowStepNameAttribute.cs" />
+    <Compile Include="WorkflowDefinition.cs" />
+    <Compile Include="Interfaces\IWorkflow.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkflowBase.cs" />
+    <Compile Include="Exceptions\WorkflowException.cs" />
+    <Compile Include="DataObjects\WorkflowStep.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GEOCOM.GNSDatashop.Model\GEOCOM.GNSDatashop.Model.csproj">
+      <Project>{34DE03A9-FF00-4CE6-93BB-7A63806AACAF}</Project>
+      <Name>GEOCOM.GNSDatashop.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GNSDatashopDBStore\GNSDatashopDBStore.csproj">
+      <Project>{544165AE-C732-44DB-AA98-FECA97DE5240}</Project>
+      <Name>GNSDatashopDBStore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CHGEOCX1_UNCHAINED.pfx" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

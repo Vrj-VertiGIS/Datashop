@@ -1,0 +1,1 @@
+/* There are no database changes between the versions 5.0.3 and 5.1.0. */

@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5B81CE6F-6CDB-410F-B743-321809F43709}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GEOCOM.GNSD.DatashopWorkflow</RootNamespace>
+    <AssemblyName>GEOCOM.GNSD.DatashopWorkflow</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>CHGEOCX1_UNCHAINED.pfx</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeoLibRoot>..\geo_lib</GeoLibRoot>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <Import Project="..\build\configurations.proj" />
+  <Import Project="..\build\configurations.targets" />
+  <ItemGroup>
+    <Compile Include="..\build\CommonAssemblyVersion.cs">
+      <Link>Properties\CommonAssemblyVersion.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="ESRI.ArcGIS.Carto" />
+    <Reference Include="ESRI.ArcGIS.DataSourcesGDB" />
+    <Reference Include="ESRI.ArcGIS.DataSourcesRaster" />
+    <Reference Include="ESRI.ArcGIS.Display" />
+    <Reference Include="ESRI.ArcGIS.Geodatabase" />
+    <Reference Include="ESRI.ArcGIS.Geometry" />
+    <Reference Include="ESRI.ArcGIS.System" />
+    <Reference Include="GEOCOM.Common" />
+    <Reference Include="GEOCOM.Common.Logging" />
+    <Reference Include="GEOCOM.GEONIS.GeonisCentralObjects" />
+    <Reference Include="GEOCOM.GEONIS.GnDxfExportSrv" />
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\geo_lib\ionic\1.8.4.5\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Base">
+      <HintPath>..\geo_lib\stimulsoft\2016_3\Stimulsoft.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report">
+      <HintPath>..\geo_lib\stimulsoft\2016_3\Stimulsoft.Report.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\AdminWorkflow.cs" />
+    <Compile Include="Admin\AdminWorkflowDataItem.cs" />
+    <Compile Include="Admin\PlotTemplateUpdater.cs" />
+    <Compile Include="AffectedDataOwner.cs" />
+    <Compile Include="Dxf\DxfExportContext.cs" />
+    <Compile Include="Dxf\ReplaceArcGisDatasource.cs" />
+    <Compile Include="GeoAttachments\GeoAttachmentCollection.cs" />
+    <Compile Include="GeoAttachments\GeoAttachment.cs" />
+    <Compile Include="Config\DatashopWorkflowConfig.cs" />
+    <Compile Include="Config\DatashopWorkflowConfigInfo.cs" />
+    <Compile Include="DatashopWorkflowBase.cs" />
+    <Compile Include="DatashopWorkflowDataItem.cs" />
+    <Compile Include="DatashopWorkflowStepInterceptor.cs" />
+    <Compile Include="DataWorkflow\DataWorkflowBase.cs" />
+    <Compile Include="DocumentZipper.cs" />
+    <Compile Include="Dxf\DxfWorkflow.cs" />
+    <Compile Include="GeoAttachments\GeoAttachmentsMaxSizeExceededException.cs" />
+    <Compile Include="GeoAttachments\IGeoAttachment.cs" />
+    <Compile Include="GeoDataBase\DataOwner.cs" />
+    <Compile Include="GeoDataBase\ExtentData.cs" />
+    <Compile Include="GeoDataBase\GeoDbOperation.cs" />
+    <Compile Include="InterceptionCriterion.cs" />
+    <Compile Include="IntersectionData\IntersectionArea.cs" />
+    <Compile Include="IntersectionData\IntersectionData.cs" />
+    <Compile Include="IntersectionData\IntersectionGeometry.cs" />
+    <Compile Include="IntersectionData\IntersectionPoint.cs" />
+    <Compile Include="IntersectionData\IntersectionPolyline.cs" />
+    <Compile Include="Mailer\MailClient.cs" />
+    <Compile Include="Pde\DataExtractor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Plot\PlotWorkflow.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DatashopWorkflowFactory.cs" />
+    <Compile Include="Report\ReportGenerator.cs" />
+    <Compile Include="Utils\Letter.cs" />
+    <Compile Include="Utils\Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GEOCOM.GNSDatashop.Export.DXF.Common\GEOCOM.GNSDatashop.Export.DXF.Common.csproj">
+      <Project>{D2EECA43-FC8E-458A-AA41-9D32AC219187}</Project>
+      <Name>GEOCOM.GNSDatashop.Export.DXF.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GEOCOM.GNSD.Workflow\Workflow.csproj">
+      <Project>{6E3D0426-33F2-4ABB-8E39-BDF177C53E77}</Project>
+      <Name>Workflow</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GEOCOM.GNSDatashop.Export.DXF\GEOCOM.GNSDatashop.Export.DXF.csproj">
+      <Project>{FBFFB17A-D935-4B27-B5F4-73F8FB8E41E2}</Project>
+      <Name>GEOCOM.GNSDatashop.Export.DXF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GEOCOM.GNSDatashop.Model\GEOCOM.GNSDatashop.Model.csproj">
+      <Project>{34DE03A9-FF00-4CE6-93BB-7A63806AACAF}</Project>
+      <Name>GEOCOM.GNSDatashop.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GNSDatashopCommon\GNSDatashopCommon.csproj">
+      <Project>{D5F89E03-1A5E-43DB-B991-E0D2ED2BEC90}</Project>
+      <Name>GNSDatashopCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GNSDatashopDBStore\GNSDatashopDBStore.csproj">
+      <Project>{544165AE-C732-44DB-AA98-FECA97DE5240}</Project>
+      <Name>GNSDatashopDBStore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GNSDPlotExtension\GNSPlotExtension.csproj">
+      <Project>{7FC924E5-6977-4703-8331-D3D0028654E4}</Project>
+      <Name>GNSPlotExtension</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CHGEOCX1_UNCHAINED.pfx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

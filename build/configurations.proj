@@ -1,0 +1,99 @@
+<Project ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- ConfigSwitch_ArcGIS and ConfigSwitch_Geonis are environment variables or property of msbuild -->
+  <PropertyGroup>
+    <!-- https://blogs.msdn.microsoft.com/visualstudioalm/2015/04/07/reference-could-not-be-resolved-error-when-validating-your-architecture-using-visual-studio-architecture-modeling-tools/ -->
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+  </PropertyGroup>
+  
+  <!-- Default configuration for both ArcGIS and  --> 
+  <PropertyGroup>
+    <ArcGISDefineConstants>ARCGIS_10_0</ArcGISDefineConstants>
+    <ArcGISVersion>99.0.0</ArcGISVersion>
+	<ArcGISFeatureVersion>99.0</ArcGISFeatureVersion>
+	
+	<GeonisDefineConstants>GEONIS_99_0</GeonisDefineConstants>
+	<GeonisVersion>99.1.0</GeonisVersion>
+	
+    <GeoLibRootAbsolute>$(MSBuildProjectDirectory)\$(GeoLibRoot)</GeoLibRootAbsolute>
+  </PropertyGroup>
+  
+  <!-- ArcGIS 10.1.0 conditional configuration -->
+  <PropertyGroup Condition="Exists('$(GeoLibRootAbsolute)\..\build\.configuration\arcgis\ARCGIS_10_1') OR '$(ConfigSwitch_ArcGIS)' == 'ARCGIS_10_1'">
+    <ArcGISDefineConstants>ARCGIS_10_1</ArcGISDefineConstants>
+    <ArcGISVersion>10.1.0</ArcGISVersion>
+	<ArcGISFeatureVersion>10.1</ArcGISFeatureVersion>	
+  </PropertyGroup>
+  
+  <!-- ArcGIS 10.2.0 conditional configuration -->
+  <PropertyGroup Condition="Exists('$(GeoLibRootAbsolute)\..\build\.configuration\arcgis\ARCGIS_10_2') OR '$(ConfigSwitch_ArcGIS)' == 'ARCGIS_10_2'">
+    <ArcGISDefineConstants>ARCGIS_10_2</ArcGISDefineConstants>
+    <ArcGISVersion>10.2.0</ArcGISVersion>
+	<ArcGISFeatureVersion>10.2</ArcGISFeatureVersion>	
+  </PropertyGroup>
+  
+    <!-- ArcGIS 10.3.0 conditional configuration -->
+  <PropertyGroup Condition="Exists('$(GeoLibRootAbsolute)\..\build\.configuration\arcgis\ARCGIS_10_3') OR '$(ConfigSwitch_ArcGIS)' == 'ARCGIS_10_3'">
+    <ArcGISDefineConstants>ARCGIS_10_3</ArcGISDefineConstants>
+    <ArcGISVersion>10.3.0</ArcGISVersion>
+	<ArcGISFeatureVersion>10.3</ArcGISFeatureVersion>	
+  </PropertyGroup>
+  
+  <!-- ArcGIS 10.4.0 conditional configuration -->
+  <PropertyGroup Condition="Exists('$(GeoLibRootAbsolute)\..\build\.configuration\arcgis\ARCGIS_10_4') OR '$(ConfigSwitch_ArcGIS)' == 'ARCGIS_10_4'">
+    <ArcGISDefineConstants>ARCGIS_10_4</ArcGISDefineConstants>
+    <ArcGISVersion>10.4.0</ArcGISVersion>
+	<ArcGISFeatureVersion>10.4</ArcGISFeatureVersion>	
+  </PropertyGroup>  
+  
+  <!-- ArcGIS 10.5.0 conditional configuration -->
+  <PropertyGroup Condition="Exists('$(GeoLibRootAbsolute)\..\build\.configuration\arcgis\ARCGIS_10_5') OR '$(ConfigSwitch_ArcGIS)' == 'ARCGIS_10_5'">
+    <ArcGISDefineConstants>ARCGIS_10_5</ArcGISDefineConstants>
+    <ArcGISVersion>10.5.0</ArcGISVersion>
+	<ArcGISFeatureVersion>10.5</ArcGISFeatureVersion>	
+  </PropertyGroup>
+  
+  <!-- ArcGIS 10.6.0 conditional configuration -->
+  <PropertyGroup Condition="Exists('$(GeoLibRootAbsolute)\..\build\.configuration\arcgis\ARCGIS_10_6') OR '$(ConfigSwitch_ArcGIS)' == 'ARCGIS_10_6'">
+    <ArcGISDefineConstants>ARCGIS_10_6</ArcGISDefineConstants>
+    <ArcGISVersion>10.6.0</ArcGISVersion>
+	<ArcGISFeatureVersion>10.6</ArcGISFeatureVersion>	
+  </PropertyGroup>
+  
+  <!-- ArcGIS 10.7.0 conditional configuration -->
+  <PropertyGroup Condition="Exists('$(GeoLibRootAbsolute)\..\build\.configuration\arcgis\ARCGIS_10_7') OR '$(ConfigSwitch_ArcGIS)' == 'ARCGIS_10_7'">
+    <ArcGISDefineConstants>ARCGIS_10_7</ArcGISDefineConstants>
+    <ArcGISVersion>10.7.0</ArcGISVersion>
+	<ArcGISFeatureVersion>10.7</ArcGISFeatureVersion>	
+  </PropertyGroup>
+  
+  <!-- ArcGIS 10.8.0 conditional configuration -->
+  <PropertyGroup Condition="Exists('$(GeoLibRootAbsolute)\..\build\.configuration\arcgis\ARCGIS_10_8') OR '$(ConfigSwitch_ArcGIS)' == 'ARCGIS_10_8'">
+    <ArcGISDefineConstants>ARCGIS_10_8</ArcGISDefineConstants>
+    <ArcGISVersion>10.8.0</ArcGISVersion>
+	<ArcGISFeatureVersion>10.8</ArcGISFeatureVersion>	
+  </PropertyGroup>
+  
+  <!-- Geonis 5.1 conditional configuration -->
+  <PropertyGroup Condition="Exists('$(GeoLibRootAbsolute)\..\build\.configuration\geonis\GEONIS_5_1_0') OR '$(ConfigSwitch_Geonis)' == 'GEONIS_5_1_0'">
+    <GeonisDefineConstants>GEONIS_5_1_0</GeonisDefineConstants>
+    <GeonisVersion>5.1.0</GeonisVersion>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <!--Preserve constants from a project file-->
+    <DefineConstants>$(DefineConstants);$(ArcGISDefineConstants);$(GeonisDefineConstants)</DefineConstants>
+    <!--The ReferencePath tag has to be on one singel line otherwise Visual Studio issues a warning: Load of property 'ReferencePath' failed.  Cannot add as #### a reference path as it is relative. Please specify an bsolute path.	GNSDatashopWeb-->
+    <ReferencePath>$(GeoLibRootAbsolute)\arcgis\dotnet\$(ArcGISVersion)\;$(GeoLibRootAbsolute)\geocom\common\$(GeonisVersion)\AnyCPU\;$(GeoLibRootAbsolute)\geocom\common_arcgis\arcgis_$(ArcGISVersion)\common\$(GeonisVersion)\AnyCPU\;$(GeoLibRootAbsolute)\geocom\common_arcgis\arcgis_$(ArcGISVersion)\geonis\$(GeonisVersion)\dotnet\AnyCPU\;$(GeoLibRootAbsolute)\geocom\geonis\$(GeonisVersion)\AnyCPU\;$(GeoLibRootAbsolute)\geocom\geonis\$(GeonisVersion)\arcgis_$(ArcGISVersion)\</ReferencePath>  
+	<!-- Uncomment this line and all projects who import this file will generate a documentation file -->
+	<!--<DocumentationFile>$(AssemblyName).xml</DocumentationFile>-->
+  </PropertyGroup>
+</Project>
+
+<!--
+!!!!!   Import this to a project and set the geo_Lib relative path in    !!!!!
+<PropertyGroup>
+  <GeoLibRoot>..\..\geo_lib</GeoLibRoot>
+</PropertyGroup>
+<Import Project="$(GeoLibRoot)\.configuration\configurations.proj" />
+-->
+

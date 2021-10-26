@@ -1,0 +1,106 @@
+﻿/* DsToolbar */
+SPAN.tbSeparator 
+{
+    display: inline-block; 
+    height: 26px; 
+    width: 2px;
+    border-right-style: solid;
+    border-right-color: #666666;
+    border-right-width: 1px;
+    margin-right: 7px; 
+}
+SPAN.btnOut 
+{
+    height: 30px; 
+    width: 31px; 
+    margin-right: 5px;
+    padding: 2px 2px 2px 2px;
+}
+SPAN.btnIn 
+{
+    height: 28px; 
+    width: 29px;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    border: none;
+}
+
+.btnHover 
+{
+    border: solid 1px #769dc0; 
+    background-color: #e9f4fe; /* fallback color if gradients are not supported */
+    /* For Mozilla/Gecko (Firefox etc) */ 
+    background-image: -moz-linear-gradient(top, #ffffff, rgb(166,204,242));
+    filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#ffffff', EndColorStr='#769dc0');
+}            
+.btnPressed 
+{   /* should be a bit darker*/
+    border: solid 1px #769dc0; 
+    background-color: #e9f4fe; /* fallback color if gradients are not supported */
+    /* For Mozilla/Gecko (Firefox etc) */ 
+    background-image: -moz-linear-gradient(top, #ffffff, rgb(166,204,242));
+    filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#ffffff', EndColorStr='#769dc0');
+}
+.btnUnpressed 
+{
+    border:solid 1px white; 
+}
+.btnSelected
+{
+    border: solid 1px #769dc0; 
+}    
+.btn1Selected
+{
+    border: solid 1px #769dc0; 
+}    
+        
+.iconFind {background-image: url(../images/dsToolbar/icon_find_30x30.png); }
+
+.iconZoomIn {background-image: url(../images/dsToolbar/icon_zoom_in_30x30.png); }
+.btnDisabled_iconZoomIn {background-image: url(../images/dsToolbar/icon_zoom_in_30x30_disabled.png); }
+
+.iconZoomOut {background-image: url(../images/dsToolbar/icon_zoom_out_30x30.png); }
+.btnDisabled_iconZoomOut {background-image: url(../images/dsToolbar/icon_zoom_out_30x30_disabled.png); }
+
+.iconPan {background-image: url(../images/dsToolbar/icon_pan_30x30.png); }
+.btnDisabled_iconPan {background-image: url(../images/dsToolbar/icon_pan_30x30_disabled.png); }
+
+.iconPrev {background-image: url(../images/dsToolbar/icon_prev_30x30.png); }
+.btnDisabled_iconPrev {background-image: url(../images/dsToolbar/icon_prev_30x30_disabled.png); }
+
+.iconNext {background-image: url(../images/dsToolbar/icon_next_30x30.png); }
+.btnDisabled_iconNext {background-image: url(../images/dsToolbar/icon_next_30x30_disabled.png); }
+
+.iconRectangle {background-image: url(../images/dsToolbar/icon_add_plotframe_30x30.png); }
+.btnHover_iconRectangle {background-image: url(../images/dsToolbar/icon_add_plotframe_30x30_hoover.png); cursor: hand; }
+.btnSelected_iconRectangle {background-image: url(../images/dsToolbar/icon_add_plotframe_30x30_selected.png); }
+.btnDisabled_iconRectangle {background-image: url(../images/dsToolbar/icon_add_plotframe_30x30_disabled.png); }
+
+/*
+.iconRectangle {background: url(../images/dsToolbar/icon_add_plotframe_30x30_all.png); }
+.btnDisabled_iconRectangle {background: url(../images/dsToolbar/icon_add_plotframe_30x30_all.png) -90px; }
+*/
+.iconPolygon {background-image: url(../images/dsToolbar/icon_add_polygon_30x30.png); }
+.btnDisabled_iconPolygon {background-image: url(../images/dsToolbar/icon_add_polygon_30x30_disabled.png); }
+
+.iconFreeHand {background-image: url(../images/dsToolbar/icon_add_freehand_30x30.png); }
+.btnDisabled_iconFreeHand {background-image: url(../images/dsToolbar/icon_add_freehand_30x30_disabled.png); }
+
+.iconMove {background-image: url(../images/dsToolbar/icon_move_plotframe_30x30.png); }
+.btnDisabled_iconMove {background-image: url(../images/dsToolbar/icon_move_plotframe_30x30_disabled.png); }
+
+.iconResize {background-image: url(../images/dsToolbar/icon_resize_30x30.png); }
+.btnDisabled_iconResize {background-image: url(../images/dsToolbar/icon_resize_30x30_disabled.png); }
+
+.iconReshape {background-image: url(../images/dsToolbar/icon_reshape_30x30.png); }
+.btnDisabled_iconReshape {background-image: url(../images/dsToolbar/icon_reshape_30x30_disabled.png); }
+
+.iconCenter {background-image: url(../images/dsToolbar/icon_center_plotframe_30x30.png); }
+.btnDisabled_iconCenter {background-image: url(../images/dsToolbar/icon_center_plotframe_30x30_disabled.png); }
+
+.iconZoomPolygon {background-image: url(../images/dsToolbar/icon_zoom_plotframe_30x30.png); }
+.btnDisabled_iconZoomPolygon {background-image: url(../images/dsToolbar/icon_zoom_plotframe_30x30_disabled.png); }
+
+.iconRemove {background-image: url(../images/dsToolbar/icon_remove_plotframe_30x30.png); }
+.btnDisabled_iconRemove {background-image: url(../images/dsToolbar/icon_remove_plotframe_30x30_disabled.png); }
+            

@@ -1,0 +1,292 @@
+﻿<?xml version="1.0"?>
+<project name="GNSDatashop build script" default="build">
+  <property name="nant.settings.currentframework" value="net-4.0" />
+
+  <!-- if a property gets set outside of init, the property should not be changed back in the init. -->
+  <property name="initialized" value="false" />
+  <property name="version" value="5.1.0" />
+  <property name="revision" value="0" />
+  <property name="reports_dir" value="${project::get-base-directory()}\reports" />
+  <property name="base_dir" value="${project::get-base-directory()}" />
+
+  <!-- 
+    =========================================================
+    Init target - change directories or flags here
+    ========================================================= 
+  -->
+  <target name="init" description="Initialize various properties" unless="${initialized}">
+    <tstamp />
+
+    <property name="output_base_path" value="${path::get-directory-name(base_dir)}/bin" />
+
+    <!-- Avoid calling init multiple times overriding settings in individual targets. -->
+    <property name="initialized" value="true" />
+
+    <!--set version default -->
+    <if test="${not property::exists('geonis_lib_version')}">
+      <property name="geonis_lib_version" value="5.1.0"/>
+    </if>
+
+    <if test="${not property::exists('arcgis_version')}">
+      <property name="arcgis_version" value="10.0.0" />
+    </if>
+
+    <exec if="${geonis_lib_version == '5.1.0'}" program="set_GEONIS_5_1_0.bat" basedir="build" workingdir="build" />
+    <exec if="${arcgis_version == '10.0.0'}" program="set_ARCGIS_10_0_0.bat" basedir="build" workingdir="build" />
+    <exec if="${arcgis_version == '10.1.0'}" program="set_ARCGIS_10_1_0.bat" basedir="build" workingdir="build" />
+    <exec if="${arcgis_version == '10.2.0'}" program="set_ARCGIS_10_2_0.bat" basedir="build" workingdir="build" />
+    <exec if="${arcgis_version == '10.3.0'}" program="set_ARCGIS_10_3_0.bat" basedir="build" workingdir="build" />
+    <exec if="${arcgis_version == '10.4.0'}" program="set_ARCGIS_10_4_0.bat" basedir="build" workingdir="build" />
+    <exec if="${arcgis_version == '10.5.0'}" program="set_ARCGIS_10_5_0.bat" basedir="build" workingdir="build" />
+    <exec if="${arcgis_version == '10.6.0'}" program="set_ARCGIS_10_6_0.bat" basedir="build" workingdir="build" />
+    <exec if="${arcgis_version == '10.7.0'}" program="set_ARCGIS_10_7_0.bat" basedir="build" workingdir="build" />
+    <exec if="${arcgis_version == '10.8.0'}" program="set_ARCGIS_10_8_0.bat" basedir="build" workingdir="build" />	
+  </target>
+
+  <!-- 
+    =========================================================
+    Build targets
+    ========================================================= 
+  -->
+
+  <target name="build" depends="init">
+
+
+    <property name="build_config" value="Debug" />
+    <!-- get path and name of solution -->
+    <property name="solution_to_build" value="GNSDatashop" />
+    <property name="output_path" value="${output_base_path}/${solution_to_build}" />
+    <property name="project_path_name" value="${path::get-directory-name(project::get-buildfile-path())}\${solution_to_build}.sln"/>
+    <property name="msbuild_path" value="c:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" />
+    <property name="msbuild_path" value="c:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe" if="${not file::exists(msbuild_path)}" />
+    <!-- msbuild call -->
+    <exec verbose="true"
+  program="${msbuild_path}"
+  commandline="
+  /t:Rebuild 
+  /p:platform=&quot;Any CPU&quot;
+  /p:Configuration=${build_config} 
+  /p:SignAssembly=true 
+  /p:AssemblyOriginatorKeyFile=${base_dir}\geo_lib\geocom\signing\CHGEOCX1_UNCHAINED.pfx 
+  /p:OutputPath=${output_path} 
+  /p:BaseIntermediateOutputPath=${output_path}\obj\ 
+  /p:RegisterForComInterop=false 
+  /v:minimal
+  /property:WarningLevel=0"
+  workingdir="${project::get-base-directory()}\">
+      <arg file="${project_path_name}" />
+    </exec>
+
+    <if test="${ property::exists('tstamp.time')}">
+      <echo message="Time: ${tstamp.time}" />
+    </if>
+    <property name="build_succeeded" value="true" />
+  </target>
+
+  <target name="build_and_test" depends="build">
+    <mkdir dir="${reports_dir}" />
+
+    <property name="testDllsNames" value="" />
+    <property name="nunitConsolePath" value="${environment::get-variable('NUNIT_HOME')}\nunit-console-x86.exe" if="${arcgis_version == '10.0.0'}" />
+    <property name="nunitConsolePath" value="${environment::get-variable('NUNIT_HOME')}\nunit-console.exe" if="${arcgis_version != '10.0.0'}" />
+
+    <!-- find all test dlls that -->
+    <foreach item="File" property="filename">
+      <in>
+        <items>
+          <!-- dll search criteria-->
+          <include name="${output_path}\*Test.dll" />
+          <include name="${output_path}\*Tests.dll" />
+        </items>
+      </in>
+      <do>
+        <property name="testDllsNames" value="${testDllsNames} ${path::get-file-name(filename)}" />
+      </do>
+    </foreach>
+    <echo message="Found test dlls: ${testDllsNames}" />
+
+    <mkdir dir="${reports_dir}" failonerror="false" />
+
+    <!-- run tests -->
+    <exec
+      program="${nunitConsolePath}"
+      commandline="${testDllsNames} /noshadow /nothread /xml=${reports_dir}\unit-tests-report.xml"
+      workingdir="${output_path}">
+    </exec>
+    <property name="test_succeeded" value="true" />
+  </target>
+
+  <target name="findSvnRevision">
+    <property name="svn.revision" value="0"/>
+    <exec program="svn"
+        commandline='info "${base_dir}" --xml'
+        output="svninfo.xml"
+        failonerror="false"/>
+    <xmlpeek
+        file="svninfo.xml"
+        xpath="/info/entry/commit/@revision"
+        property="svn.revision"
+        failonerror="false"/>
+    <delete file="svninfo.xml" failonerror="false" />
+  </target>
+
+  <!-- building MSI setups -->
+  <target name="VS_Setups" description="Builds Visual Studio Setups" depends="init, findSvnRevision">
+    <exec program="svn" commandline="revert -R ${base_dir}\SetupGNSDAdmin\SetupGNSDAdmin.vdproj"  verbose="true" failonerror="true"  />
+    <exec program="svn" commandline="revert -R ${base_dir}\SetupGNSDServer\SetupGNSDServer.vdproj"  verbose="true" failonerror="true"  />
+    <exec program="svn" commandline="revert -R ${base_dir}\SetupGNSDWCFService\SetupGNSDWCFService.vdproj"  verbose="true" failonerror="true"  />
+    <exec program="svn" commandline="revert -R ${base_dir}\SetupGNSDWeb\SetupGNSDWeb.vdproj"  verbose="true" failonerror="true"  />
+
+    <foreach item="File" property="vdprojFile">
+      <in>
+        <items>
+          <include name="**/*.vdproj" />
+        </items>
+      </in>
+      <do>
+        <echo message="Replacing content in ${vdprojFile}" />
+        <loadfile file="${vdprojFile}" property="vdprojFileContent">
+          <filterchain>
+            <replacetokens>
+              <token key="datashop_version" value="${datashop_version}" />
+              <token key="revision" value="${svn.revision}" />
+              <token key="datashop_product_version" value="${datashop_product_version}" />
+              
+              <!-- for ArcGIS 10.0 build as 32 bit -->
+              <token key="cpu_architecture" value="32-bit" if="${arcgis_version == '10.0.0'}"  />
+              <token key="target_platform_switch" value="0" if="${arcgis_version == '10.0.0'}"  />
+              <token key="arcgis_version" value="10.0" if="${arcgis_version == '10.0.0'}"  />
+
+              <!-- for ArcGIS 10.1 build as 64 bit -->
+              <token key="cpu_architecture" value="64-bit" if="${arcgis_version == '10.1.0'}"  />
+              <token key="target_platform_switch" value="1"  if="${arcgis_version == '10.1.0'}"  />
+              <token key="arcgis_version" value="10.1" if="${arcgis_version == '10.1.0'}"   />
+
+              <!-- for ArcGIS 10.2 build as 64 bit -->
+              <token key="cpu_architecture" value="64-bit" if="${arcgis_version == '10.2.0'}"  />
+              <token key="target_platform_switch" value="1"  if="${arcgis_version == '10.2.0'}"  />
+              <token key="arcgis_version" value="10.2" if="${arcgis_version == '10.2.0'}"   />
+
+              <!-- for ArcGIS 10.3 build as 64 bit -->
+              <token key="cpu_architecture" value="64-bit" if="${arcgis_version == '10.3.0'}"  />
+              <token key="target_platform_switch" value="1"  if="${arcgis_version == '10.3.0'}"  />
+              <token key="arcgis_version" value="10.3" if="${arcgis_version == '10.3.0'}"   />
+
+              <!-- for ArcGIS 10.4 build as 64 bit -->
+              <token key="cpu_architecture" value="64-bit" if="${arcgis_version == '10.4.0'}"  />
+              <token key="target_platform_switch" value="1"  if="${arcgis_version == '10.4.0'}"  />
+              <token key="arcgis_version" value="10.4" if="${arcgis_version == '10.4.0'}"   />
+              
+              <!-- for ArcGIS 10.5 build as 64 bit -->
+              <token key="cpu_architecture" value="64-bit" if="${arcgis_version == '10.5.0'}"  />
+              <token key="target_platform_switch" value="1"  if="${arcgis_version == '10.5.0'}"  />
+              <token key="arcgis_version" value="10.5" if="${arcgis_version == '10.5.0'}"   />
+              
+              <!-- for ArcGIS 10.6 build as 64 bit -->
+              <token key="cpu_architecture" value="64-bit" if="${arcgis_version == '10.6.0'}"  />
+              <token key="target_platform_switch" value="1"  if="${arcgis_version == '10.6.0'}"  />
+              <token key="arcgis_version" value="10.6" if="${arcgis_version == '10.6.0'}"   />
+              
+              <!-- for ArcGIS 10.7 build as 64 bit -->
+              <token key="cpu_architecture" value="64-bit" if="${arcgis_version == '10.7.0'}"  />
+              <token key="target_platform_switch" value="1"  if="${arcgis_version == '10.7.0'}"  />
+              <token key="arcgis_version" value="10.7" if="${arcgis_version == '10.7.0'}"   />
+              
+              <!-- for ArcGIS 10.8 build as 64 bit -->
+              <token key="cpu_architecture" value="64-bit" if="${arcgis_version == '10.8.0'}"  />
+              <token key="target_platform_switch" value="1"  if="${arcgis_version == '10.8.0'}"  />
+              <token key="arcgis_version" value="10.8" if="${arcgis_version == '10.8.0'}"   />
+
+            </replacetokens>
+          </filterchain>
+        </loadfile>
+        <echo file="${vdprojFile}" message="${vdprojFileContent}" />
+      </do>
+    </foreach>
+
+    <property name="setupsTargetDirectory" value="${base_dir}\_setups\GEONIS Datashop ${datashop_product_version}.${svn.revision}\${arcgis_version}"/>
+    <property name="msiFileFilter" value="**/*.msi" />
+    <property name="setupExeFileFilter" value="**/GEONIS Datashop*.exe" />
+    <!-- To build *.vdproj setups you need this extension in your VS https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.MicrosoftVisualStudio2017InstallerProjects -->
+    <property name="VSPath" value="C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\devenv.exe" />
+    <!-- build new MSI setups -->
+    <echo message="Building Visual Studio Setup." />
+    <choose>
+      <when test="${buildManually == 'true'}">
+        <echo message="After Visual Studio opens, build the solution in the Release|x64 mode and then close the IDE to continue the build script." />
+        <exec program="${VSPath}" commandline="&quot;${base_dir}\GEOCOM.GNSD.Setups.sln&quot;" verbose="true" failonerror="true"/>
+      </when>
+      <otherwise>
+        <exec program="${VSPath}" commandline="/rebuild &quot;Release|x64&quot; &quot;${base_dir}\GEOCOM.GNSD.Setups.sln&quot;" verbose="true" failonerror="true"/>
+      </otherwise>
+    </choose>
+
+    <!-- rename the Setup.exe files to match the name of the MSIes - a Setup.exe allows to run MSI execution with administrator rights -->
+    <foreach item="File" property="msiFile">
+      <in>
+        <items basedir="${base_dir}\">
+          <include name="${msiFileFilter}" />
+		  <exclude name="**/_setups/**" />
+        </items>
+      </in>
+      <do>
+        <property name="MsiNameWithoutExt" value="${path::get-file-name-without-extension(msiFile)}"/>
+        <property name="MsiName" value="${path::get-file-name(msiFile)}"/>
+        <property name="MsiPath" value="${path::get-directory-name(msiFile)}"/>
+        <property name="SetupExePath" value="${MsiPath}\setup.exe"/>
+        <property name="SignRoot" value="${base_dir}\geo_lib\geocom\signing" />
+        <exec program="${SignRoot}\signtool.exe">
+          <arg value='sign /d "${msiFile}" /n &quot;VertiGIS GmbH&quot; /t http://timestamp.digicert.com /v "${msiFile}" "${SetupExePath}"' />
+        </exec>
+        <property name="SetupExeRenamedPath" value="${MsiPath}\${MsiNameWithoutExt}.exe"/>
+        <if test="${not file::exists(SetupExePath)}">
+          <echo message="Could not find the setup.exe file for the ${MsiName}."/>
+        </if>
+        <if test="${file::exists(SetupExePath)}">
+          <echo message="${MsiName}" />
+          <echo message="${MsiPath}" />
+          <move file="${SetupExePath}"
+              tofile="${SetupExeRenamedPath}" />
+        </if>
+      </do>
+    </foreach>
+
+
+    <!-- copy the new setups to the setupsTargetDirectory -->
+    <echo message="Coping all setups to ${setupsTargetDirectory}." />
+    <copy todir="${setupsTargetDirectory}" overwrite="true" flatten="true">
+      <fileset basedir="${base_dir}\">
+        <include name="${msiFileFilter}" />
+        <include name="${setupExeFileFilter}" />
+		<exclude name="**/_setups/**" />
+      </fileset>
+    </copy>
+
+    <tstamp verbose="true">
+      <formatter property="dateTimeNow" pattern="yyyy-MM-dd HH:mm:ss"/>
+    </tstamp>
+
+    <!-- write short info to a file -->
+    <echo file="${setupsTargetDirectory}\_info.txt">Setups created at ${dateTimeNow} from repository revision ${svn.revision}.</echo>
+  </target>
+
+  <target name="VS_Setups_SVN_Tag" depends="findSvnRevision">
+    <property name="svn_geo_server_tags_url" value="https://info-dev-svn.geo.lan/svn/geo_datashop/tags/GNSDatashop_Setups_Build_Server" />
+    <!-- create time stamp -->
+    <tstamp verbose="true">
+      <formatter property="dateTimeNow" pattern="yyyy-MM-dd_HH:mm:ss"/>
+    </tstamp>
+
+    <!-- revert local changes (after-build config transformations) -->
+    <exec program="svn" commandline="revert -R ${base_dir}"
+      verbose="true" failonerror="false"
+  />
+
+    <!-- create tag -->
+    <exec program="svn" commandline="copy ${base_dir} ${svn_geo_server_tags_url}/trunk_revision_${svn.revision}_time_${dateTimeNow} -m &quot;Build server: Created a tag for GSNDatashop_Setups@${svn.revision} at ${dateTimeNow}.&quot;"
+      verbose="true" failonerror="false"
+  />
+  </target>
+
+</project>
+

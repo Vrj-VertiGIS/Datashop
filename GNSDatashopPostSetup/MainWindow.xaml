@@ -1,0 +1,109 @@
+﻿<Window x:Class="GEOCOM.GNSDatashop.GNSDatashopPostSetup.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          Title="GEONIS server Datashop"  Height="480" Width="640" MinWidth="640" 
+        MinHeight="480" Background="#dedede" ResizeMode="CanMinimize" Closing="Window_Closing" Icon="/GNSDatashopPostSetup;component/Resources/server.ico">
+    <Window.Resources>
+       
+        <Style x:Key="defaultMargin" TargetType="FrameworkElement">
+            <Setter Property="Margin" Value="5" />
+        </Style>
+
+        <Style TargetType="Expander" BasedOn="{StaticResource defaultMargin}">
+          
+        </Style>
+
+        <Style TargetType="TextBlock" BasedOn="{StaticResource defaultMargin}" x:Key="StandartTxtBlk" >
+            <Setter Property="TextWrapping" Value="Wrap" /> 
+    
+            <!--<Setter Property="Background" Value="Olive" />--> 
+        </Style>
+        <Style TargetType="Label"  x:Key="TitleLbl">
+            <Setter Property="FontSize" Value="15"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="142"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="82"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="65"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border HorizontalAlignment="Left"  Grid.RowSpan="3"  BorderThickness="0,0,2,0" BorderBrush="White" Background="#dedede" >
+            <StackPanel Width="142" >
+                <StackPanel.Background>
+                    <ImageBrush ImageSource="/GNSDatashopPostSetup;component/Resources/bg_left.png" Stretch="None" AlignmentY="Top"   />
+                </StackPanel.Background>
+
+                <ScrollViewer Margin="0,135, 0, 0" VerticalScrollBarVisibility="Auto" Height="315" Width="139">
+                    <StackPanel >
+                        <StackPanel.Resources>
+                            <DataTemplate x:Key="Template" DataType="ExpanderItem">
+                                <TextBlock Text="{Binding Path=Name}"  Margin="20,0,0,0" MouseUp="RouteCallMouseUpEvent" Name="ExpanderItem" FontSize="11">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                          <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                              <Setter Property="TextDecorations" Value="Underline" />
+                                            </Trigger>
+                                              <DataTrigger  Binding="{Binding Path=IsBold}" Value="True" >
+                                                  <Setter Property="FontWeight" Value="Bold" />
+                                              </DataTrigger>
+                                          </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </DataTemplate>
+                        </StackPanel.Resources>
+                        <Expander Header="Introduction" Name="ExpIntroduction" >
+                            <ItemsControl ItemTemplate="{StaticResource Template}" ></ItemsControl>
+                        </Expander>
+                        <Expander Header="Common Settings" Name="ExpCommonSettings" >
+                            <ItemsControl ItemTemplate="{StaticResource Template}"></ItemsControl>
+                        </Expander>
+                        <Expander Header="Configuration Files" Name="ExpFiles" >
+                            <ItemsControl ItemTemplate="{StaticResource Template}"></ItemsControl>
+                        </Expander>
+                        <Expander Header="Progress" Name="ExpProgress" IsEnabled="False">
+                            <ItemsControl ItemTemplate="{StaticResource Template}"></ItemsControl>
+                        </Expander>
+                        <Expander Header="Result" Name="ExpResult" IsEnabled="False">
+                            <ItemsControl ItemTemplate="{StaticResource Template}"></ItemsControl>
+                        </Expander>
+                    </StackPanel>
+                </ScrollViewer>
+            </StackPanel>
+        </Border>
+        <Grid Name="headerGrid" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="142"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="1" FontSize="26" Name="headingLabel" FontWeight="Bold" Margin="15,0,0,0">GEONIS server Datashop</Label>
+            <Label Grid.Row="1" Grid.Column="1" Name="summaryLabel" Margin="55,0,0,0" VerticalAlignment="Top">Wizard to setup the datashop environment.</Label>
+        </Grid>
+        <Border Name="contentBorder" Grid.Row="1" Grid.Column="2" BorderThickness="0,2,0,0" BorderBrush="White">
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" >
+                <DockPanel  Name="contentPanel" Width="Auto">
+                    
+                </DockPanel>
+            </ScrollViewer>
+        </Border>
+        <Border Name="buttonBorder" Grid.Row="2" Grid.Column="2" BorderThickness="0,2,0,0" BorderBrush="White"  >
+            <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight">
+                <Button Height="23" Name="backButton" Width="75" IsEnabled="True" Margin="5,5,5,5" Content="Back"/>
+                <Button Height="23" Name="nextButton" Width="75" Margin="5,5,5,5"  Content="Next" />
+                <Button Height="23" Name="processButton" Width="75" Margin="5,5,5,5"  Content="Process" />
+                <Button Height="23" Name="cancelButton" Width="75" Margin="30,5,5,5" Content="Cancel" Click="CancelButtonClick"  />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

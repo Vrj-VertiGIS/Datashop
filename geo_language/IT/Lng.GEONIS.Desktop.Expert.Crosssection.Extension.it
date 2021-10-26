@@ -1,0 +1,8 @@
+////////////////////////////////////////////////////////////////////////
+// Create Crosssection Baseline Command
+1000 GEONIS Electro
+1010 Crea sezione linea di base
+1020 Avvia un strumento per la creazione di una nuova linea di base per una sezione.
+1030 Crea una nuova sezione linea di base 
+1050 Impossibile trovare il strumento GEONIS "Nuova Feature". \nVerifica l'installazione di GEONIS expert e se esiste il strumento "GNTools.NeuFeature".
+1060 Il strumento GEONIS "Nuova Feature" non supporta l'interfaccia "IFuncCall".\nVerifica se è stata installata la versione corretta di GEONIS expert.

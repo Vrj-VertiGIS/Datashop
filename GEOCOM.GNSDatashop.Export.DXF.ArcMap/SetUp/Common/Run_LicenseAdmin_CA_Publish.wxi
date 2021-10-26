@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+
+  <InstallExecuteSequence>  
+
+    <Custom Action="CA_LaunchLicenseAdmin" After="InstallFiles">
+      <![CDATA[(0)]]>  <!--never happen -only used to "publish" custom action to the "embedding" installer -->
+    </Custom>
+    
+    
+  </InstallExecuteSequence>    
+  
+</Include>

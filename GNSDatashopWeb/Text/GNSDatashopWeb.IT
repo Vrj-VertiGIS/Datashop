@@ -1,0 +1,451 @@
+﻿// Masterpage
+1000 Informazioni esterne su piani Geocom Informatik AG
+1001 GEONIS Datashop
+1002 Informazioni esterne su piani
+1003 Nuova richiesta mappa
+1004 Nuova esportazione dati
+1005 Le mie richieste
+1006 Prego attendere
+
+1010 Pagina iniziale
+
+1020 Lingua:
+1021 Tedesco
+1022 Inglese
+1023 Francese
+1024 Italiano
+
+1030 Il mio profilo
+
+1050 Sistema informativo
+
+1080 Aiuto
+
+//welcomePage
+1500 Selezioni l’opzione desiderata:
+1501 Ricevere informazioni su piani <b>come utente occasionale</b>
+1502 Login o registrazione per <b>utente abituale</b>
+15031 Se ha bisogno solo saltuariamente di informazioni su una rete di condotte,  
+15032 faccia clic qui
+1504 <b>Utente abituale:</b> ha bisogno regolarmente di informazioni su una rete di condotte e richiede pertanto un accesso illimitato, protetto da password, a Datashop.
+1505 Per richieste d’informazioni regolari su piani si registri come utente abituale.
+
+1506 Se desidera solo saltuariamente informazioni su piani, utilizzi l’accesso come utente occasionale 
+
+1510 Benvenuto al sistema informativo esterno su piani
+
+
+
+// Login
+2000 Questo sito web è protetto da password.
+2001 Il suo login è fallito. Riprovi un’altra volta.
+2002 Login
+2003 E-mail o ID utente:
+2004 Si colleghi qui col nome utente e la password.
+2005 Password.
+2006 Collegato come {0}
+2008 ID utente sconosciuto: {0}
+2009 È collegato come {0}.
+2010 È già registrato, ma non dispone dei diritti necessari per visualizzare la pagina desiderata. Annulli il collegamento e si colleghi nuovamente.
+2011 Login
+2012 Registrazione per utenti abituali
+2013 Richiesta di nome utente
+2014 Richiesta di password
+2015 Deve essere membro del Rolle Business Users per eseguire regolarmente ordini plot. Voglia rivolgersi al suo amministratore.
+
+2020 Non vuole accedere a questa pagina? Faccia clic qui per ritornare alla pagina iniziale.
+
+//business login
+2021 Qui può creare un nuovo piano.
+2022 Nuova registrazione.
+2023 Password dimenticata?
+2024 Indietro
+2025 Per il collegamento è possibile usare l’indirizzo e-mail o l’ID utente. Immetta la password e acceda con il bottone “Login” all’informazione sul piano.
+//temp login
+2030 Voglia riempire per intero i seguenti campi:
+2031 Condizioni generali di contratto
+2032 Scaricare le condizioni generali di contratto in formato PDF
+2033 Voglia accettare le Condizioni generali di contratto.
+2034 Ho letto le Condizioni generali di contratto (AGB) e le accetto.
+2035 Come utente occasionale verrà identificato tramite il suo indirizzo e-mail. Voglia immettere i dati necessari e accettare le Condizioni generali di contratto per continuare direttamente con l’ordine.
+2036 Avanti
+2037 Acconsento al salvataggio dei miei dati di contatto (nome e cognome, indirizzo e-mail) nell’ambito di questa applicazione.
+2038 Voglia accettare le disposizioni sulla tutela dei dati personali
+
+//business register
+2050 In qualità di utente abituale, dopo la registrazione, riceverà un’e-mail di conferma dell’avvenuta attivazione del suo account. Voglia immettere i dati necessari e accettare le Condizioni generali di contratto per registrarsi. Dopo l’attivazione può acquisire autonomamente informazioni sulla rete di condotte.
+
+
+2040 Voglia registrarsi
+2041 Annullare la registrazione
+
+//captcha texts
+2060 Attualizzazione
+2061 Il codice da lei immesso è scaduto dopo {0} secondi.
+2062 Il codice è stato immesso troppo velocemente. Voglia attendere {0} secondi.
+2063 Il codice da lei immesso non corrisponde al codice Captcha.
+2064 Immetta il codice Captcha
+
+// text field validations - {0} will be replaced by field's name
+2100 Il campo "{0}" contiene caratteri non validi.
+2101 Il campo "{0}" è troppo lungo.
+
+// persönliche Daten
+2200 Dati personali
+2201 Qui può cambiare i suoi dati personali.
+2202 I suoi dati
+
+2210 Modifica dei dati utente
+
+2230 Sig.
+2231 Sig.ra
+
+2250 Titolo: 
+2251 Nome: 
+2252 Cognome:
+2253 Via: 
+2254 Numero civico:
+2255 CAP: 
+2256 Località:
+2257 Indirizzo e-mail:
+2258 Azienda:
+2259 Telefono:
+2260 Fax:
+2261 Password:
+2262 Ripetizione password:
+
+
+2300 Il campo ''Titolo” non deve essere vuoto.
+2301 Voglia immettere il suo nome.
+2302 Il campo ''Cognome” non deve essere vuoto.
+2303 Voglia immettere la via.
+2304 Voglia immettere il numero civico.
+2305 Voglia immettere il CAP.
+2306 Voglia immettere la località.
+2307 Voglia immettere il nome della sua azienda.
+2308 Il campo ''Indirizzo e-mail” non deve essere vuoto.
+2309 Voglia immettere il numero di telefono.
+2310 Voglia immettere il numero di fax.
+2311 Voglia immettere l’indirizzo e-mail corretto.
+2312 Non tutti i dati immessi sono validi.
+2313 Voglia immettere una password.
+23131 Voglia confermare la password.
+2314 Le due password non corrispondono.
+
+2315 Login come utente occasionale
+2316 Registrazione come utente abituale
+2317 Un utente con lo stesso indirizzo e-mail esiste già.
+
+2320 Indicazione necessaria
+2321 I suoi dati utente sono stati modificati con successo.
+2322 Non è stato possibile modificare i suoi dati utente. Riprovi nuovamente in un altro momento.
+2323 Il conto utente non è stato trovato. Annulli il collegamento e riprovi nuovamente.
+2324 La sua vecchia password non è corretta.
+2325 Le due nuove password non corrispondono.
+2326 La sua password è stata modificata con successo.
+2327 Non è stato possibile modificare la sua password. Riprovi un’altra volta tra pochi minuti.
+2328 La nuova password deve essere diversa da quella vecchia.
+
+2330 Qui può cambiare i suoi dati personali e la sua password.
+
+2340 Voglia immettere una nuova password.
+2341 Le due nuove password non corrispondono.
+2342 La tua password deve essere lunga almeno 8 caratteri e contenere almeno una lettera maiuscola, una lettera minuscola e un numero o un carattere speciale.
+2343 Modificare la password
+2344 Vecchia password:
+2345 Nuova password:
+2346 Ripetizione password:
+2347 Modifica password
+2350 Indietro
+
+//passwort zurücksetzten
+2400 Qui può ripristinare la sua password.
+2401 Ripristino password
+2402 Indietro
+2404 La password è stata ripristinata correttamente Riceverà presto una mail con la nuova password {0}.
+2405 Non è stato purtroppo possibile ripristinare la password. Riprovi tra pochi minuti o si rivolga all’amministratore.
+2406 La password è stata ripristinata. Purtroppo non è stato possibile inviare una mail con la nuova password. Riprovi tra pochi minuti o si rivolga all’amministratore.
+2407 Faccia generare una nuova password da inviare al suo indirizzo e-mail. La sua vecchia password non sarà più valida.
+
+2410 Ripristino password
+
+//Confirm Order
+3000 Conferma
+3001 Abbiamo registrato il suo ordine.
+3002 Dati relativi al suo ordine:
+3003 Riceverà a breve un’e-mail all’indirizzo <b>{0}</b> con un link di download per scaricare il piano creato.
+3004 Qui può creare un altro piano
+3005 La ringraziamo per il suo ordine
+3006 Il team della Stadtwerke Datashop City
+3010 Per informazioni sul suo ordine voglia rivolgersi al nostro servizio di assistenza alla clientela <E-Mail-Adresse> con i dati di questa pagina   
+3011 Indietro alla Pagina iniziale
+3012 Qui può creare un altro set di dati.
+3013 Qui può creare un altro piano con lo stesso estratto della mappa.
+3014 Numero d’ordine
+
+//stream product
+3100 Il seguente file è pronto per essere scaricato:
+3101 Download
+3102 Dati relativi al suo ordine:
+3103 Scaricare la mappa
+3104 Qui può scaricare il suo ordine.
+3105 Indietro a Datashop
+3106 Il file da Lei ordinato è scaduto. Voglia cliccare sul link qui di seguito per ordinare un nuovo file.
+3107 Utente
+
+//uploadPage
+3200 Selezioni sul suo computer il file da caricare nel sistema con il bottone <i>Sfoglia...</i>
+3201 Selezioni altri file da caricare aggiungendo una nuova riga di selezione, dopo aver fatto clic sul bottone <i>Nuova riga file</i>; cliccando poi sul bottone <i>Sfoglia</i> selezioni il file desiderato.
+3202 Avvii il caricamento facendo clic sul bottone <i>Carica file</i>.
+3203 Attenda sino a quando appare il messaggio di conferma dell’avvenuto caricamento.
+3204 Caricamento file
+3205 Qui è possibile creare un job di caricamento per l’utente {0} ({1}).
+
+3206 Esegui job di caricamento
+
+3210 correttamente
+3211 non correttamente
+3212 È già stato caricato un file con lo stesso nome
+3213 Caricamento in campo globale
+3214 È stato predisposto correttamente l’inoltro (e la consegna) all’utente dei file caricati.
+3215 Durante l’attivazione dell’inoltro dei file all’utente si è verificato un errore.
+3216 Durante il caricamento dei file nella memoria temporanea si è verificato un errore.
+3217 I file nella memoria temporanea sono stati cancellati.
+3218 Errore durante la cancellazione dei file nella memoria temporanea:
+
+// DXF Export
+3300 Esportazione DXF:
+3301 Crea esportazione DXF
+
+// PdeRequestPage
+3801 Selezione profilo:
+3802 Profilo
+3803 Selezione profilo
+3804 Descrizione:
+3805 Formato dati:
+3806 Selezione formato dati
+3807 Si prega di disegnare almeno un poligono
+3808 L’area scelta di {0} è più grande dell’area massima di {1}
+
+//RequestPage
+3900 Richiesta di informazioni su piani
+3901 Voglia definire l’ambito del piano.
+3902 Voglia indicare il motivo della richiesta.
+3903 Definizione ambito del piano:
+39031 Eseguire una ricerca o posizionare la cartina sul perimetro desiderato. Dopodiché potrà essere definito il posizionamento per la stampa.
+3904 Formato di stampa
+3905 Selezioni il formato della mappa
+3906 Scala
+3907 Selezioni una scala.
+3908 Angolo di rotazione
+3909 Voglia riempire per intero i seguenti campi:
+3910 Motivo della richiesta
+3911 Ordine
+39111 Ordine per conto di terzi
+3912 Procedura:
+3913 1. Ricerca e navigazione con ricerca indirizzo e strumenti di <br>navigazione<br>2. Definizione dell’ambito del piano con definizione <br>ambito del piano e strumenti di <br>posizionamento<br>3. Immissione dei dati necessari<br>4. Lettura e accettazione condizioni generali di contratto
+3914 5. Premere “Ordina”
+
+39150 Add geo-attachments
+
+39161 Supplemento campo 1
+39162 Supplemento campo 2
+39163 Supplemento campo 3
+39164 Supplemento campo 4
+39165 Supplemento campo 5
+39166 Supplemento campo 6
+39167 Supplemento campo 7
+39168 Supplemento campo 8
+39169 Supplemento campo 9
+391610 Supplemento campo 10
+
+3917 Periodo di tempo da/fino a
+39171 Periodo di tempo da
+39172 Periodo di tempo fino a
+39173 Data d’inizio non valida
+39174 Data di fine non valida
+
+3918 Tutti i campi gialli devono essere riempiti.
+3919 I campi gialli non devono essere vuoti.
+39190 Regular Expression Validation per Campo Custom 1 non eseguita
+39191 Regular Expression Validation per Campo Custom 2 non eseguita
+39192 Regular Expression Validation per Campo Custom 3 non eseguita
+39193 Regular Expression Validation per Campo Descrizione Job non eseguita
+39194 Regular Expression Validation per Campo Job Particelle N. non eseguita
+39195 Prego completare il profilo
+
+3920 Chiudi
+3921 Il numero di ambiti del piano eccede il limite massimo.
+3922 Il campo “Periodo di tempo da/fino a” non deve essere vuoto e deve rientrare in un arco di tempo valido.
+
+3923 Settori:
+3924 Descrizione
+39241 Il campo Descrizione deve essere riempito.
+3925 Numero terreno
+39251 Il campo Numero terreno deve essere riempito.
+
+
+//TDERequestPage
+3950 Voglia disegnare il perimetro d’esportazione. Il poligono può essere chiuso con un doppio clic.
+3951 Selezioni il profilo desiderato:
+3952 Profilo
+3953 Il campo “Motivo della richiesta” non deve essere vuoto.
+3954 Voglia selezionare un profilo. 
+3955 Formato target:
+3956 Descrizione:
+3957 Voglia selezionare un formato DB.
+3960 Disegnare un rettangolo
+3961 Disegnare un poligono
+3962 Voglia disegnare un perimetro d’esportazione.
+3963 Voglia selezionare un profilo DXF
+3964 Tipo di esportazione
+3965 Dxf Profilo
+3966 Prego scegliete und tipo di esportazione
+
+//map
+3930 Ingrandire l'estratto
+3931 Ridurre l'estratto
+3932 Spostare l'estratto
+3934 Spostare l’ambito del piano al centro della mappa
+3935 Zoomare la mappa sull’ambito del piano
+3936 Inserimento dell’ambito del piano
+3937 Eliminazione dell’ambito del piano
+3938 Spostamento dell’ambito del piano
+3939 Estratto precedente
+3940 Estratto successivo
+3941 Mappa non ancora disponibile. La procedura è stata interrotta.
+3942 Caricamento estratto mappa iniziale
+3943 plot frame(s) are outside of the current map extent
+3944 Disegnare poligono
+3945 Ringrandire, rimpicciolire o rotare poligono scelto
+3946 Cambiare poligono selezionato
+
+//searchControll for requestpage
+3980 Aggiornamento campi
+3981 Zoom sull'oggetto
+3982 Più risultati trovati. Il primo viene visualizzato.
+3983 Nessun risultato trovato.
+39831 Nessun risultato trovato (per errore interno).
+3984 Ricerca non disponibile
+
+//surrogate 
+3990 Creazione piano alternativo
+3991 Utente
+39911 È necessario selezionare l’utente.
+3992 Data richiesta
+39921 È necessario selezionare la data della richiesta.
+3993 Tipo di richiesta
+39931 È necessario riempire il campo con il tipo di richiesta.
+3994 Arresto job prima dell’aggregazione
+3995 Aggiunta di nuovo user business
+3996 Aggiunta di nuovo user temporaneo
+3997 Filtri della lista utenti
+3998 Deve immettere un filtro
+3999 Filtri della lista
+39991 Ripristino filtro
+39992 {0} utente trovato
+
+//searches 4000-4999 are reserved for labeling the searchfields
+4000 Ricerca indirizzo
+4001 Comune
+4002 Nome via
+4003 Numero
+
+4010 Coordinate
+4011 Coordinate X
+4012 Coordinate Y
+
+4020 Nome corridoio
+4021 Nome corridoio
+4022 Risultati
+
+4030 Numero parcella
+4031 Numero parcella
+
+4040 Numero assicurazione
+4041 Numero assicurazione
+
+4100 La pagina Web, non é più disponibile. Per non visualizzare questo messaggio, si prega di aggiornare i vostri preferiti del browser: creare un nuovo preferito dalla pagina Datashop ed eliminare il favorito anziano. 
+4101 Per prenotare una pianta e cambiare pagina,
+4102 premere qui.
+
+//MyPlots page
+
+5000 Ricerca e applicazione filtri ai dati
+5001 Numero job
+5002 ID utente
+5003 Nome
+5004 Cognome
+5005 Azienda
+5006 Periodo di tempo da
+5007 Periodo di tempo fino a
+5008 Scaricato
+50080 Sì
+50081 No
+5009 Cerca
+5010 Ripristina
+5011 Opzioni
+5012 Risultati per pagina
+5013 Esportazione come .csv
+5014 Esporta
+5015 Sono state trovate {0} voci.
+5016 N. job
+5017 N. utente
+5018 Nome
+5019 Cognome
+5020 Azienda
+5021 N. utente
+5022 Nome
+5023 Cognome
+5024 Azienda
+5025 Data di creazione
+5026 Scaricato
+5027 Scarica
+5028 Voglia riempire almeno un campo di ricerca
+5029 Il valore JobId deve essere numerico
+// 5030: {0} stands for the original job id and {1} stands for the new job id
+5030 Il ordine Id {0} è stato copiato su Id {1} e riavviato
+
+//Impressum, About
+6000 About
+6001 Replace this text with something suitable for an about page
+
+//Errors
+//Masterpage
+9001 Voglia attivare JAVASCRIPT nel suo browser, per visualizzare questa pagina.
+//BizUserDisabled
+9010 Il suo account è stato bloccato.
+//biz & tempUserLimitError
+9019 Troppe richieste
+9020 Il limite di {0} richieste negli ultimi {1} giorni è già stato raggiunto. 
+9021 Voglia ripetere la richiesta allo scadere del tempo di attesa.
+9022 Il limite di {0} richieste negli ultimi {1} giorni è già stato raggiunto. 
+9023 Voglia ripetere la richiesta allo scadere del tempo di attesa o si registri come utente abituale.
+9024 Registrazione come utente abituale
+//BizUserLocked
+9030 La sua registrazione non è stata ancora confermata dall’amministrazione. Non appena ciò avverrà, Le invieremo un’e-mail per informarla.
+9031 Registrazione non ancora confermata
+//CreateTempUserFailed
+9040 L’indirizzo e-mail da Lei immesso viene già utilizzato da un utente abituale registrato.
+9041 Voglia controllare l’indirizzo e-mail da lei immesso o utilizzi la pagina di login per utenti abituali registrati.
+9042 « Alla pagina iniziale
+9043 « Registrazione come utente abituale
+9044 L’account non è stato creato
+//GeneralError
+9050 Si è verificato un errore durante l’esecuzione della richiesta.
+9051 Voglia ripetere la richiesta e contattare il servizio assistenza in caso di nuovo errore.
+9052 Nessun messaggio d’errore disponibile
+//LoginError
+9060 Non è stato possibile verificare il suo account utente o è stato possibile verificarlo solo in parte.
+9061 Voglia ripetere la richiesta e contattare il servizio assistenza in caso di nuovo errore.
+9062 « Indietro
+//ServiceNotFound
+9070 Il servizio non è disponibile attualmente.
+//UploadJobErrors
+9080 L’identificazione dell’utente per il quale desidera eseguire quest’ordine non è valida.
+9081 Non dispone dell’autorizzazione (necessaria per questa azione) per effettuare ordini per un altro utente. <br />Voglia collegarsi come amministrazione.
+//PDE Errors
+9090 Durante il caricamento dei profili si è verificato un grave errore. Riprovi tra pochi minuti o si rivolga al servizio assistenza.
+//Template Limit
+10000 È stato raggiunto il limite di richieste per un modello.
+10001 IT: Too many plots ({0}) within a minute. The limit is {1} plots per minute.

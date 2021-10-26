@@ -1,0 +1,14 @@
+﻿<Dialogs:Dialog x:Class="GEOCOM.GNSDatashop.GNSDatashopPostSetup.Dialogs.Dialog02RegisterServerExtension.Dialog02RegisterServerExtension"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Dialogs="clr-namespace:GEOCOM.GNSDatashop.GNSDatashopPostSetup.Dialogs">
+    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
+        <Label Style="{DynamicResource ResourceKey=TitleLbl}">Register GEONIS server Extensions</Label>
+        <CheckBox Name="chbxRegister" ToolTip="Check the checkbox in order register GEONIS server Extensions" Style="{DynamicResource ResourceKey=defaultMargin}" >
+            <TextBlock Style="{DynamicResource ResourceKey=StandartTxtBlk}">
+          Register GEONIS server Extensions
+            </TextBlock>
+        </CheckBox>
+
+    </StackPanel>
+</Dialogs:Dialog>

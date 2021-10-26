@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{62190274-0637-47E0-9921-6B859BE9B7F9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GNSDatashopAdmin</RootNamespace>
+    <AssemblyName>GNSDatashopAdmin</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>CHGEOCX1_UNCHAINED.pfx</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <UseIISExpress>false</UseIISExpress>
+    <TargetFrameworkProfile />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeoLibRoot>..\geo_lib</GeoLibRoot>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="..\build\configurations.proj" />
+  <Import Project="..\build\configurations.targets" />
+  <ItemGroup>
+    <Compile Include="..\build\CommonAssemblyVersion.cs">
+      <Link>Properties\CommonAssemblyVersion.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="GEOCOM.Common" />
+    <Reference Include="GEOCOM.Common.Logging" />
+    <Reference Include="Microsoft.JScript" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ActivateUsers.aspx" />
+    <Content Include="App_Themes\Custom\Default.css" />
+    <Content Include="App_Themes\Geocom\Default.css" />
+    <Content Include="App_Themes\meyer_reset.css" />
+    <Content Include="BizUserManagePage.aspx" />
+    <Content Include="Config\adminWebmap.js" />
+    <Content Include="Controls\JobGridControl.ascx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="images\arrow_down.png" />
+    <Content Include="images\arrow_up.png" />
+    <Content Include="images\balk_wide.png" />
+    <Content Include="images\datashop24.png" />
+    <Content Include="images\download_16_bw.gif" />
+    <Content Include="images\geocom.jpg" />
+    <Content Include="images\help-icon_24x24.png" />
+    <Content Include="JobArchiveWizzard.aspx" />
+    <Content Include="JobManagePage.aspx" />
+    <Content Include="UserManagePage.aspx" />
+    <Content Include="UserPage.aspx" />
+    <Content Include="utilities.aspx" />
+    <Content Include="welcomePage.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivateUsers.aspx.cs">
+      <DependentUpon>ActivateUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActivateUsers.aspx.designer.cs">
+      <DependentUpon>ActivateUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BizUserManagePage.aspx.cs">
+      <DependentUpon>BizUserManagePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BizUserManagePage.aspx.designer.cs">
+      <DependentUpon>BizUserManagePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\JobGridControl.ascx.cs">
+      <DependentUpon>JobGridControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\JobGridControl.ascx.designer.cs">
+      <DependentUpon>JobGridControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Config\DatashopWebAdminConfig.cs" />
+    <Compile Include="Config\JobList.cs" />
+    <Compile Include="Config\JobListItem.cs" />
+    <Compile Include="Controls\DsDynamicPanel.cs" />
+    <Compile Include="Controls\DsDynamicPlaceholder.cs" />
+    <Compile Include="Controls\DsDynamicReport.cs" />
+    <Compile Include="Controls\DsDynamicReportConfig.cs" />
+    <Compile Include="Controls\DsDynamicTable.cs" />
+    <Compile Include="DatashopAdmin.Master.cs">
+      <DependentUpon>DatashopAdmin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DatashopAdmin.Master.designer.cs">
+      <DependentUpon>DatashopAdmin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error\GeneralErrorPage.aspx.cs">
+      <DependentUpon>GeneralErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error\GeneralErrorPage.aspx.designer.cs">
+      <DependentUpon>GeneralErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error\TestErrorPage.aspx.cs">
+      <DependentUpon>TestErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error\TestErrorPage.aspx.designer.cs">
+      <DependentUpon>TestErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\AspNet.cs" />
+    <Compile Include="Helpers\XmlSerializer.cs" />
+    <Compile Include="JobArchiveWizzard.aspx.cs">
+      <DependentUpon>JobArchiveWizzard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobArchiveWizzard.aspx.designer.cs">
+      <DependentUpon>JobArchiveWizzard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JobDetailDynamic.aspx.cs">
+      <DependentUpon>JobDetailDynamic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobDetailDynamic.aspx.designer.cs">
+      <DependentUpon>JobDetailDynamic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JobManagePage.aspx.cs">
+      <DependentUpon>JobManagePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobManagePage.aspx.designer.cs">
+      <DependentUpon>JobManagePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransferredFiles.cs" />
+    <Compile Include="UserManagePage.aspx.cs">
+      <DependentUpon>UserManagePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserManagePage.aspx.designer.cs">
+      <DependentUpon>UserManagePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPage.aspx.cs">
+      <DependentUpon>UserPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPage.aspx.designer.cs">
+      <DependentUpon>UserPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="utilities.aspx.cs">
+      <DependentUpon>utilities.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="utilities.aspx.designer.cs">
+      <DependentUpon>utilities.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="welcomePage.aspx.cs">
+      <DependentUpon>welcomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="welcomePage.aspx.designer.cs">
+      <DependentUpon>welcomePage.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CHGEOCX1_UNCHAINED.pfx" />
+    <Content Include="Config\DatashopWebAdminConfig.xml.tmpl" />
+    <Content Include="css\custom.css" />
+    <Content Include="css\default.css" />
+    <Content Include="css\DsDynamicReport.css" />
+    <Content Include="DatashopAdmin.Master" />
+    <Content Include="error\GeneralErrorPage.aspx" />
+    <Content Include="error\TestErrorPage.aspx" />
+    <Content Include="images\accept.png" />
+    <Content Include="images\archive.gif" />
+    <Content Include="images\blank.gif" />
+    <Content Include="images\buttonbg.png" />
+    <Content Include="images\buttonbghover.png" />
+    <Content Include="images\buttonbg_dis.png" />
+    <Content Include="images\cancel.gif" />
+    <Content Include="images\close_button_16x16.png" />
+    <Content Include="images\download.gif" />
+    <Content Include="images\download_16.gif" />
+    <Content Include="images\edit.gif" />
+    <Content Include="images\inputbg.png" />
+    <Content Include="images\login\icon_pdf.png" />
+    <Content Include="images\maprequestJob.gif" />
+    <Content Include="images\master\background-left.png" />
+    <Content Include="images\master\favicon.ico" />
+    <Content Include="images\master\icon.png" />
+    <Content Include="images\master\master_header_bg.png" />
+    <Content Include="images\nav\icon_fullextent_30x30.png" />
+    <Content Include="images\nav\icon_fullextent_30x30_disabled.png" />
+    <Content Include="images\nav\icon_fullextent_30x30_hoover.png" />
+    <Content Include="images\nav\icon_fullextent_30x30_selected.png" />
+    <Content Include="images\nav\icon_next_30x30.png" />
+    <Content Include="images\nav\icon_next_30x30_disabled.png" />
+    <Content Include="images\nav\icon_next_30x30_hoover.png" />
+    <Content Include="images\nav\icon_next_30x30_selected.png" />
+    <Content Include="images\nav\icon_pan_30x30.png" />
+    <Content Include="images\nav\icon_pan_30x30_disabled.png" />
+    <Content Include="images\nav\icon_pan_30x30_hoover.png" />
+    <Content Include="images\nav\icon_pan_30x30_selected.png" />
+    <Content Include="images\nav\icon_prev_30x30.png" />
+    <Content Include="images\nav\icon_prev_30x30_disabled.png" />
+    <Content Include="images\nav\icon_prev_30x30_hoover.png" />
+    <Content Include="images\nav\icon_prev_30x30_selected.png" />
+    <Content Include="images\nav\icon_zoom_in_30x30.png" />
+    <Content Include="images\nav\icon_zoom_in_30x30_disabled.png" />
+    <Content Include="images\nav\icon_zoom_in_30x30_hoover.png" />
+    <Content Include="images\nav\icon_zoom_in_30x30_selected.png" />
+    <Content Include="images\nav\icon_zoom_out_30x30.png" />
+    <Content Include="images\nav\icon_zoom_out_30x30_disabled.png" />
+    <Content Include="images\nav\icon_zoom_out_30x30_hoover.png" />
+    <Content Include="images\nav\icon_zoom_out_30x30_selected.png" />
+    <Content Include="images\nav\icon_zoom_to_frame_30x30.png" />
+    <Content Include="images\nav\icon_zoom_to_frame_30x30_disabled.png" />
+    <Content Include="images\nav\icon_zoom_to_frame_30x30_hoover.png" />
+    <Content Include="images\nav\icon_zoom_to_frame_30x30_selected.png" />
+    <Content Include="images\restart.GIF" />
+    <Content Include="images\uploadJob.gif" />
+    <Content Include="images\wait.gif" />
+    <Content Include="images\webpres.png" />
+    <Content Include="images\welcome\button_login1.png" />
+    <Content Include="images\welcome\button_login2.png" />
+    <Content Include="JobDetailDynamic.aspx" />
+    <Content Include="js\DsDynamicReport.js" />
+    <Content Include="js\encode.js" />
+    <Content Include="js\polygonRenderer.js" />
+    <Content Include="xslt\JobEventLog.xslt" />
+    <Content Include="Config\DsDynamicReportConfig.xml.tmpl" />
+    <Content Include="Config\JobDetailDynamicConfig.xml.tmpl" />
+    <None Include="Web.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Proxy\proxy.ashx" />
+    <Content Include="Proxy\proxy.config" />
+    <None Include="Proxy\proxy.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Proxy\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GEOCOM.GNSD.Web.Core\GEOCOM.GNSD.Web.Core.csproj">
+      <Project>{593F1357-852A-4E3C-A7A2-C9A042A9F409}</Project>
+      <Name>GEOCOM.GNSD.Web.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GEOCOM.GNSDatashop.Model\GEOCOM.GNSDatashop.Model.csproj">
+      <Project>{34DE03A9-FF00-4CE6-93BB-7A63806AACAF}</Project>
+      <Name>GEOCOM.GNSDatashop.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GEOCOM.GNSDatashop.ServiceClient\GEOCOM.GNSDatashop.ServiceClient.csproj">
+      <Project>{57B242E3-7D1C-47F9-994A-3D1C8D34C262}</Project>
+      <Name>GEOCOM.GNSDatashop.ServiceClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GEOCOM.GNSDatashop.ServiceContracts\GEOCOM.GNSDatashop.ServiceContracts.csproj">
+      <Project>{E82695BC-34A4-40C9-B394-3FE17583C396}</Project>
+      <Name>GEOCOM.GNSDatashop.ServiceContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GNSDatashopCommon\GNSDatashopCommon.csproj">
+      <Project>{D5F89E03-1A5E-43DB-B991-E0D2ED2BEC90}</Project>
+      <Name>GNSDatashopCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  -->
+  <Target Name="AfterBuild">
+    <TransformXml Source="Web.config" Transform="$(ProjectConfigTransformFileName)" Destination="..\SetupGNSDAdmin\Resources\Web.config" Condition="'$(Configuration)' == 'Release'" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60610</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/DatashopAdminDevelopment</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

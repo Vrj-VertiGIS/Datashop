@@ -1,0 +1,81 @@
+﻿// MediaGenerator 100 - 999
+100 No name assigned.
+
+// DataviewGenerator 1000 - 1999
+1000 An error occurred while creating the definitions for the Data List:
+1005 Successfully created the definitions for the Data List.
+1010 Data List
+
+// FrmGenerator 2000 - 2999
+2000 An error occurred while creating the definitions for the Attribute Editor:
+2005 Successfully created the definitions for the Attribute Editor.
+2010 Reference
+2015 Attribute Editor
+2020 Open attribute table {0}
+2025 Attributes
+2030 Relations
+2035 Select a {0}
+2040 Metadata
+
+// GeoFindGenerator 3000 - 3999
+3000 An error occurred while creating the definitions for the Query Tool:
+3005 Successfully created the definitions for the Query Tool.
+3010 Query Tool
+
+// LegendGenerator 4000 - 4999
+4000 An error occurred while creating the definitions for the Work legend:
+4005 Successfully created the definitions for the Work legend.
+4010 Work legend
+
+// LyrsetGenerator 5000 - 5999
+5000 An error occurred while creating the definitions for the Layer settings:
+5005 Successfully created the definitions for the Layer settings.
+5010 Layer settings
+
+// MenuGenerator 6000 - 6999
+6000 An error occurred while creating the definitions for the Menu bar:
+6005 Data List
+6010 Search
+6015 Data analysis
+6020 Create
+6025 Display
+6030 Work legend 1:500
+6035 Add data source
+6040 Convert labels to graphics
+6045 Validation/Selection
+6050 Validation/Batch
+6055 Tools
+6060 Layers
+6065 All layers selectable
+6070 No layers selectable
+6075 Selectable layers
+6080 Labels selectable: On
+6085 Labels selectable: Off
+6090 All layers visible
+6095 No layers visible
+6100 Visible layers
+6105 Labels: On
+6110 Labels: Off
+6115 Successfully created the definitions for the Menu bar.
+6120 Menu bar
+6121 Geometry type of the feature class "{0}" ({1}) is not supported.
+
+// GeoTreeGenerator 7000 - 7999
+7000 An error occurred while creating the definitions for the Query tree:
+7005 Successfully created the definitions for the Query tree.
+7010 Query tree
+
+// EdpGenerator 8000 - 8999
+8000 An error occurred while creating the definitions for the EDP settings:
+8005 Definitions for the EDP settings have been created successfully.
+8010 Snap settings
+
+// MediaBuilder 9000 - 9999
+9000 An error occurred. Unable to successfully create data source environment.
+9005 An error occurred. Unable to successfully create project environment.
+
+// DatabaseCopyGenerator 10000 10999
+10000 Template database
+10005 The database was successfully copied to the target directory...
+10010 An error occurred while copying the database to the target directory:
+

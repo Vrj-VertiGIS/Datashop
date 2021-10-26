@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+    
+    <Icon Id="_DxfExportIco.EXE" SourceFile="$(var.GEOCOM.GNSDatashop.Export.DXF.ArcMap.Command.TargetPath)"/>
+
+    <ComponentGroup Id="AGDependentComponents" Directory="INSTALLFOLDER">
+      <!-- By com harvesting - heat.exe ...
+      <Component Id="_CPDxfExportCommand" Guid="D2A1D3CF-4DA6-47BA-B63A-0B0CEDB9B4DF" Shared="no" >
+        <File Id="_FIDxfExportCommand" Name="$(var.GEOCOM.GNSDatashop.Export.Dxf.ArcMap.Command.TargetFileName)" Source="$(var.GEOCOM.GNSDatashop.Export.Dxf.ArcMap.Command.TargetPath)" KeyPath="yes" />
+      </Component>
+      -->
+    </ComponentGroup>
+
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <Component Id="_CP01" Guid="D2A1D3CF-4DA6-47BA-B63A-0B0CEDB9B4DF" Shared="no" >
+        <File Id="_FI01" Name="Lng.GEOCOM.GNSDatashop.Export.DXF.de" Source="$(var.GEOCOM.GNSDatashop.Export.DXF.ArcMap.Command.TargetDir)\Lng\Lng.GEOCOM.GNSDatashop.Export.DXF.de" KeyPath="yes" />
+      </Component>
+      <Component Id="_CPD02" Guid="C7B24E7B-2CC2-404B-BD2E-0F2A664FCD61" Shared="no" >
+        <File Id="_FI02" Name="Lng.GEOCOM.GNSDatashop.Export.DXF.fr" Source="$(var.GEOCOM.GNSDatashop.Export.DXF.ArcMap.Command.TargetDir)\Lng\Lng.GEOCOM.GNSDatashop.Export.DXF.fr" KeyPath="yes" />
+      </Component>
+      <Component Id="_CP03" Guid="E9AB671B-48E2-4865-9F45-C239DC76C8EA" Shared="no" >
+        <File Id="_FI03" Name="Lng.GEOCOM.GNSDatashop.Export.DXF.it" Source="$(var.GEOCOM.GNSDatashop.Export.DXF.ArcMap.Command.TargetDir)\Lng\Lng.GEOCOM.GNSDatashop.Export.DXF.it" KeyPath="yes" />
+      </Component>
+      <Component Id="_CP04" Guid="A2B5B72B-8883-4EF0-897B-8A2000E187D8" Shared="no" >
+        <File Id="_FI04" Name="Lng.GEOCOM.GNSDatashop.Export.DXF.en" Source="$(var.GEOCOM.GNSDatashop.Export.DXF.ArcMap.Command.TargetDir)\Lng\Lng.GEOCOM.GNSDatashop.Export.DXF.en" KeyPath="yes" />
+      </Component>
+
+      <Component Id="_CP05" Guid="355C5894-1263-417E-8043-7AB5A8B27D8B" Shared="no" >
+        <File Id="_FI05" Name="$(var.GEOCOM.GNSDatashop.Export.DXF.TargetFileName)" Source="$(var.GEOCOM.GNSDatashop.Export.DXF.TargetPath)" KeyPath="yes" />
+      </Component>
+      <Component Id="_CP06" Guid="07B7A7BF-B129-42B3-80E0-FC07910703A3" Shared="no" >
+        <File Id="_FI06" Name="$(var.GEOCOM.GNSDatashop.Export.DXF.Common.TargetFileName)" Source="$(var.GEOCOM.GNSDatashop.Export.DXF.Common.TargetPath)" KeyPath="yes" />
+      </Component>
+      <Component Id="_CP07" Guid="3CE194C7-190A-4B3C-A2C7-66AD4A435447" Shared="no" >
+        <File Id="_FI07" Name="$(var.GEOCOM.GNSDatashop.Export.DXF.MapSymbology.TargetFileName)" Source="$(var.GEOCOM.GNSDatashop.Export.DXF.MapSymbology.TargetPath)" KeyPath="yes" />
+      </Component>
+      <Component Id="_CP08" Guid="E86733D8-2670-4346-BBC9-5611C819DD63" Shared="no" >
+        <File Id="_FI08" Name="$(var.GEOCOM.GNSDataShop.Export.DXF.TextRendererAggregate.TargetFileName)" Source="$(var.GEOCOM.GNSDataShop.Export.DXF.TextRendererAggregate.TargetPath)" KeyPath="yes" />
+      </Component>
+
+      <Component Id="_CP09" Guid="026A3CC2-78C6-46C5-953F-11C8ED2F840E" Shared="no" >
+        <File Id="_FI09" Name="$(var.GEOCOM.GNSDatashop.Export.DXF.BatchRunner.TargetFileName)" Source="$(var.GEOCOM.GNSDatashop.Export.DXF.BatchRunner.TargetPath)" KeyPath="yes" />
+      </Component>
+      <Component Id="_CP0A" Guid="7EB548D5-CA01-4C76-9853-C19EB098DD73" Shared="no" >
+        <File Id="_FI0A" Name="CommandLine.dll" Source="$(var.SolutionDir)\geo_lib\CommandLine\2.2.1.0\CommandLine.dll" KeyPath="yes" />
+      </Component>
+
+    </ComponentGroup>
+    
+    <ComponentGroup Id="CommonComponents" Directory="INSTALLFOLDER">
+      <Component Id="_CP0B" Guid="92520D83-ADAC-430F-8D08-FDF05382787B" Shared="no" >
+        <File Id="_FI0B" Name="$(var.TTFExtractor.TargetFileName)" Source="$(var.TTFExtractor.TargetPath)" KeyPath="yes" />
+      </Component>
+      <Component Id="_CP0C" Guid="82988C77-49C1-4726-9AAE-6EA36F88A0D0" Shared="no" >
+        <File Id="_FI0C" Name="netDxf.dll" Source="$(var.SolutionDir)\geo_lib\NetDXF\2.0.3\netDxf.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="_CP0D" Guid="F4DC2344-98A3-48E1-A13F-4509A30CB634" Shared="no" >
+        <File Id="_FI0D" Name="netDxf.xml" Source="$(var.SolutionDir)\geo_lib\NetDXF\2.0.3\netDxf.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="_CP0E" Guid="8B5A8B7E-00D7-4FBC-B6D9-F6D1A936284A" Shared="no">
+        <File Id="_FI0E" Name="log4net.dll" Source="$(var.GEOCOM.GNSDatashop.Export.DXF.ArcMap.Command.TargetDir)\log4net.dll" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+
+    <ComponentGroup Id="GeonisConfigFiles" Directory ="GEONISDOCUDIR">
+      <Component Id="_CP20" Guid="4F251439-096F-4B9B-B1CD-A8AA5484A516" Shared="no" >
+        <File Id="_FI20_1" Name="help_dxf_export_for_arcmap.xml" Source="$(var.GEOCOM.GNSDatashop.Export.DXF.ArcMap.Command.ProjectDir)\Config\help_dxf_export_for_arcmap.xml" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+
+    <ComponentGroup Id="AppConfigFiles" Directory="INSTALLFOLDER">
+      <Component Id="_CP21" Guid="54A4637C-97BB-43F3-B3F4-292C03430686" Shared="no" >
+        <File Id="_FI20_2" Name="help_dxf_export_for_arcmap.xml" Source="$(var.GEOCOM.GNSDatashop.Export.DXF.ArcMap.Command.ProjectDir)\Config\help_dxf_export_for_arcmap.xml" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+
+    <ComponentGroup Id="UserDocumentation" Directory="USERDOCFOLDER">
+      <Component Id="_CP11de" Guid="CA7F3F82-4929-43F9-BEB1-815EDAF821D2" Shared="no" >
+        <File Id="_FI11de" 
+        Name="VertiGIS_DXF_Export_de.pdf" 
+        Source="$(var.ProjectDir)\Resources\Documentation\VertiGIS_DXF_Export_de.pdf" 
+        KeyPath="yes" />
+      </Component>
+      <Component Id="_CP11fr" Guid="3FEFA0A2-0D82-4980-838D-5D231B408C39" Shared="no" >
+        <File Id="_FI11fr" 
+        Name="VertiGIS_DXF_Export_fr.pdf" 
+        Source="$(var.ProjectDir)\Resources\Documentation\VertiGIS_DXF_Export_fr.pdf" 
+        KeyPath="yes" />
+      </Component>
+      <Component Id="_CP11en" Guid="0F776990-B884-4E7C-9A88-0F6298E39700" Shared="no">
+        <File Id="_FI11en" 
+        Name="VertiGIS_DXF_Export_en.pdf" 
+        Source="$(var.ProjectDir)\Resources\Documentation\VertiGIS_DXF_Export_en.pdf" 
+        KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+
+    <ComponentGroup Id="StandAloneLogging" Directory ="INSTALLFOLDER">
+      <Component Id="_CPStandAloneLogger" Guid ="A3C5A145-D93E-456E-98C3-9C74F80B2D32" Shared="no" >
+        <File Id="_LoggerConfig" Name="GEOCOM.GNSDatashop.Export.DXF.ArcMap.Command.dll.config" 
+              Source="$(var.GEOCOM.GNSDatashop.Export.DXF.ArcMap.Command.ProjectDir)\GEOCOM.GNSDatashop.Export.DXF.ArcMap.Command.dll.config" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+    
+    <ComponentGroup Id="ECFGFiles" Directory="ArcMapCATIDFolder">
+      <Component Id="_CP12" Guid="922F35B1-C344-4494-8C84-A064B8E9F9B6" Shared="no" >
+        <File Id="_FI12" Name="{60c82756-10a2-427a-b15d-a8bc94d3be83}_geocom.gnsdatashop.export.DXF.arcmap.command.ecfg" Source="$(var.GEOCOM.GNSDatashop.Export.DXF.ArcMap.Command.ProjectDir)\{60c82756-10a2-427a-b15d-a8bc94d3be83}_geocom.gnsdatashop.export.dxf.arcmap.command.ecfg" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+
+  </Fragment>
+
+</Wix>

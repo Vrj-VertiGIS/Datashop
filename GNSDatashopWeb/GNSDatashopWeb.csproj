@@ -1,0 +1,744 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E7380E95-DEE4-47E0-B0C2-374F5A82E3C8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GEOCOM.GNSD.Web</RootNamespace>
+    <AssemblyName>GNSDatashopWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>CHGEOCX1_UNCHAINED.pfx</AssemblyOriginatorKeyFile>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <UseIISExpress>false</UseIISExpress>
+    <TargetFrameworkProfile />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeoLibRoot>..\geo_lib</GeoLibRoot>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="..\build\configurations.proj" />
+  <Import Project="..\build\configurations.targets" />
+  <ItemGroup>
+    <Compile Include="..\build\CommonAssemblyVersion.cs">
+      <Link>Properties\CommonAssemblyVersion.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\geo_lib\ajax\3.0.30930.28736\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GEOCOM.Common" />
+    <Reference Include="GEOCOM.Common.Logging" />
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\..\geo_lib\log4net\1.2.10.0\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Custom\Default.css" />
+    <Content Include="App_Themes\Geocom\Default.css" />
+    <Content Include="App_Themes\meyer_reset.css" />
+    <Content Include="Config\webmap.js" />
+    <Content Include="Controls\CommonActAsSurrogate.ascx" />
+    <Content Include="Controls\ExportTypeSelector.ascx" />
+    <Content Include="Controls\MorphingControl.ascx" />
+    <Content Include="Controls\DataModeMap.ascx" />
+    <Content Include="Controls\Nested\TempUserControl.ascx" />
+    <Content Include="Controls\PlotModeMap.ascx" />
+    <Content Include="CustomMapSearch\Example.ascx" />
+    <Content Include="error\TemplateLimitError.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="images\ajax-loader.gif" />
+    <Content Include="images\balk_wide.png" />
+    <Content Include="images\datashop24.png" />
+    <Content Include="images\geocom.jpg" />
+    <Content Include="images\nav\enter_success.png" />
+    <Content Include="images\refresh.png" />
+    <Content Include="images\refreshdisabled.png" />
+    <Content Include="images\requestpage\Information-icon_24x24.png" />
+    <Content Include="images\requestpage\warning-icon-128x128.png" />
+    <Content Include="images\Tick-mark-icon-png-6619.png" />
+    <Content Include="images\warning-icon.png" />
+    <Content Include="js\MapCommon.js" />
+    <Content Include="js\DsModalDialog.js" />
+    <Content Include="js\MapInit.js" />
+    <Content Include="images\arrowdown.png" />
+    <Content Include="images\arrowup.png" />
+    <Content Include="images\disk.png" />
+    <Content Include="images\diskdisabled.png" />
+    <Content Include="js\polygonRenderer.js" />
+    <Content Include="Controls\CustomMapSearch.ascx" />
+    <Content Include="LoginTempUser.aspx" />
+    <Content Include="PlotRequestPage.aspx" />
+    <Content Include="RequestPage.aspx" />
+    <Content Include="MyPlots.aspx" />
+    <Content Include="StreamProduct.aspx" />
+    <Content Include="SurrogateUsersRestHandler.ashx" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Web.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BizUserData.aspx.cs">
+      <DependentUpon>BizUserData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BizUserData.aspx.designer.cs">
+      <DependentUpon>BizUserData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Config\DataMode.cs" />
+    <Compile Include="Config\DatashopWebConfig.cs" />
+    <Compile Include="Config\DocumentElementInfo.cs" />
+    <Compile Include="Config\DocumentExpiryInfo.cs" />
+    <Compile Include="Config\GeoAttachemntsConfig.cs" />
+    <Compile Include="Config\LanguageFileInfos.cs" />
+    <Compile Include="Config\MapSearchConfig.cs" />
+    <Compile Include="Config\OnlineHelpButton.cs" />
+    <Compile Include="Config\OnlineHelpInfo.cs" />
+    <Compile Include="Config\PageFieldInfo.cs" />
+    <Compile Include="Config\PageFieldInfos.cs" />
+    <Compile Include="Config\PlotMode.cs" />
+    <Compile Include="Config\RepresentativeJobInfo.cs" />
+    <Compile Include="Config\RepresentativeJobRecipient.cs" />
+    <Compile Include="Config\RequestPageConfig.cs" />
+    <Compile Include="Config\RequestPageInfo.cs" />
+    <Compile Include="Config\RequestPageMode.cs" />
+    <Compile Include="Config\SurrogateRequestInfo.cs" />
+    <Compile Include="Config\SurrogateRequestPlacement.cs" />
+    <Compile Include="Config\WebDocumentsInfo.cs" />
+    <Compile Include="Controls\CommonActAsSurrogate.ascx.cs">
+      <DependentUpon>CommonActAsSurrogate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CommonActAsSurrogate.ascx.designer.cs">
+      <DependentUpon>CommonActAsSurrogate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ExportTypeSelector.ascx.cs">
+      <DependentUpon>ExportTypeSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ExportTypeSelector.ascx.designer.cs">
+      <DependentUpon>ExportTypeSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\MorphingControl.ascx.cs">
+      <DependentUpon>MorphingControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\MorphingControl.ascx.designer.cs">
+      <DependentUpon>MorphingControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DataModeMap.ascx.cs">
+      <DependentUpon>DataModeMap.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\DataModeMap.ascx.designer.cs">
+      <DependentUpon>DataModeMap.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Nested\TempUserControl.ascx.cs">
+      <DependentUpon>TempUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Nested\TempUserControl.ascx.designer.cs">
+      <DependentUpon>TempUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PlotModeMap.ascx.cs">
+      <DependentUpon>PlotModeMap.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\PlotModeMap.ascx.designer.cs">
+      <DependentUpon>PlotModeMap.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SurrogateUsersRestHandler.ashx.cs">
+      <DependentUpon>SurrogateUsersRestHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="error\BizUserLimitError.aspx.cs">
+      <DependentUpon>BizUserLimitError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error\BizUserLimitError.aspx.designer.cs">
+      <DependentUpon>BizUserLimitError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error\TemplateLimitError.aspx.cs">
+      <DependentUpon>TemplateLimitError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error\TemplateLimitError.aspx.designer.cs">
+      <DependentUpon>TemplateLimitError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error\ProfileLoadFailure.aspx.cs">
+      <DependentUpon>ProfileLoadFailure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error\ProfileLoadFailure.aspx.designer.cs">
+      <DependentUpon>ProfileLoadFailure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error\UploadInvalidDelegatingUserId.aspx.cs">
+      <DependentUpon>UploadInvalidDelegatingUserId.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error\UploadInvalidDelegatingUserId.aspx.designer.cs">
+      <DependentUpon>UploadInvalidDelegatingUserId.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error\UserNotAllowedAsDelegate.aspx.cs">
+      <DependentUpon>UserNotAllowedAsDelegate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error\UserNotAllowedAsDelegate.aspx.designer.cs">
+      <DependentUpon>UserNotAllowedAsDelegate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error\BizUserDisabled.aspx.cs">
+      <DependentUpon>BizUserDisabled.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error\BizUserDisabled.aspx.designer.cs">
+      <DependentUpon>BizUserDisabled.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error\BizUserLocked.aspx.cs">
+      <DependentUpon>BizUserLocked.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error\BizUserLocked.aspx.designer.cs">
+      <DependentUpon>BizUserLocked.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmOrder.aspx.cs">
+      <DependentUpon>ConfirmOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmOrder.aspx.designer.cs">
+      <DependentUpon>ConfirmOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DatashopWeb.Master.cs">
+      <DependentUpon>DatashopWeb.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DatashopWeb.Master.designer.cs">
+      <DependentUpon>DatashopWeb.Master</DependentUpon>
+    </Compile>
+    <Compile Include="error\GeneralErrorPage.aspx.cs">
+      <DependentUpon>GeneralErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error\GeneralErrorPage.aspx.designer.cs">
+      <DependentUpon>GeneralErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error\TempUserLimitError.aspx.cs">
+      <DependentUpon>TempUserLimitError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error\TempUserLimitError.aspx.designer.cs">
+      <DependentUpon>TempUserLimitError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error\LoginErrorPage.aspx.cs">
+      <DependentUpon>LoginErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error\LoginErrorPage.aspx.designer.cs">
+      <DependentUpon>LoginErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LoginTempUser.aspx.cs">
+      <DependentUpon>LoginTempUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginTempUser.aspx.designer.cs">
+      <DependentUpon>LoginTempUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomMapSearch.ascx.cs">
+      <DependentUpon>CustomMapSearch.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomMapSearch.ascx.designer.cs">
+      <DependentUpon>CustomMapSearch.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="MyPlots.aspx.cs">
+      <DependentUpon>MyPlots.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyPlots.aspx.designer.cs">
+      <DependentUpon>MyPlots.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlotRequestPage.aspx.cs">
+      <DependentUpon>PlotRequestPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlotRequestPage.aspx.designer.cs">
+      <DependentUpon>PlotRequestPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterBusinessUser.aspx.cs">
+      <DependentUpon>RegisterBusinessUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegisterBusinessUser.aspx.designer.cs">
+      <DependentUpon>RegisterBusinessUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RequestPage.aspx.cs">
+      <DependentUpon>RequestPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RequestPage.aspx.designer.cs">
+      <DependentUpon>RequestPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResetPasswordPage.aspx.cs">
+      <DependentUpon>ResetPasswordPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResetPasswordPage.aspx.designer.cs">
+      <DependentUpon>ResetPasswordPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Page.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\RefreshAction.cs" />
+    <Compile Include="Common\RefreshModule.cs" />
+    <Compile Include="error\ServiceNotFound.aspx.cs">
+      <DependentUpon>ServiceNotFound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error\ServiceNotFound.aspx.designer.cs">
+      <DependentUpon>ServiceNotFound.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StreamProduct.aspx.cs">
+      <DependentUpon>StreamProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StreamProduct.aspx.designer.cs">
+      <DependentUpon>StreamProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SearchControl.ascx.cs">
+      <DependentUpon>SearchControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\SearchControl.ascx.designer.cs">
+      <DependentUpon>SearchControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WelcomePage.aspx.cs">
+      <DependentUpon>WelcomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BizUserData.aspx" />
+    <Content Include="Config\DatashopWebConfig.xml.tmpl">
+      <SubType>Designer</SubType>
+    </Content>
+    <Compile Include="Controls\Agb.ascx.cs">
+      <DependentUpon>Agb.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Agb.ascx.designer.cs">
+      <DependentUpon>Agb.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CommonCreateBusinessUser.ascx.cs">
+      <DependentUpon>CommonCreateBusinessUser.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CommonCreateBusinessUser.ascx.designer.cs">
+      <DependentUpon>CommonCreateBusinessUser.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CommonCreateTempUser.ascx.cs">
+      <DependentUpon>CommonCreateTempUser.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CommonCreateTempUser.ascx.designer.cs">
+      <DependentUpon>CommonCreateTempUser.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CommonCreateUser.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CommonRequestDetails.ascx.cs">
+      <DependentUpon>CommonRequestDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CommonRequestDetails.ascx.designer.cs">
+      <DependentUpon>CommonRequestDetails.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DefaultMapSearch.ascx.cs">
+      <DependentUpon>DefaultMapSearch.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\DefaultMapSearch.ascx.designer.cs">
+      <DependentUpon>DefaultMapSearch.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DsPdeToolbar.cs" />
+    <Compile Include="Controls\DsToolbar.cs" />
+    <Compile Include="Controls\DsToolbarButton.cs" />
+    <Compile Include="Controls\DsToolbarSeparator.cs" />
+    <Compile Include="Controls\ExportProfileSelector.ascx.cs">
+      <DependentUpon>ExportProfileSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ExportProfileSelector.ascx.designer.cs">
+      <DependentUpon>ExportProfileSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HelpButton.ascx.cs">
+      <DependentUpon>HelpButton.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\HelpButton.ascx.designer.cs">
+      <DependentUpon>HelpButton.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LabelAndDropDown.ascx.cs">
+      <DependentUpon>LabelAndDropDown.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\LabelAndTextBox.ascx.cs">
+      <DependentUpon>LabelAndTextBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Pds.ascx.cs">
+      <DependentUpon>Pds.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Pds.ascx.designer.cs">
+      <DependentUpon>Pds.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PlotLayout.ascx.cs">
+      <DependentUpon>PlotLayout.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\PlotLayout.ascx.designer.cs">
+      <DependentUpon>PlotLayout.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RequestPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\RequestUserControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JavascriptSerializer\PdePolygonInfo.cs" />
+    <Compile Include="UserRequestMetaInfo.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error\TestErrorPage.aspx.cs">
+      <DependentUpon>TestErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error\TestErrorPage.aspx.designer.cs">
+      <DependentUpon>TestErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JavascriptSerializer\PolygonInfo.cs" />
+    <Compile Include="UserRequestStatus.cs" />
+    <Compile Include="Utils.cs" />
+    <Content Include="Controls\Agb.ascx" />
+    <Content Include="Controls\CommonCreateBusinessUser.ascx" />
+    <Content Include="Controls\CommonCreateTempUser.ascx" />
+    <Content Include="Controls\CommonRequestDetails.ascx" />
+    <Content Include="Controls\DefaultMapSearch.ascx" />
+    <Content Include="Controls\ExportProfileSelector.ascx" />
+    <Content Include="Controls\HelpButton.ascx" />
+    <Content Include="Controls\LabelAndDropDown.ascx" />
+    <Content Include="Controls\LabelAndTextBox.ascx" />
+    <Content Include="Controls\Pds.ascx" />
+    <Content Include="Controls\PlotLayout.ascx" />
+    <Content Include="css\DsModalDialog.css" />
+    <Content Include="css\dsToolbar.css" />
+    <Content Include="css\gse_default.css" />
+    <Content Include="images\dsToolbar\icon_add_freehand_30x30.png" />
+    <Content Include="images\dsToolbar\icon_add_freehand_30x30_disabled.png" />
+    <Content Include="images\dsToolbar\icon_add_plotframe_30x30.png" />
+    <Content Include="images\dsToolbar\icon_add_plotframe_30x30_disabled.png" />
+    <Content Include="images\dsToolbar\icon_add_polygon_30x30.png" />
+    <Content Include="images\dsToolbar\icon_add_polygon_30x30_disabled.png" />
+    <Content Include="images\dsToolbar\icon_center_plotframe_30x30.png" />
+    <Content Include="images\dsToolbar\icon_center_plotframe_30x30_disabled.png" />
+    <Content Include="images\dsToolbar\icon_fullextent_30x30.png" />
+    <Content Include="images\dsToolbar\icon_fullextent_30x30_disabled.png" />
+    <Content Include="images\dsToolbar\icon_move_plotframe_30x30.png" />
+    <Content Include="images\dsToolbar\icon_move_plotframe_30x30_disabled.png" />
+    <Content Include="images\dsToolbar\icon_next_30x30.png" />
+    <Content Include="images\dsToolbar\icon_next_30x30_disabled.png" />
+    <Content Include="images\dsToolbar\icon_pan_30x30.png" />
+    <Content Include="images\dsToolbar\icon_pan_30x30_disabled.png" />
+    <Content Include="images\dsToolbar\icon_prev_30x30.png" />
+    <Content Include="images\dsToolbar\icon_prev_30x30_disabled.png" />
+    <Content Include="images\dsToolbar\icon_remove_plotframe_30x30.png" />
+    <Content Include="images\dsToolbar\icon_remove_plotframe_30x30_disabled.png" />
+    <Content Include="images\dsToolbar\icon_reshape_30x30.png" />
+    <Content Include="images\dsToolbar\icon_reshape_30x30_disabled.png" />
+    <Content Include="images\dsToolbar\icon_resize_30x30.png" />
+    <Content Include="images\dsToolbar\icon_resize_30x30_disabled.png" />
+    <Content Include="images\dsToolbar\icon_zoom_in_30x30.png" />
+    <Content Include="images\dsToolbar\icon_zoom_in_30x30_disabled.png" />
+    <Content Include="images\dsToolbar\icon_zoom_out_30x30.png" />
+    <Content Include="images\dsToolbar\icon_zoom_out_30x30_disabled.png" />
+    <Content Include="images\dsToolbar\icon_zoom_plotframe_30x30.png" />
+    <Content Include="images\dsToolbar\icon_zoom_plotframe_30x30_disabled.png" />
+    <Content Include="images\dsToolbar\unused_icon_find_30x30.png" />
+    <Content Include="images\dsToolbar\unused_wait.gif" />
+    <Content Include="images\master\help-icon_24x24.png" />
+    <Content Include="images\nav\icon_add_plotframe_30x30.png" />
+    <Content Include="images\nav\icon_add_plotframe_30x30_disabled.png" />
+    <Content Include="images\nav\icon_add_plotframe_30x30_hoover.png" />
+    <Content Include="images\nav\icon_add_plotframe_30x30_selected.png" />
+    <Content Include="images\nav\icon_move_plotframe_30x30.png" />
+    <Content Include="images\nav\icon_move_plotframe_30x30_disabled.png" />
+    <Content Include="images\nav\icon_move_plotframe_30x30_hoover.png" />
+    <Content Include="images\nav\icon_move_plotframe_30x30_selected.png" />
+    <Content Include="images\nav\icon_remove_plotframe_30x30.png" />
+    <Content Include="images\nav\icon_remove_plotframe_30x30_disabled.png" />
+    <Content Include="images\nav\icon_remove_plotframe_hover_30x30.png" />
+    <Content Include="images\nav\icon_remove_plotframe_selected_30x30.png" />
+    <Content Include="js\DojoCalendar.js" />
+    <Content Include="js\DsPdeToolbar.js" />
+    <Content Include="js\DsToolbar.js" />
+    <Content Include="js\DsToolbarMap.js" />
+    <Content Include="js\HelpButton.js" />
+    <Content Include="js\DojoAjaxPatch.js" />
+    <Content Include="Default.aspx" />
+    <Content Include="error\BizUserLimitError.aspx" />
+    <Content Include="error\ProfileLoadFailure.aspx" />
+    <Content Include="error\UploadInvalidDelegatingUserId.aspx" />
+    <Content Include="error\UserNotAllowedAsDelegate.aspx" />
+    <Content Include="images\master\favicon.ico" />
+    <Content Include="images\master\notebg.png">
+    </Content>
+    <Content Include="images\nav\close_button_16x16.png" />
+    <Content Include="images\nav\icon_addplot_30x30.png" />
+    <Content Include="images\nav\icon_center_plotframe_30x30.png" />
+    <Content Include="images\nav\icon_center_plotframe_30x30_disabled.png" />
+    <Content Include="images\nav\icon_center_plotframe_30x30_hoover.png" />
+    <Content Include="images\nav\icon_center_plotframe_30x30_selected.png" />
+    <Content Include="images\nav\icon_editpolygons_30x30.png" />
+    <Content Include="images\nav\icon_removeplot_30x30.png" />
+    <Content Include="images\nav\maximize.GIF" />
+    <Content Include="images\nav\maximize.png" />
+    <Content Include="images\nav\minimize.png" />
+    <Content Include="images\requestpage\calender-icon.png" />
+    <Content Include="images\wait.gif" />
+    <None Include="CHGEOCX1_UNCHAINED.pfx" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="images_versatel\master\background-left.png" />
+    <None Include="images_versatel\master\icon.png" />
+    <None Include="images_versatel\master\master_header_bg.png" />
+    <None Include="images_versatel\master\notebg.png" />
+    <Content Include="error\TestErrorPage.aspx" />
+    <Content Include="js\calendars.js" />
+    <Content Include="js\DatashopPolygon.js" />
+    <Content Include="js\encode.js" />
+    <Content Include="js\polygonPlotter.js" />
+    <Content Include="js\utils.js" />
+    <Content Include="error\BizUserDisabled.aspx" />
+    <Content Include="error\BizUserLocked.aspx" />
+    <Content Include="ConfirmOrder.aspx" />
+    <Content Include="error\GeneralErrorPage.aspx" />
+    <Content Include="error\TempUserLimitError.aspx" />
+    <Content Include="images\blank.gif" />
+    <Content Include="images\buttonbg.png" />
+    <Content Include="images\buttonbghover.png" />
+    <Content Include="images\close_button_16x16.png" />
+    <Content Include="images\inputbg.png" />
+    <Content Include="images\img_icon_search.png" />
+    <Content Include="images\nav\icon_fullextent_30x30.png" />
+    <Content Include="images\nav\icon_fullextent_30x30_disabled.png" />
+    <Content Include="images\nav\icon_fullextent_30x30_hoover.png" />
+    <Content Include="images\nav\icon_fullextent_30x30_selected.png" />
+    <Content Include="images\nav\icon_next_30x30.png" />
+    <Content Include="images\nav\icon_next_30x30_disabled.png" />
+    <Content Include="images\nav\icon_next_30x30_hoover.png" />
+    <Content Include="images\nav\icon_next_30x30_selected.png" />
+    <Content Include="images\nav\icon_pan_30x30.png" />
+    <Content Include="images\nav\icon_pan_30x30_disabled.png" />
+    <Content Include="images\nav\icon_pan_30x30_hoover.png" />
+    <Content Include="images\nav\icon_pan_30x30_selected.png" />
+    <Content Include="images\nav\icon_prev_30x30.png" />
+    <Content Include="images\nav\icon_prev_30x30_disabled.png" />
+    <Content Include="images\nav\icon_prev_30x30_hoover.png" />
+    <Content Include="images\nav\icon_prev_30x30_selected.png" />
+    <Content Include="images\nav\icon_zoom_in_30x30.png" />
+    <Content Include="images\nav\icon_zoom_in_30x30_disabled.png" />
+    <Content Include="images\nav\icon_zoom_in_30x30_hoover.png" />
+    <Content Include="images\nav\icon_zoom_in_30x30_selected.png" />
+    <Content Include="images\nav\icon_zoom_out_30x30.png" />
+    <Content Include="images\nav\icon_zoom_out_30x30_disabled.png" />
+    <Content Include="images\nav\icon_zoom_out_30x30_hoover.png" />
+    <Content Include="images\nav\icon_zoom_out_30x30_selected.png" />
+    <Content Include="images\nav\icon_zoom_plotframe_30x30.png" />
+    <Content Include="images\nav\icon_zoom_plotframe_30x30_disabled.png" />
+    <Content Include="images\nav\icon_zoom_plotframe_30x30_hoover.png" />
+    <Content Include="images\nav\icon_zoom_plotframe_30x30_selected.png" />
+    <Content Include="images\login\icon_pdf.png" />
+    <Content Include="images\master\background-left.png">
+    </Content>
+    <Content Include="images\master\icon.png">
+    </Content>
+    <Content Include="images\master\master_header_bg.png">
+    </Content>
+    <Content Include="DatashopWeb.Master" />
+    <Content Include="images\nav\minimize.gif" />
+    <Content Include="images\webpres.png" />
+    <Content Include="images\welcome\button_login1.png" />
+    <Content Include="images\welcome\button_login2.png" />
+    <Content Include="error\LoginErrorPage.aspx" />
+    <Content Include="error\ServiceNotFound.aspx" />
+    <Content Include="RegisterBusinessUser.aspx" />
+    <Content Include="ResetPasswordPage.aspx" />
+    <Content Include="Controls\SearchControl.ascx" />
+    <Content Include="WebDocuments\**" />
+    <Content Include="About.aspx" />
+    <Content Include="WelcomePage.aspx" />
+    <Content Include="Text\GNSDatashopWeb.DE">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Text\GNSDatashopWeb.EN">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Text\GNSDatashopWeb.FR">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Text\GNSDatashopWeb.IT">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Proxy\proxy.ashx" />
+    <Content Include="Proxy\proxy.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Proxy\proxy.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Proxy\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GEOCOM.GNSD.Web.Core\GEOCOM.GNSD.Web.Core.csproj">
+      <Project>{593F1357-852A-4E3C-A7A2-C9A042A9F409}</Project>
+      <Name>GEOCOM.GNSD.Web.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GEOCOM.GNSDatashop.Model\GEOCOM.GNSDatashop.Model.csproj">
+      <Project>{34DE03A9-FF00-4CE6-93BB-7A63806AACAF}</Project>
+      <Name>GEOCOM.GNSDatashop.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GEOCOM.GNSDatashop.ServiceContracts\GEOCOM.GNSDatashop.ServiceContracts.csproj">
+      <Project>{E82695BC-34A4-40C9-B394-3FE17583C396}</Project>
+      <Name>GEOCOM.GNSDatashop.ServiceContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GNSDatashopCommon\GNSDatashopCommon.csproj">
+      <Project>{D5F89E03-1A5E-43DB-B991-E0D2ED2BEC90}</Project>
+      <Name>GNSDatashopCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  -->
+  <Target Name="AfterBuild">
+    <TransformXml Source="Web.config" Transform="$(ProjectConfigTransformFileName)" Destination="..\SetupGNSDWeb\Resources\Web.config" Condition="'$(Configuration)' == 'Release'" />
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>del $(TargetDir)\ESRI.ArcGIS.ADF*.dll /F</PostBuildEvent>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>12920</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://genet/DatashopDevelopment/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+</Project>

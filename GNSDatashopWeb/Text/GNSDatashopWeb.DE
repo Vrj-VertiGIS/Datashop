@@ -1,0 +1,452 @@
+﻿// Masterpage
+1000 Externe Planauskunft - Geocom Informatik AG
+1001 GEONIS Datashop
+1002 Externe Planauskunft
+1003 Neue Kartenanfrage
+1004 Neuer Datenexport
+1005 Meine Anfragen
+1006 Bitte warten...
+
+1010 Startseite
+
+1020 Sprache:
+1021 Deutsch
+1022 English
+1023 Französisch
+1024 Italienisch
+
+1030 Mein Profil
+
+1050 Auskunftssystem
+
+1080 Hilfe
+
+//welcomePage
+1500 Wählen Sie die gewünschte Option:
+1501 Beziehen einer Planauskunft als <b>Gelegenheitsnutzer</b>
+1502 Anmeldung oder Registrierung für <b>Dauernutzer</b>
+15031 Wenn Sie nur gelegentlich eine Werkleitungsauskunft brauchen,  
+15032 klicken Sie hier
+1504 <b>Dauernutzer:</b> Sie benötigen regelmässig eine Werkleitungsauskunft und beantragen deshalb einen passwortgeschützten, unbegrenzten Zugang zum Datashop.
+1505 Für regelmässige Planauskünfte registrieren Sie Sich als Dauernutzer.
+
+1506 Falls Sie nur eine einmalige Planauskunft wünschen, verwenden Sie den Zugang als Gelegenheitsnutzer 
+
+1510 Willkommen bei der externen Planauskunft
+
+
+
+// Login
+2000 Diese Webseite ist passwortgeschützt.
+2001 Ihre Anmeldung ist fehlgeschlagen. Bitte versuchen Sie es erneut.
+2002 Anmelden
+2003 E-Mail oder Benutzer-ID:
+2004 Bitte melden Sie sich mit Benutzernamen und Passwort an.
+2005 Passwort:
+2006 Eingeloggt als {0}
+2008 Unbekannte Benutzer-ID: {0}
+2009 Sie sind angemeldet als {0}.
+2010 Sie sind bereits angemeldet, haben jedoch u.U. nicht die benötigten Rechte um die gewünschte Seite anzuzeigen. Bitte melden Sie sich ab und erneut an.
+2011 Login
+2012 Anmeldung für Dauernutzer
+2013 Benutzername ist gefordert
+2014 Kennwort ist gefordert
+2015 Sie müssen Mitglied der Rolle Business Users sein um regelmässige Plotbestellungen zu machen. Bitte kontaktieren Sie ihren Administrator.
+
+2020 Haben Sie sich auf diese Seite verirrt? Klicken Sie hier um auf die Startseite zu gelangen.
+
+//business login
+2021 Hier können Sie einen neuen Plan erfassen.
+2022 Neu registrieren.
+2023 Passwort vergessen?
+2024 Zurücks
+2025 Für die Anmeldung kann die E-Mail-Adresse oder die Benutzer-ID benutzt werden. Geben Sie das Passwort ein und gelangen Sie mit „Anmelden“-Taste zur Planauskunft.
+//temp login
+2030 Bitte füllen Sie folgende Felder vollständig aus:
+2031 Allgemeine Geschäftsbedingungen
+2032 AGB als PDF herunterladen
+2033 Bitte akzeptieren Sie die AGB.
+2034 Ich habe die Allgemeinen Geschäftsbedingungen (AGB) gelesen und erkläre mich damit einverstanden.
+2035 Als Gelegenheitsnutzer werden Sie über Ihre E-Mail-Adresse identifiziert. Bitte erfassen Sie die nötigen Angaben und bestätigen Sie die AGB’s, um direkt mit der Bestellung weiterzufahren.
+2036 Weiter
+2037 Ich bin damit einverstanden, dass meine Kontaktdaten (Vor- und Nachname, E-Mailadresse) im Rahmen dieser Applikation gespeichert werden.
+2038 Bitte akzeptieren Sie die Datenschutzbestimmung
+
+//business register
+2050 Als Dauernutzer werden Sie nach der Registrierung von uns mit einer E-Mail über die Freischaltung ihres Accounts informiert. Bitte erfassen Sie die nötigen Angaben und bestätigen Sie die AGB’s, um sich zu registrieren. Nach der Freischaltung können Sie selbständig Werkleitungsaus-künfte einholen.
+
+
+2040 Bitte anmelden
+2041 Abmelden
+
+//captcha texts
+2060 Aktualisieren
+2061 Der Code den Sie eingegeben haben ist nach {0} Sekunden abgelaufen.
+2062 Der Code wurde zu schnell eingegeben. Bitte {0} Sekunden warten.
+2063 Der Code den Sie eingegeben haben stimmt nicht mit dem Captcha überein.
+2064 Captcha Code eingeben
+
+// text field validations - {0} will be replaced by field's name
+2100 Das Feld '{0}' enthält unzulässige Zeichen.
+2101 Das Feld '{0}' ist zu lang.
+
+// persönliche Daten
+2200 Persönliche Daten
+2201 Hier können Sie Ihre persönlichen Daten ändern.
+2202 Ihre Daten
+
+2210 Benutzerdaten ändern
+
+2230 Herr
+2231 Frau
+
+2250 Anrede: 
+2251 Vorname: 
+2252 Nachname:
+2253 Strasse: 
+2254 Hausnummer:
+2255 PLZ: 
+2256 Ort:
+2257 E-Mail-Adresse:
+2258 Firma:
+2259 Telefon:
+2260 Fax:
+2261 Passwort:
+2262 Passwort wiederholen:
+
+
+2300 Feld "Anrede" darf nicht leer sein.
+2301 Bitte geben Sie Ihren Vornamen ein.
+2302 Feld "Nachname" darf nicht leer sein.
+2303 Bitte geben Sie Ihre Strasse ein.
+2304 Bitte geben Sie Ihre Hausnummer ein.
+2305 Bitte geben Sie Ihre PLZ ein.
+2306 Bitte geben Sie Ihre Ortschaft ein.
+2307 Bitte geben Sie Ihre Firma ein.
+2308 Feld "E-Mail-Adresse" darf nicht leer sein.
+2309 Bitte geben Sie Ihre Telefonnummer an.
+2310 Bitte geben Sie Ihre Faxnummer an.
+2311 Bitte geben Sie eine korrekte E-Mail-Adresse an.
+2312 Die eingegebenen Daten sind nicht alle gültig.
+2313 Bitte geben Sie ein Passwort ein.
+23131 Bitte bestätigen Sie das Passwort.
+2314 Die beiden Passwörter stimmen nicht überein.
+
+2315 Anmeldung als Gelegenheitsnutzer
+2316 Registrierung als Dauernutzer
+2317 Ein Benutzer mit der gleichen Email existiert bereits.
+
+2320 Eingabe erforderlich
+2321 Ihre Benutzerdaten wurden erfolgreich geändert.
+2322 Ihre Benutzerdaten konnten nicht geändert werden. Versuchen Sie es zu einem späteren Zeitpunkt erneut.
+2323 Ihr Benutzerkonto wurde nicht gefunden. Bitte melden Sie sich ab und danach wieder an.
+2324 Ihr altes Passwort ist nicht korrekt.
+2325 Die beiden neuen Passwörter stimmen nicht überein.
+2326 Ihr Passwort wurde erfolgreich geändert.
+2327 Ihr Passwort konnte nicht geändert werden. Versuchen Sie es in einigen Minuten erneut.
+2328 Das neue Passwort muss sich vom alten unterscheiden.
+
+2330 Hier können Sie Ihre persönlichen Daten und Ihr Passwort ändern.
+
+2340 Bitte geben Sie ein neues Passwort ein.
+2341 Die beiden neuen Passwörter stimmen nicht überein.
+2342 Ihr Passwort muss mindestens 8 Zeichen lang sein und muss mindestens einen Großbuchstaben, einen Kleinbuchstaben und eine Ziffer oder eine Sonderzeichen enthalten. 
+2343 Passwort ändern
+2344 Altes Passwort:
+2345 Neues Passwort:
+2346 Passwort wiederholen:
+2347 Passwort ändern
+2350 Zurück
+
+//passwort zurücksetzten
+2400 Hier können Sie Ihr Passwort zurücksetzen.
+2401 Passwort zurücksetzen
+2402 Zurück
+2404 Das Passwort wurde erfolgreich zurückgesetzt. Sie erhalten umgehend eine E-Mail mit dem neuen Passwort an {0}.
+2405 Das Passwort konnte leider nicht zurückgesetzt werden. Bitte versuchen Sie es in einigen Minuten erneut oder kontaktieren Sie den Administrator.
+2406 Das Passwort wurde zurückgesetzt. Leider konnte kein E-Mail mit dem neuen Passwort versendet werden. Bitte versuchen Sie es in einigen Minuten erneut oder kontaktieren Sie den Administrator.
+2407 Lassen Sie sich ein neues Passwort generieren und an Ihre E-Mail-Adresse senden. Ihr altes Passwort wird nicht mehr gültig sein.
+
+2410 Passwort zurücksetzen
+
+//Confirm Order
+3000 Bestätigung
+3001 Ihre Bestellung wurde bei uns registriert.
+3002 Angaben zu Ihrer Bestellung:
+3003 Sie erhalten von uns in Kürze ein E-Mail an die Adresse <b>{0}</b> mit einem Downloadlink, um den erstellten Plan herunterzuladen.
+3004 Hier können Sie einen weiteren Plan erfassen
+3005 Besten Dank für Ihre Bestellung
+3006 Ihre Stadtwerke Datashop City
+3010 Bei Rückfragen zu Ihrer Bestellung wenden Sie Sich bitte mit den Angaben auf dieser Seite an unseren Kundendienst <E-Mail-Adresse>  
+3011 Zurück zur Startseite
+3012 Hier können Sie ein weiteres Dataset erfassen
+3013 Hier können Sie einen weiteren Plan mit dem selben Kartenausschnitt erfassen.
+3014 Bestellnummer
+
+//stream product
+3100 Die folgende Datei ist zum Download bereit:
+3101 Download
+3102 Angaben zu Ihrer Bestellung:
+3103 Karte herunterladen
+3104 Hier können Sie Ihre Bestellung herunterladen.
+3105 Zurück zum Datashop
+3106 Die Datei, die Sie bestellt haben ist abgelaufen. Bitte klicken Sie den untenstehenden Link, um eine Neue zu bestellen.
+3107 Benutzer
+
+//uploadPage
+3200 Wählen Sie die ins System hochzuladende Datei auf Ihrem Computer aus Button <i>Durchsuchen...</i>.
+3201 Wählen Sie weitere hochzuladende Dateien aus, indem Sie zuerst mittels Klick auf den Button <i>Neue Dateizeile</i> eine neue Auswahlzeile einfügen und danach mittels Klick auf den dortigen Button <i>Durchsuchen</i> die gewünschte Datei auswählen.
+3202 Starten Sie den Upload danach mit einem Klick auf den Button <i>Dateie(n) Hochladen</i>.
+3203 Warten Sie, bis Ihnen der Erfolg des Uploads angezeigt wird.
+3204 Datei(en) hochladen
+3205 Ein Uploadjob für den Benutzer {0} ({1}) kann hier erstellt werden.
+
+3206 Uploadjob durchführen
+
+3210 erfolgreich
+3211 fehlerhaft
+3212 Datei mit gleichem Namen bereits hochgeladen
+3213 Upload in globalen Bereich
+3214 Die Weiterleitung (und Auslieferung) der hochgeladenen Dateien an den Benutzer wurde ordnungsgemäss veranlasst.
+3215 Beim Auslösen der Weiterleitung der Dateien an den Benutzer ist ein Fehler aufgetreten.
+3216 Beim Hochladen der Dateien in den temporären Bereich ist ein Fehler aufgetreten.
+3217 Die Dateien im temporären Bereich wurden gelöscht.
+3218 Fehler beim Löschen der Dateien im temporären Bereich:
+
+// DXF Export
+3300 DXF-Export:
+3301 DXF-Export erstellen
+
+// PdeRequestPage
+3801 Profil auswählen
+3802 Profil
+3803 Bitte TDE Profil auswählen
+3804 Beschreibung
+3805 Datenformat
+3806 Datenformat auswählen
+3807 Bitte mindestens ein Polygon zeichnen
+3808 Die ausgewählte Fläche von {0} km2 überschreitet die maximal zugelassene Fläche von {1} km2
+
+//RequestPage
+3900 Planauskunft anfordern
+3901 Bitte definieren Sie einen Planrahmen.
+3902 Bitte geben Sie den Grund für die Anfrage an.
+3903 Planrahmendefinition:
+39031 Bitte eine Suche ausführen oder die Karte manuell auf den gewünschten Bereich positionieren. Danach kann der erste Planrahmen definiert werden.
+3904 Druckformat
+3905 Wählen Sie das Kartenformat aus
+3906 Massstab
+3907 Wählen Sie einen Massstab aus
+3908 Rotationswinkel
+3909 Bitte füllen Sie folgende Felder vollständig aus:
+3910 Grund der Anfrage
+3911 Bestellen
+39111 Stellvertretend bestellen
+3912 Vorgehen:
+3913 1. Suchen und navigieren mit Adresssuche und Navigations-<br>werkzeugen<br>2. Planrahmen definieren mit Planrahmen-<br>definition und Positionierungs-<br>werkzeugen<br>3. Erforderliche Angaben machen<br>4. AGB lesen und bestätigen
+3914 5. „Bestellen“ drücken
+
+39150 Geo-Beilagen hinzufügen
+
+39161 Zusatz Feld 1
+39162 Zusatz Feld 2
+39163 Zusatz Feld 3
+39164 Zusatz Feld 4
+39165 Zusatz Feld 5
+39166 Zusatz Feld 6
+39167 Zusatz Feld 7
+39168 Zusatz Feld 8
+39169 Zusatz Feld 9
+391610 Zusatz Feld 10
+
+3917 Zeitraum von/bis
+39171 Zeitraum von
+39172 Zeitraum bis
+39173 Ungültiges Startdatum
+39174 Ungültiges Enddatum
+
+3918 Alle gelben Felder müssen ausgefüllt sein.
+3919 Gelbe Felder dürfen nicht leer sein.
+39190 Regular Expression Validierung für Feld Custom 1 fehlgeschlagen
+39191 Regular Expression Validierung für Feld Custom 2 fehlgeschlagen
+39192 Regular Expression Validierung für Feld Custom 3 fehlgeschlagen
+39193 Regular Expression Validierung für Feld Jobbeschreibung fehlgeschlagen
+39194 Regular Expression Validierung für Feld Job Parzellen Nr. fehlgeschlagen
+39195 Bitte Profil vollständig ausfüllen
+
+3920 Schliessen
+3921 Die Anzahl der Planrahmen überschreitet das Maximum.
+3922 Felder „Zeitraum von/bis“ dürfen nicht leer sein und müssen in einer gültigen Zeitspanne liegen.
+
+3923 Sparten:
+3924 Beschreibung
+39241 Die Beschreibung muss ausgefüllt sein.
+3925 Grundstücknummer
+39251 Die Grundstücknummer muss ausgefüllt sein.
+
+
+//TDERequestPage
+3950 Bitte zeichnen Sie den Exportperimeter. Das Polygon kann mit einem Doppelklick geschlossen werden.
+3951 Wählen Sie das gewünschte Profil
+3952 Profil
+3953 Feld „Grund der Anfrage“ darf nicht leer sein.
+3954 Bitte Profil auswählen. 
+3955 Zielformat:
+3956 Beschreibung:
+3957 Bitte DB-Format auswählen
+3960 Rechteck zeichnen
+3961 Polygon zeichnen
+3962 Bitte zeichnen Sie einen Exportperimeter.
+3963 Bitte Dxf Profil auswählen
+3964 Exporttyp
+3965 Dxf Profil
+3966 Bitte Exporttyp auswählen
+
+//map
+3930 Ausschnitt vergrössern
+3931 Ausschnitt verkleinern
+3932 Ausschnitt verschieben
+3934 Planrahmen ins Zentrum der Karte verschieben
+3935 Karte auf Planrahmen zoomen
+3936 Planrahmen hinzufügen
+3937 Planrahmen entfernen
+3938 Planrahmen verschieben
+3939 Vorheriger Ausschnitt
+3940 Nächster Ausschnitt
+3941 Karte noch nicht verfügbar. Vorgang wurde abgebrochen.
+3942 Initial Kartenausschnitt laden
+3943 Planrahmen ausserhalb des aktuellen Kartenausschnitts
+3944 Polygon zeichnen
+3945 Selektiertes Polygon rotieren oder vergrössern/verkleinern
+3946 Selektiertes Polygon ändern
+
+//searchControll for requestpage
+3980 Felder updaten
+3981 Zum Objekt zoomen
+3982 Mehrere Resultate gefunden. Das Erste wird angezeigt.
+3983 Keine Resultate gefunden.
+39831 No results found (due to internal error).
+3984 Suche nicht verfügbar
+
+//surrogate 
+3990 Stellvertreter-Plan erstellen
+3991 Benutzer
+39911 Benutzer muss ausgewählt werden
+3992 Anfragedatum
+39921 Anfragedatum muss ausgewählt sein
+3993 Anfrageart
+39931 Anfrageart muss ausgefüllt sein
+3994 Job anhalten vor dem Paketieren
+3995 Neuer Business User hinzufügen
+3996 Neuer Temp User hinzufügen
+3997 Benutzerliste filtern
+3998 Sie müssen einen Filter angeben
+3999 Liste filtern
+39991 Filter zurücksetzen
+39992 {0} Benutzer gefunden
+
+//searches 4000-4999 are reserved for labeling the searchfields
+4000 Adresssuche
+4001 Gemeinde
+4002 Strassenname
+4003 Nummer
+
+4010 Koordinaten
+4011 X-Koordinaten
+4012 Y-Koordinaten
+
+4020 Flurname
+4021 Flurname
+4022 Resultate
+
+4030 Parzellennummer
+4031 Parzellennummer
+
+4040 Assekuranznummer
+4041 Assekuranznummer
+
+4100 Die Webseite, die Sie angefordert haben ist nicht mehr verfügbar. Damit diese Meldung nicht mehr erscheint, aktualisieren Sie Ihre Browserfavoriten: erstellen Sie einen neuen Favorit aus der Datashop Startseite und löschen Sie den alten Favorit. 
+4101 Um jetzt einen Plan zu bestellen und auf die neue Seite zu wechseln,
+4102 klicken Sie bitte hier.
+
+//MyPlots page
+
+5000 Suchen und Filtern der Daten
+5001 Jobnummer
+5002 Benutzer Id
+5003 Vorname
+5004 Nachname
+5005 Firma
+5006 Zeitraum von
+5007 Zeitraum bis
+5008 Heruntergeladen
+50080 Ja
+50081 Nein
+5009 Suchen
+5010 Zurücksetzen
+5011 Optionen
+5012 Ergebnisse pro Seite
+5013 Als .csv exportieren
+5014 Exportieren
+5015 Es wurden {0} Einträge gefunden
+5016 Jobnr.
+5017 Benutzernr.
+5018 Vorname
+5019 Nachname
+5020 Firma
+5021 Benutzernr.
+5022 Vorname
+5023 Nachname
+5024 Firma
+5025 Erstellungsdatum
+5026 Anzahl Download
+5027 Herunterladen
+5028 Bitte füllen Sie mindestens eines der Suchfelder aus
+5029 Der Wert für Jobnummer muss numerisch sein
+// 5030: {0} stands for the original job id and {1} stands for the new job id
+5030 Der Job mit Id {0} wurde in Id {1} kopiert und neu gestartet
+
+//Impressum, About
+6000 Impressum
+6001 Impressumtext soll hier stehen
+
+
+//Errors
+//Masterpage
+9001 Bitte aktivieren Sie JAVASCRIPT in Ihrem Browser, um diese Seite anzuzeigen.
+//BizUserDisabled
+9010 Ihr Account wurde gesperrt.
+//biz & tempUserLimitError
+9019 Zu viele Anfragen
+9020 Das Limit von {0} Abfragen in den letzten {1} Tagen wurde bereits erreicht.
+9021 Bitte wiederholen Sie die Anfrage nach Ablauf der Wartefrist.
+9022 Das Limit von {0} Abfragen in den letzten {1} Tagen wurde bereits erreicht.
+9023 Bitte wiederholen Sie die Anfrage nach Ablauf der Wartefrist oder registrieren Sie sich als Dauernutzer.
+9024 Registieren als Dauernutzer
+//BizUserLocked
+9030 Ihre Registrierung wurde noch nicht durch einen Administrator bestätigt. Sobald dies geschehen ist, werden Sie per E-Mail informiert.
+9031 Registrierung noch nicht bestätigt
+//CreateTempUserFailed
+9040 Ihre angegebene E-Mail-Adresse wird bereits für einen registrierten Dauernutzer verwendet.
+9041 Überprüfen Sie bitte die E-Mail-Adresse oder verwenden Sie die Anmeldeseite für registrierte Dauernutzer
+9042 « Zurück zur Startseite
+9043 « Als Dauernutzer anmelden
+9044 Account wurde nicht erstellt
+//GeneralError
+9050 Beim Verarbeiten der Anfrage ist ein Fehler aufgetreten.
+9051 Wiederholen Sie bitte die Anfrage und kontaktieren Sie bei erneutem Fehler die Supportabteilung.
+9052 Keine Fehlermeldung verfügbar
+//LoginError
+9060 Ihr Benutzeraccount konnte nicht oder nur teilweise verifiziert werden.
+9061 Wiederholen Sie bitte die Anfrage und kontaktieren Sie bei erneutem Fehler die Supportabteilung.
+9062 « Zurück
+//ServiceNotFound
+9070 Der Service ist im Moment nicht verfügbar.
+//UploadJobErrors
+9080 Die Identifikation des Benutzers, für welchen Sie diesen Auftrag ausführen möchten, ist ungültig.
+9081 Sie haben nicht die (für diese Aktion erforderliche) Berechtigung, Aufträge für einen anderen Benutzer aufzugeben.<br />Bitte melden Sie sich als Administrator an.
+//PDE Errors
+9090 Leider ist während des Ladens der Profile ein schwerer Fehler aufgetreten. Bitte versuchen Sie es in einigen Minuten neu oder kontaktieren Sie die Supportabteilung.
+//Template Limit
+10000 Die Anzahl der Anforderungen für Vorlagen wurde erreicht.
+10001 Zu viele Plots ({0}) innerhalb einer Minute. Das Limit ist {1} Plot pro Minute.

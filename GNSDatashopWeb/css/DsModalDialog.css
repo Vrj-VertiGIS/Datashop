@@ -1,0 +1,42 @@
+﻿DIV.DSMDBox
+{
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    border: solid 1px silver;
+    background-color: White;
+    box-shadow: 8px 8px 8px #666;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='#666666', Direction=135, Strength=8);  
+}
+DIV.DSMDTitle
+{
+    height: 24px;
+    font-weight: bold;
+    color: White;
+    text-align: center;
+    padding: 4px 10px 0px 10px;
+    font-size: 14px;
+    
+    background: #c3cc6f; /* for non-css3 browsers */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c3cc6f', endColorstr='#8ead8c'); /* for IE */
+    background: -webkit-gradient(linear, left top, right bottom, from(#c3cc6f), to(#8ead8c)); /* for webkit browsers */
+    background: -moz-linear-gradient(left,  #c3cc6f,  #8ead8c); /* for firefox 3.6+ */ 
+}
+DIV.DSMDBody
+{
+    padding: 10px 10px 10px 10px;
+}
+DIV.DSMDBackground
+{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    background-color: Silver;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+    -moz-opacity:0.5;
+}

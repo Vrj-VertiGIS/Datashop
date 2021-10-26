@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" 
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Fragment>
+
+    <?define FlexNet = "$(var.SolutionDir)\..\FlexNet\" ?>
+    <?define FlexNetX64 ="$(var.FlexNet)X64\x64_n6\" ?>
+
+    <ComponentGroup Id="FlexNetComponentssX64" Directory="INSTALLFOLDERLCX64" >
+      <!-- Components specifically for x64 platform -->      
+      <Component Id="_CPGeoLmClient_x64" Guid="F62D9770-4616-4E7D-A2BF-3DE74299125F" Shared="yes" >
+        <File Id="_FIGeoLmClient_x64" Name="$(var.GeoLmClient_x64.TargetFileName)" Source="$(var.GeoLmClient_x64.TargetPath)" KeyPath="yes" />
+        <Condition> %PROCESSOR_ARCHITECTURE="x64" </Condition>
+      </Component>
+      <Component Id="_CPGeoLmClientFNP_x64" Guid="3E492123-CCAD-4C9F-9AD3-4960EFAC56EB" Shared="yes" >
+        <File Id="_FIGeoLmClientFNP_x64" Name="geolmclientFNP.dll" Source="$(var.GeoLmClient_x64.TargetDir)" KeyPath="yes" />
+        <Condition> %PROCESSOR_ARCHITECTURE="x64" </Condition>
+      </Component>
+      <Component Id="_CPGeoLmClientLicenseBrowser_x64" Guid="B3A90E58-806C-46FA-A01A-43F0AB7F042C" Shared="yes" >
+        <File Id="_FIGeoLmClientLicenseBrowser_x64" Name="$(var.GeoLmClientLicenseBrowser_x64.TargetFileName)" Source="$(var.GeoLmClientLicenseBrowser_x64.TargetPath)" KeyPath="yes" />
+        <Condition> %PROCESSOR_ARCHITECTURE="x64" </Condition>
+      </Component>
+      <Component Id="_CPFNPActInstaller_x64" Guid="F0092E29-EFF1-4A54-B58C-AAADC4FD536A" Shared="yes" >
+        <File Id="_FIFNPActInstaller_x64" Name="FNP_Act_Installer.dll" Source="$(var.FlexNetX64)" KeyPath="yes" />
+        <Condition> %PROCESSOR_ARCHITECTURE="x64" </Condition>
+      </Component>
+      <Component Id="_CPFNPCommsSoap_x64" Guid="9FE98EBD-68A6-4130-99D5-4249AFB06880" Shared="yes" >
+        <File Id="_FIFNPCommsSoap_x64" Name="FnpCommsSoap.dll" Source="$(var.FlexNetX64)" KeyPath="yes" />
+        <Condition> %PROCESSOR_ARCHITECTURE="x64" </Condition>
+      </Component>
+      <Component Id="_CPInstallAnchorSVC_x64" Guid="9C27B530-4597-4CB0-AA77-F717A61F228D" Shared="yes" >
+        <File Id="_FIInstallAnchorSVC_x64" Name="installanchorservice.exe" Source="$(var.FlexNetX64)" KeyPath ="yes" />
+        <Condition> %PROCESSOR_ARCHITECTURE="x64" </Condition>
+      </Component>
+      <Component Id="_CPInstallAnchorSVCMF_x64" Guid="768273D6-35DB-4DE9-A1BB-E23771CB6506" Shared="yes" >
+        <File Id="_FIInstallAnchorSVCMF_x64" Name="installanchorservice.exe.manifest" Source="$(var.FlexNetX64)" KeyPath="yes" />
+        <Condition> %PROCESSOR_ARCHITECTURE="x64" </Condition>
+      </Component>
+      <Component Id="_CPuninstallAnchorSVC_x64" Guid="45F3081C-7B19-4009-95C6-DB81A305C942" Shared="yes" >
+        <File Id="_FIuninstallAnchorSVC_x64" Name="uninstallanchorservice.exe" Source="$(var.FlexNetX64)" KeyPath="yes" />
+        <Condition> %PROCESSOR_ARCHITECTURE="x64" </Condition>
+      </Component>
+      <Component Id="_CPuninstallAnchorSVCMF_x64" Guid="0B2BA7F4-2F83-482F-B13E-3295B62E9EE8" Shared="yes" >
+        <File Id="_FIuninstallAnchorSVCMF_x64" Name="uninstallanchorservice.exe.manifest" Source="$(var.FlexNetX64)" KeyPath="yes" />
+        <Condition> %PROCESSOR_ARCHITECTURE="x64" </Condition>        
+      </Component>
+    </ComponentGroup>
+
+  </Fragment>
+</Wix>

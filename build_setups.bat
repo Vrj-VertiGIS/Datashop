@@ -1,0 +1,1 @@
+start powershell -NoProfile -ExecutionPolicy Bypass -Command "%~dp0\build_setups.ps1"

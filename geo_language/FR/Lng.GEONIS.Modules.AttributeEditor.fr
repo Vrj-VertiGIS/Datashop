@@ -1,0 +1,72 @@
+﻿// attribute editor service
+10001 L'objet avec ID [{0}] n'a pas été trouvé. Il se peut aussi que la ligne soit inaccessible en raison de la politique relative aux données.
+10002 Média non trouvée. Échec du téléchargement du masque {0}. Source de données : {2}, langue : {1}. La cause possible peut être une configuration de masque incompatible. Vérifiez la version du masque.
+10003 Le champ en lecture seule [{0}] ne peut pas être modifié : valeur d'origine={1}, nouvelle valeur={2}
+10004 Échec de l'enregistrement des masques suivants en raison de droits d'accès insuffisants : {0}.
+10032 Le type de géométrie de la ligne [{0}] doit correspondre au type de géométrie du jeu de données [{1}]. 
+10033 La référence spatiale de la géométrie de la ligne [{0}] doit correspondre au la référence spatiale du jeu de données [{1}]. 
+10041 La règle a été correctement exécutée.
+10005 L'objet à enregistrer se trouve pas dans la demande.
+10006 L'objet n'a pas pu être enregistré. Erreur : {0}
+10008 L'objet a été enregistré.
+10009 Les objets ont été enregistrés.
+10010 Les objets à enregistrer sont pas dans la demande.
+10011 Impossible d'enregistrer les objets. Erreur : {0}
+10012 L'objet avec filtre [{0}] n'a pas été trouvé. Il se peut aussi que la ligne soit inaccessible en raison de la politique relative aux données.
+10013 L'objet avec ID [{0}] et filtre [{1}] n'a pas été trouvé. Il se peut aussi que la ligne soit inaccessible en raison de la politique relative aux données.
+10014 Le contrôle «{0}» n'est existe pas dans le formulaire pour sous-type «{1}» ou est en lecture seule. L'objet avec ID {2} n'a pas été enregistré.
+10015 Le sous-type du formulaire principal «{0}» n'a pas le même sous-type «{1}» que le formulaire pour ID «{2}». L'objet avec ID {2} n'a pas été enregistré.
+
+// attribute editor module
+11001 Enregistrement impossible. Le masque est en lecture seule.
+11002 Suppression impossible. Le masque est en lecture seule.
+11003 La fonction [{0}] n'est pas implémentée.
+11004 Paramètre de la règle [{0}] est nécessaire.
+11005 La règle [{0}] n'a pas été trouvée.
+11006 Erreur lors de l'exécution de la mesure [{0}].
+11007 La ligne avec ID [{0}] n'a pas été trouvée. Ou pas d'accès à la ligne en raison de la stratégie de données.
+11008 La Relation Edit «{0}» est configurée avec une relation incorrecte - {1}
+11009 Impossible de supprimer la relation pour le contrôle «{0}». Le jeu de données associé est vide.
+11010 La Relation Edit «{0}» utilise une relation N:M qui n'est pas prise en charge.
+11011 Le contrôle avec ID de référence «{0}» n'a pas été trouvé ou n’est pas un «{1}».
+11012 La relation «{0}» n'a pas été trouvée.
+11013 Erreur de configuration dans le masque.
+
+// attribute editor operations
+// texts come in this order (key % 10): 
+//      1:title, 
+//      2:tooltip, 
+//      3:multiTitle, 
+//      4:multiTooltip
+13101 Enregistrer
+13102 Enregistre l'objet
+13103 Enregistrer
+13104 Enregistre les valeurs modifiées pour tous les objets
+13201 Voulez-vous vraiment enregistrer la valeur modifiée pour tous les objets ouverts ? Ces modifications s'appliquent uniquement aux objets pour lesquels vous disposez des droits appropriés.
+13202 Met à jour le masque
+13203 -
+13204 -
+13301 Créer nouvel objet
+13302 Supprime l'objet
+13303 Créer nouvel objet
+13304 Supprime tous les objets
+13401 Oui
+13402 Zoom sur l'objet
+13403 -
+13404 -
+13501 Ouvrir liste de données
+13502 Déplace vers l'objet
+13503 -
+13504 -
+13601 Identifie l'objet
+13602 Identifie l'objet
+13603 -
+13604 -
+13701 Enregistre l'objet
+13702 Sélectionne l'objet
+13703 -
+13704 -
+13801 Alterner la validation
+13802 Montre la validation dans le masque
+13803 -
+13804 -

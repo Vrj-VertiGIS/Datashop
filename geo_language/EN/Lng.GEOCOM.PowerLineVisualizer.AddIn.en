@@ -1,0 +1,161 @@
+﻿// System/Common/Ui
+1000 Schema update started...
+1005 Schema update failed.
+1010 Schema update has not been successful.
+1015 Schema update failed.\n{0}
+1020 Schema update has been successful.\nPlease restart application to avoid database lock issue.
+1025 Schema update has been successful.
+1050 Power line visualization started...
+1055 Partial visualization for power line started...
+1080 Power line deletion started...
+1085 Partial power line deletion started...
+
+1200 There are unsaved edits in the database that may prevent a correct visualization.
+1210 Save all edits and restart.
+1220 Unsaved edits
+
+// settings UI
+1500 Save
+1502 Save parameters
+1505 Cancel
+1510 Database path
+1515 Rule package path
+1516 This CityEngine rule package will be used for visualizing
+1520 Input layer
+1521 Provide the feature layer where the power lines are stored. The feature class must exist.
+1525 Tower point layer
+1526 This feature layer contains the generated tower coordinates
+1530 Relation table
+1531 This table contains information about tower and power routes
+1535 Section layer
+1536 This feature layer contains segment features between two towers
+1540 Overhead line layer
+1541 This feature layer contains the generated overhead power lines
+1545 Output layer
+1546 This feature layer contains the visualized towers
+1550 Temp. tower point layer
+1551 This feature layer contains the generated tower coordinates in case of partial visualization
+1555 Temp. output layer
+1556 This feature layer contains the visualized towers in case of partial visualization
+1560 Spatial reference (WKID)
+1565 Select database
+1570 Select rule package
+1575 Select database
+1580 Select CityEngine rule package file
+1585 CityEngine rule package files {0}
+1600 Message: {0}
+1605 Entry cannot be blank.
+1610 Currently, only File Geodatabase is supported
+1615 Provide a valid WKID
+1620 <<Drop layer here>>
+1650 Parameters
+1655 Visualizes the power line and power towers
+1660 Power line visualizer
+1700 File [{0}] does not exist.
+1710 File type [{0}] is not supported. Choose a rule package file.
+1720 Required
+1730 You must provide a non-empty value or select a layer.
+1800 The provided RPK file path was empty.
+1805 Choose an existing and valid RPK file and restart.
+1810 File "{0}" does not exist.
+1820 Settings error
+1830 The input layer is not set or it is empty.
+1835 Choose an existing and valid feature class and restart.
+
+// 2000
+2000 Field name {0} is not well formed.
+2010 Report information is missing {0}
+2015 Incorrect value: {0}
+2020 Tower information missing: {0}
+2025 Internal error: tower count and line vertices count do not fit ({0}<>{1}), line ID: {2:B}
+2026 Internal error: If this happened after reversing a transmission line direction or moving a junction point, first remove all related objects and restart the calculation afterwards.
+2027 Internal error: ordered tower count does not fit ({0}<>{1}), line ID: {2:B}
+2030 Internal error: Support structure missing. Tower ID: {0:B}
+2032 Internal error: earth wires count does not fit. Tower IDs: {0:B} : {1:B}
+2035 Junctions are not enabled in the current configuration {0}. Tower ID: {1:B}
+2040 Could not save overhead line features: {0}
+2042 Could not save tower and relation features: {0}
+2044 Could not save section and relation features: {0}
+2046 Could not save tower features: {0}
+2050 Internal error: {0}\nDetails: {1}
+2055 Internal error: {0}
+2060 Operation "{0}" was not successful. More details: {1}
+2070 Field "{0}" not found.
+2080 Guid was empty.
+2090 Invalid Guid {0}
+2100 Layer "{0}" could not be created.
+2110 Following layer could not be found: {0}
+2120 Layer could not be found.
+2130 There are currently no selected features in {0}.
+2140 Select at least one feature to continue.
+2150 Selection missing
+2160 Incorrect layer geometry
+2170 Wrong geometry type in layer {0}\nCurrent: {1}\nExpected: {2}
+2180 There are branches which are not part of the selected power lines
+2190 All related power lines must be selected for the processing.
+2200 Do you want to select these power lines as well?
+2210 Missing information
+2220 No error message has been logged. Parameters used:
+2230 RPK file does not exist.
+
+2400 Internal error: Wrong selection mode {0}
+2410 Branch type {0} not supported
+
+// 5000 - Creator
+5000 Power line visualization
+5005 Visualization has been canceled.
+5010 Power line successfully visualized.
+5015 Visualization result
+5020 Power line visualization failed.\n{0}
+5025 Visualization failed
+5060 Error - Applying rules 1/2
+5065 Error - Applying rules 2/2
+
+5100 Reading power lines...
+5120 Creating tower point features...
+5140 Saving affected tower features...
+5160 Creating overhead lines..
+5180 Reading towers...
+5200 Reading relations...
+5220 Saving changes...
+5240 Updating edited section geometries...
+5260 Updating edited tower point features...
+5280 Recreating tower point features...
+5300 Filtering edited tower point features...
+5320 Updating towers...
+5340 Updating affected overhead lines...
+5360 Removing features from {0}
+5380 Retrieving features from {0}
+5400 Retrieving rows from {0}
+5450 Applying rules 1/2
+5455 Applying rules 2/2
+5460 Visualizing tower angles...
+5465 Setting suspension points...
+
+// 5700 - Schema creation
+5700 Creating schema...
+5705 Canceling schema creation...
+5710 Internal error during schema creation: {0}
+5715 Spatial reference could not be extracted from the Feature Class Definition. More details: {0}
+5720 Feature Class {0} was not found in the database.
+5800 Error - Creating schema for {0}
+5810 Error - Creating field {0}
+5820 Error - Registering GlobalID for {0}
+5830 Spatial reference could not be created. Wkid passed: {0}
+5880 Database path is not set.
+
+// 6000 - Update
+6000 Power line visualization for {0} item(s)
+6005 Revisualization has been canceled.
+6010 Power line visualization for {0} item(s) has been successfully executed.
+6015 Revisualization result
+6020 Power line revisualization failed.\n{0}
+6025 Revisualization failed
+6030 Number of vertices has been changed: {0} <> {1}.\nLine [ID: {2}] must be deleted first.
+
+
+// 7000 - Delete
+7000 Power line deletion
+7005 Deletion has been canceled.
+7010 Power line deletion for {0} item(s) has been successfully executed.
+7015 Deleting result...

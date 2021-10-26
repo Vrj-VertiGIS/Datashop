@@ -1,0 +1,454 @@
+﻿// Masterpage
+1000 Consultation de plans pour externes - Geocom Informatique SA
+1001 GEONIS Datashop
+1002 Consultation de plans pour externes
+1003 Nouvelle requête de carte
+1004 Nouvel export de données
+1005 Mes requêtes
+1006 Veuillez patienter...
+
+1010 Page d'accueil
+
+1020 Langue:
+1021 Deutsch
+1022 English
+1023 Français
+1024 Italiano
+
+1030 Mon profil
+
+1050 Système de consultation
+
+1080 Assistance
+
+//welcomePage
+1500 Veuillez choisir l'option souhaitée:
+1501 Obtenir un plan en tant qu' <b>utilisateur occasionnel</b>
+1502 Connexion ou enregistrement pour <b>utilisateur permanent</b>
+15031 Si vous ne consultez des plans qu'occasionnellement,  
+15032 veuillez cliquer ici
+1504 <b>Utilisateur permanent:</b> Vous consultez régulièrement des plans et demandez pour cela un accès protégé par mot de passe et illimité à Datashop.
+1505 Pour des consultations régulières de plans, enregistrer-vous en tant qu'utilisateur permanent.
+
+1506 Si vous souhaitez uniquement une consultation unique de plan, utilisez l'accès en tant qu'utilisateur occasionnel 
+
+1510 Bienvenue dans la consultation de plans pour externes
+
+
+
+// Login
+2000 Cette page web est protégée par mot de passe.
+2001 Votre identification a échoué. Veuillez essayer à nouveau.
+2002 Connecter
+2003 E-Mail ou ID d'utilisateur:
+2004 Veuillez vous connecter avec nom d'utilisateur et mot de passe.
+2005 Mot de passe:
+2006 Connecté en tant que {0}
+2008 ID utilisateur inconnu: {0}
+2009 Vous êtes connecté en tant que {0}.
+2010 Vous êtes déjà connecté mais n'avez peut-être pas les droits d'accès nécessaires pour afficher la page souhaitée. Veuillez vous déconnecter puis vous reconnecter.
+2011 Connecter
+2012 Connexion pour utilisateur permanent
+2013 Un nom d'utilisateur est requis
+2014 Un mot de passe est requis
+2015 Vous devez être membre du rôle "Utilisateurs permanents" pour consulter un plan régulièrement. Veuillez contacter votre administrateur.
+
+2020 Vous êtes-vous perdu sur cette page? Cliquez ici pour accéder à la page d'accueil.
+
+//business login
+2021 Vous pouvez saisir un nouveau plan.
+2022 Nouvel enregistrement.
+2023 Mot de passe oublié?
+2024 Retour
+2025 Pour l'identification, une adresse e-mail ou l'ID d'utilisateur peuvent être utilisés. Entrez le mot de passe et accédez à la consultation de plan avec la touche „Connecter“.
+//temp login
+2030 Veuillez remplir les champs suivants en entier:
+2031 Conditions générales de vente
+2032 Télécharger les CGV en PDF
+2033 Veuillez accepter les CGV.
+2034 J'ai lu les conditions générales de vente (CGV) et les accepte.
+2035 En tant qu'utilisateur occasionnel, vous êtes identifié avec une adresse e-mail. Veuillez saisir les données nécessaires et accepter les CGV pour passer directement à la commande.
+2036 Suivant
+2037 J'accepte que mes données de contact (prénom, nom, adresse mail) soient stockées dans le cadre de cette application.
+2038 Veuillez accepter la clause de protection des données
+
+//business register
+2050 En tant qu'utilisateur permanent, après votre enregistrement, vous serez informé par un mail de notre part que votre compte a été activé. Veuillez saisir les données nécessaires et accepter les CGV pour vous enregistrer. Après l'activation, vous pouvez consulter des plans par vous-même.
+
+
+2040 Veuillez vous connecter
+2041 Déconnecter
+
+//captcha texts
+2060 Réinitialiser
+2061 Le code que vous avez entré est échu après {0} secondes.
+2062 Le code a été entré trop rapidement. Veuillez attendre {0} secondes.
+2063 Le code que vous avez entré ne correspond pas à l'image Captcha.
+2064 Entrer code Captcha
+
+// text field validations - {0} will be replaced by field's name
+2100 Le champ '{0}' contient des caractères non autorisés.
+2101 Le champ '{0}' est trop long.
+
+// persönliche Daten
+2200 Données personnelles
+2201 Vous pouvez modifier vos données personnelles ici.
+2202 Vos données
+
+2210 Modifier les données d'utilisateur
+
+2230 Monsieur
+2231 Madame
+
+2250 Titre: 
+2251 Prénom: 
+2252 Nom:
+2253 Rue: 
+2254 Numéro:
+2255 NPL: 
+2256 Lieu:
+2257 Adresse e-mail:
+2258 Entreprise:
+2259 Téléphone:
+2260 Fax:
+2261 Mot de passe:
+2262 Répéter mot de passe:
+
+
+2300 Le champ "Titre" ne peut pas être vide.
+2301 Veuillez entrer votre prénom.
+2302 Le champ "Nom" ne peut pas être vide.
+2303 Veuillez entrer votre rue.
+2304 Veuillez entrer votre numéro de maison.
+2305 Veuillez entrer votre NPL.
+2306 Veuillez entrer votre lieu.
+2307 Veuillez entrer le nom de votre entreprise.
+2308 Le champ "Adresse e-mail" ne peut pas être vide.
+2309 Veuillez entrer votre numéro de téléphone.
+2310 Veuillez entrer votre numéro de fax.
+2311 Veuillez entrer une adresse e-mail correcte.
+2312 Les données entrées ne sont pas toutes correctes.
+2313 Veuillez entrer un mot de passe.
+23131 Veuillez confirmer le mot de passe.
+2314 Les deux mots de passe ne sont pas identiques.
+
+2315 Connexion en tant qu'utilisateur permanent
+2316 Enregistrement d'utilisateur permanent
+2317 Un utilisateur avec le même e-mail existe déjà.
+
+2320 Saisie obligatoire
+2321 Vos données utilisateur ont été modifiées avec succès.
+2322 Vos données d'utilisateur n'ont pas pu être modifiées. Veuillez réessayer plus tard.
+2323 Votre compte d'utilisateur n'a pas été trouvé. Veuillez vous déloguer puis vous reloguer.
+2324 Votre ancien mot de passe n'est pas correct.
+2325 Les deux nouveaux mots de passe ne sont pas identiques.
+2326 Votre mot de passe a été modifié avec succès.
+2327 Votre mot de passe n'a pas pu être modifié. Veuillez réessayer dans quelques minutes.
+2328 Le nouveau mot de passe doit être différent de l'ancien.
+
+2330 Vous pouvez modifier vos données personnelles et changer votre mot de passe ici.
+
+2340 Veuillez entrer un nouveau mot de passe.
+2341 Les deux mots de passe ne sont pas identiques.
+2342 Votre mot de passe doit comporter au moins 8 caractères et contenir au moins une lettre majuscule, une lettre minuscule et un chiffre ou caractère spécial.
+2343 Changer mot de passe
+2344 Ancien mot de passe:
+2345 Nouveau mot de passe:
+2346 Répéter le mot de passe:
+2347 Changer mot de passe
+2350 Retour
+
+//passwort zurücksetzten
+2400 Vous pouvez réinitialiser votre mot de passe ici.
+2401 Réinitialiser mot de passe
+2402 Retour
+2404 Le mot de passe a été réinitialisé avec succès. Vous recevrez immédiatement un e-mail avec le nouveau mot de passe à {0}.
+2405 Le mot de passe n'a pas pu être réinitialisé. Veuillez réessayer dans quelques minutes ou contactez l'administrateur.
+2406 Le mot de passe a été réinitialisé. Malheureusement, aucun e-mail avec le nouveau mot de passe n'a pu être envoyé. Veuillez réessayer dans quelques minutes ou contactez l'administrateur.
+2407 Faites générer un nouveau mot de passe et faites-le envoyer à votre adresse e-mail. Votre ancien mot de passe ne sera plus valable.
+
+2410 Réinitialiser mot de passe
+
+//Confirm Order
+3000 Confirmation
+3001 Votre commande a été enregistrée chez nous.
+3002 Informations concernant votre commande:
+3003 Vous recevrez sous peu un e-mail de notre part à l'adresse <b>{0}</b> avec un lien pour télécharger le plan créé.
+3004 Vous pouvez saisir un nouveau plan ici
+3005 Merci de votre commande
+3006 Votre service Datashop City
+3010 Pour toute question au sujet de votre commande, veuillez vous adresser à notre service client <E-Mail-Adresse> avec les informations figurant sur cette page   
+3011 Retour à la page d'accueil
+3012 Vous pouvez saisir un nouveau jeu de données ici
+3013 Vous pouvez saisir un autre plan avec le même extrait de carte ici.
+3014 ID Job
+
+//stream product
+3100 Le fichier suivant est prêt à être téléchargé:
+3101 Téléchargement
+3102 Informations concernant votre commande:
+3103 Télécharger la carte
+3104 Vous pouvez télécharger votre commande ici.
+3105 Retour à Datashop
+3106 Le fichier que vous avez commandé n'est plus actuel. Veuillez cliquer sur le lien suivant pour en commander un nouveau.
+3107 Utilisateur
+
+//uploadPage
+3200 Sélectionnez le fichier de votre ordinateur à charger dans le système avec le bouton <i>Parcourir...</i>.
+3201 Choisissez des fichiers supplémentaires à charger en cliquant tout d'abord sur le bouton <i>Nouvelle ligne</i> pour ajouter une ligne de sélection. Cliquez ensuite sur le bouton <i>Parcourir</i> correspondant pour choisir le fichier souhaité.
+3202 Démarrez ensuite le chargement en cliquant sur le bouton <i>Charger fichier(s)</i>.
+3203 Veuillez patienter jusqu'à ce que le résultat du chargement s'affiche.
+3204 Charger fichier(s)
+3205 Un chargement pour l'utilisateur {0} ({1}) peut être effectué ici.
+
+3206 Exécuter tâche de chargement
+
+3210 réussi
+3211 erroné
+3212 Fichier de même nom déjà chargé
+3213 Chargement dans l'espace général
+3214 Le transfert (et la livraison) à l'utilisateur du fichier chargé a été démarré correctement.
+3215 Une erreur est survenue lors de l'ordre de transfert des données à l'utilisateur.
+3216 Une erreur est survenue lors du chargement des fichiers dans l'espace temporaire.
+3217 Les fichiers de l'espace temporaire ont été supprimés.
+3218 Erreur lors de la suppression des fichiers dans l'espace temporaire:
+
+// DXF Export
+3300 Exportation DXF:
+3301 Créer une exportation DXF
+
+// PdeRequestPage
+3801 Choisir profil:
+3802 Profil
+3803 Choisir profil
+3804 Description:
+3805 Format de données:
+3806 Choisir format de données
+3807 Veuillez dessiner au moins un polygone
+3808 La surface choisie de {0} km2 dépasse la surface maximale autorisée de {1} km2.
+
+//RequestPage
+3900 Commander un plan
+3901 Veuillez définir un cadre de plan.
+3902 Veuillez entrer un motif de requête.
+3903 Définition du cadre de plan:
+39031 Veuillez d’abord effectuer une recherche ou positionner manuellement la carte dans le domaine souhaité. Le cadre de plan peut seulement ensuite être défini.
+3904 Format d'impression
+3905 Veuillez choisir le format de carte
+3906 Echelle
+3907 Veuillez choisir l'échelle
+3908 Angle de rotation
+3909 Veuillez remplir complètement les champs suivants:
+3910 Motif de la requête
+3911 Commander
+39111 Commander comme représentant //!! Darf nicht länger sein
+3912 Marche à suivre:
+3913 1. Rechercher ou naviguer avec la recherche d'adresse et les outils de <br>navigation<br>2. Définir le cadre de plan avec <br>les outils de définition et de <br>positionnement<br>3. Remplir les données obligatoires<br>4. Lire et confirmer les CGV
+3914 5. Cliquer sur „Commander“
+
+39150 Geo-supplémets à ajouter
+
+39161 Champ suppl. 1
+39162 Champ suppl. 2
+39163 Champ suppl. 3
+39164 Champ suppl. 4
+39165 Champ suppl. 5
+39166 Champ suppl. 6
+39167 Champ suppl. 7
+39168 Champ suppl. 8
+39169 Champ suppl. 9
+391610 Champ suppl. 10
+
+39173 Date de début non-valide
+39174 Date de fin non-valide
+
+3917 Période de/à
+39171 Période de
+39172 Période à
+39173 Date de début non-valide
+39174 Date de fin non-valide
+
+3918 Tous les champs jaunes doivent être remplis.
+3919 Les champs jaunes ne peuvent pas être vides.
+39190 La validation de l'expression régulière pour le champ Custom 1 a échoué
+39191 La validation de l'expression régulière pour le champ Custom 2 a échoué
+39192 La validation de l'expression régulière pour le champ Custom 3 a échoué
+39193 La validation de l'expression régulière pour le champ description du job a échoué
+39194 La validation de l'expression régulière pour le champ numéro d'immeuble du job a échoué
+39195 Veuillez remplir le profil complètement
+
+3920 Fermer
+3921 Le nombre de cadres de plan dépasse le maximum.
+3922 Le champ „Période de/à“ ne peut pas être vide et doit contenir un intervalle valable.
+
+3923 Domaines:
+3924 Description
+39241 La description doit être remplie.
+3925 Numéro d'immeuble
+39251 Le numéro d'immeuble doit être rempli.
+
+
+//TDERequestPage
+3950 Veuillez dessiner le périmètre d'export. Le polygone peut être fermé par double-clic.
+3951 Choisissez le profil souhaité:
+3952 Profil
+3953 Le champ „Motif de la requête“ ne peut pas être vide.
+3954 Choisir profil
+3955 Format sortie:
+3956 Description:
+3957 Choisir format de BD.
+3960 Dessiner rectangle
+3961 Dessiner polygone
+3962 Veuillez dessiner un périmètre d'export.
+3963 Choisir profil DXF
+3964 Export type
+3965 Dxf Profile
+3966 Veuillez sélectionner un type d'export
+
+//map
+3930 Agrandir l'extrait
+3931 Rapetisser l'extrait
+3932 Déplacer l'extrait
+3934 Déplacer cadre de plan au centre de la carte
+3935 Zoomer carte vers cadre de plan
+3936 Ajouter cadre de plan
+3937 Supprimer cadre de plan
+3938 Déplacer cadre de plan
+3939 Extrait précédent
+3940 Extrait suivant
+3941 Carte pas disponible.
+3942 Charger extrait de carte de départ
+3943 cadre(s) de plan situé(s) à l'extérieur de l'extrait de carte actuel
+3944 Dessiner polygone
+3945 Agrandir ou rapetisser le polygone sélectionné
+3946 Modifier le polygone sélectionné
+
+//searchControll for requestpage
+3980 Actualiser les champs
+3981 Zoomer sur l'objet
+3982 Plusieurs résultats trouvés. Le premier est affiché.
+3983 Aucun résultat trouvé.
+39831 Aucun résultat trouvé (dû à une erreur interne).
+3984 Recherche pas disponible
+
+//surrogate 
+3990 Créer un plan en tant que représentant
+3991 Utilisateur
+39911 L'utilisateur doit être choisi
+3992 Date de la requête
+39921 La date de la demande doit être remplie
+3993 Genre de requête
+39931 Le genre de requête doit être rempli
+3994 Stopper le job avant l'empaquetage
+3995 Ajouter nouvel utilisateur permanent
+3996 Ajouter nouvel utilisateur occasionnel
+3997 Filtrer liste utilisateurs
+3998 Vous devez entrer un filtre
+3999 Filtrer liste
+39991 Réinitialiser filtre
+39992 {0} utilisateur(s) trouvé(s)
+
+//searches 4000-4999 are reserved for labeling the searchfields
+4000 Recherche d'adresse
+4001 Commune
+4002 Nom de rue
+4003 Numéro
+
+4010 Coordonnées
+4011 Coordonnée X
+4012 Coordonnée Y
+
+4020 Nom local
+4021 Nom local
+4022 Résultats
+
+4030 Numéro de parcelle
+4031 Numéro de parcelle
+
+4040 Numéro assurance
+4041 Numéro assurance
+
+4100 La page web que vous avez appelée n'est plus disponible. Afin de ne plus obtenir ce message, veuillez actualiser les favoris de votre navigateur: créez un nouveau favori depuis page d'accueil de Datashop et supprimez l'ancien favori. 
+4101 Pour commander un plan maintenant et accéder à la nouvelle page,
+4102 veuillez cliquer ici.
+
+//MyPlots page
+
+5000 Recherche et filtrage des données
+5001 Id job
+5002 Id utilisateur
+5003 Prénom
+5004 Nom
+5005 Entreprise
+5006 Créé depuis le
+5007 Créé jusqu'au
+5008 Téléchargé
+50080 Oui
+50081 Non
+5009 Rechercher
+5010 Réinitialiser
+5011 Options
+5012 Résultats par page
+5013 Export .csv
+5014 Exporter
+5015 {0} objets trouvés
+5016 Id job
+5017 Id utilisateur
+5018 Prénom
+5019 Nom
+5020 Entreprise
+5021 Id utilisateur
+5022 Prénom
+5023 Nom
+5024 Entreprise
+5025 Date création
+5026 Nbre téléchargements
+5027 Télécharger
+5028 Veuillez remplir au moins un champ de recherche
+5029 La valeur du champ Id job doit être numérique
+// 5030: {0} stands for the original job id and {1} stands for the new job id
+5030 La demande avec l'Id {0} a été copiée sur l'Id {1} et redémarrée
+
+//Impressum, About
+6000 About
+6001 Replace this text with something suitable for an about page
+
+//Errors
+//Masterpage
+9001 Veuillez activer JAVASCRIPT dans votre explorateur pour afficher cette page.
+//BizUserDisabled
+9010 Votre compte a été bloqué.
+//biz & tempUserLimitError
+9019 Trop de demandes
+9020 La limite de {0} demandes dans les derniers {1} jours a déjà été atteinte.
+9021 Veuillez répéter la demande après expiration du délai d'attente.
+9022 La limite de {0} demandes dans les derniers {1} jours a déjà été atteinte.
+9023 Veuillez répéter la demande après expiration du délai d'attente ou enregistrez vous en tant qu'utilisateur permanent.
+9024 Enregistrement en tant qu'utilisateur permanent
+//BizUserLocked
+9030 Votre enregistrement n'a pas encore été confirmé par un administrateur. Dès que ce sera fait, vous serez informé par e-mail.
+9031 Enregistrement pas encore confirmé
+//CreateTempUserFailed
+9040 Votre adresse e-mail entrée est déjà utilisée pour un utilisateur permanent enregistré.
+9041 Veuillez contrôler l'adresse e-mail ou utiliser la page de connexion pour les utilisateurs permanents enregistrés
+9042 « Retour à la page d'accueil
+9043 « Connexion en tant qu'utilisateur permanent
+9044 Le compte n'a pas été créé
+//GeneralError
+9050 Une erreur est survenue lors du traitement de la demande.
+9051 Veuillez répéter la demande et contactez le service de support si l'erreur se reproduit.
+9052 Pas de message d'erreur disponible
+//LoginError
+9060 Votre compte utilisateur n'a pas pu ou pas complètement pu être contrôlé.
+9061 Veuillez répéter la demande et contactez le service de support si l'erreur se reproduit.
+9062 « Retour
+//ServiceNotFound
+9070 Le service n'est pas disponible en ce moment
+//UploadJobErrors
+9080 L'identification de l'utilisateur pour lequel vous exécutez cette demande n'est pas valable.
+9081 Vous n'avez pas les droits (nécessaires pour cette action) pour effectuer des demandes pour un autre utilisateur.<br />Veuillez vous connecter en tant qu'administrateur.
+//PDE Errors
+9090 Une erreur grave est malheureusement survenue lors du chargement du profil. Veuillez répéter la demande dans quelques minutes ou contacter le service de support.
+//Template Limit
+10000 La limite de demandes de modèle a été atteinte.
+10001 FR: Too many plots ({0}) within a minute. The limit is {1} plots per minute.

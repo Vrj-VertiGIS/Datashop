@@ -1,0 +1,72 @@
+﻿// attribute editor service
+10001 Oggetto con ID [{0}] non trovato. Oppure non è possibile individuarlo nella riga a causa di motivi legati al trattamento dei dati.
+10002 Media non trovato. Impossibile caricare la maschera {0}. Origine dati: {2}, lingua: {1}. Una possibile causa potrebbe essere una configurazione della maschera non compatibile. Verifica la versione della maschera.
+10003 Il campo di sola lettura [{0}] non può essere modificato: valore iniziale={1}, nuovo valore={2}
+10004 Diritti di accesso insufficienti. Impossibile salvare le maschere seguenti: {0}
+10032 Il tipo di geometria nella riga [{0}] deve corrispondere al tipo di geometria del Dataset [{1}]. 
+10033 Il riferimento spaziale di geometria nella riga [{0}] deve corrispondere al riferimento spaziale del Dataset [{1}]. 
+10041 Regola eseguita con successo.
+10005 L'oggetto da salvare non è nella richiesta.
+10006 Impossibile salvare l'oggetto. Errore: {0}
+10008 L'oggetto è stato salvato.
+10009 Gli oggetti sono stati salvati.
+10010 Gli oggetti da salvare non sono nella richiesta.
+10011 Impossibile salvare gli oggetti. Errore: {0}
+10012 Oggetto con filtro [{0}] non trovato. Oppure non è possibile individuarlo nella riga a causa di motivi legati al trattamento dei dati.
+10013 Oggetto con ID [{0}] e filtro [{1}] non trovato. Oppure non è possibile individuarlo nella riga a causa di motivi legati al trattamento dei dati.
+10014 Il controllo "{0}" non è contenuto nel modulo del sottotipo "{1}" oppure è protetto dalla scrittura. Oggetto con ID [{2}] non salvato.
+10015 Il sottotipo della maschera principale "{0}" non ha lo stesso sottotipo "{1}" della maschera per ID "{2}". L'oggetto con ID {2} non è stato salvato.
+
+// attribute editor module
+11001 Salvataggio non consentito. La maschera è protetta da scrittura.
+11002 Eliminazione non consentita. La maschera è protetta da scrittura.
+11003 Funzione [{0}] non implementata.
+11004 Parametro per la regola [{0}] è obbligatoria.
+11005 Regola [{0}] non trovata.
+11006 Si è verificato un errore nell'esecuzione della misura [{0}]
+11007 Riga con ID [{0}] non trovata. O nessun accesso a causa della politica dei dati.
+11008 La Relation Edit "{0}" è configurata con una relazione non valida - {1}
+11009 Impossibile eliminare la relazione per il controllo "{0}". Il Dataset correlato è vuoto.
+11010 La Relation Edit "{0}" utilizza una relazione N:M, che non è supportata.
+11011 Il controllo con ID di riferimento "{0}" non è stato trovato o non è "{1}".
+11012 Relazione "{0}" non trovata.
+11013 Errore di configurazione nella maschera.
+
+// attribute editor operations
+// texts come in this order (key % 10): 
+//      1:title, 
+//      2:tooltip, 
+//      3:multiTitle, 
+//      4:multiTooltip
+13101 Salva
+13102 Salva l'oggetto
+13103 Salva
+13104 Salvataggio dei valori modificati per tutti gli oggetti
+13201 Sei sicuro di voler salvare i valori modificati per tutti gli oggetti? È possibile applicare modifiche solo agli oggetti che dispongono di diritti corrispondenti.
+13202 Aggiorna la maschera
+13203 -
+13204 -
+13301 Crea oggetto nuovo
+13302 Elimina l'oggetto
+13303 Crea oggetto nuovo
+13304 Elimina tutti gli oggetti
+13401 Sì
+13402 Zoom su oggetto
+13403 -
+13404 -
+13501 Apri lista dati
+13502 Pan su oggetto
+13503 -
+13504 -
+13601 Identifica l'oggetto
+13602 Identifica l'oggetto
+13603 -
+13604 -
+13701 Salva l'oggetto
+13702 Seleziona l'oggetto
+13703 -
+13704 -
+13801 Activare la validazione
+13802 Mostra la validazione nella maschera
+13803 -
+13804 -

@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" InitialTargets="EnsureWixToolsetInstalled" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <GeoLibRoot>..\..\geo_lib</GeoLibRoot>
+    <SignRoot>$(SolutionDir)\geo_lib\geocom\signing</SignRoot>
+    <DefineConstants>
+    </DefineConstants>
+  </PropertyGroup>
+  <Import Project="..\..\build\configurations.proj" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>3.10</ProductVersion>
+    <ProjectGuid>2b93285d-c7dd-4fd6-8334-f68343b411cb</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>VertiGIS_DXF_export_for_ArcMap($(ArcGISFeatureVersion))</OutputName>
+    <OutputType>Package</OutputType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>bin\$(Configuration)\$(ArcGISFeatureVersion)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>$(DefineConstants);Debug</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\$(Configuration)\$(ArcGISFeatureVersion)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <SuppressIces>ICE03;ICE82;ICE69;ICE36</SuppressIces>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(ProgramFiles)\Geocom\GEONIS\Dxf export for ArcMap\VertiGIS.Export.DXF.ArcMap.Command.COMInfo.wxs">
+      <Link>VertiGIS.Export.DXF.ArcMap.Command.COMInfo.wxs</Link>
+    </Compile>
+    <Compile Include="Components.wxs" />
+    <Compile Include="Directories.wxs" />
+    <Compile Include="Product.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Strings1.wxl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>..\..\geo_lib\wix\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>..\..\geo_lib\wix\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixNetFxExtension">
+      <HintPath>..\..\geo_lib\wix\WixNetFxExtension.dll</HintPath>
+      <Name>WixNetFxExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\GEOCOM.GNSDatashop.Export.DXF.BatchRunner\GEOCOM.GNSDatashop.Export.DXF.BatchRunner.csproj">
+      <Name>GEOCOM.GNSDatashop.Export.DXF.BatchRunner</Name>
+      <Project>{e08216a1-9ea2-4c81-a6c3-a1c449dcbcc6}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GEOCOM.GNSDatashop.Export.DXF.Common\GEOCOM.GNSDatashop.Export.DXF.Common.csproj">
+      <Name>GEOCOM.GNSDatashop.Export.DXF.Common</Name>
+      <Project>{d2eeca43-fc8e-458a-aa41-9d32ac219187}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GEOCOM.GNSDatashop.Export.DXF.Symbology\GEOCOM.GNSDatashop.Export.DXF.MapSymbology.csproj">
+      <Name>GEOCOM.GNSDatashop.Export.DXF.MapSymbology</Name>
+      <Project>{8681684b-d7e4-46bd-a0f3-b325018002fe}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GEOCOM.GNSDataShop.Export.DXF.TextRendererAggregate\GEOCOM.GNSDataShop.Export.DXF.TextRendererAggregate.csproj">
+      <Name>GEOCOM.GNSDataShop.Export.DXF.TextRendererAggregate</Name>
+      <Project>{2cc7567a-cffb-4a0c-9dde-e1dbb8abc7f6}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GEOCOM.GNSDatashop.Export.DXF\GEOCOM.GNSDatashop.Export.DXF.csproj">
+      <Name>GEOCOM.GNSDatashop.Export.DXF</Name>
+      <Project>{fbffb17a-d935-4b27-b5f4-73f8fb8e41e2}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TTFExtractor\TTFExtractor.vcxproj">
+      <Name>TTFExtractor</Name>
+      <Project>{6587cd69-241a-4a14-b50e-af31ac4d4b6a}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\Command\GEOCOM.GNSDatashop.Export.DXF.ArcMap.Command.csproj">
+      <Name>GEOCOM.GNSDatashop.Export.DXF.ArcMap.Command</Name>
+      <Project>{60c82756-10a2-427a-b15d-a8bc94d3be83}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" Condition=" '$(WixTargetsPath)' != '' " />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets" Condition=" '$(WixTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets') " />
+  <Target Name="EnsureWixToolsetInstalled" Condition=" '$(WixTargetsImported)' != 'true' ">
+    <Error Text="The WiX Toolset v3.11 (or newer) build tools must be installed to build this project. To download the WiX Toolset, see http://wixtoolset.org/releases/" />
+  </Target>
+  <Target Name="GetMyAssemblyVersion" AfterTargets="AfterResolveReferences">
+    <CreateProperty Value="ArcGISVersion=$(ArcGISVersion);ArcGISFeatureVersion=$(ArcGISFeatureVersion);$(DefineConstants)">
+      <Output TaskParameter="Value" PropertyName="DefineConstants" />
+    </CreateProperty>
+    <GetAssemblyIdentity AssemblyFiles="$(ProgramFiles)\Geocom\GEONIS\Dxf export for ArcMap\VertiGIS.Export.DXF.ArcMap.Command.dll">
+      <Output TaskParameter="Assemblies" ItemName="AssemblyVersions" />
+    </GetAssemblyIdentity>
+    <CreateProperty Value="$(OutputName)_%(AssemblyVersions.Version)">
+      <Output TaskParameter="Value" PropertyName="TargetName" />
+    </CreateProperty>
+    <CreateProperty Value="$(TargetName)$(TargetExt)">
+      <Output TaskParameter="Value" PropertyName="TargetFileName" />
+    </CreateProperty>
+    <CreateProperty Value="$(TargetDir)$(TargetFileName)">
+      <Output TaskParameter="Value" PropertyName="TargetPath" />
+    </CreateProperty>
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>"$(SignRoot)\signtool.exe" sign /d "VertiGIS DXF export for ArcMap" /n &quot;VertiGIS GmbH&quot; /t http://timestamp.digicert.com /v !(TargetPath)</PostBuildEvent>
+  </PropertyGroup>
+</Project>

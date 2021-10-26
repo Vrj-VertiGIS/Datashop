@@ -1,0 +1,201 @@
+﻿
+/* generic classes */
+.DSDRContainer
+{
+}
+.DSDRPanel
+{
+}
+
+/* inline panels */
+.DSDRContainerInline
+{
+}
+.DSDRInlineHead, .DSDRInlineCollapsed, .DSDRInlineExpanded, .DSDRInlineHover
+{
+    display: block;
+    padding: 2px 8px 2px 8px;
+    margin-top: 20px;    
+    height: 24px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 10pt;
+    padding-top: 6px;
+}
+.DSDRInlineHead 
+{
+    background-color: #dddddd;
+}
+.DSDRInlineCollapsed
+{
+    filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#ffffff', EndColorStr='#cccccc');
+    /*background: url(../images/nav/maximize.png) no-repeat right;*/
+    cursor: hand;
+}
+.DSDRInlineExpanded
+{
+    margin-bottom: 20px;    
+    filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#cccccc', EndColorStr='#ffffff');
+    /*background:url(../images/nav/minimize.png) no-repeat right;*/
+    cursor: hand;
+}
+.DSDRInlineHover
+{
+    cursor: hand;
+}
+.DSDRInlinePanel
+{
+}
+
+/* tabbed panels */
+.DSDRContainerTabbed
+{
+    min-width: 800px;
+}
+.DSDRTabs
+{
+    border-bottom: solid 1px black;
+    padding: 0px 0px 0px 4px;
+    min-width: 800px;
+}
+.DSDRTab,.DSDRTabUnselected, .DSDRTabSelected, .DSDRTabHover
+{
+    position: relative;
+    display: inline-block;
+    margin-right: 4px;
+    cursor: hand;
+    background-color: White;
+}
+.DSDRTabUnselected
+{
+    top: 4px;
+    height: 24px;
+    border: solid 1px black;
+    padding: 2px 8px 0px 8px;
+}
+.DSDRTabSelected
+{
+    top: 1px;
+    height: 28px;
+    border: solid 1px black;
+    border-bottom-style: none;
+    font-weight: bold;
+    font-size: 10pt;
+    padding: 2px 8px 0px 8px;
+}
+.DSDRTabHover
+{
+}
+.DSDRTabbedPanels
+{
+    position: relative;
+    top: -1px;
+}
+.DSDRTabbedPanel
+{
+    border: solid 1px black;
+    border-top-style: none;
+    background-color: White;
+    padding: 4px 10px 10px 10px;
+    min-width: 800px;
+}
+
+/* panel content */
+.DSDRTableFrame 
+{
+    margin-top: 20px;
+    position: relative;
+    border: solid 1px black;
+    padding: 0px 10px 10px 10px;
+}
+.DSDRFrameCaption 
+{
+    position: relative;
+    top: -10px;
+    left: 0px;
+    background-color: #e9ecf1;
+    border: solid 1px black;
+    padding: 2px 4px 2px 4px;
+}
+.NoFrame 
+{
+    margin-top: 10px;
+    border: none;
+    padding: 0;
+}
+.DSDRPanelTable
+{
+    /*
+    border: solid 1px silver;
+    border-collapse: collapse;
+    */
+}
+.DSDRPanelTableRow
+{
+    /*
+    border: solid 1px silver;
+    border-collapse: collapse;
+    */
+}
+.DSDRPanelTableCell,.DSDRPanelTableCellCaption,.DSDRPanelTableCellVariable
+{
+    width: 150px;
+}
+.DSDRPanelTableCellCaption
+{
+    padding-top: 3px;
+    vertical-align: bottom;
+    font-weight: bold;
+    background-color: #e9ecf1;
+    padding: 0px 4px 0px 4px;
+    vertical-align: middle;
+}
+.DSDRPanelTableCellVariable
+{
+    vertical-align: bottom;
+    padding-left: 2px;
+    white-space: normal;
+}
+/* job event log styles */
+.DSDRLogs 
+{
+    border: solid 1px silver;
+}
+.DSDRLogsHead 
+{
+}
+.DSDRLogHead 
+{
+    border-left: solid 1px white;
+    border-right: solid 1px white;
+    background-color: Silver;
+    font-weight: bold;
+    padding: 0px 4px 0px 4px;
+}
+.DSDRLogs TR TD
+{
+    padding: 2px 4px 2px 4px;
+}
+.DSDRLog0 
+{
+}
+.DSDRLog1 
+{
+    background-color: #EEEEEE;
+    border-top: 1px solid black;
+}
+
+.jobDetail_actionbutton.btnRestart {
+    margin-left:5px;
+}
+
+.btnInfo {
+    margin-top:5px;
+}
+
+.btnUploadFile {
+}
+
+.hidden {
+    display: none;
+}

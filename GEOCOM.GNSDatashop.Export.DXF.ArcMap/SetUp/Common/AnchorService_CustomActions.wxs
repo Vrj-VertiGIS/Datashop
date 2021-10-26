@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+
+    <Property Id="FNPPRODUCTINFO" Value="GEOCOM;GEONIS" />
+
+    <!-- We cannot use the dll-based (fnp_act_installer.dll) approach heere as we do not want to have 
+         to pack all the setups in .exe containers. Using fnpActSvcInstallForMSI() would requires to be
+         called with admin privileges what in turn only works with .exe launcher setups -->
+    
+    <CustomAction Id="InstallAnchorSVC.Par"
+                  Property="InstallAnchorSVC"
+                  Value="[FNPPRODUCTINFO]"
+                  Return="check" />
+
+    <CustomAction Id="InstallAnchorSVC"
+                  BinaryKey="FnpActInstaller"
+                  DllEntry="fnpActSvcInstallForMSI"
+                  Return="check"
+                  Execute="deferred" 
+                  Impersonate="no" />
+    
+    <CustomAction Id="UnInstallAnchorSVC.Par"
+                  Property="UnInstallAnchorSVC"
+                  Value="[FNPPRODUCTINFO]"
+                  Return="check" />
+
+    <CustomAction Id="UnInstallAnchorSVC"
+                  BinaryKey="FnpActInstaller"
+                  DllEntry="fnpActSvcUninstallForMSI"
+                  Return="check"
+                  Execute="deferred"
+                  Impersonate="no" />
+
+    <!-- Rollback CAs for installing/uninstalling of anchor service -->
+    
+    <CustomAction Id="RBInstallAnchorSVC.Par"
+                  Property="RBInstallAnchorSVC"
+                  Value="[FNPPRODUCTINFO]"
+                  Return="check" />
+    
+    <CustomAction Id="RBInstallAnchorSVC"
+                  BinaryKey="FnpActInstaller"
+                  DllEntry="fnpActSvcUninstallForMSI"
+                  Return="ignore"
+                  Execute="rollback"
+                  Impersonate="no" />
+
+    <CustomAction Id="RBUnInstallAnchorSVC.Par"
+                  Property="RBUnInstallAnchorSVC"
+                  Value="[FNPPRODUCTINFO]"
+                  Return="check" />
+    
+    <CustomAction Id="RBUnInstallAnchorSVC"
+                  BinaryKey="FnpActInstaller"
+                  DllEntry="fnpActSvcInstallForMSI"
+                  Return="ignore"
+                  Execute="rollback"
+                  Impersonate="no" />
+      
+  </Fragment>
+</Wix>

@@ -1,0 +1,6 @@
+<SoeProps>
+	<ClassId>GNSDatashopSearchExtension.ServerObjectExtension</ClassId>
+	<Name>GNSDatashopSearchExtension</Name>
+	<Description>GEONIS Datashop Search Extension</Description>
+	<DisplayName>Datashop Search</DisplayName>
+</SoeProps>

@@ -1,0 +1,83 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DatashopAdmin.master.cs"
+    Inherits="GNSDatashopAdmin.DatashopAdmin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>GEONIS server Datashop</title>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="Stylesheet" href="App_Themes/meyer_reset.css" />
+    <link rel="shortcut icon" href="images/master/favicon.ico"/>
+</head>
+<%--Das script bei onload im body schaltet das mainpanel bei aktivieretem javascript sichtbar--%>
+<body onload="document.getElementById('master_main_plus').style.visibility='visible';
+              document.getElementById('JavaScriptError').style.visibility='hidden'" class="claro">
+    <form id="form1" runat="server" onsubmit="if(typeof(onFormSubmit) == 'function'){ onFormSubmit()};">
+     <div id="header">
+        <div id="topbar">
+            <asp:Image ImageUrl="~/images/datashop24.png" ToolTip="Geonis Datashop" id="datashopIcon" CssClass="datashopIcon" runat="server" />
+            <ul id="loginStatus">
+                <li>
+                    <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="Logout" LoginText="Login" OnLoggedOut="LoginStatus1_OnLoggedOut" />
+                </li>
+                <li id="liSeparator" runat="server">|</li>
+                <li>
+                    <asp:LoginName ID="LoginName1" runat="server" FormatString="Logged in as {0}" OnPreRender="LoginName1_PreRender" />
+                </li>
+            </ul>
+        </div>
+        <asp:HyperLink ID="hypHome" runat="server" NavigateUrl="~/WelcomePage.aspx" ImageUrl="~/images/geocom.jpg" CssClass="logo" />
+        <h1><asp:Literal ID="l1001" runat="server" Text="GEONIS Server Datashop Administration" /></h1>
+        <h2>v<%= Version %></h2>
+    </div>
+    <div id="breadcrumb">
+        <ul></ul>
+    </div>
+    <div id="leftColumn">
+        <asp:LoginView runat="server">
+            <LoggedInTemplate>
+                <ul class="tableOfContent">
+                    <li>
+                        <a id="A1" runat="server" href="~/WelcomePage.aspx">Home</a>
+                    </li>
+                    <li>
+                        <a id="A2" runat="server" href="~/UserManagePage.aspx">Manage occasional users</a>
+                    </li>
+                    <li>
+                        <a id="A3" runat="server" href="~/BizUserManagePage.aspx">Manage business users</a>
+                    </li>
+                    <li>
+                        <a id="A4" runat="server" href="~/ActivateUsers.aspx">Unlock business users</a>
+                    </li>
+                    <li>
+                        <a id="A5" runat="server" href="~/JobManagePage.aspx">Manage jobs</a>
+                    </li>
+                    <li>
+                        <a id="A6" runat="server" href="~/JobArchiveWizzard.aspx">Archive jobs</a>
+                    </li>
+                    <li>
+                        <a id="A7" runat="server" href="~/Utilities.aspx">Utilities</a>
+                    </li>
+                </ul>
+            </LoggedInTemplate>
+        </asp:LoginView>
+        <asp:ContentPlaceHolder ID="LeftPanelContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div id="rightColumn">
+        <%--Dieser abschnitt wird nur angezeigt fals Javascript deaktiviert ist--%>
+        <div id="JavaScriptError" style="visibility: visible">
+            <noscript>
+                <font color="red" size="5">Please activate JAVASCRIPT to view this site.</font>
+            </noscript>
+        </div>
+        <%--Dieser Abschnitt wird bei aktiviertem Javascript auf sichtbar gestellt--%>
+        <div id="master_main_plus" style="visibility: hidden">
+            <asp:ContentPlaceHolder ID="MainPanelContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

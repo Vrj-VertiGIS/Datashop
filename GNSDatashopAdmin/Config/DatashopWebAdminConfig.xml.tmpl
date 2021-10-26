@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config>
+
+  <datashopWebAdmin>
+    
+    <!-- ============== REST URL TO MAPSERVICE ============== -->
+    <!-- The mapservice settings.
+         mapservice ->  
+                       useproxy: If set true, every request to the ArcGIS REST Map Service will be served indirectly by a proxy  
+					   adminwebmapConfigurationPath: Path to the Admin webmap Configuration (e.g. "C:\inetpub\wwwroot\DatashopAdmin\Config\adminWebmap.js")
+					   -->
+    <mapservice adminwebmapConfigurationPath="C:\inetpub\wwwroot\DatashopAdmin\Config\adminWebmap.js" useproxy="true" />
+
+    <!-- ============== SECURITY ============== -->
+    <!-- The security settings.
+         authentication -> username: The user name for the connection to the datashop web service if basic authentication is used
+                           password: The password for the connection to the datashop web service if basic authentication is used -->
+    <security>
+      <authentication username="myUsername" password="myPassword" />
+    </security>
+        
+    <!-- ============== JOB LIST CONFIGURATION ============== -->
+    <!-- The job list visibility settings.
+         field -> name: The field name. The field names must not be changed.
+                  visible: Is this field visible? Either true or false -->
+    <joblistMain>
+      <field name="JobId" visible="true" />
+      <field name="UserId" visible="true" />
+      <field name="FirstName" visible="true" />
+      <field name="LastName" visible="true" />
+      <field name="CreateDate" visible="true" />
+      <field name="LastStateChangeDate" visible="true" />
+      <field name="Step" visible="true" />
+      <field name="State" visible="true" />
+      <field name="Reason" visible="true" />
+      <field name="Custom1" visible="true" />
+      <field name="Custom2" visible="true" />
+      <field name="Custom3" visible="true" />
+      <field name="Custom4" visible="false" />
+      <field name="Custom5" visible="false" />
+      <field name="Custom6" visible="false" />
+      <field name="Custom7" visible="false" />
+      <field name="Custom8" visible="false" />
+      <field name="Custom9" visible="false" />
+      <field name="Custom10" visible="false" />
+      <field name="DownloadCount" visible="true" />
+      <field name="MapExtentCount" visible="true" />
+	  <field name="DxfExport" visible="true" />
+      <field name="MachineName" visible="true" />
+    </joblistMain>
+
+    <joblistUser>
+      <field name="JobId" visible="true" />
+      <field name="UserId" visible="false" />
+      <field name="FirstName" visible="false" />
+      <field name="LastName" visible="false" />
+      <field name="CreateDate" visible="true" />
+      <field name="LastStateChangeDate" visible="true" />
+      <field name="Step" visible="true" />
+      <field name="State" visible="true" />
+      <field name="Reason" visible="true" />
+      <field name="Custom1" visible="true" />
+      <field name="Custom2" visible="true" />
+      <field name="Custom3" visible="true" />
+      <field name="Custom4" visible="false" />
+      <field name="Custom5" visible="false" />
+      <field name="Custom6" visible="false" />
+      <field name="Custom7" visible="false" />
+      <field name="Custom8" visible="false" />
+      <field name="Custom9" visible="false" />
+      <field name="Custom10" visible="false" />
+      <field name="DownloadCount" visible="true" />
+      <field name="MapExtentCount" visible="true" />
+	  <field name="DxfExport" visible="true" />
+      <field name="IsArchived" visible="true" />
+    </joblistUser>
+
+    <!-- ============== JOB DETAIL ============== -->
+    <!-- The job detail configuration.
+         jobdetaillayoutconfigfile: The location of the configuration file for the job detail page -->
+    <jobdetaillayoutconfigfile>C:\inetpub\wwwroot\DatashopAdmin\config\JobDetailDynamicConfig.xml</jobdetaillayoutconfigfile>  
+  </datashopWebAdmin>
+</config>

@@ -1,0 +1,431 @@
+
+/* ------------ common ------------ */
+
+body {
+	font-family: Verdana;
+	font-size: 10px;
+	color: #000000;	
+	background-image:url(../images/bg.png);
+	background-repeat: repeat-x;	
+}
+
+td, div {
+	font-family: Verdana;
+	font-size: 10px;
+	color: #000000;
+}
+
+.gse_title {
+	font-weight: bold;
+	padding-bottom: 3px;
+}
+
+.gse_border {
+	padding: 3px;		
+}
+
+.gse_menu_bar {
+	position: absolute;
+	left: 5px;
+	top: 8px;	
+}
+
+.gse_content {	
+	padding-top: 10px;
+}
+
+.gse_messages {
+	padding-top: 10px;
+}
+
+/* ------------ embedded components ------------ */
+
+/* --------- requestPage --------------------*/
+#mapControl
+{
+	position:absolute;
+	left:420px;
+	top: 150px;
+}
+
+#Navi
+{
+	position:absolute;
+	left:8px;
+	top: 17px;
+}
+
+#ZoomLevel
+{
+	position:absolute;
+	left:8px;
+	top: 66px;
+}
+
+#search
+{
+	background-color:#EEEEEE;
+	width:400px;
+}
+
+#information
+{
+	width:400px;
+	background-color:#AEAEAE;
+}
+
+#template
+{
+	border-bottom-style:solid;
+	border-bottom-color: Gray;
+}
+
+.gse_embedded_comp
+{
+	padding: 3px;
+	vertical-align: middle;
+}
+
+/* ------------ label ------------ */
+.gse_label
+{
+	padding: 3px;		
+}
+
+
+
+
+/* ------------ editbox ------------ */
+
+.gse_edit_box {  	
+  	border: solid 1px #9898a5;
+  	border-right-color: #d8d8e5;
+  	border-bottom-color: #d8d8e5;
+  	font-family: Verdana, Arial, sans-serif;
+  	font-size: 10px;
+  	vertical-align: top;
+}
+
+.gse_edit_box_modified {	
+	background-color: #BBFFBB;	
+  	border: solid 1px #9898a5;
+  	border-right-color: #d8d8e5;
+  	border-bottom-color: #d8d8e5;
+  	font-family: Verdana, Arial, sans-serif;
+  	font-size: 10px;
+  	vertical-align: top;
+}
+
+/* ------------ combobox ------------ */
+
+.gse_combo_box {  	
+  	border: solid 1px #9898a5;
+  	border-right-color: #d8d8e5;
+  	border-bottom-color: #d8d8e5;
+  	font-family: Verdana, Arial, sans-serif;
+  	font-size: 10px;
+  	vertical-align: top;
+}
+
+.gse_combo_box_modified {	
+	background-color: #BBFFBB;		
+  	border: solid 1px #9898a5;
+  	border-right-color: #d8d8e5;
+  	border-bottom-color: #d8d8e5;
+  	font-family: Verdana, Arial, sans-serif;
+  	font-size: 10px;
+  	vertical-align: top;
+}
+
+/* ------------ checkbox ------------ */
+
+.gse_check_box {	
+	font-family: Verdana;
+	font-size: 10px;	
+}
+
+.gse_check_box_modified {
+	background-color: #BBFFBB;
+	font-family: Verdana;
+	font-size: 10px;	
+}
+
+/* ------------ section ------------ */
+
+.gse_section {	
+	margin: 0px;
+	padding: 5px;	
+	border-width: 1px;
+	border-style: solid;
+	border-color: #a5c9f0;
+}
+
+.gse_section_register {
+	margin: 0px;		
+	background-color: #ebf2f9;
+	padding: 5px;
+	cursor: pointer;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #a5c9f0;	
+	border-bottom-style: none;
+	border-right-color: #9898a5;	
+	white-space: nowrap;
+}
+
+.gse_section_register_selected {
+	margin: 0px;		
+	background-color: #ffffff;
+	padding: 5px;
+	cursor: pointer;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #a5c9f0;	
+	border-bottom-style: none;
+	border-right-color: #9898a5;	
+	white-space: nowrap;
+}
+
+.gse_section_border {
+	background-color: #ffffff;
+}
+
+/* ------------ buttons ------------ */ 
+
+.gse_button {	
+	border: 1px solid #000000;
+    cursor: pointer;
+	    background-color: #FFFFFF;
+	    font-family: Verdana;
+	    font-size: 10px;
+	    height: 18px;
+}
+
+.gse_edit_button {	
+	background-color: #FFFFFF;	
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: #FFFFFF;	
+	background-image: url("../images/edit.gif");
+	cursor: pointer;
+	border-width: 1px;
+	border-style: solid;	
+	border-bottom-color: #FFFFFF;
+	border-top-color: #FFFFFF;
+	border-left-color: #FFFFFF;
+	border-right-color: #FFFFFF;		
+}
+
+.gse_new_button {
+	background-color: #FFFFFF;	
+	background-repeat: no-repeat;
+	background-position: center;	
+	background-color: #FFFFFF;
+	background-image: url("../images/new.gif");
+	cursor: pointer;
+	border-width: 1px;
+	border-style: solid;	
+	border-bottom-color: #FFFFFF;
+	border-top-color: #FFFFFF;
+	border-left-color: #FFFFFF;
+	border-right-color: #FFFFFF;		
+}
+
+.gse_delete_button {
+	background-color: #FFFFFF;	
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: #FFFFFF;	
+	background-image: url("../images/delete.gif");
+	cursor: pointer;
+	border-width: 1px;
+	border-style: solid;	
+	border-bottom-color: #FFFFFF;
+	border-top-color: #FFFFFF;
+	border-left-color: #FFFFFF;
+	border-right-color: #FFFFFF;		
+}
+
+.gse_save_button {
+	width: 23px;
+	height: 22px;	
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-color: #FFFFFF;
+	background-color: #FFFFFF;
+	background-image: url("../images/update.gif");
+	cursor: pointer;
+	border-style:none;
+	
+}
+
+.gse_save_button_dis {
+	width: 23px;
+	height: 22px;	
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-color: #FFFFFF;
+	background-color: #FFFFFF;
+	background-image: url("../images/update_dis.gif");
+	cursor: default;
+	border-style:none;	
+}
+
+.gse_save_mass_button {
+	width: 23px;
+	height: 22px;	
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-color: #FFFFFF;
+	background-image: url("../images/update_mass.gif");
+	cursor: pointer;
+	border-style:none;
+	
+}
+
+.gse_save_mass_button_dis {
+	width: 23px;
+	height: 22px;	
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-color: #FFFFFF;
+	background-image: url("../images/update_mass_dis.gif");
+	cursor: default;
+	border-style:none;	
+}
+
+.gse_refresh_button {
+	width: 23px;
+	height: 22px;	
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-color: #FFFFFF;
+	background-image: url("../images/refresh.gif");
+	cursor: pointer;	
+	border-style:none;
+}
+
+.gse_first_button {
+	width: 23px;
+	height: 22px;	
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-color: #FFFFFF;
+	background-image: url("../images/first.gif");
+	cursor: pointer;	
+	border-style:none;
+}
+
+.gse_first_button_dis {
+	width: 23px;
+	height: 22px;	
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-color: #FFFFFF;
+	background-image: url("../images/first_dis.gif");
+	cursor: default;	
+	border-style:none;
+	
+}
+
+.gse_prev_button {
+	width: 23px;
+	height: 22px;	
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-color: #FFFFFF;
+	background-image: url("../images/prev.gif");
+	cursor: pointer;	
+	border-style:none;
+}
+
+.gse_prev_button_dis {
+	width: 23px;
+	height: 22px;	
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-color: #FFFFFF;
+	background-image: url("../images/prev_dis.gif");
+	cursor: default;	
+	border-style:none;
+}
+
+.gse_next_button {
+	width: 23px;
+	height: 22px;	
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-color: #FFFFFF;
+	background-image: url("../images/next.gif");
+	cursor: pointer;	
+	border-style:none;
+}
+
+.gse_next_button_dis {
+	width: 23px;
+	height: 22px;	
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-color: #FFFFFF;
+	background-image: url("../images/next_dis.gif");
+	cursor: default;	
+	border-style:none;
+}
+
+.gse_last_button {
+	width: 23px;
+	height: 22px;	
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-color: #FFFFFF;
+	background-image: url("../images/last.gif");
+	cursor: pointer;	
+	border-style:none;
+}
+
+.gse_last_button_dis {
+	width: 23px;
+	height: 22px;	
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-color: #FFFFFF;
+	background-image: url("../images/last_dis.gif");
+	cursor: default;	
+	border-style:none;
+}
+
+/* ------------ images ------------ */
+ 
+.gse_load_image {
+	background-image: url("../images/loading.gif");
+	width: 37;
+	height: 37;
+}
+
+.gse_error_image {
+	/*background-image: url("../images/error.gif");*/
+	width: 37;
+	height: 37;
+}
+
+/* ------------ messages ------------ */
+
+.gse_message_default {
+	color: #85a9d0;	
+}
+
+.gse_message_error {
+	color: #CC0000;	
+}
+
+/* ------------ list ------------ */
+
+.gse_list {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #a5c9f0;
+}
+
+.gse_list_head {
+	font-weight: bold;
+}

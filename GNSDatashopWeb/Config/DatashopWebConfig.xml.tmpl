@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config>
+
+  <datashopWeb>
+
+		<!-- ============== REST URL TO MAPSERVICE ============== -->
+		<!-- The mapservice settings.
+         mapservice -> 
+                       levels: The scale levels. Possible values are 'dynamic' or 'tiled'
+						 useproxy: if the proxy handler should be used, true|false, default is true
+					   slider: if the map should display the slider or not, true|false
+             geometryserviceurl: url for the geometry service on ArcGIS Server (only needed for Data mode) 
+					   maxselectablearea: area in square kilometres that acts as an upper limit to how large an area can be selected in a data export
+             initialExtent -> xmin, xmax, ymin, ymax: The coordinates of the initial extent to be shown on the map 
+													  The projected coordinate system. Possible values can be found at
+													  http://resources.esri.com/help/9.3/arcgisserver/apis/javascript/arcgis/help/jshelp/pcs.htm						  
+             spatialReference -> wkid: the well-known identifier 
+			 webmapConfigurationPath -> Path to the webmap Configuration (e.g. "C:\inetpub\wwwroot\Datashop\Config\webmap.js")
+			 
+			 lods: only used if "levels" ist set to "dynamic". If "levels" ist set to "tiled", the levels of details are read from the map service cache.
+			 lods -> scaleresolutionratio: the ratio between the scale and the resolution in pixels per metre
+			 lod -> scale: the scale to show
+			 
+			 -->
+		<mapservice
+					geometryserviceurl="http://localhost/ArcGIS/rest/services/Geometry/GeometryServer"
+					useproxy="true"
+					levels="dynamic"
+					slider="false"
+					maxselectablearea="5" 
+					webmapConfigurationPath="C:\inetpub\wwwroot\Datashop\Config\webmap.js">
+			<initialExtent xmin="627000" xmax="634000" ymin="215000" ymax="220000">
+				<spatialReference wkid="21781" />
+			</initialExtent>
+			<lods scaleresolutionratio="3779.52">
+				<lod scale="100000" />
+				<lod scale="40000" />
+				<lod scale="20000" />
+				<lod scale="10000" />
+				<lod scale="5000" />
+				<lod scale="2500" />
+				<lod scale="1000" />
+				<lod scale="500" />
+				<lod scale="250" />
+			</lods>
+		</mapservice>
+
+		<!-- ============== WEBAPP LANGUAGE Switching ============== -->
+		<!-- 
+		The languages supported by the web application. Outer <languages> node is required.
+		If no languages are defined within, the language switcher control is not displayed.
+		The language files need to reside in bin/Text and must adhere to the following naming convention:
+		
+		"GNSDatashopWeb." + 2 letter ISO language code (DE, EN, FR, IT etc.)
+	  -->
+		<languages>
+			<language code="DE" text="Deutsch" />
+			<language code="EN" text="English" />
+			<language code="FR" text="Francais" />
+			<language code="IT" text="Italiano" />
+		</languages>
+
+		<!-- ============== SECURITY ============== -->
+		<!-- The security settings.
+         authentication -> username: The user name for the connection to the datashop web service if basic authentication is used
+                           password: The password for the connection to the datashop web service if basic authentication is used -->
+		<security>
+			<authentication username="DatashopSecurity" password="DatashopSecurity" />
+		</security>
+
+		<!-- The settings for additional web documents.
+         document: Each document is defined within a 'document' element
+         document -> name: The name of the document. This name has to be unique. At the moment only the document 'agb' is used.
+                     relativeurl: The url relative to the web application.
+         -->
+		<webdocuments>
+			<document name="agb" relativeurl="~\WebDocuments\default_agb.pdf" />
+			<document name="agbTempUser" relativeurl="~\WebDocuments\temp_user_agb.pdf" />
+		</webdocuments>
+
+		<!-- 
+		Document Expiry Settings: specify the number of days after job creation when the created documents expire and is no longer available for download.
+		enabled = true|false
+		expireafterdays = the number of days after the job creation date when the documents expire
+		restartjobexpiration = the number of days after the job creation date on which the job can be restarted by the user
+	  -->
+		<documentexpiry enabled="false" expireafterdays="100" restartjobexpiration="60" />
+
+		<!--
+		surrogate request settings: specify how the request was placed (Anfrageart).
+		placement = Text|Selection
+	  -->
+		<surrogaterequest placement="Text" />
+
+		<!-- REPRESENTATIVE JOBS (STELLVERTRETER) -->
+		<!-- recipient: Selected|Representative|Both -->
+		<representativejob recipient="Representative" />
+
+		<!-- GEO-ATTACHMENTS -->
+		<!-- showcheckbox: shows/hides geo-attachment checkbox on the request page -->
+		<geoattachments showcheckbox="false" />
+
+		<!-- ============== PAGE PROPERTY SETTINGS ============== -->
+		<!-- Page property settings. The 'required' and 'visible' attributes can be set for each field.
+         For each web page the fields can be configured.
+         The base element name (e.g. 'registerBusinessUserPage') defines the page to be configured.
+		 displayMode: Controls where the user page is displayed. Possible value are 'DedicatedPage' or 'WelcomePage'. This setting is supported only on the 'loginTempUserPage' tag.
+     	 disableCaptcha: Disables the captcha control. Possible values are 'true' or 'false'.
+         field: The settings for a field.
+         field -> serverId: A unique id for the page. The serverId may not be changed!
+                  required: Is this field required? Possible values are 'true' or 'false'.
+                  visible: Is the field visible? Possible values are 'true' or 'false'.
+                  regex: A regular expression e.g. for the email/password validation. This is an optional attribute. -->
+		<registerBusinessUserPage  disableCaptcha="false">
+			<field serverId="salutation" required="true" visible="true" />
+			<field serverId="firstName" required="false" visible="true" />
+			<field serverId="lastName" required="true" visible="true" />
+			<field serverId="street" required="false" visible="true" />
+			<field serverId="streetNumber" required="false" visible="true" />
+			<field serverId="zip" required="false" visible="true" />
+			<field serverId="city" required="false" visible="true" />
+			<field serverId="company" required="false" visible="true" />
+			<field serverId="email" required="true" visible="true" regex="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$" />
+			<field serverId="phone" required="false" visible="true" />
+			<field serverId="fax" required="false" visible="true" />
+			<field serverId="pds" visible="false"/>
+			<field serverId="agb" visible="true" />
+		</registerBusinessUserPage>
+
+		<loginTempUserPage disableCaptcha="false" displayMode="DedicatedPage">
+			<field serverId="salutation" required="true" visible="true" />
+			<field serverId="firstName" required="false" visible="true" />
+			<field serverId="lastName" required="true" visible="true" />
+			<field serverId="street" required="false" visible="true" />
+			<field serverId="streetNumber" required="false" visible="true" />
+			<field serverId="zip" required="false" visible="true" />
+			<field serverId="city" required="false" visible="true" />
+			<field serverId="company" required="false" visible="true" />
+			<field serverId="email" required="true" visible="true" regex="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$" />
+			<field serverId="phone" required="false" visible="true" />
+			<field serverId="fax" required="false" visible="true" />
+			<field serverId="pds" visible="false"/>
+			<field serverId="agb" visible="true"/>
+		</loginTempUserPage>
+
+		<!-- requestPage -> mode: switches between the Plot and Data modes, valid values Plot|Data. 
+    
+         Additional settings for plot and data mode of the request page:
+         plotMode -> defaultScale: The default scale used for the map.
+                     maxPolygons: The maximum number of polygons (plot frames) to be drawn on the map.
+                     dxfExport: Show DXF export section on the request page. Possible values: 'true' or 'false
+					 dxfExport: Enable the Dxf export (true|false)
+					 limitFormat: Format of items in the Plot format drop box. 
+								  Variable %(definition_name) is replace by name of the plot definition
+								  Variable %(definition_limit) is replace by actual limit for the current user and definition
+         dataMode -> showProfileSelection: Is the profile selection displayed? Possible values: 'true' or 'false'. This attribute can be set to 'false' if only one data export profile is defined.
+                    maxPolygons: The maximum number of polygons to be drawn on the map. TDE works only with one polygon.
+                    withCreateRectangle: Show/hide the icon for rectangular map selection.
+					withCreatePolygon: 	Show/hide the icon for polygon map selection. DXF-Export works only with rectangular map selection: polygon map selection is automatically transformed 
+										in rectangular map selection (envelope) 
+                    -->
+		<requestPage mode="Plot">
+			<plotMode defaultScale="1500" maxPolygons="3" dxfExport="true" limitFormat="%(definition_name) - limit = %(definition_limit)" />
+			<dataMode showProfileSelection="true" maxPolygons="1" withCreateRectangle="true"/>
+			<fields>
+				<!-- surrogate fields -->
+				<field serverId="surrogateDropDown" required="true" visible="true" />
+				<field serverId="surrogateCalender" required="true" visible="true" />
+				<field serverId="surrogateRequestWay" required="true" visible="true" />
+				<field serverId="addBusinessUser" visible="true" />
+				<field serverId="addTempUser" visible="false" />
+				<!-- common purpose fields -->
+				<field serverId="custom1" required="true" visible="true" />
+				<field serverId="custom2" required="false" visible="true"/>
+				<field serverId="custom3" required="false" visible="false"/>
+				<field serverId="custom4" required="false" visible="false"/>
+				<field serverId="custom5" required="false" visible="false"/>
+				<field serverId="custom6" required="false" visible="false"/>
+				<field serverId="custom7" required="false" visible="false"/>
+				<field serverId="custom8" required="false" visible="false"/>
+				<field serverId="custom9" required="false" visible="false"/>
+				<field serverId="custom10" required="false" visible="false"/>
+				<field serverId="jobDescription"  required="false" visible="true" />
+				<field serverId="jobParcelNumber" required="true" visible="true"/>
+				<field serverId="agb" visible="true"/>
+				<!-- fields only for Data mode -->
+				<field serverId="cboExportType" required="true" visible="true"/>
+				<!-- IMPORTANT NOTE: -
+          
+          The following three fields MUST have their visibility set to true or the entire map page will not work.
+          This is due to software incompatibilities between ValidationControls and ASP.net AJAX
+        -->
+				<field serverId="cboProfile" required="false" visible="true"/>
+				<field serverId="cboDataFormat" required="false" visible="true"/>
+				<field serverId="cboDxfExport" required="false" visible="true"/>
+			</fields>
+		</requestPage>
+
+		<!-- The online help settings.
+         button: Each page contains button(s) to get additional information when the button is clicked.
+                 It is possible to configure multiple help buttons on one page.
+         button -> page: The page name. Has to be an existing web page without the file extension (e.g. 'Welcome' for 'Welcome.aspx').
+                   buttonId: The id of the button. Has to be unique for each page.
+                   url: The url to the help file. It is possible to use anchors.
+                   sameWindow: Should the help be displayed in the same window?
+                               Possible values: 'true' -> The help is shown in a modal dialog
+                                                'false' -> The help is shown in a new browser tab
+                   tooltip: The tooltip shown when the mouse is moved over the help button. -->
+		<onlineHelp>
+			<button page="Welcome" buttonId="help1" url="./WebDocuments/default_help_{0}.htm#Welcome" sameWindow="true" />
+			<button page="ResetPasswordPage" buttonId="help0" url="./WebDocuments/default_help_{0}.htm#ResetPasswordPage" sameWindow="true" />
+			<button page="LoginTempUser" buttonId="help0" url="./WebDocuments/default_help_{0}.htm#CreateTempUser" sameWindow="true"  />
+			<button page="RegisterBusinessUser" buttonId="help0" url="./WebDocuments/default_help_{0}.htm#CreateBusinessUser" sameWindow="true" />
+			<button page="RequestPage" buttonId="help0" url="./WebDocuments/default_help_{0}.htm" sameWindow="true" />
+			<button page="RequestPage" buttonId="helpPlotMode" url="./WebDocuments/default_help_{0}.htm#PlotModeRequest" sameWindow="true" />
+			<button page="RequestPage" buttonId="helpDataMode" url="./WebDocuments/default_help_{0}.htm#DataModeRequest" sameWindow="true" />
+			<button page="BizUserData" buttonId="help0" url="./WebDocuments/default_help_{0}.htm#BizUserData" sameWindow="true" />
+			<button page="MyPlots" buttonId="help0" url="./WebDocuments/default_help_{0}.htm#MyPlots" sameWindow="true" />
+		</onlineHelp>
+
+    <!-- The map search configuration on the Request page.
+         defaultEnabled: Enables or disables the default Datashop map search. 
+                         Possible values: 'true' or 'false'
+         customSearch: Defines a custom search element 
+         customSearch -> enabled: Enables or disables the custom Datashop map search. Possible values: 'true' or 'false'
+                         virtualPath: Virtual path to a custom ASP.NET user control that will be loaded and placed on the Request page.
+                                      example in the file '~/CustomMapSearch/Example.ascx' -->
+    <mapSearch defaultEnabled="false">
+      <customSearch enabled="true" virtualPath="~/CustomMapSearch/Example.ascx" />
+      <customSearch enabled="false" virtualPath="~/CustomMapSearch/Example02.ascx" />
+    </mapSearch>
+
+	</datashopWeb>
+</config>

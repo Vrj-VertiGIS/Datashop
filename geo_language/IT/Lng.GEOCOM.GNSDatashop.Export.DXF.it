@@ -1,0 +1,125 @@
+﻿//////////////////////////////////////////////////////////////
+// Texte zum DXF export UI
+//////////////////////////////////////////////////////////////
+
+10090 <Nessun Layer>
+
+10100 VertiGIS DXF Export
+10101 Strumenti d'esportazione VertiGIS DXF
+10102 File di output:
+10104 Selezione dei dati da esportare
+10106 File d'esportazione:
+10108 Opzioni formato
+10110 Versione DXF:
+10112 File DXF binario (per risparmiare spazio di archiviazione)
+10120 Seleziona la versione specifica del formato AutoCAD DXF che contiene i dati esportati. Se sconosciuta, si consiglia di lasciare il valore standard.
+
+10204 Esporta solo i Layer visibili
+10206 Riduci al ritaglio schermata
+10208 Esporta solo oggetti selezionati
+10210 Esporta solo Feature che si trovano all'interno del poligono del Layer di selezione. Per ogni poligono del Layer di selezione viene creato un file DXF.
+10212 Layer Maschera Consente di escludere completamente o parzialmente Feature dall'esportazione. Feature disabilitate dai poligoni di questo Layer non vengono esportate.
+10214 Le Feature vengono esportate soltanto se sono comprese, totalmente o parzialmente, entro un poligono del Layer indicato di seguito. Per ogni poligono (Feature) di questo Layer viene creato un file DXF (con numerazione progressiva). Ciò consente di salvare le zone di un Layer (di una Feature Class) da esportare e di raggruppare per tema i risultati dell'esportazione.
+10216 Le Feature non vengono esportate se sono totalmente comprese entro un poligono del Layer indicato di seguito. Le Feature mascherate solo parzialmente vengono tagliate sui bordi del poligono di mascheramento.
+10220 E&sporta
+10222 Annulla
+10224 Avvia esportazione in base a AutoCAD DXF. É possibile interrompere l'esportazione cliccando su "Annulla". É possibile interrompere l'esportazione anche cliccando sulla visualizzazione della mappa o premendo il tasto ESC.
+10226 Nome del/dei file di output. Riportando il Layer di selezione, questo nome viene integrato con un numero progressivo di 3 cifre. Inserendo manualmente il nome del file viene registrato così come è stato indicato. Il nome viene integrato con un numero progressivo, ma non viene automaticamente aggiunta l'estensione del file, ad.es DXF. 
+10228 Possibilità di selezionare il percorso e il nome del file di output.
+10230 Scrivi DXF binario. Risparmia ~25% di spazio, tempo di caricamento più veloce in AutoCAD (fino a 5 volte). Verificare se l'applicazione che deve leggere il file DFX scritto di seguito supporta il file binario DFX.
+
+10300 VertiGIS DXF Export (per ArcMap {0})
+10302 Esportazione dei Layer di mappe con AutoCAD DXF
+10304 I Layer della visualizzazione attuale della mappa possono essere esportate con AutoCAD DXF. Selezionare se esportare tutti i Layer o soltanto quelli visibili. Se sono state selezionate delle Feature, è possibile restringere l'esportazione alla selezione. É possibile limitare l'esportazione anche ai poligoni di un Layer di selezione (in tal caso viene creato un DXF per poligono). Le Feature che rientrano nei poligoni del Layer di mascheramento, possono essere escluse completamente o parzialmente dall'esportazione.
+
+10402 Esportazione verso AutoCAD DXF
+10404 Dati DXF esportati in {0}. 
+10405 Dati DXF ({0} file) esportati in:
+10406 Esportazione con AutoCAD DXF interrotta dall'utente.
+10407  {0} file sono stati creati:
+10408 Interrompere definitivamente l'esportazione con AutoCAD DXF?
+10410 Annullamento dell'esportazione con AutoCAD DXF in corso...
+10412 Nessuna esportazione:  Nessun Layer o nessun Layer visibile per l'esportazione.
+10420 Mostra la lista di tutti i file creati
+10421 Nascondi la lista
+
+10510 File DXF AutoCAD (*.DXF)|File *.DXF|Tutti i file (*.*)|*.*
+10500 Crea file DXF dalla visualizzazione della mappa indicata (solo Layer visibili)
+
+10700 Licenze VertiGIS DXF Export
+10702 Impossibile trovare una licenza valida di VertiGIS DXF Export sul sistema.\nÈ stata trovata una licenza valida ma o il numero delle istanze eseguibili è troppo piccolo o è scaduta.
+10704 Nessuna licenza
+10710 Per l'esecuzione è necessario una licenza ArcGIS Engine o ArcGIS Desktop Basic. Impossibile trovare una licenza valida. Chiusura dell'applicazione.
+10712 L'esecuzione richiede l'utilizzo di una applicazione ArcGIS (ArcGIS Engine, ArcGIS Desktop). Non è stato possibile trovare nessuna delle suddette applicazioni. Chiusura dell'applicazione.
+
+10900 Errore
+10902 Un Layer non può essere allo stesso tempo una selezione di Feature e un Layer di mascheramento.
+10903 La quantità di dati da esportare è troppo grande. Selezionare meno Feature, limitare ulteriormente il numero di Layer da esportare e, se possibile, esportare zone parziali. La quantità di dati può essere efficacemente ridotta se si utilizza un Layer di selezione.
+10904 Si è verificato un errore imprevisto. 
+10905 Informazioni tecniche di errore (se necessario, inoltrare al supporto)
+10906 Nascondi informazioni
+10907 Il Layer contiene troppi dati per l'esportazione. Esportare zone parziali (utilizzando il Layer di selezione) ove possibile. Attenzione: Questo Layer non contiene il file di output (.dxf).
+10910 Impossibile esporta il elencati Layer. 
+10911 I Layer elencati non potevano essere esportati. 
+10912 La causa è anche indicata (in inglese).
+10914 Avviso: Impossibile esportare uno o più Layer.
+10915 Layer non valido. Probabilmente il Layer non può essere trovato nel database collegato.
+10916 Non sono disponibili ulteriori informazioni sull'errore.
+
+10922 {0} non sono supportati. Il Layer viene ignorato.
+10924 Rappresentazioni
+10925 Layer dimensione 
+10926 Layer di mappe di base
+10927 Layer raster 
+10928 Layer
+10930 Feature Layer
+10932 Tipo di geometria non supportato
+
+10940 Interrogazione di definizione non valida 
+10942 Interrogazione di definizione non valida - Il campo {0} non esiste!
+10944 Eccezione COM 
+
+
+40920 Informazioni aggiuntive in:
+
+11002 Guida
+11004 Documenti
+11006 Mostra guida HTML "{0}".
+
+//////////////////////////////////////////////////////////////
+// Texte zum DXF export batch runner
+//////////////////////////////////////////////////////////////
+
+20110 Nome del file di mappa (.mxd), da esportare dai dati (file o file con specifica del percorso).
+20112 Nome del file DXF (.dxf), nel quale deve essere esportato (file o file con specifica del percorso).
+20114 Nome di un Layer (di poligono) (dal file di mappa). Vengono esportati solo i dati che rientrano nel poligono di questo Layer.
+20116 Nome di un Layer (di poligono) (dal file di mappa). I dati che non rientrano nel poligono di questo Layer non vengono esportati (estratti).
+20118 Se questa opzione = True, vengono esportati solamente i Layer visibili.
+20120 Scala della mappa (1:n), ad es. 500 per 1:500, 1000 per 1:1000 ecc. La scala di riferimento del documento di mappatura viene utilizzata come valore standard.
+
+20210 Il Layer {0} non è un Layer (valido), che può essere utilizzato come Layer di selezione.
+20212 Il Layer {0} non è un Layer (valido), che può essere utilizzato come Layer di mascheramento.
+20213 Percorso/nome del file non valido per il file di output ({0}).
+20214 Non è stato definito alcun documento di mappatura ArcMap (MXD) per la lettura o ne è stato definito uno non esistente. Verifica il percorso.
+20216 Il file specificato ({0}) non contiene un documento di mappatura ArcMap valido (MXD).
+20218 Il documento di mappatura ArcMap specificato ({0}) è protetto da password. I documenti di mappatura protetti da password non sono supportati.
+20220 Il documento di mappatura ArcMap specificato ({0}) non contiene Layer.
+20222 Nessun file di output (DXF) definito.
+// Duplicted with 20213 #20223 Formal ungültiger Pfad/Dateiname für die Ausgabedatei (DXF).
+20224 La directory ({0}) per il salvataggio del file di output (DXF) non esiste.
+20226 Un file DXF con questo nome {0} esiste già.
+20228 Scala della mappa non valida. Deve essere numerica (numero a virgola mobile) e rientrare nel campo [1.0 .. 1.0E9].
+20230 Errore nel caricamento del componente DXFWriter: \n{0}.
+20232 Errore di parametro: {0}
+20234 Versione del formato DXF non valida. Le versioni precedenti a DXF per AutoCAD 2000 non sono supportate.
+20240 VertiGIS DXF Export - Versione {0}
+20299 Errore sconosciuto\n{0}
+
+//////////////////////////////////////////////////////////////
+// Logging (z.b. Logfile) - für UI wie batch relevant
+//////////////////////////////////////////////////////////////
+30100 Esportazione terminata con avviso/i:
+30102 Esportazione interrotta con errore/i:
+30104 Percorso/nome del file non valido per il file di File di Log ({0}).
+30106 Impossibile salvare il File di Log perché la directory specificata non esiste.
+

@@ -1,0 +1,9 @@
+<Project ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <!--  architecture depends on ArcGIS Version! -->
+    <PlatformTarget Condition="'$(ArcGISVersion)' == '10.0.0'">x86</PlatformTarget>
+    <PlatformTarget Condition="'$(ArcGISVersion)' == '10.1.0' OR '$(ArcGISVersion)' == '10.2.0'">x64</PlatformTarget>
+  </PropertyGroup>
+</Project>
+
+

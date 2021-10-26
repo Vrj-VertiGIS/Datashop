@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">  
+  
+    <Product Id="385209A3-98AA-48C0-A117-242BBFB90F94"
+             Name="VertiGIS DXF export for ArcMap $(var.ArcGISFeatureVersion)"
+             Language="1033"
+             Version="!(bind.FileVersion.fil99265803FDC2530D1F50C93129F11FA8)"
+             Manufacturer="VertiGIS AG"
+             UpgradeCode="6961c9d3-30b3-43c4-966e-90a10b3a9d8d">
+
+      <Package InstallerVersion="301"
+               Compressed="yes"
+               InstallScope="perMachine"
+               Description="Version: !(bind.FileVersion.fil99265803FDC2530D1F50C93129F11FA8)"
+               Platform="x86" />
+
+      <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+      <MediaTemplate EmbedCab ="yes"/>
+
+      <!-- Ensure the correct .NET framework is available on the target machine -->
+      <PropertyRef Id="WIX_IS_NETFRAMEWORK_452_OR_LATER_INSTALLED"/>
+      <Condition Message="This application requires .NET Framework 4.5.2 or later. Please install the .NET Framework then run this installer again.">
+        <![CDATA[Installed OR WIX_IS_NETFRAMEWORK_452_OR_LATER_INSTALLED]]>
+      </Condition>
+
+      <!-- Disable advertising of shortcuts - so we can install pseudo-advertised shortcuts without having
+         to supply a related registry value. This is a work-around to overcome a WIX/msi tic... -->
+      <Property Id="DISABLEADVTSHORTCUTS" Value="1" />
+
+      <!-- Which arcMap? -->
+      <Property Id="ARC10INSTALLED">
+        <RegistrySearch Id="Arc10Search" Root="HKLM" Key="SOFTWARE\ESRI\ArcGIS" Name="RealVersion" Type="raw" />
+      </Property>
+
+      <Property Id="APPBASEDIR">
+        <RegistrySearchRef Id="GeonisBaseDirSearch"/>
+      </Property>
+      <SetProperty Id="APPBASEDIR" Value="[ProgramFilesFolder]\VertiGIS" Before="AppSearch" />
+      
+      <Property Id="GEONISBASEDIR">
+        <RegistrySearch Id="GeonisBaseDirSearch" Root="HKLM" Key="SOFTWARE\Geocom\GeonisExpert" Name="BaseDir" Type="directory" />
+      </Property>
+      
+      <?if $(var.ArcGISVersion) = 10.1.0?>
+        <Property Id="ARCGISMAINVERSION" Value="10.1" />
+        <Condition Message="This application requires ArcGIS Version 10.1. Please install this version of ArcGIS first.">
+          <![CDATA[Installed OR ARC10INSTALLED<<"10.1"]]>
+        </Condition>
+
+      <?elseif $(var.ArcGISVersion) = 10.2.0?>
+        <Property Id="ARCGISMAINVERSION" Value="10.2" />
+        <Condition Message="This application requires ArcGIS Version 10.2. Please install this version of ArcGIS first.">
+          <![CDATA[Installed OR ARC10INSTALLED<<"10.2"]]>
+        </Condition>
+
+      <?elseif $(var.ArcGISVersion) = 10.3.0?>
+        <Property Id="ARCGISMAINVERSION" Value="10.3" />
+        <Condition Message="This application requires ArcGIS Version 10.3. Please install this version of ArcGIS first.">
+          <![CDATA[Installed OR ARC10INSTALLED<<"10.3"]]>
+        </Condition>
+
+      <?elseif $(var.ArcGISVersion) = 10.4.0?>
+        <Property Id="ARCGISMAINVERSION" Value="10.4" />
+        <Condition Message="This application requires ArcGIS Version 10.4. Please install this version of ArcGIS first.">
+          <![CDATA[Installed OR ARC10INSTALLED<<"10.4"]]>
+        </Condition>
+
+      <?elseif $(var.ArcGISVersion) = 10.5.0?>
+        <Property Id="ARCGISMAINVERSION" Value="10.5" />
+        <Condition Message="This application requires ArcGIS Version 10.5. Please install this version of ArcGIS first.">
+          <![CDATA[Installed OR ARC10INSTALLED<<"10.5"]]>
+        </Condition>
+
+      <?elseif $(var.ArcGISVersion) = 10.6.0?>
+        <Property Id="ARCGISMAINVERSION" Value="10.6" />
+        <Condition Message="This application requires ArcGIS Version 10.6. Please install this version of ArcGIS first.">
+          <![CDATA[Installed OR ARC10INSTALLED<<"10.6"]]>
+        </Condition>
+
+      <?elseif $(var.ArcGISVersion) = 10.7.0?>
+        <Property Id="ARCGISMAINVERSION" Value="10.7" />
+        <Condition Message="This application requires ArcGIS Version 10.7. Please install this version of ArcGIS first.">
+          <![CDATA[Installed OR ARC10INSTALLED<<"10.7"]]>
+        </Condition>
+
+      <?elseif $(var.ArcGISVersion) = 10.8.0?>
+      <Property Id="ARCGISMAINVERSION" Value="10.8" />
+      <Condition Message="This application requires ArcGIS Version 10.8. Please install this version of ArcGIS first.">
+        <![CDATA[Installed OR ARC10INSTALLED<<"10.8"]]>
+      </Condition>
+
+      <?endif?>
+
+      <CustomActionRef Id="WixFailWhenDeferred" />
+
+      <Icon Id="Icon.ico" SourceFile="..\..\resources\geonis.ico" />
+      <Property Id="ARPPRODUCTICON" Value="Icon.ico" />
+
+      <!-- Enable the user to start the license server administrator at the end of the setup process -->
+      <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch the VertiGIS License Administrator" />
+      <Property Id="WixShellExecTarget" Value="[INSTALLFOLDERADMIN]LicenseAdmin.exe" />
+      <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
+
+      <!-- Minimal setup UI -->
+      <WixVariable Id="WixUILicenseRtf" Value="Resources\LIZENZVERTRAG_VERSION_EULA.rtf" />
+      <WixVariable Id="WixUIBannerBmp" Value="Resources\setup_screen_banner_8bit.bmp" />
+      <WixVariable Id="WixUIDialogBmp" Value="Resources\setup_screen_left_8bit.bmp" />
+      
+      <!-- Check if licensing already installed -->
+      <Property Id="LMCLIENTINSTALLED">
+        <DirectorySearch Id="GEOLMCLIENTINSTALLED" Path="[CommonFilesFolder]\GEOCOM">
+          <FileSearch Name="GeoLmClient.dll"/>
+        </DirectorySearch>
+      </Property>
+
+      <UI>
+        <UIRef Id="WixUI_Mondo" />
+        <Publish Dialog="ExitDialog"
+            Control="Finish"
+            Event="DoAction"
+            Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+      </UI>
+
+      <Feature Id="Product" Title="Dxf export for ArcMap" Level="1" AllowAdvertise="no" ConfigurableDirectory ="INSTALLFOLDER">
+        <ComponentGroupRef Id="ProductComponents"/>
+        <ComponentGroupRef Id="CommonComponents" />
+        <ComponentGroupRef Id="UserDocumentation"/>        
+        <ComponentGroupRef Id="AppConfigFiles" />        
+        <ComponentGroupRef Id="VertiGIS.Export.DXF.ArcMap.Command.COMInfo"/>        
+        <MergeRef Id="_CPPRtlx86" />
+        <!--<MergeRef Id="_CPPRtlx64" /> -->
+      </Feature>
+
+      <Feature Id="ArcGISDependent" Title="Required components for ArcMap" Level="1" AllowAdvertise ="no" ConfigurableDirectory="INSTALLFOLDER">
+        <ComponentGroupRef Id="AGDependentComponents" />
+        <ComponentGroupRef Id="ECFGFiles" />
+      </Feature>
+
+      <Feature Id="GEONISDocu" Title="Geonis embedded documentation for VertiGIS DXF-export for ArcMap" Level="9999" AllowAdvertise="no"  >
+        <Condition Level="1">
+          <![CDATA[(NOT Installed) AND (GEONISBASEDIR)]]>
+        </Condition>
+        <ComponentGroupRef Id="GeonisConfigFiles" />
+      </Feature>
+
+      <Feature Id="StandAloneLogging" Title="Stand-alone logging (only if no Geonis installed)" Level="9999" AllowAdvertise="no"  >
+        <Condition Level="1">
+          <![CDATA[(NOT Installed) AND (NOT GEONISBASEDIR)]]>
+        </Condition>
+        <ComponentGroupRef Id="StandAloneLogging" />
+      </Feature>
+
+      <Feature Id="Licensing" Title="VertiGIS License Administrator" Level="9999" AllowAdvertise="no" ConfigurableDirectory ="INSTALLFOLDER">
+        <Condition Level="1">
+          <![CDATA[(NOT Installed) AND (NOT LMCLIENTINSTALLED)]]>
+        </Condition>
+        <MergeRef Id="_geo_lic_client_x86" />
+      </Feature>
+
+    </Product>
+
+</Wix>

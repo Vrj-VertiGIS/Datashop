@@ -1,0 +1,16 @@
+﻿<Dialogs:Dialog x:Class="GEOCOM.GNSDatashop.GNSDatashopPostSetup.Dialogs.Dialog01Introduction.Dialog01Introduction"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Dialogs="clr-namespace:GEOCOM.GNSDatashop.GNSDatashopPostSetup.Dialogs">
+
+    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
+        <Label Style="{DynamicResource ResourceKey=TitleLbl}">Introduction</Label>
+        <TextBlock Grid.Row="1" Style="{DynamicResource ResourceKey=StandartTxtBlk}" >
+          Welcome to GEONIS server Datashop Post Setup. 
+        </TextBlock>  
+        <TextBlock Grid.Row="1" Style="{DynamicResource ResourceKey=StandartTxtBlk}" >
+         Follow the steps to complete the setup and then click the Process button to carry the configuration changes out.
+        </TextBlock>
+    </StackPanel>
+
+</Dialogs:Dialog>

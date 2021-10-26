@@ -1,0 +1,8 @@
+﻿<Dialogs:Dialog x:Class="GEOCOM.GNSDatashop.GNSDatashopPostSetup.Dialogs.Dialog04Sql.Dialog04Sql"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Dialogs="clr-namespace:GEOCOM.GNSDatashop.GNSDatashopPostSetup.Dialogs">
+    <Grid>
+            
+    </Grid>
+</Dialogs:Dialog>

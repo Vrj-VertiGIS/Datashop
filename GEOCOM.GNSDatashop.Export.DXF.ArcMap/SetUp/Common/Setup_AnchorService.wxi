@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+
+  <InstallExecuteSequence>
+    <Custom Action="RBInstallAnchorSVC.Par" After="InstallFiles">
+      <![CDATA[(?_CPFNPCommsSoap_x86 = 2) AND ($_CPFNPCommsSoap_x86 = 3)]]>
+    </Custom>
+    <Custom Action="RBInstallAnchorSVC" After="RBInstallAnchorSVC.Par">
+      <![CDATA[(?_CPFNPCommsSoap_x86 = 2) AND ($_CPFNPCommsSoap_x86 = 3)]]>
+    </Custom>
+    
+    <Custom Action="InstallAnchorSVC.Par" After="RBInstallAnchorSVC">
+      <![CDATA[(?_CPFNPCommsSoap_x86 = 2) AND ($_CPFNPCommsSoap_x86 = 3)]]>  
+    </Custom>
+    <Custom Action="InstallAnchorSVC" After="InstallAnchorSVC.Par">
+      <![CDATA[(?_CPFNPCommsSoap_x86 = 2) AND ($_CPFNPCommsSoap_x86 = 3)]]>
+    </Custom>
+
+    <!-- Remove anchor service only if the respective - shared - component will be uninstalled -->
+
+    <Custom Action="RBUnInstallAnchorSVC.Par" Before ="RemoveFiles">
+      <![CDATA[(?_CPFNPCommsSoap_x86 = 3) AND ($_CPFNPCommsSoap_x86 = 2)]]>
+    </Custom>
+    <Custom Action="RBUnInstallAnchorSVC" After="RBUnInstallAnchorSVC.Par" >
+      <![CDATA[(?_CPFNPCommsSoap_x86 = 3) AND ($_CPFNPCommsSoap_x86 = 2)]]>
+    </Custom>
+    
+    <Custom Action="UnInstallAnchorSVC.Par" Before ="RBUnInstallAnchorSVC">
+      <![CDATA[(?_CPFNPCommsSoap_x86 = 3) AND ($_CPFNPCommsSoap_x86 = 2)]]>
+    </Custom>
+    <Custom Action="UnInstallAnchorSVC" After="UnInstallAnchorSVC.Par" >
+      <![CDATA[(?_CPFNPCommsSoap_x86 = 3) AND ($_CPFNPCommsSoap_x86 = 2)]]>
+    </Custom>
+
+  </InstallExecuteSequence>
+
+</Include>

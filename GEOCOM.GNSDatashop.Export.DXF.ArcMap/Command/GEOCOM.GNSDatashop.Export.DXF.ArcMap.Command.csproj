@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <GeoLibRoot>..\..\geo_lib</GeoLibRoot>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <Import Project="..\..\build\configurations.proj" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputPath>$(ProgramFiles)\Geocom\GEONIS\Dxf export for ArcMap\</OutputPath>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{60C82756-10A2-427A-B15D-A8BC94D3BE83}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GEOCOM.GNSDatashop.Export.DXF.ArcMap.Command</RootNamespace>
+    <AssemblyName>VertiGIS.Export.DXF.ArcMap.Command</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RegisterForComInterop>true</RegisterForComInterop>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineConstants>ARCGIS_10_6;GEONIS_5_1_0</DefineConstants>
+    <Optimize>true</Optimize>
+    <WarningLevel>2</WarningLevel>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RegisterForComInterop>false</RegisterForComInterop>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <WarningLevel>2</WarningLevel>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>2</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>$(GeoLibRoot)\Log4Net\1.2.10.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.ADF.Local">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.ArcMap">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.ArcMapUI">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Carto">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Display">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.DisplayUI">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Framework">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Geodatabase">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Geometry">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.SystemUI">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="netDxf">
+      <HintPath>$(GeoLibRoot)\NetDXF\2.0.3\netDxf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(SolutionDir)\build\build_version_info\VersionAssemblyInfo.cs">
+      <Link>Properties\VersionAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Images.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Images.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DxfExportCommand.cs" />
+    <Compile Include="Properties\HelpMenuResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HelpMenuResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Toolbar\DXFExportToolBar.cs" />
+    <Compile Include="Toolbar\GNToolbarCommons.cs" />
+    <Compile Include="Toolbar\HelpMenu\HelpEntries.cs" />
+    <Compile Include="Toolbar\HelpMenu\HelpEntriesLoader.cs" />
+    <Compile Include="Toolbar\HelpMenu\MultiItemHelp.cs" />
+    <Compile Include="Toolbar\HelpMenu\HelpEntry.cs" />
+    <Compile Include="Toolbar\HelpMenu\MenuHelp.cs" />
+    <Compile Include="UI\CmbDxfVersionItem.cs" />
+    <Compile Include="UI\CustomControls\FireButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\CustomControls\FireButton.Designer.cs">
+      <DependentUpon>FireButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomControls\LayerSelectionComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\CustomControls\LayerSelectionComboBox.Designer.cs">
+      <DependentUpon>LayerSelectionComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomControls\LayerSelectionComboItem.cs" />
+    <Compile Include="UI\ExportControlForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ExportControlForm.Designer.cs">
+      <DependentUpon>ExportControlForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\GEOCOM.GNSDatashop.Export.DXF.Common\GEOCOM.GNSDatashop.Export.DXF.Common.csproj">
+      <Project>{d2eeca43-fc8e-458a-aa41-9d32ac219187}</Project>
+      <Name>GEOCOM.GNSDatashop.Export.DXF.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GEOCOM.GNSDatashop.Export.DXF\GEOCOM.GNSDatashop.Export.DXF.csproj">
+      <Project>{fbffb17a-d935-4b27-b5f4-73f8fb8e41e2}</Project>
+      <Name>GEOCOM.GNSDatashop.Export.DXF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Images.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\HelpMenuResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>HelpMenuResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CustomControls\FireButton.resx">
+      <DependentUpon>FireButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CustomControls\LayerSelectionComboBox.resx">
+      <DependentUpon>LayerSelectionComboBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ExportControlForm.resx">
+      <DependentUpon>ExportControlForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\geo_language\DE\Lng.GEOCOM.GNSDatashop.Export.DXF.de">
+      <Link>lng\Lng.GEOCOM.GNSDatashop.Export.DXF.de</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\geo_language\EN\Lng.GEOCOM.GNSDatashop.Export.DXF.en">
+      <Link>lng\Lng.GEOCOM.GNSDatashop.Export.DXF.en</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\geo_language\FR\Lng.GEOCOM.GNSDatashop.Export.DXF.fr">
+      <Link>lng\Lng.GEOCOM.GNSDatashop.Export.DXF.fr</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\geo_language\IT\Lng.GEOCOM.GNSDatashop.Export.DXF.it">
+      <Link>lng\Lng.GEOCOM.GNSDatashop.Export.DXF.it</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\DxfExportCommandButtonImage.bmp" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Config\help_dxf_export_for_arcmap.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\geocom_Logo_RGB_155_transparent1.png" />
+    <None Include="Resources\logo_gdn1.png" />
+    <None Include="Resources\GeonisHelpSystemOnline161.png" />
+    <None Include="Resources\HelpSystem_C_161.png" />
+    <None Include="Resources\HelpSystem161.png" />
+    <None Include="Resources\geonis_16x161.png" />
+    <None Include="Resources\geocom_161.png" />
+    <None Include="Resources\geonis_256x2561.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!--
+       To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  -->
+  <Target Name="BeforeResolveReferences">
+    <CreateProperty Value="$(GeoLibRoot)\arcgis\dotnetxyz\$(ArcGISVersion);$(AssemblySearchPaths)">
+      <Output TaskParameter="Value" PropertyName="AssemblySearchPaths" />
+    </CreateProperty>
+  </Target>
+  <Target Name="BeforeClean" Condition="'$(RegisterForComInterop)' == 'true'">
+    <Exec WorkingDirectory="$(CommonProgramFiles)\ArcGIS\bin" Command="esriRegasm.exe &quot;$(TargetPath)&quot; /p:Desktop /u /s" Condition="Exists('$(TargetPath)')" />
+  </Target>
+  <Target Name="AfterBuild" Condition="'$(RegisterForComInterop)' == 'true'">
+    <Exec WorkingDirectory="$(CommonProgramFiles)\ArcGIS\bin" Command="esriRegasm.exe &quot;$(TargetPath)&quot; /p:Desktop /s" />
+  </Target>
+  <Target Name="AfterBuild">
+    <Exec Command="$(GeoLibRoot)\WiX\heat.exe file &quot;$(OutputPath)$(AssemblyName).dll&quot; -out &quot;$(OutputPath)$(AssemblyName).COMInfo.wxs&quot; -cg $(AssemblyName).COMInfo -dr INSTALLFOLDER -var var.GEOCOM.GNSDatashop.Export.DXF.ArcMap.Command.TargetDir -sfrag -g1 -gg -srd" />
+  </Target>
+</Project>

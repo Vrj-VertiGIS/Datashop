@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  
+  <!-- ============== DATABASE ============== -->
+  <!-- The database connection.
+         provider: System.Data.SqlClient for SQL Server
+                   Oracle.DataAccess.Client for Oracle
+         connectionstring: The connection string to the database.
+                           The properties "Data Source", "Initial Catalog", "User ID" and "Password" have to be set. -->
+  <dbStore>
+		<dbconnection provider="System.Data.SqlClient"
+					  connectionstring="Data Source=host\instance;Initial Catalog=datashop_db_name;Integrated Security=False;User ID=datashop_user;Password=datashop_password" />
+  </dbStore>
+
+  <services>
+
+	<!-- Restrictions settings. The restrictions can be set role specific.
+		   restrictions -> maxPlotsRate: Count of plots that a user is allowed to submit per minute. (Default 10)
+						   restriction -> role: name of the role that the limit applies to. If a user is in multiple roles at the same time the maximum role wins.
+										  timeperiod: The time period in days
+										  limit: The maximum number of jobs a user can request in the defined time period.
+										  E.g. timeperiod=5 limit=10 -> The user can create a maximum of 10 jobs in 5 days.-->
+		<restrictions maxPlotsRate="10">
+			<restriction role="TEMP"
+						 timeperiod="20"
+						 limit="10"/>
+			<restriction role="BUSINESS"
+						 timeperiod="15"
+						 limit="10"/>
+			<restriction role="ADMIN"
+						 timeperiod="1"
+						 limit="30"/>
+		</restrictions>
+		<scales>
+			<!-- The scale definitions.
+           role: The possible scales for each role.
+                 The 'default' role is always used. Any scale that is in a tag, which matches the role of the user, will be added.
+           role -> name: The name of the role. The following roles are defined: default, BUSINESS, TEMP and ADMIN
+                   add -> key: The "real" scale used internally.
+                          text: The display text for the scale. -->
+			<role name="default" >
+				<add key="100"
+					 text="1 : 100"/>
+				<add key="150"
+					 text="1 : 150"/>
+				<add key="250"
+					 text="1 : 250"/>
+				<add key="500"
+					 text="1 : 500"/>
+				<add key="1000"
+					 text="1 : 1000"/>
+				<add key="1500"
+					 text="1 : 1500"/>
+				<add key="2500"
+					 text="1 : 2500"/>
+			</role>
+			<role name="BUSINESS">
+				<add key="3000"
+					 text="1 : 3000"/>
+				<add key="5000"
+					 text="1 : 5000"/>
+				<add key="50"
+					 text="1 : 50"/>
+			</role>
+			<role name="TEMP">
+				<add key="300"
+					 text="1 : 300"/>
+			</role>
+			<role name="ADMIN">
+				<add key="10000"
+					 text="1 : 10000"/>
+			</role>
+		</scales>
+		<searchExtension>
+			<geofind>
+				<!--title is the default diplay name for this search, it can be overridden with a languageid and a corresponding entry in the language file. 
+				4000-4099 are reserved for this purpose.-->
+				<!-- Search extension settings. Contains 1..n search definitions.
+         search: Defines one search definition
+         search -> title: The default display name for the search.
+                          The title can be overridden with a languageid and a corresponding entry in the language file.
+						  4000-4099 are reserved for this purpose.
+                   languageid: The languageid if the search title is localized.
+                   name: The unique name of the search. The name can be used in other search 'sql' elements.
+                   dbconnection: The sde connection file for the search geo database. Has to be a sde file.
+                   showExpanded: Defines if the search will be shown expanded in the web application. May be either true or false.
+                                 Optional attribute. If not specified, showExpanded is set to false.
+                   select: Defines the query to the geo database.
+                   select -> scale: The scale used for the search.
+                             sql: The SQL statement for the search
+                   control: Contains the definition for displaying the search results.
+                            Each control may also contain a 'select' and a 'sql' element. 
+                   control -> type: Type of control. E.g. combobox, edit
+                              title: The display title of the control
+                              languageid: The number of the referenced text in the language file
+                              name: The name of the control. Has to be unique.
+                                    The name may be referenced in other controls. -->
+				<search title="Addressearch"
+						languageid="4000"
+						name="AdrSearch"
+						dbconnection="C:\Datashop\config\sde_connection.sde">
+					<!--scale is used to get a displayextent for point objects. It is ignored for polyline and polygon objects-->
+					<select scale="500">
+						<sql>
+							SELECT objectid FROM av_webadresse WHERE objectid = @house@
+						</sql>
+					</select>
+					<control type="combobox"
+							 title="Gemeinde_1"
+							 languageid="4001"
+							 name="city_1">
+						<select>
+							<sql>SELECT DISTINCT operatid FROM av_webadresse WHERE 1=1</sql>
+						</select>
+					</control>
+					<control type="combobox"
+							 title="Street_1"
+							 languageid="4002"
+							 name="street_1">
+						<select>
+							<sql>SELECT DISTINCT strassenname FROM av_webadresse WHERE operatid='@city_1@'</sql>
+						</select>
+					</control>
+					<control type="combobox"
+							 title="Street number"
+							 languageid="4003"
+							 name="house">
+						<select>
+							<sql>SELECT hausnummer,objectid FROM av_webadresse WHERE strassenname = '@street_1@' AND operatid='@city_1@'</sql>
+						</select>
+					</control>
+				</search>
+				<search title="FlurnameSearch"
+						languageid="4020"
+						name="FlurnameSearch"
+						dbconnection="C:\Datashop\config\sde_connection.sde">
+					<select scale="2000">
+						<sql>
+							SELECT objectid FROM avt_flurname WHERE objectid = @flurname@
+						</sql>
+					</select>
+					<control type="combobox"
+							 title="Gemeinde"
+							 languageid="4001"
+							 name="city_2">
+						<select>
+							<sql>SELECT DISTINCT operatid FROM avt_flurname WHERE 1=1 </sql>
+						</select>
+					</control>
+					<control type="combobox"
+							 title="Flurname"
+							 languageid="4021"
+							 name="flurname">
+						<select>
+							<sql>SELECT label,objectid FROM avt_flurname WHERE avt_flurname.objectid &gt;0 {AND avt_flurname.operatid = '@city_2@'}</sql>
+						</select>
+					</control>
+				</search>
+				<search title="ParzNumberSearch"
+						languageid="4030"
+						name="ParzNumberSearch"
+						dbconnection="C:\Datashop\config\sde_connection.sde">
+					<select scale="2000">
+						<sql>
+							SELECT av_liegenschaft.objectid
+							FROM av_liegenschaft
+							WHERE av_liegenschaft.objectid &#62; 0
+							{AND av_liegenschaft.nummer = '@CmbLiNr@'}
+							{AND av_liegenschaft.operatid = '@city_3@'}
+						</sql>
+					</select>
+					<control type="combobox"
+							 title="Gemeinde"
+							 languageid="4001"
+							 name="city_3">
+						<select>
+							<sql>SELECT DISTINCT operatid FROM av_liegenschaft WHERE 1=1 </sql>
+						</select>
+					</control>
+					<control type="combobox"
+							 title="Parzellennumber"
+							 languageid="4031"
+							 name="CmbLiNr">
+						<select>
+							<sql>SELECT DISTINCT nummer FROM av_liegenschaft WHERE av_liegenschaft.objectid &gt;0 {AND av_liegenschaft.operatid = '@city_3@'}</sql>
+						</select>
+					</control>
+				</search>
+				<search title="AssekNumberSearch"
+						languageid="4040"
+						name="AssekNumberSearch"
+						dbconnection="C:\Datashop\config\sde_connection.sde">
+					<select scale="500">
+						<sql>
+							SELECT avt_bbgebaeudenummer.objectid
+							FROM avt_bbgebaeudenummer
+							WHERE avt_bbgebaeudenummer.objectid &gt;0
+							{AND avt_bbgebaeudenummer.label = '@CmbAsseknummer@'}
+							{AND avt_bbgebaeudenummer.operatid = '@city_4@'}
+						</sql>
+					</select>
+					<control type="combobox"
+							 title="Gemeinde"
+							 languageid="4001"
+							 name="city_4">
+						<select>
+							<sql>SELECT DISTINCT operatid FROM avt_bbgebaeudenummer WHERE 1=1 </sql>
+						</select>
+					</control>
+					<control type="combobox"
+							 title="Assekuranznumber"
+							 languageid="4041"
+							 name="CmbAsseknummer">
+						<select>
+							<sql>
+								SELECT DISTINCT label FROM avt_bbgebaeudenummer
+								WHERE avt_bbgebaeudenummer.objectid &gt;0
+								{AND avt_bbgebaeudenummer.operatid = '@city_4@'}
+							</sql>
+						</select>
+					</control>
+				</search>
+				<search title="Coordinates"
+						languageid="4010"
+						name="coord_xy" >
+					<select >
+						<sql>RETURN @coord_x@,@coord_y@,500</sql>
+					</select>
+					<control type="edit"
+							 title="X Coord"
+							 languageid="4011"
+							 name="coord_x">
+					</control>
+					<control type="edit"
+							 title="Y Coord"
+							 languageid="4012"
+							 name="coord_y">
+					</control>
+				</search>
+				<disabledsearch title="Addressearch"
+								languageid="4000"
+								name="AdrSearch"
+								connection="" >
+
+					<!--scale is used to get a displayextent for point objects. It is ignored for polyline and polygon objects-->
+					<select scale="2000">
+						<sql>
+							SELECT objectid FROM extplan.dbo.CH_FLURNAMEN WHERE objectid = @flur@
+						</sql>
+					</select>
+
+					<control type="combobox"
+							 title="Kanton"
+							 languageid="0815"
+							 name="kanton">
+						<select>
+							<sql>SELECT NAME, KANTONSNR FROM extplan.dbo.CH_KANTON WHERE 1=1</sql>
+						</select>
+					</control>
+
+					<control type="combobox"
+							 title="Bezirk"
+							 languageid="0815"
+							 name="bezirk">
+						<select>
+							<sql>
+								SELECT NAME, KANTONSNR FROM extplan.dbo.CH_KANTON WHERE 1=1
+								{AND KANTONSNR = @kanton@}
+							</sql>
+						</select>
+					</control>
+
+					<control type="combobox"
+							 title="Gemeinde"
+							 languageid="0815"
+							 name="gemeinde">
+						<select>
+							<sql>SELECT GEMNAME,OBJECTVAL FROM extplan.dbo.CH_GEMEINDE WHERE KANTONSNR = @bezirk@ </sql>
+						</select>
+					</control>
+
+					<control type="combobox"
+							 title="Flurname"
+							 languageid="0815"
+							 name="flur">
+						<select>
+							<sql>SELECT NAME,OBJECTID FROM extplan.dbo.CH_FLURNAMEN WHERE GEMNR = @gemeinde@ </sql>
+						</select>
+					</control>
+				</disabledsearch>
+
+
+				<disabledsearch title="Parzelle"
+								name="src_address">
+					<select scale="500">
+						<sql>
+							SELECT objectid FROM flurnamen WHERE 1=1
+							{AND gemnr = @cbogemeinde@}
+							{AND objectid = @cboflurname@}
+						</sql>
+					</select>
+
+					<control type="combobox"
+							 title="Kanton"
+							 name="cbokanton">
+						<select>
+							<sql>SELECT name, Kantonsnr FROM kanton WHERE Kantonsnr &lt; 27 AND Kantonsnr &gt; 0</sql>
+						</select>
+					</control>
+
+					<control type="combobox"
+							 title="Gemeinde"
+							 name="cbogemeinde" >
+						<select>
+							<sql>
+								SELECT gemname, objectval FROM gemeinde WHERE 1=1
+								{AND kantonsnr = @cbokanton@}
+								{AND bezirksnr = @edtbezirk@}
+								ORDER BY gemname
+							</sql>
+						</select>
+					</control>
+
+					<control type="edit"
+							 title="Bezirk"
+							 name="edtbezirk"></control>
+
+					<control type="combobox"
+							 title="Flurname"
+							 name="cboflurname" >
+						<select>
+							<sql>
+								SELECT name, objectid FROM flurnamen WHERE 1=1
+								{AND gemnr = @cbogemeinde@}
+								ORDER BY name
+							</sql>
+						</select>
+					</control>
+
+				</disabledsearch>
+
+				<disabledsearch title="Parzelle"
+								languageid="4020"
+								name="src_flur">
+
+					<!--scale is used to get a displayextent for point objects. It is ignored for polyline and polygon objects-->
+					<select scale="500">
+						<sql>
+							SELECT OBJECTID FROM extplan.dbo.CH_FLURNAMEN WHERE 1=1
+							{AND objectid = @results@}}
+						</sql>
+					</select>
+
+					<control type="edit"
+							 title="Field name (Wildcard: %)"
+							 languageid="4021"
+							 name="flurname" />
+
+					<control type="combobox"
+							 title="Results"
+							 languageid="4022"
+							 name="results">
+						<select>
+							<sql>
+								<!--The last row in the SELECT is the key. The Others will be concatenated and used as a Label. DO NOT use a comma(,) to seperate the strings (Fails at ESRI-DB-Accsess). It's much better to use words-->
+								SELECT name, ' in ', gemname, objectid FROM CH_FLURNAMEN WHERE upper(name) LIKE upper('%@flurname@%')
+							</sql>
+						</select>
+					</control>
+				</disabledsearch>
+			</geofind>
+		</searchExtension>
+	</services>
+
+  <common>
+
+    <!-- The directories settings.
+         directories -> profiledirectory: The directory where the profiles for the PDE (Partial Data Export) will be located -->
+    <directories profiledirectory="C:\datashop\profiles" />
+
+    <!-- The login attempt limit helps to prevent password guessing attacks. If the limits is reached an email from the loginAttemptLimitReached template is sent to user. 
+						  timeperiod: The time period in minutes for that user login is blocked after the given number of unsuccessful login attempts.
+						  limit: The maximum number of login attempts after that login is blocked for the given time period.
+						  E.g. timeperiod=60 limit=5 -> After 5 unsuccessful login attempts is the login for the particular user blocked for 60 minutes.-->
+    <loginAttemptLimit timeperiod="60" limit="5" />
+
+    <!-- The mailing settings.
+         mail -> enabled: Globally enables / disables the mailing functionality. Has to be either true/false.
+                 from: The mail address used as sender (from address)
+                 
+                 server: The mail server configuration. Multiple mail servers may be configured.
+                 server -> order: The order of the mail servers. Each configured mail server needs a unique order number.
+                                  If multiple servers are configured, the servers are used in ascending order.
+                                  If a mail server can't be reached, the job engine tries to connect to the next configured mail server.
+                           retry: Number of retries to contact the server
+                           server: The server name
+                           port: The port used to send the mail
+                           smtpuser: The user used to send the mail if authentication is required. Optional attribute.
+                           smtppassword: The password of the user if authentication is required. Optional attribute.
+                           smtpdomain: The domain. Can be left empty if the smtp server is in the same domain as the authentication server.
+                           timeout: The timeout for sending a mail in milliseconds. After the defined timeout
+                          
+                 mailtemplate: The definition of a mail template. Multiple mail templates are defined.
+                 mailtemplate -> name: The unique name of the mail template. The preconfigured name may not be changed!
+                                 adminLink: This link will be used in the 'newBizUserAdmin' email to redirect to a specific page.
+                                 downloadurl: This link will be used in the email to redirect to a specific page.
+                                 to: The destination email address. Only used in the mail template 'newBizUserAdmin'.
+                                 subject: The subject of the mail. Variables can be used (e.g. %(user_fullname)).
+                                 body: The body (text) of the mail.
+                                 body -> line: Each line in the mail has to be defined within a 'line' element. Variables can be used. -->
+    <mail enabled="true" from="datashop_at_mycompany.ch">
+      <server order="1" retry="2" server="localhost" port="25" smtpuser="" smtppassword="" smtpdomain="" timeout="5000" />
+      <server order="2" retry="2" server="localhost" port="25" smtpuser="" smtppassword="" smtpdomain="" timeout="5000" />
+      
+      <mailtemplate name="newBizUserAdmin" to="admin_at_mycompany.ch" subject="Neuer Businessuser für Datashop" adminLink="http://localhost/DatashopAdmin/ActivateUsers.aspx">
+        <body>
+          <line>Guten Tag, %(nl)</line>
+          <line>Ein neuer Businessuser hat sich am %(date) um %(time) für den Datashop registriert.%(nl)</line>
+          <line>%(user_salutation) %(user_firstname) %(user_lastname)</line>
+          <line>%(user_street) %(user_streetnr)</line>
+          <line>%(user_citycode) %(user_city)</line>
+          <line>%(user_company)</line>
+          <line>Tel:%(user_tel) Fax:%(user_fax)</line>
+          <line>%(user_email)%(nl)</line>
+          <line>Bitte schalten Sie den User frei.</line>
+          <line>%(link_activate_user)%(nl)</line>
+          <line>Mit freundlichen Grüssen%(nl)%(nl)Ihr GEONIS server Datashop Team</line>
+        </body>
+      </mailtemplate>
+      <mailtemplate name="bizUserActivated" subject="Ihr Datashopaccount wurde aktiviert" downloadurl="http://localhost/Datashop/">
+        <body>
+          <line>Guten Tag %(user_salutation) %(user_fullname), %(nl)</line>
+          <line>Ihre Registrierung für den Datashop wurde mit der Benutzer-ID %(user_id) vorgenommen und bestätigt.</line>
+          <line>Sie können nun selbständig Werkleitungsauskünfte einholen:</line>
+          <line>%(link_datashop)</line>
+          <line>Mit freundlichen Grüssen%(nl)%(nl)Ihr GEONIS server Datashop Team</line>
+        </body>
+      </mailtemplate>
+      <mailtemplate name="resetPassword" subject="Ihr Passwort für den Datashop wurde zurückgesetzt" downloadurl="http://localhost/Datashop/BizUserData.aspx">
+        <body>
+          <line>Guten Tag %(user_salutation) %(user_fullname), %(nl)</line>
+          <line>Ihr Passwort für den Datashop wurde am %(longdate) um %(longtime) zurückgesetzt.</line>
+          <line>Das neue Passwort lautet: %(pw)</line>
+          <line>Nach dem Einloggen können Sie das Passwort in ihren Profil-Einstellungen ändern.</line>
+          <line>%(link_reset_password)</line>
+          <line>Mit freundlichen Grüssen%(nl)%(nl)Ihr GEONIS server Datashop Team</line>
+        </body>
+      </mailtemplate>
+      <mailtemplate name="loginAttemptLimitReached" subject="Ihr Datashopaccount wurde blockiert" downloadurl="http://localhost/Datashop/">
+        <body>
+          <line>Guten Tag %(user_salutation) %(user_fullname), %(nl)</line>
+          <line>Ihr Konto für den Datashop wurde nach %(user_failedlogincount) Anmeldungsversuchen bis %(user_blockeduntil) blockiert.</line>
+          <line>Sie können sich danach wieder einlogen:</line>
+          <line>%(link_datashop)</line>
+          <line>Mit freundlichen Grüssen%(nl)%(nl)Ihr GEONIS server Datashop Team</line>
+        </body>
+      </mailtemplate>
+    </mail>
+  </common>
+</config>
